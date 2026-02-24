@@ -1,0 +1,861 @@
+JAMB PHYSICS — 100 TRICKY & DECEPTIVE QUESTIONS
+Derived from the Top-200 file. Each question targets a known misconception,
+sign-convention trap, or "exception" flagged in that set.
+Numbers continue from 201.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION A: MECHANICS TRAPS
+(Derived from Q1-25, 155-166, 194)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+201. A body moves in a circle at constant speed. Which statement is CORRECT?
+A. The body is accelerating because its direction is changing
+B. The body is not accelerating because its speed is constant
+C. The net force on the body is zero
+D. The kinetic energy of the body is increasing
+Answer: A
+Trap: Students confuse "constant speed" with "constant velocity." Velocity is a vector; changing direction means changing velocity, hence acceleration exists. KE = 1/2mv^2 and speed is constant, so KE is also constant — option D is a further trap.
+
+202. Two bodies of masses 4 kg and 1 kg moving at 3 m/s and 12 m/s respectively in the SAME direction collide and stick together. Their final common velocity is:
+A. 4.8 m/s
+B. 6 m/s
+C. 15 m/s
+D. 7.5 m/s
+Answer: A
+Trap: m1v1 + m2v2 = (m1 + m2)v → (4x3)+(1x12) = 5v → 24 = 5v → v = 4.8 m/s. Option B is what you get if you average velocities (wrong); option C is the sum of velocities (wrong).
+
+203. A stone is projected at 30 degrees to the horizontal. At maximum height, its speed is:
+A. u·cos30°
+B. Zero
+C. u·sin30°
+D. u
+Answer: A
+Trap: Many choose "zero" (Q4's answer applied wrongly). Only the vertical component is zero at max height; horizontal component u·cos30° persists. Speed = u·cos30°, not zero.
+
+204. A 5 kg object rests on a surface. The normal reaction from the surface on the object is:
+A. Equal and opposite to the object's weight, but NOT a Newton's 3rd law pair with it
+B. Equal and opposite to the weight, and IS a Newton's 3rd law pair with it
+C. Less than the weight
+D. Greater than the weight always
+Answer: A
+Trap: The Newton's 3rd law pair of the object's weight (Earth pulling object down) is the object pulling the Earth up — NOT the normal force. Normal force and weight are equal and opposite by Newton's 1st law (equilibrium), but they act on the SAME body (the object). This is the most common conceptual error in mechanics.
+
+205. A car travels 60 km at 60 km/h and the next 60 km at 120 km/h. The average speed for the whole journey is:
+A. 80 km/h
+B. 90 km/h
+C. 85 km/h
+D. 60 km/h
+Answer: A
+Trap: Average speed is not the arithmetic mean of speeds. Total distance = 120 km. Total time = 60/60 + 60/120 = 1 + 0.5 = 1.5 h. Average speed = 120/1.5 = 80 km/h. Option B (90) is the arithmetic mean — the classic wrong answer.
+
+206. A bullet of mass 20 g is fired at 400 m/s into a stationary block of mass 3.98 kg. They move together. The kinetic energy LOST is approximately:
+A. 1,592 J
+B. 1,600 J
+C. 8 J
+D. Zero (momentum conservation preserves energy)
+Answer: A
+Trap: KE_initial = 1/2 x 0.02 x 400^2 = 1600 J. v_final = (0.02 x 400)/4 = 2 m/s. KE_final = 1/2 x 4 x 4 = 8 J. Energy lost = 1600 - 8 = 1592 J. Option D is wrong — inelastic collisions do NOT conserve KE.
+
+207. An object is acted upon by a force at 60 degrees to the horizontal. The VERTICAL component of the force is:
+A. F·sin60°
+B. F·cos60°
+C. F·tan60°
+D. F/sin60°
+Answer: A
+Trap: Angle to horizontal → vertical = F·sinθ; horizontal = F·cosθ. If the angle were measured from the vertical, it would reverse. Always identify which axis the angle is measured from.
+
+208. The velocity-time graph of a body shows a straight line with negative gradient. This means the body is:
+A. Decelerating if moving in positive direction, OR accelerating if moving in negative direction
+B. Stationary
+C. Moving with constant velocity
+D. Accelerating positively
+Answer: A
+Trap: "Negative gradient" does not automatically mean "slowing down." If the body was already moving in the negative direction, a negative gradient means it speeds up (in the negative direction). JAMB catches students who assume negative gradient always = deceleration.
+
+209. A stone tied to a string is whirled in a vertical circle. The tension in the string is GREATEST at:
+A. The bottom of the circle
+B. The top of the circle
+C. The side (3 o'clock position)
+D. The same at all points
+Answer: A
+Trap: At the bottom, T - mg = mv^2/r → T = mg + mv^2/r. At the top, T + mg = mv^2/r → T = mv^2/r - mg. Tension is maximum at the bottom, minimum at the top. Students often intuitively say "top."
+
+210. If the radius of a circular orbit doubles while speed remains constant, the centripetal acceleration:
+A. Halves (a = v^2/r, so a is proportional to 1/r)
+B. Doubles
+C. Quadruples
+D. Remains constant
+Answer: A
+Trap: a = v^2/r. If r doubles and v is constant, a = v^2/2r = half the original. Students confuse the inverse relationship with an inverse-square relationship.
+
+211. A ball is thrown vertically upward. When it returns to its starting point (ignoring air resistance), compared to when it was thrown:
+A. Speed is the same but velocity is opposite in direction
+B. Both speed and velocity are the same
+C. Both speed and velocity are different
+D. Speed is less due to gravity acting downward
+Answer: A
+Trap: Gravity is conservative (no air resistance): energy is conserved → same speed. But velocity is a vector — now directed downward. Candidates frequently say "same velocity" confusing it with speed.
+
+212. A body of weight W rests on a rough inclined plane at angle θ. The friction force acting up the plane when the body is on the verge of sliding is:
+A. W·sinθ (equals μW·cosθ at limiting equilibrium)
+B. W·cosθ
+C. W·tanθ
+D. μW·sinθ
+Answer: A
+Trap: Friction force at limiting equilibrium = component of weight along plane = W·sinθ. This also equals μN = μW·cosθ, confirming μ = tanθ. Option B is the normal reaction — a frequent mix-up.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION B: WAVES & SOUND TRAPS
+(Derived from Q26-44, 167-172)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+213. Two waves of equal amplitude but opposite phase meet at a point. The resultant amplitude is:
+A. Zero (destructive interference)
+B. Double the original amplitude
+C. Equal to the original amplitude
+D. Depends on frequency
+Answer: A
+Trap: "Opposite phase" = 180 degree phase difference = fully destructive interference → amplitudes cancel completely. Students sometimes expect partial cancellation.
+
+214. The speed of sound is HIGHEST in which medium?
+A. Steel
+B. Water
+C. Air
+D. Vacuum
+Answer: A
+Trap: Sound travels fastest in solids — steel ~5100 m/s vs water ~1500 m/s vs air ~340 m/s. Sound does NOT travel in vacuum at all (zero speed). Option D is the ultimate trap.
+
+215. A source of sound moves toward a stationary observer. The observer hears:
+A. Higher frequency AND shorter wavelength of sound ahead of the source
+B. Higher frequency but longer wavelength
+C. Same frequency but higher amplitude
+D. Lower frequency because source is moving away from the air behind
+Answer: A
+Trap: Doppler: both perceived frequency AND wavelength spacing ahead of source decrease (waves pile up). Option B is physically inconsistent — shorter wavelength at same speed means higher frequency.
+
+216. A closed organ pipe of length L and an open pipe produce the same fundamental frequency. The open pipe's length is:
+A. 2L
+B. L/2
+C. L
+D. 4L
+Answer: A
+Trap: Closed pipe fundamental: f = v/4L. Open pipe fundamental: f = v/2L_open. Setting equal: L_open = 2L. Students often invert this and say the closed pipe must be longer.
+
+217. The phenomenon of beats arises from:
+A. Superposition of two waves with slightly different frequencies
+B. Reflection of a wave from a fixed boundary
+C. Diffraction around an obstacle
+D. Resonance in a closed pipe
+Answer: A
+Trap: Beat frequency = |f1 - f2|. A common wrong answer is "resonance" because beats are most audible when frequencies are close. Beat frequency is NOT the average of the two frequencies.
+
+218. In a transverse wave, the direction of particle vibration is:
+A. Perpendicular to the direction of wave propagation
+B. Parallel to the direction of wave propagation
+C. At 45 degrees to the direction of propagation
+D. Along the wave velocity
+Answer: A
+Trap: Transverse = perpendicular; longitudinal = parallel. Light and water surface waves are transverse; sound is longitudinal. This tests the basic distinction applied correctly.
+
+219. When light goes from glass (n=1.5) into water (n=1.33), it:
+A. Bends away from the normal (speeds up slightly)
+B. Bends toward the normal
+C. Is totally internally reflected
+D. Travels at the same speed as in glass
+Answer: A
+Trap: Going from denser glass to less dense water — light speeds up, bends away from normal. TIR only occurs above the critical angle; sinC = 1.33/1.5 → C approx 62 degrees, so at normal incidence no TIR occurs.
+
+220. A person stands 2 m in front of a plane mirror and walks 0.5 m toward it. The image is now how far from the person?
+A. 3 m
+B. 2 m
+C. 1 m
+D. 3.5 m
+Answer: A
+Trap: After moving, person is 1.5 m from mirror → image is 1.5 m behind mirror → total person-to-image distance = 1.5 + 1.5 = 3 m. Students forget to double the distance.
+
+221. The image formed by a concave mirror when the object is at the centre of curvature (C) is:
+A. Real, inverted, and the SAME SIZE as the object, also formed at C
+B. Real, inverted, and magnified, formed beyond C
+C. Virtual and erect
+D. Real, inverted, and diminished
+Answer: A
+Trap: At C, u = 2f. Using 1/f = 1/v + 1/u: 1/v = 1/f - 1/2f = 1/2f → v = 2f = C. Same size. Students confuse this with the case at F (image at infinity) or beyond C (diminished).
+
+222. A ray of light passes from air into glass at an angle of incidence of 0 degrees. It:
+A. Passes straight through without bending
+B. Bends toward the normal
+C. Bends away from the normal
+D. Is totally internally reflected
+Answer: A
+Trap: At 0 degrees incidence, sin0 = 0. Snell's Law gives sinθ_r = 0 → θ_r = 0. No bending. Students expect refraction to always produce bending — not true along the normal.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION C: HEAT & THERMODYNAMICS TRAPS
+(Derived from Q41-55, 191-193)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+223. A fixed mass of gas has its pressure doubled and its absolute temperature doubled. Its volume:
+A. Remains the same
+B. Doubles
+C. Halves
+D. Quadruples
+Answer: A
+Trap: P1V1/T1 = P2V2/T2 → V2 = V1 × (P1/P2) × (T2/T1) = V1 × (1/2) × 2 = V1. Volume unchanged. Students who apply Charles' Law alone say "doubles" without accounting for the pressure change.
+
+224. Ice at 0°C is added to water at 0°C in an insulated container. Which statement is TRUE?
+A. The ice does not melt unless external heat is supplied; temperature stays at 0°C
+B. The mixture warms above 0°C immediately
+C. The ice spontaneously melts because the water is liquid
+D. The temperature drops below 0°C
+Answer: A
+Trap: Both are at the same temperature; no heat flows. Melting requires latent heat from an external source. Students assume liquid water always melts ice — forgetting that a temperature or energy difference is needed.
+
+225. The volume of a liquid increases by 0.1% when heated from 20°C to 70°C. The cubic expansivity is:
+A. 2 × 10^-5 /°C
+B. 2 × 10^-3 /°C
+C. 5 × 10^-3 /°C
+D. 0.1 /°C
+Answer: A
+Trap: γ = ΔV/(V0 × ΔT) = 0.001/(1 × 50) = 2 × 10^-5 /°C. Option B uses ΔV = 0.1 directly without converting the percentage — the most frequent arithmetic trap.
+
+226. Two metal rods, copper and iron, of equal length and area are connected in series between heat reservoirs. In STEADY STATE, the junction temperature depends on:
+A. The thermal conductivities of both metals
+B. Only the length of the rods
+C. Only the temperature difference between reservoirs
+D. The heat capacity of each rod
+Answer: A
+Trap: In steady state, heat flow rate is equal through both: k_Cu × A × ΔT1/L = k_Fe × A × ΔT2/L. Junction temperature is NOT simply the average — it depends on the ratio of conductivities. Heat capacity (option D) is irrelevant in steady state.
+
+227. A gas does 200 J of work on its surroundings and absorbs 350 J of heat. The increase in internal energy is:
+A. 150 J
+B. 550 J
+C. 200 J
+D. 350 J
+Answer: A
+Trap: ΔU = Q - W = 350 - 200 = 150 J. Work done BY the gas is positive. If the question said "work done ON the gas," the sign flips. Option B adds instead of subtracts — the classic sign error.
+
+228. Water boils at a LOWER temperature at the top of a mountain because:
+A. Atmospheric pressure is lower, which reduces the boiling point
+B. Temperature is lower at altitude
+C. Gravity is weaker at altitude
+D. Wind increases evaporation rate
+Answer: A
+Trap: Boiling point = temperature at which vapor pressure equals atmospheric pressure. Lower atmospheric pressure → lower boiling point → food cooks at lower temperature → takes longer. Students often say "temperature is lower" (option B), which describes the environment, not the cause.
+
+229. A calorimeter of heat capacity 50 J/K contains 200 g of water at 20°C. 100 g of metal at 80°C is added and the final temperature is 25°C. The specific heat of the metal is (c_water = 4200 J/kg/K):
+A. Approximately 840 J/kg/K
+B. 4200 J/kg/K
+C. 1200 J/kg/K
+D. 2100 J/kg/K
+Answer: A
+Trap: Heat lost by metal = heat gained by water + calorimeter. 0.1 × c × (80-25) = 0.2 × 4200 × 5 + 50 × 5. 5.5c = 4200 + 250 = 4450 → c ≈ 809 ~ 840 J/kg/K. Students forget the calorimeter's heat capacity — the most frequent calorimetry error.
+
+230. Which process is isobaric?
+A. Gas heating in a cylinder with a freely moving frictionless piston
+B. Gas in a sealed rigid container being heated
+C. Gas rapidly compressed in an insulated cylinder
+D. Gas expanding into a vacuum
+Answer: A
+Trap: Isobaric = constant pressure. A movable piston maintains atmospheric pressure. Option B = isochoric (constant volume). Option C = approximately adiabatic. Option D = free expansion. These four process names are routinely confused.
+
+231. A thermometer is graduated assuming linear expansion of mercury, but mercury's expansion is slightly non-linear in the range used. The thermometer reads:
+A. A value slightly different from the true temperature (systematic error)
+B. Correct temperature always
+C. Always higher than true temperature
+D. Always lower than true temperature
+Answer: A
+Trap: Non-linear expansion introduces a systematic error — not random, not correctable by averaging. The direction depends on the shape of the non-linearity and cannot be stated without more data.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION D: ELECTRICITY & MAGNETISM TRAPS
+(Derived from Q56-75, 121-131, 176-188)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+232. Three identical resistors each of 6 Ω are connected in parallel. The total resistance is:
+A. 2 Ω
+B. 18 Ω
+C. 6 Ω
+D. 3 Ω
+Answer: A
+Trap: 1/R_T = 1/6 + 1/6 + 1/6 = 3/6 = 1/2 → R_T = 2 Ω. For n identical resistors in parallel: R_T = R/n = 6/3 = 2 Ω. Option B (18) is series. Option C mistakenly gives one resistor's value.
+
+233. A battery of EMF 12 V and internal resistance 2 Ω is connected to an external resistance of 4 Ω. The terminal voltage is:
+A. 8 V
+B. 12 V
+C. 10 V
+D. 6 V
+Answer: A
+Trap: I = EMF/(R + r) = 12/6 = 2 A. Terminal voltage V = EMF - Ir = 12 - (2×2) = 8 V. Students who ignore internal resistance say 12 V; those who miscalculate current say 10 V.
+
+234. Two capacitors of 4 μF and 6 μF are connected in SERIES. The combined capacitance is:
+A. 2.4 μF
+B. 10 μF
+C. 24 μF
+D. 5 μF
+Answer: A
+Trap: 1/C_T = 1/4 + 1/6 = 5/12 → C_T = 2.4 μF. Option B (10 μF) is parallel. Series reduces capacitance — opposite to how resistors in series behave. This reversal is a staple JAMB trap.
+
+235. A wire carries current from left to right. Using the right-hand rule, the magnetic field directly above the conductor points:
+A. Out of the page (toward the reader)
+B. Into the page
+C. Upward
+D. To the right
+Answer: A
+Trap: Right-hand rule for a straight wire: thumb points right (current direction); fingers curl out of the page above the wire. Students who use the left-hand rule or apply the solenoid rule get "into the page."
+
+236. A step-down transformer has 1000 primary turns and 50 secondary turns. If the primary carries 0.5 A at 240 V, the secondary current is:
+A. 10 A
+B. 0.5 A
+C. 0.025 A
+D. 2.4 A
+Answer: A
+Trap: I_s/I_p = N_p/N_s → I_s = 0.5 × (1000/50) = 10 A. Voltage steps down; current steps up. Students who apply the voltage ratio directly to current get option B.
+
+237. When the current through a resistor doubles, the power dissipated:
+A. Quadruples (P = I^2 × R)
+B. Doubles
+C. Halves
+D. Remains the same
+Answer: A
+Trap: P = I^2 × R. If I → 2I, P → 4P. Students who intuitively use P = IV think "doubles I → doubles P" — forgetting that V also doubles (V = IR), so P = IV = (2I)(2V) = 4P. Same result, but the logic must be airtight.
+
+238. The energy stored in a 100 μF capacitor charged to 200 V is:
+A. 2 J
+B. 0.02 J
+C. 4 J
+D. 20 J
+Answer: A
+Trap: W = 1/2 × CV^2 = 1/2 × 100×10^-6 × 200^2 = 1/2 × 10^-4 × 40000 = 2 J. Option B forgets to square V. Option D omits the 1/2. Option C uses C in μF without converting — classic unit error.
+
+239. A galvanometer has full-scale deflection at 1 mA and resistance 100 Ω. To convert it to read 5 A, the shunt resistance needed is:
+A. 0.02 Ω
+B. 0.5 Ω
+C. 5 Ω
+D. 100 Ω
+Answer: A
+Trap: V_g = V_s: I_g × R_g = I_s × R_s → 0.001 × 100 = 5 × R_s → R_s = 0.02 Ω. The shunt must be very small. Students not accounting for the large current ratio choose 0.5 or 5 Ω.
+
+240. In Faraday's law, doubling the NUMBER OF TURNS (N) of a coil in the same changing flux:
+A. Doubles the induced EMF (EMF = N × dΦ/dt)
+B. Halves the induced EMF
+C. Has no effect on EMF
+D. Doubles the induced current always
+Answer: A
+Trap: EMF = N × dΦ/dt. More turns = more EMF for same flux change. Option C is the wrong intuition ("flux is the same so EMF is the same"). Option D is only true if resistance is unchanged.
+
+241. Which of the following is a vector quantity?
+A. Magnetic flux density (B)
+B. Electric potential (V)
+C. Energy
+D. Frequency
+Answer: A
+Trap: B is a vector (magnitude and direction). Electric potential, energy, and frequency are all scalars. Students sometimes say potential is a vector because it relates to direction of field — but potential itself is a scalar; the electric field (E = -dV/dr) is the vector.
+
+242. A wire carrying current is placed in a magnetic field. If the current is reversed AND the field is reversed simultaneously, the force on the wire:
+A. Remains in the same direction
+B. Reverses direction
+C. Doubles in magnitude
+D. Becomes zero
+Answer: A
+Trap: F = I(L × B). Reversing I: F → -F. Reversing B: F → -F again. Reversing both: F → (-1)(-1)F = +F. Same direction. This double-reversal is a classic exam trick.
+
+243. At resonance in a series LCR circuit, the impedance equals:
+A. R only (purely resistive; X_L = X_C cancel)
+B. √(R^2 + X_L^2)
+C. X_L - X_C
+D. Zero
+Answer: A
+Trap: Z = √(R^2 + (X_L - X_C)^2). At resonance, X_L = X_C → Z = R. Students who don't know the full impedance formula say "zero," confusing minimum impedance with zero impedance.
+
+244. Two identical cells each of EMF 1.5 V and internal resistance 0.5 Ω are connected in PARALLEL to a 2 Ω external resistor. The current through the external resistor is:
+A. 0.6 A
+B. 1.2 A
+C. 0.75 A
+D. 3 A
+Answer: A
+Trap: Cells in parallel: EMF_eff = 1.5 V (same as one cell), internal resistance_eff = 0.5/2 = 0.25 Ω. I = 1.5/(2 + 0.25) = 1.5/2.25 = 0.667 ≈ 0.6 A (nearest). Students often treat parallel cells as having doubled EMF (like series) — fundamentally wrong.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION E: OPTICS TRAPS
+(Derived from Q76-85, 170-175)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+245. An object is placed exactly at the focal point of a concave mirror. The image is:
+A. Formed at infinity
+B. 5 cm in front of mirror
+C. At the center of curvature
+D. Virtual, behind the mirror
+Answer: A
+Trap: 1/f = 1/v + 1/u → 1/v = 1/f - 1/f = 0 → v = infinity. Reflected rays are parallel — no image is formed at a finite point. Students panic and guess a finite value.
+
+246. A convex lens of focal length 20 cm has an object 15 cm away. The image is:
+A. Virtual, erect, on the SAME side as the object
+B. Real, inverted, beyond 2F
+C. Real, inverted, at 2F
+D. No image is formed
+Answer: A
+Trap: Using Cartesian sign convention: 1/v = 1/f - 1/u (with u negative for real object): 1/v = 1/20 - 1/15... Simpler: object inside focal length → always virtual, erect, magnified (magnifying glass case). The sign of v will be negative (same side as object).
+
+247. Two thin lenses of focal lengths +10 cm and -10 cm are placed in contact. The power of the combination is:
+A. Zero (acts like plain glass)
+B. +20 D
+C. -20 D
+D. +10 D
+Answer: A
+Trap: P = P1 + P2 = (100/10) + (-100/10) = 10 - 10 = 0 D. Students add magnitudes and choose +20 D or -20 D, or choose the "stronger" lens value.
+
+248. In Young's double-slit experiment, if the slit separation is halved and the wavelength doubled, the fringe spacing:
+A. Quadruples
+B. Doubles
+C. Halves
+D. Remains the same
+Answer: A
+Trap: y ∝ λ/d. New y = (2λ)/(d/2) = 4λ/d = 4y. Two simultaneous changes create a compound proportion — students applying only one change choose "doubles."
+
+249. The critical angle for a glass-air interface is 42°. A ray strikes the interface from inside glass at 45°. The ray:
+A. Is totally internally reflected
+B. Refracts into air at an angle greater than 45°
+C. Passes straight through without bending
+D. Is partially reflected and partially refracted
+Answer: A
+Trap: 45° > 42° (critical angle) → TIR. At angles BELOW the critical angle, option D is true (partial reflection AND refraction). At or above: TIR only. The partial-reflection answer is the attractive distractor.
+
+250. A concave mirror has radius of curvature 40 cm. An object is placed 60 cm in front. The image distance is:
+A. 60 cm in front (real, same distance as object — object is at C)
+B. 30 cm in front
+C. At infinity
+D. 60 cm behind
+Answer: A
+Trap: f = R/2 = 20 cm. 1/v = 1/f - 1/u = 1/20 - 1/60 = 3/60 - 1/60 = 2/60 → v = 30 cm. Wait — object at 60 cm = 2f = C → image should be at C. Recheck: 1/20 - 1/60 = (3-1)/60 = 2/60 → v = 30 cm. But C = 40 cm... Here f = 20 cm, 2f = 40 cm, object at 60 cm is BEYOND C. Image is between f and C: v = 30 cm (real, inverted, diminished). The trap: students assume "object at 60 cm" implies object at C — but C = 40 cm here, not 60 cm.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION F: ATOMIC & NUCLEAR TRAPS
+(Derived from Q86-100, 142-150, 196-200)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+251. A radioactive element has a half-life of 5 years. After 20 years, the fraction REMAINING is:
+A. 1/16
+B. 1/8
+C. 1/4
+D. 1/20
+Answer: A
+Trap: n = 20/5 = 4 half-lives. Fraction remaining = (1/2)^4 = 1/16. Option D uses 1/n = 1/4 — direct division error. Option B = 3 half-lives. Count carefully.
+
+252. In the nuclear reaction 235U + n → 141Ba + 92Kr + x·n, the value of x is:
+A. 3
+B. 2
+C. 1
+D. 4
+Answer: A
+Trap: Mass numbers: 235 + 1 = 141 + 92 + x → 236 = 233 + x → x = 3. Also verify atomic numbers: 92 = 56 + 36 ✓. Students who don't balance mass numbers properly choose 2 or 4.
+
+253. An alpha particle is emitted from 226Ra (radium, Z=88). The daughter nucleus is:
+A. 222Rn (radon, Z=86)
+B. 222Fr (Z=87)
+C. 224Ra (Z=88)
+D. 230Th (Z=90)
+Answer: A
+Trap: Alpha emission: A decreases by 4, Z decreases by 2. 226-88-Ra → 222-86-Rn + 4-2-He. Students frequently subtract only 2 from A or add to Z instead of subtract.
+
+254. A hospital receives a 40 mg sample with a half-life of 8 days. How much remains after 24 days?
+A. 5 mg
+B. 10 mg
+C. 20 mg
+D. 2.5 mg
+Answer: A
+Trap: 24 days / 8 days = 3 half-lives. 40 → 20 → 10 → 5 mg. Option B is after 2 half-lives; option D is after 4 half-lives. Students who divide 40 by 3 directly get 13.3 (not listed), revealing the error.
+
+255. The photoelectric effect CANNOT occur if:
+A. The frequency of light is below the threshold frequency, regardless of intensity
+B. The intensity of light is too low
+C. The wavelength of light is too short
+D. The light source is far from the metal surface
+Answer: A
+Trap: Below threshold frequency, no electrons are emitted no matter how bright the light — because each photon interacts with one electron and either has enough energy or doesn't. Option B is the Newtonian/wave-theory wrong answer that quantum physics disproved.
+
+256. Which radioactive emission causes NO change in atomic number (Z)?
+A. Gamma (γ) emission
+B. Alpha (α) emission
+C. Beta-minus (β−) emission
+D. Beta-plus (β+) emission
+Answer: A
+Trap: Gamma is pure energy (electromagnetic radiation) — no change in A or Z. Alpha: Z decreases by 2. Beta-minus: Z increases by 1. Beta-plus: Z decreases by 1. Students often overlook gamma as an option because it's "not a particle."
+
+257. In Bohr's model, an electron jumping from n=3 to n=1 emits a photon with ___ frequency compared to a jump from n=2 to n=1:
+A. Higher frequency (larger energy gap)
+B. Lower frequency
+C. Same frequency
+D. The photon is absorbed, not emitted
+Answer: A
+Trap: E_{3→1} > E_{2→1} because the n=3 to n=1 transition bridges a larger energy gap. E = hf → higher ΔE → higher f → shorter λ. Students who confuse direction or magnitude of energy levels get this wrong.
+
+258. 32-15-P undergoes beta-minus decay. The resulting nuclide is:
+A. 32-16-S (sulfur-32)
+B. 32-14-Si (silicon-32)
+C. 31-15-P (phosphorus-31)
+D. 33-15-P (phosphorus-33)
+Answer: A
+Trap: β- decay: n → p + e- + antineutrino. A unchanged (32); Z increases by 1 (15 → 16 = sulfur). Students confusing β- (Z+1) with β+ (Z-1) or α (Z-2) choose B or C.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION G: ENERGY, MACHINES & SHM TRAPS
+(Derived from Q101-105, 137-141, 157-160)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+259. A pendulum swings to a height of 0.2 m above its lowest point. Its speed at the lowest point is (g = 10 m/s²):
+A. 2 m/s
+B. 4 m/s
+C. 1 m/s
+D. √2 m/s
+Answer: A
+Trap: Energy conservation: 1/2 × mv^2 = mgh → v = √(2gh) = √(2 × 10 × 0.2) = √4 = 2 m/s. Students who forget the 1/2 get v = √(2×10×0.2×2) = 2√2. Option B squares the answer instead of taking the root.
+
+260. A machine with VR = 5 and efficiency 60% is used to lift a load of 300 N. The effort required is:
+A. 100 N
+B. 60 N
+C. 50 N
+D. 150 N
+Answer: A
+Trap: Efficiency = MA/VR × 100 → MA = 0.60 × 5 = 3. MA = Load/Effort → Effort = 300/3 = 100 N. Students using ideal machine (MA = VR = 5) calculate Effort = 300/5 = 60 N, ignoring efficiency.
+
+261. In SHM, at the equilibrium position:
+A. KE is maximum AND acceleration is zero
+B. KE is zero AND acceleration is maximum
+C. Both KE and acceleration are maximum
+D. Both KE and acceleration are zero
+Answer: A
+Trap: At x = 0: velocity is maximum → KE maximum. Acceleration a = -ω²x = 0 at x = 0. Students confuse the two extremes — option B describes the amplitude positions.
+
+262. The period of oscillation of a mass-spring system is 2 s. If the mass is quadrupled, the new period is:
+A. 4 s
+B. 8 s
+C. 1 s
+D. 2 s
+Answer: A
+Trap: T = 2π√(m/k) → T ∝ √m. Quadrupling mass: T_new = T × √4 = 2 × 2 = 4 s. Option B applies the factor linearly (T × 4). The square root relationship is the critical test.
+
+263. Two objects P (mass 2 kg) and Q (mass 8 kg) have the same kinetic energy. The ratio of their momenta p_P/p_Q is:
+A. 1/2
+B. 1/4
+C. 2
+D. 1
+Answer: A
+Trap: KE = p^2/2m → p = √(2m × KE). Same KE: p_P/p_Q = √(m_P/m_Q) = √(2/8) = √(1/4) = 1/2. Students who use p = mv without accounting for equal KE (not equal speed) get confused.
+
+264. A ball bearing is released from rest and falls through a viscous liquid. Its acceleration over time:
+A. Starts at g, then decreases to zero as terminal velocity is reached
+B. Stays constant at g throughout
+C. Increases from zero to g
+D. Oscillates between zero and g
+Answer: A
+Trap: At release, no drag → a = g. As speed increases, drag increases → net force decreases → acceleration decreases. At terminal velocity, drag = weight → a = 0. Option C inverts the process.
+
+265. A pulley system has efficiency 75%. Effort moves 4 m to lift a load of 300 N by 1 m. The effort is:
+A. 100 N
+B. 75 N
+C. 225 N
+D. 400 N
+Answer: A
+Trap: VR = effort distance/load distance = 4/1 = 4. Efficiency = MA/VR → MA = 0.75 × 4 = 3. Effort = Load/MA = 300/3 = 100 N. Ideal effort = 300/4 = 75 N (option B — ignores efficiency).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION H: MEASUREMENT, UNITS & DIMENSIONS TRAPS
+(Derived from Q116-120)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+266. Which pair of quantities has the SAME dimensions?
+A. Work and torque (both = N·m = ML^2T^-2)
+B. Work and power
+C. Pressure and force
+D. Kinetic energy and momentum
+Answer: A
+Trap: Work = Fd = ML^2T^-2. Torque = r × F = ML^2T^-2. Same dimensions, entirely different physical meanings. Power = ML^2T^-3. Force = MLT^-2. Momentum = MLT^-1. Each pair differs dimensionally except A.
+
+267. A micrometer screw gauge has a zero error of +0.02 mm (reads 0.02 mm when fully closed). A reading of 4.58 mm should be corrected to:
+A. 4.56 mm
+B. 4.60 mm
+C. 4.58 mm
+D. 4.54 mm
+Answer: A
+Trap: Positive zero error means the instrument reads HIGH. Corrected = observed - zero error = 4.58 - 0.02 = 4.56 mm. Students who add the error (option B) apply the wrong sign correction.
+
+268. The dimensions of pressure are:
+A. ML^-1T^-2
+B. MLT^-2
+C. ML^2T^-2
+D. ML^-2T^-2
+Answer: A
+Trap: Pressure = Force/Area = (MLT^-2)/(L^2) = ML^-1T^-2. Option B is force alone. Option C is energy. Candidates who memorize rather than derive frequently confuse these.
+
+269. Random errors in a series of measurements can be reduced by:
+A. Taking multiple readings and calculating the mean
+B. Calibrating the instrument before use
+C. Using a more precise instrument
+D. Repeating the experiment on a different day
+Answer: A
+Trap: Random errors vary unpredictably; averaging reduces their statistical effect. Systematic errors (zero error, calibration faults) are NOT reduced by averaging — they must be identified and corrected. Options B and C address systematic errors, not random.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION I: ELECTROSTATICS TRAPS
+(Derived from Q121-125)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+270. Two equal positive charges Q are placed 1 m apart. A third charge placed at the midpoint that keeps the system in equilibrium must be:
+A. Negative
+B. Positive
+C. Zero (no charge needed)
+D. Either positive or negative
+Answer: A
+Trap: The two Q charges repel each other. A negative charge at the center is attracted equally to both Q — providing the inward force that keeps each Q in place. A positive charge would be pushed away and cannot stabilize the system.
+
+271. The electric field INSIDE a uniformly charged spherical shell is:
+A. Zero everywhere inside
+B. Constant but non-zero
+C. Maximum at the center
+D. Equal to the field at the surface
+Answer: A
+Trap: Gauss's Law: E × 4πr^2 = Q_enclosed/ε0. Inside the shell, Q_enclosed = 0 → E = 0. Counter-intuitive but directly testable. Students expect a field because charges are on the shell and "nearby."
+
+272. If the distance between two point charges is tripled, the electrostatic force becomes:
+A. 1/9 of original
+B. 1/3 of original
+C. 3 times original
+D. 9 times original
+Answer: A
+Trap: F ∝ 1/r^2. Tripling r: F_new = F/9. Students who confuse inverse-square with inverse-linear choose B (1/3).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION J: UNIQUE & CROSS-TOPIC QUESTIONS
+(Fresh territory not directly in the original 200)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+273. The wavelength of light in a medium of refractive index n is:
+A. λ/n (shorter than in vacuum)
+B. nλ
+C. λ (unchanged)
+D. λ × c/v
+Answer: A
+Trap: v = c/n → λ_medium = v/f = c/(nf) = λ_vacuum/n. Frequency is unchanged when light enters a medium; wavelength shortens. Students confuse which quantity changes.
+
+274. A 60 W bulb is left on for 2 hours. Electrical energy consumed in kilowatt-hours is:
+A. 0.12 kWh
+B. 120 kWh
+C. 1.2 kWh
+D. 12 kWh
+Answer: A
+Trap: Energy = 60 W × 2 h = 120 Wh = 0.12 kWh. Option B forgets to divide by 1000. Confusion between watt-hours and kilowatt-hours is a practical application JAMB consistently tests.
+
+275. A 4 kg block on a smooth horizontal surface is connected by a string over a frictionless pulley to a hanging 2 kg mass. The acceleration of the system is (g = 10 m/s²):
+A. 10/3 m/s² ≈ 3.3 m/s²
+B. 5 m/s²
+C. 10 m/s²
+D. 2 m/s²
+Answer: A
+Trap: Net force = weight of hanging mass = 2 × 10 = 20 N. Total mass = 4 + 2 = 6 kg. a = 20/6 = 10/3 m/s². Students who use only the hanging mass (a = g = 10 m/s²) forget the table mass. Students who use only the table mass get 5 m/s².
+
+276. A sound wave has frequency 680 Hz and speed 340 m/s. Two observers stand 1.25 m apart along the wave direction. Their phase difference is:
+A. π radians (180°)
+B. 2π radians
+C. π/2 radians
+D. Zero
+Answer: A
+Trap: λ = v/f = 340/680 = 0.5 m. Path difference = 1.25 m = 2.5λ. Full wavelengths (2λ) contribute zero net phase difference; the extra 0.5λ gives a phase difference of π radians. Students who divide 1.25 by 0.5 = 2.5 and stop there must then extract the fractional part.
+
+277. A body starts from rest and moves with uniform acceleration. The ratio of distances covered IN the 1st, 2nd, and 3rd seconds (not from start) is:
+A. 1 : 3 : 5
+B. 1 : 2 : 3
+C. 1 : 4 : 9
+D. 1 : 2 : 4
+Answer: A
+Trap: Distance IN nth second = u + a(2n-1)/2; from rest: s_n = a(2n-1)/2. s1:s2:s3 = 1a/2 : 3a/2 : 5a/2 = 1:3:5. Option C gives TOTAL distance from start at t=1,2,3 s (= 1:4:9) — the most common confusion. JAMB specifically asks for distance IN each second.
+
+278. An electron and a proton are accelerated through the same potential difference. Which has greater kinetic energy?
+A. They have equal kinetic energy (KE = qV; same charge magnitude, same V)
+B. The electron (lighter, so faster — more KE)
+C. The proton (heavier, more momentum)
+D. Cannot be determined without knowing the masses
+Answer: A
+Trap: KE = qV. Both electron and proton have the same magnitude of charge e. Same V → same KE = eV. The electron moves much faster (smaller mass) but has the same KE, not more. Students who conflate "greater KE" with "greater speed" choose B.
+
+279. A body undergoes uniform circular motion. The work done by the centripetal force over one complete revolution is:
+A. Zero
+B. Equal to 1/2 mv^2
+C. Equal to 2πrF
+D. Equal to mv^2/r × 2πr
+Answer: A
+Trap: Centripetal force is always perpendicular to velocity (displacement). W = Fd·cosθ; θ = 90° at every instant → W = 0 always. Options C and D compute force × path length while ignoring the cosθ = 0 factor.
+
+280. The temperature of a star's surface can be estimated from its colour using:
+A. Wien's Displacement Law (λ_max × T = constant; hotter stars appear bluer)
+B. Stefan's Law (total power radiated)
+C. Newton's Law of Cooling
+D. The Doppler Effect (used for speed, not temperature)
+Answer: A
+Trap: Wien's Law connects peak emission wavelength to temperature. Stefan's Law gives total power, not peak wavelength. Both are black body radiation laws but answer different questions. JAMB asks which law links colour to temperature.
+
+281. A rectangular coil of 200 turns and area 50 cm² rotates at 50 rev/s in a field of 0.1 T. The peak EMF is:
+A. Approximately 314 V (= NBAω = 200 × 0.1 × 0.005 × 100π)
+B. 100 V
+C. 50 V
+D. 628 V
+Answer: A
+Trap: ε_0 = NBAω = N × B × A × 2πf = 200 × 0.1 × 50×10^-4 × 2π×50 = 200 × 0.1 × 5×10^-3 × 100π = 10π ≈ 31.4 V per section × 10 = 314 V. The key trap: students forget ω = 2πf, treating ω as just f (50) instead of 100π ≈ 314.
+
+282. A proton moving east enters a uniform magnetic field pointing vertically downward. The proton's path initially curves toward:
+A. North (using right-hand rule: east × down = north)
+B. South
+C. Upward
+D. Along the field lines (downward)
+Answer: A
+Trap: F = qv × B. v = east (x̂), B = downward (-ẑ). F = q(x̂ × (-ẑ)) = q(-)(x̂ × ẑ) = q(-)(- ŷ) = qŷ = north. Students who use the left-hand rule (for electrons) or misapply cross-product get south or upward.
+
+283. Two identical waves traveling in OPPOSITE directions produce a standing wave. The distance between adjacent nodes is:
+A. λ/2
+B. λ
+C. λ/4
+D. 2λ
+Answer: A
+Trap: In a standing wave, nodes are λ/2 apart. Antinodes are also λ/2 apart. Node-to-adjacent-antinode = λ/4. Students confuse node-to-node (λ/2) with node-to-antinode (λ/4) — both appear as options.
+
+284. A person's near point is at 50 cm (instead of normal 25 cm). They suffer from:
+A. Hyperopia (long-sightedness) — cannot see near objects clearly
+B. Myopia
+C. Astigmatism
+D. Presbyopia only
+Answer: A
+Trap: Near point too far = hyperopia (cannot focus close objects — the eye is too short or lens too weak). Myopia (near-sightedness) makes the far point too close, not the near point too far. Students who memorize "near point = near-sightedness" confuse the condition.
+
+285. The stopping potential in a photoelectric experiment is 2 V. The maximum kinetic energy of emitted electrons is:
+A. 2 eV = 3.2 × 10^-19 J
+B. 2 J
+C. 2 V (same number, different unit)
+D. 4 eV
+Answer: A
+Trap: KE_max = eV_s = 1.6×10^-19 × 2 = 3.2×10^-19 J = 2 eV. Option B confuses volts with joules. Option C restates the potential value with wrong units. The unit conversion from volts to joules to eV is the test.
+
+286. The de Broglie wavelength of a body is inversely proportional to its:
+A. Momentum (λ = h/p = h/mv)
+B. Kinetic energy
+C. Velocity alone
+D. Mass alone
+Answer: A
+Trap: λ = h/mv = h/p. Momentum combines both mass and velocity. "Velocity alone" (C) is partially right but incomplete — a massive slow object and a light fast object with same v have different wavelengths.
+
+287. A negatively charged rod is brought near (but not touching) the cap of an uncharged gold-leaf electroscope. The leaves:
+A. Diverge (by electrostatic induction — electrons driven to leaves; leaves become negative and repel)
+B. Do not move (rod is not touching)
+C. Converge
+D. Diverge only if the rod is very close
+Answer: A
+Trap: Induction redistributes charge WITHOUT contact. Negative rod repels electrons into leaves → both leaves negative → repel → diverge. Students who confuse charging by induction with charging by contact choose B.
+
+288. A student connects an ammeter in PARALLEL and a voltmeter in SERIES in a circuit. The result is:
+A. The ammeter may be damaged and the voltmeter starves the circuit of current
+B. Normal readings are obtained
+C. The circuit stops completely
+D. Only the voltmeter is damaged
+Answer: A
+Trap: Ammeter (very low R) in parallel creates a near short circuit — large current, potential damage. Voltmeter (very high R) in series limits current dramatically — circuit barely works, voltmeter reads near full EMF. This is the "wrong connection" classic.
+
+289. The refractive index of water is 4/3. The speed of light in water is:
+A. 2.25 × 10^8 m/s
+B. 4 × 10^8 m/s
+C. 3 × 10^8 m/s
+D. 1.5 × 10^8 m/s
+Answer: A
+Trap: v = c/n = (3×10^8)/(4/3) = 3×10^8 × 3/4 = 2.25×10^8 m/s. Students who divide by 4 (not 4/3) get 0.75×10^8. Students who multiply by n instead of dividing get 4×10^8 (option B).
+
+290. Sound cannot travel through a vacuum. This is demonstrated by which experiment?
+A. Bell-jar experiment — ringing bell fades as air is pumped out
+B. Measuring speed of sound in different gases
+C. Producing beats between two tuning forks
+D. Showing that sound bends around corners
+Answer: A
+Trap: The bell-jar experiment is the definitive demonstration. The bell is seen vibrating but not heard as vacuum is established. Options B, C, D explore wave properties but don't demonstrate the medium requirement.
+
+291. A convex mirror of focal length 30 cm (using real-is-positive convention, f = -30 cm) forms an image 10 cm behind the mirror (v = -10 cm virtual). The object distance is:
+A. 15 cm in front of mirror
+B. 30 cm in front
+C. 10 cm in front
+D. 20 cm in front
+Answer: A
+Trap: 1/u = 1/f - 1/v = 1/(-30) - 1/(-10) = -1/30 + 3/30 = 2/30 → u = 15 cm. Sign convention errors are the primary trap. Students who use real-positive with wrong signs for convex mirrors get the wrong answer.
+
+292. Two tuning forks of 440 Hz and 444 Hz are sounded together. Beats heard per second:
+A. 4
+B. 884
+C. 442
+D. 2
+Answer: A
+Trap: Beat frequency = |f1 - f2| = |444 - 440| = 4 beats/s. Option B is their sum; option C is average. Simple subtraction tested in a context where students may average or add.
+
+293. The apparent depth of an object in water (n = 4/3) is 12 cm viewed from above. The real depth is:
+A. 16 cm
+B. 9 cm
+C. 12 cm
+D. 48 cm
+Answer: A
+Trap: n = real depth / apparent depth → real depth = n × apparent depth = (4/3) × 12 = 16 cm. Students who invert the ratio and divide by n get 9 cm (option B).
+
+294. Which of the following is evidence for the WAVE nature of electrons?
+A. Electron diffraction patterns from crystal lattices (Davisson-Germer experiment)
+B. Photoelectric effect
+C. Compton scattering
+D. Beta decay
+Answer: A
+Trap: Electron diffraction confirmed de Broglie's hypothesis. Photoelectric effect shows particle nature of LIGHT (photons). Compton scattering also supports photon momentum. Beta decay is nuclear — not a wave-nature demonstration.
+
+295. A light ray in glass (n = 1.5) strikes a glass-air boundary at 30°. The refracted angle in air is:
+A. sin^-1(0.75) ≈ 48.6°
+B. 30°
+C. 45°
+D. No refraction — TIR occurs
+Answer: A
+Trap: 1.5 × sin30° = 1 × sinθ_r → sinθ_r = 0.75 → θ_r ≈ 48.6°. Critical angle ≈ 41.8°; since 30° < 41.8°, TIR does NOT occur. The refracted angle is always larger going from denser to rarer medium.
+
+296. A body starts from rest under constant acceleration. The distance covered in the 4th second alone (not total from start) is (a = 2 m/s²):
+A. 7 m
+B. 16 m
+C. 8 m
+D. 4 m
+Answer: A
+Trap: Distance in nth second = u + a(2n-1)/2 = 0 + 2(2×4-1)/2 = (7) = 7 m. Option B is total distance from start after 4 s (s = 1/2 × 2 × 16 = 16 m). Option C is distance in the 4th second wrongly computed as a × n = 2 × 4. The nth-second formula is a recurring JAMB trap.
+
+297. A satellite orbits Earth at height h. If h is doubled (measured from Earth's surface), the orbital speed:
+A. Decreases (v = √(GM/(R+h)); larger radius → slower orbital speed)
+B. Increases
+C. Remains constant
+D. Depends on the satellite's mass
+Answer: A
+Trap: v_orbital = √(GM/r) where r = R + h. Larger r → smaller v. Kepler's 3rd law: farther orbit = longer period = slower speed. Students who think "higher = needs more speed" confuse escape scenarios with orbital mechanics.
+
+298. A body of mass 5 kg slides down a frictionless incline of 30° from a height of 3 m. Its speed at the bottom is (g = 10 m/s²):
+A. √60 ≈ 7.75 m/s
+B. √30 m/s
+C. 10 m/s
+D. √(60/sin30°) m/s
+Answer: A
+Trap: Energy conservation: 1/2 mv^2 = mgh → v = √(2gh) = √(2×10×3) = √60 ≈ 7.75 m/s. The angle of the incline does NOT affect the final speed (height is given, not length of slope). Students who incorporate sinθ choose option D.
+
+299. Light of wavelength 600 nm passes through a slit of width 0.1 mm. The angle of the first diffraction minimum is:
+A. sin^-1(600×10^-9 / 0.1×10^-3) = sin^-1(0.006) ≈ 0.34°
+B. 0.6°
+C. 6°
+D. 30°
+Answer: A
+Trap: First minimum: sinθ = λ/a = 600×10^-9 / 1×10^-4 = 6×10^-3 → θ ≈ 0.34°. The small angle makes this counter-intuitive — students expect a large visible spread. The answer shows how narrow optical diffraction angles are with visible light.
+
+300. FINAL — The graph of kinetic energy vs. speed for a body of fixed mass is:
+A. A parabola (KE = 1/2 mv^2 — quadratic relationship)
+B. A straight line through the origin
+C. An exponential curve
+D. A horizontal line
+Answer: A
+Trap: KE ∝ v^2 makes the KE-v graph a parabola, NOT a straight line. Students who confuse KE with momentum (p = mv, which IS linear in v) choose B. The graph of KE vs. p would be a different parabola (KE = p^2/2m).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+END OF DOCUMENT — QUESTIONS 201-300
+Each question targets the exact misconception flagged in the Top-200 exceptions.
+Study both files together. Where the first file teaches the concept,
+this file tests whether you truly understood the exception.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

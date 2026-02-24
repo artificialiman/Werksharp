@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>MEPC: UTME 2026 Most Likely — v3</title>
+    <style>
+        :root{--bg:#F2F2F7;--card:#FFF;--text:#000;--sec:rgba(60,60,67,0.85);--ter:rgba(60,60,67,0.55);--blue:#007AFF;--green:#34C759;--red:#FF3B30;--orange:#FF9500;--purple:#AF52DE;--teal:#30B0C7;--sep:rgba(198,198,200,0.5);--hov:#F8F8FA;--r:12px;--sh:0 1px 3px rgba(0,0,0,0.08)}
+        @media(prefers-color-scheme:dark){:root{--bg:#000;--card:#1C1C1E;--text:#FFF;--sec:rgba(235,235,245,0.85);--ter:rgba(235,235,245,0.55);--sep:rgba(56,56,58,0.5);--hov:#2C2C2E}}
+        *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+        body{font-family:-apple-system,BlinkMacSystemFont,system-ui,sans-serif;font-size:17px;color:var(--text);background:var(--bg);line-height:1.47;padding-bottom:env(safe-area-inset-bottom);-webkit-font-smoothing:antialiased}
+        .hdr{background:var(--card);border-bottom:.5px solid var(--sep);padding:calc(env(safe-area-inset-top)+12px) 16px 12px;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+        .hdr-row{display:flex;align-items:center;justify-content:space-between}
+        .ttl{font-size:22px;font-weight:700}
+        .sub{font-size:13px;color:var(--ter);margin-top:2px}
+        .gtimer{display:flex;align-items:center;gap:6px;padding:7px 13px;border-radius:20px;background:var(--hov);border:.5px solid var(--sep)}
+        .gtimer-txt{font-size:15px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:.5px;color:var(--text);transition:color .3s}
+        .gtimer-txt.warn{color:var(--orange)}.gtimer-txt.dang{color:var(--red)}
+        .gtimer-dot{width:7px;height:7px;border-radius:50%;background:var(--green);flex-shrink:0;transition:background .3s}
+        .gtimer-dot.warn{background:var(--orange)}.gtimer-dot.dang{background:var(--red);animation:blink 1s infinite}
+        @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+        .scorecard{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px 16px 4px}
+        .sc-main{grid-column:1/-1;background:var(--card);border-radius:var(--r);padding:14px 16px;box-shadow:var(--sh);display:flex;align-items:center;justify-content:space-between}
+        .sc-score-lbl{font-size:13px;color:var(--ter)}
+        .sc-score-val{font-size:32px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-1px}
+        .sc-score-val.pos{color:var(--green)}.sc-score-val.neg{color:var(--red)}.sc-score-val.zero{color:var(--text)}
+        .sc-out{font-size:13px;color:var(--ter);text-align:right}
+        .sc-out span{display:block;font-size:17px;font-weight:600;color:var(--sec)}
+        .sc-mini{background:var(--card);border-radius:var(--r);padding:11px 13px;box-shadow:var(--sh)}
+        .sc-mini-lbl{font-size:11px;color:var(--ter);letter-spacing:.2px}
+        .sc-mini-val{font-size:18px;font-weight:700;margin-top:3px}
+        .sc-mini-val.correct{color:var(--green)}.sc-mini-val.wrong{color:var(--red)}.sc-mini-val.skipped{color:var(--orange)}.sc-mini-val.answered{color:var(--blue)}
+        .sc-rule{font-size:11px;color:var(--ter);padding:4px 16px 10px;text-align:center}
+        .tabs{display:flex;gap:12px;padding:0 16px 14px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+        .tabs::-webkit-scrollbar{display:none}
+        .tab{padding:8px 16px;border-radius:20px;background:var(--card);color:var(--sec);border:none;font-size:15px;font-weight:500;cursor:pointer;white-space:nowrap;transition:all .2s;box-shadow:var(--sh)}
+        .tab.active{background:var(--blue);color:#fff}
+        .qcard{background:var(--card);border-radius:var(--r);margin:12px 16px;padding:20px;box-shadow:var(--sh)}
+        .qnum{font-size:13px;font-weight:600;color:var(--blue);margin-bottom:8px}
+        .sbadge{display:inline-block;padding:4px 10px;border-radius:6px;font-size:12px;font-weight:600;margin-left:8px}
+        .sp{background:rgba(0,122,255,.15);color:var(--blue)}
+        .se{background:rgba(255,149,0,.15);color:var(--orange)}
+        .sa{background:rgba(52,199,89,.15);color:var(--green)}
+        .stag{display:inline-block;padding:3px 8px;border-radius:5px;font-size:11px;font-weight:600;margin-left:6px;vertical-align:middle}
+        .tM{background:rgba(0,122,255,.15);color:var(--blue)}
+        .tE{background:rgba(48,176,199,.15);color:var(--teal)}
+        .tC{background:rgba(52,199,89,.15);color:var(--green)}
+        .tP{background:rgba(175,82,222,.15);color:var(--purple)}
+        .qtxt{font-size:17px;margin-bottom:16px;line-height:1.5}
+        .trow{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+        .tring{width:38px;height:38px;flex-shrink:0}
+        .tring .bg{fill:none;stroke:var(--sep);stroke-width:4}
+        .tring .fg{fill:none;stroke:var(--green);stroke-width:4;stroke-linecap:round;transition:stroke .4s,stroke-dashoffset .25s linear;transform:rotate(-90deg);transform-origin:center}
+        .ttxt{font-size:14px;font-weight:600;color:var(--green);transition:color .4s;min-width:42px}
+        .tlbl{font-size:13px;color:var(--ter)}
+        .tring.warn .fg{stroke:var(--orange)}.tring.dang .fg{stroke:var(--red)}
+        .ttxt.warn{color:var(--orange)}.ttxt.dang{color:var(--red)}
+        .opts{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+        .opt{padding:12px;border-radius:8px;background:var(--hov);cursor:pointer;transition:all .2s;font-size:15px;border:2px solid transparent;user-select:none;-webkit-user-select:none}
+        .opt:active{transform:scale(.98)}
+        .opt.sel{background:rgba(0,122,255,.1);border-color:var(--blue)}
+        .opt.ok{background:rgba(52,199,89,.1);border-color:var(--green)}
+        .opt.no{background:rgba(255,59,48,.1);border-color:var(--red)}
+        .abtn{width:100%;padding:12px;border-radius:10px;border:none;background:var(--blue);color:#fff;font-size:17px;font-weight:500;cursor:pointer;transition:opacity .2s}
+        .abtn:active{opacity:.8}.abtn:disabled{opacity:.5;cursor:not-allowed}
+        .exp{margin-top:16px;padding:12px;background:var(--hov);border-radius:8px;font-size:15px;color:var(--sec);display:none}
+        .exp.show{display:block;animation:si .3s ease}
+        .exp-mark{display:inline-block;padding:2px 8px;border-radius:5px;font-size:12px;font-weight:700;margin-bottom:6px}
+        .exp-mark.pos{background:rgba(52,199,89,.15);color:var(--green)}
+        .exp-mark.neg{background:rgba(255,59,48,.15);color:var(--red)}
+        .exp-mark.nt{background:rgba(255,149,0,.15);color:var(--orange)}
+        @keyframes si{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+        .timeup{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:300;align-items:center;justify-content:center;padding:24px}
+        .timeup.show{display:flex}
+        .timeup-box{background:var(--card);border-radius:20px;padding:28px 24px;max-width:340px;width:100%;text-align:center}
+        .timeup-icon{font-size:48px;margin-bottom:12px}
+        .timeup-ttl{font-size:22px;font-weight:700;margin-bottom:8px}
+        .timeup-score{font-size:40px;font-weight:700;margin:16px 0 4px;font-variant-numeric:tabular-nums}
+        .timeup-score.pos{color:var(--green)}.timeup-score.neg{color:var(--red)}
+        .timeup-sub{font-size:15px;color:var(--ter);margin-bottom:20px}
+        .timeup-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:20px}
+        .tu-stat{background:var(--hov);border-radius:10px;padding:10px 6px}
+        .tu-stat-v{font-size:20px;font-weight:700}
+        .tu-stat-v.c{color:var(--green)}.tu-stat-v.w{color:var(--red)}.tu-stat-v.s{color:var(--orange)}
+        .tu-stat-l{font-size:11px;color:var(--ter);margin-top:2px}
+        .timeup-btn{width:100%;padding:14px;border-radius:12px;border:none;background:var(--blue);color:#fff;font-size:17px;font-weight:600;cursor:pointer}
+    </style>
+</head>
+<body>
+
+<div class="hdr">
+    <div class="hdr-row">
+        <div>
+            <div class="ttl">MEPC: UTME 2026 Most Likely</div>
+            <div class="sub">Math · English · Physics · Chemistry · v3 · 35 Qs</div>
+        </div>
+        <div class="gtimer">
+            <div class="gtimer-dot" id="gd"></div>
+            <div class="gtimer-txt" id="gt">1:00:00</div>
+        </div>
+    </div>
+</div>
+
+<div class="scorecard">
+    <div class="sc-main">
+        <div>
+            <div class="sc-score-lbl">Score</div>
+            <div class="sc-score-val zero" id="sc-val">0.00</div>
+        </div>
+        <div class="sc-out">
+            <div>out of</div>
+            <span>400</span>
+        </div>
+    </div>
+    <div class="sc-mini"><div class="sc-mini-lbl">✓ Correct</div><div class="sc-mini-val correct" id="sc-co">0</div></div>
+    <div class="sc-mini"><div class="sc-mini-lbl">✗ Wrong</div><div class="sc-mini-val wrong" id="sc-wr">0</div></div>
+    <div class="sc-mini"><div class="sc-mini-lbl">— Skipped</div><div class="sc-mini-val skipped" id="sc-sk">0</div></div>
+    <div class="sc-mini"><div class="sc-mini-lbl">Answered</div><div class="sc-mini-val answered" id="sc-an">0</div></div>
+</div>
+<div class="sc-rule">+2.86 correct · −0.50 wrong · 0 skipped</div>
+
+<div class="tabs">
+    <button class="tab active" data-s="math">Math</button>
+    <button class="tab" data-s="english">English</button>
+    <button class="tab" data-s="physics">Physics</button>
+    <button class="tab" data-s="chemistry">Chemistry</button>
+</div>
+
+<div id="qc"></div>
+
+<div class="timeup" id="tu">
+    <div class="timeup-box">
+        <div class="timeup-icon">⏱</div>
+        <div class="timeup-ttl">Time's Up!</div>
+        <div id="tu-score" class="timeup-score pos">0.00</div>
+        <div class="timeup-sub">out of 400</div>
+        <div class="timeup-stats">
+            <div class="tu-stat"><div class="tu-stat-v c" id="tu-co">0</div><div class="tu-stat-l">Correct</div></div>
+            <div class="tu-stat"><div class="tu-stat-v w" id="tu-wr">0</div><div class="tu-stat-l">Wrong</div></div>
+            <div class="tu-stat"><div class="tu-stat-v s" id="tu-sk">0</div><div class="tu-stat-l">Skipped</div></div>
+        </div>
+        <button class="timeup-btn" onclick="document.getElementById('tu').classList.remove('show')">Review Answers</button>
+    </div>
+</div>
+
+<script>
+/* ============================================================
+   SCORING: 35 × 4 subjects = 140 Qs; max 400
+   +2.857 correct | −0.50 wrong | 0 skipped
+============================================================ */
+var PTS_CORRECT = 400/140;
+var PTS_WRONG   = -0.5;
+var TSECS_Q     = 120;
+var GLOBAL_SECS = 3600;
+var CIRC2       = 2*Math.PI*14;
+
+var D = {
+
+/* ================================================================
+   MATHEMATICS — 35 questions  [12 Principles · 11 Exceptions · 12 Application]
+================================================================ */
+math:[
+/* PRINCIPLES (12) */
+{q:"log₃ 81 − log₃ 9 =",o:["A. 1","B. 2","C. 3","D. 4"],a:"B",e:"log₃ 81 = 4; log₃ 9 = 2. 4 − 2 = 2.",s:"p"},
+{q:"Express 56 as a product of prime factors.",o:["A. 2 × 4 × 7","B. 2² × 14","C. 2³ × 7","D. 4 × 14"],a:"C",e:"56 = 2 × 28 = 2² × 14 = 2³ × 7.",s:"p"},
+{q:"The expression x² − 6x + k is a perfect square when k =",o:["A. 3","B. 6","C. 9","D. 12"],a:"C",e:"Half the coefficient of x, squared: (−6/2)² = 9.",s:"p"},
+{q:"sin(90° − θ) is equivalent to:",o:["A. sin θ","B. cos θ","C. −cos θ","D. −sin θ"],a:"B",e:"Co-function identity: sin(90°−θ) = cos θ. Likewise cos(90°−θ) = sin θ.",s:"p"},
+{q:"The interquartile range is defined as:",o:["A. Q₃ − Q₁","B. Q₂ − Q₁","C. Q₃ − Q₂","D. Max − Min"],a:"A",e:"IQR = Q₃ − Q₁; it measures the spread of the middle 50% of data.",s:"p"},
+{q:"If P(A) = 0.6 and P(B) = 0.5, and A and B are independent, find P(A ∩ B).",o:["A. 0.1","B. 0.3","C. 0.8","D. 0.11"],a:"B",e:"Independent events: P(A∩B) = P(A)×P(B) = 0.6 × 0.5 = 0.3.",s:"p"},
+{q:"The interior angle of a regular hexagon is:",o:["A. 90°","B. 108°","C. 120°","D. 135°"],a:"C",e:"Interior angle = (n−2)×180°/n = 4×180/6 = 120°.",s:"p"},
+{q:"A tangent from external point P touches a circle (radius 5 cm, centre O) at T. If PO = 13 cm, find PT.",o:["A. 8 cm","B. 10 cm","C. 12 cm","D. 18 cm"],a:"C",e:"Tangent ⊥ radius: PT² = PO²−r² = 169−25 = 144. PT = 12 cm.",s:"p"},
+{q:"Differentiate y = 3x⁴ − 2x³ + x − 5.",o:["A. 12x³ − 6x² + 1","B. 12x³ − 6x² − 5","C. 12x⁴ − 6x³ + 1","D. 3x³ − 2x²"],a:"A",e:"Power rule term by term: 12x³ − 6x² + 1.",s:"p"},
+{q:"∫(4x³ − 2x + 3) dx =",o:["A. x⁴ − x² + 3x + C","B. 12x² − 2 + C","C. x⁴ + x² + 3x + C","D. 4x⁴ − 2x² + 3x + C"],a:"A",e:"Integrate term by term: x⁴ − x² + 3x + C.",s:"p"},
+{q:"Two parallel lines are cut by a transversal. Alternate interior angles are:",o:["A. Supplementary","B. Complementary","C. Equal","D. Reflex"],a:"C",e:"Alternate interior (Z-angles) are always equal when lines are parallel.",s:"p"},
+{q:"A class of 10 students selects a president and a different secretary. Number of ways?",o:["A. 45","B. 90","C. 100","D. 10"],a:"B",e:"Ordered selection of 2 from 10: ¹⁰P₂ = 10 × 9 = 90.",s:"p"},
+
+/* EXCEPTIONS (11) */
+{q:"Which of these is NOT a rational number?",o:["A. 0.333…","B. √9","C. √2","D. ²²⁄₇"],a:"C",e:"√2 is non-terminating and non-repeating — irrational. √9 = 3 and ²²⁄₇ are rational.",s:"e"},
+{q:"If x = 2 − √3, find x + 1/x.",o:["A. 4","B. 2√3","C. 4 − 2√3","D. 4 + 2√3"],a:"A",e:"Rationalise: 1/x = (2+√3)/1 = 2+√3. Sum = (2−√3)+(2+√3) = 4.",s:"e"},
+{q:"The range of values satisfying |2x − 3| < 5 is:",o:["A. −1 < x < 4","B. x < −1 or x > 4","C. −4 < x < 1","D. x > 4"],a:"A",e:"−5 < 2x−3 < 5 → −2 < 2x < 8 → −1 < x < 4.",s:"e"},
+{q:"If α and β are roots of x² − 5x + 6 = 0, find α² + β².",o:["A. 12","B. 13","C. 25","D. 11"],a:"B",e:"α+β = 5, αβ = 6. α²+β² = (α+β)² − 2αβ = 25 − 12 = 13.",s:"e"},
+{q:"The 5th term of a GP with first term 3 and common ratio −2 is:",o:["A. −48","B. 48","C. −96","D. 96"],a:"B",e:"T₅ = 3×(−2)⁴ = 3×16 = 48. Even power of negative ratio gives a positive term.",s:"e"},
+{q:"The locus of a point equidistant from (2, 0) and (8, 0) is:",o:["A. x = 4","B. x = 5","C. y = 5","D. y = 4"],a:"B",e:"Perpendicular bisector of the segment: midpoint x = (2+8)/2 = 5. Locus is x = 5.",s:"e"},
+{q:"Find the exact value of tan 135°.",o:["A. 1","B. −1","C. √2","D. −√2"],a:"B",e:"Reference angle 45°, in Q2 tangent is negative: tan 135° = −1.",s:"e"},
+{q:"A data set has mean 10. If every value is multiplied by 3, the new mean is:",o:["A. 10","B. 13","C. 30","D. 100"],a:"C",e:"Scaling all values by k scales the mean by k: 3 × 10 = 30.",s:"e"},
+{q:"In how many ways can the letters of LEVEL be arranged?",o:["A. 120","B. 60","C. 30","D. 15"],a:"C",e:"5!/(2!×2!) = 120/4 = 30. Divide by repeated L (×2) and repeated E (×2).",s:"e"},
+{q:"A curve y = x² − 3x has a turning point at:",o:["A. x = 0","B. x = 1.5","C. x = 3","D. x = −1.5"],a:"B",e:"dy/dx = 2x−3 = 0 → x = 1.5. This is the vertex (minimum).",s:"e"},
+{q:"Which identity is ALWAYS true for any angle θ?",o:["A. sin θ = cos θ","B. sin²θ + cos²θ = 1","C. tan θ = sin θ + cos θ","D. sec θ = sin θ"],a:"B",e:"The Pythagorean identity sin²θ + cos²θ = 1 holds for all values of θ.",s:"e"},
+
+/* APPLICATION (12) */
+{q:"Convert 213 (base 4) to base 10.",o:["A. 33","B. 39","C. 43","D. 47"],a:"B",e:"2(4²) + 1(4¹) + 3(4⁰) = 32 + 4 + 3 = 39.",s:"a"},
+{q:"If log₁₀ 2 = 0.3010, find log₁₀ 8.",o:["A. 0.6020","B. 0.9030","C. 1.2040","D. 2.4082"],a:"B",e:"log 8 = log 2³ = 3 × 0.3010 = 0.9030.",s:"a"},
+{q:"Simplify: (√6 + √2)(√6 − √2).",o:["A. 2","B. 4","C. 8","D. 4√3"],a:"B",e:"Difference of squares: (√6)² − (√2)² = 6 − 2 = 4.",s:"a"},
+{q:"Solve simultaneously: 2x + y = 7 and x − y = 2.",o:["A. x=2, y=3","B. x=3, y=1","C. x=4, y=−1","D. x=1, y=5"],a:"B",e:"Add: 3x = 9 → x = 3. Substitute: y = x − 2 = 1.",s:"a"},
+{q:"How many terms of the AP 3, 7, 11, … give a sum of 210?",o:["A. 8","B. 9","C. 10","D. 11"],a:"C",e:"Sₙ = n(2n+1) = 210 → 2n²+n−210 = 0 → n = 10.",s:"a"},
+{q:"A line passes through (1, 3) and (4, −3). Find its gradient.",o:["A. −2","B. 2","C. −½","D. ½"],a:"A",e:"m = (−3−3)/(4−1) = −6/3 = −2.",s:"a"},
+{q:"In a triangle, a = 7, b = 9, C = 60°. Find c (cosine rule).",o:["A. √67","B. √109","C. √193","D. √130"],a:"A",e:"c² = 49+81 − 2(7)(9)cos60° = 130 − 63 = 67. c = √67.",s:"a"},
+{q:"Find the median of: 3, 7, 2, 9, 4, 6, 1.",o:["A. 3","B. 4","C. 5","D. 6"],a:"B",e:"Sorted: 1,2,3,4,6,7,9. The 4th (middle) value = 4.",s:"a"},
+{q:"Three fair coins are tossed. P(exactly 2 heads) =",o:["A. 1/8","B. 3/8","C. 1/4","D. 1/2"],a:"B",e:"Total = 8. Favourable (HHT, HTH, THH) = 3. P = 3/8.",s:"a"},
+{q:"A sector has radius 9 cm and central angle 80°. Find its area. (π = 22/7)",o:["A. 56.57 cm²","B. 50 cm²","C. 113 cm²","D. 28.3 cm²"],a:"A",e:"A = (80/360)×(22/7)×81 = (2/9)×254.57 ≈ 56.57 cm².",s:"a"},
+{q:"Find the equation of a circle with centre (3, −2) and radius 5.",o:["A. (x−3)²+(y+2)²=25","B. (x+3)²+(y−2)²=25","C. (x−3)²+(y−2)²=5","D. (x−3)²+(y+2)²=5"],a:"A",e:"(x−h)²+(y−k)²=r². Centre (3,−2), r=5 → (x−3)²+(y+2)²=25.",s:"a"},
+{q:"A bag has 4 red and 6 blue balls. Two balls are drawn without replacement. P(both red)?",o:["A. 2/15","B. 4/25","C. 1/5","D. 8/45"],a:"A",e:"P = (4/10)×(3/9) = 12/90 = 2/15.",s:"a"}
+],
+
+/* ================================================================
+   ENGLISH — 35 questions  [12 Principles · 11 Exceptions · 12 Application]
+================================================================ */
+english:[
+/* PRINCIPLES (12) */
+{q:"Choose the word MOST NEARLY OPPOSITE in meaning to 'mendacious'.",o:["A. Truthful","B. Deceitful","C. Boastful","D. Cowardly"],a:"A",e:"Mendacious = lying. Antonym: truthful/honest.",s:"p"},
+{q:"'His verbose speech bored the audience.' Verbose means:",o:["A. Inspiring","B. Brief","C. Using too many words","D. Entertaining"],a:"C",e:"Verbose = using more words than necessary; long-winded.",s:"p"},
+{q:"A converging lens forms a real image. The image is on the _____ side of the lens as the object.",o:["A. Same","B. Opposite","C. Either, depending on distance","D. Neither"],a:"B",e:"A real image is formed on the opposite side of a converging lens from the object.",s:"p"},
+{q:"'She _____ in this school since 2018.' Choose correctly.",o:["A. taught","B. teaches","C. has been teaching","D. had taught"],a:"C",e:"Action continuing from past to present: present perfect continuous — 'has been teaching'.",s:"p"},
+{q:"'If I were you, I _____ accept the offer.' Choose correctly.",o:["A. will","B. would","C. should","D. shall"],a:"B",e:"Type 2 conditional (hypothetical): 'If I were…, I would…'.",s:"p"},
+{q:"Superlatives require which article?",o:["A. a","B. an","C. the","D. No article"],a:"C",e:"'The best, the tallest, the most talented' — superlatives always take 'the'.",s:"p"},
+{q:"'The results were contrary _____ expectations.'",o:["A. to","B. of","C. with","D. from"],a:"A",e:"Fixed collocation: 'contrary to'.",s:"p"},
+{q:"'He was accused _____ theft.'",o:["A. for","B. of","C. with","D. on"],a:"B",e:"'Accused of' is the correct preposition.",s:"p"},
+{q:"'He is the kind of person who never gives up.' The italicised clause is:",o:["A. Adverbial","B. Noun clause","C. Relative (adjective) clause","D. Conditional"],a:"C",e:"'who never gives up' modifies the noun 'person' → relative clause.",s:"p"},
+{q:"'He has an axe to grind.' This idiom means:",o:["A. He is a carpenter","B. He has a personal motive or grievance","C. He is very angry","D. He wants to fight"],a:"B",e:"'Have an axe to grind' = have a hidden personal agenda or grievance.",s:"p"},
+{q:"'The classroom was a zoo today.' The figure of speech is:",o:["A. Simile","B. Irony","C. Metaphor","D. Hyperbole"],a:"C",e:"A direct comparison without 'like' or 'as' is a metaphor.",s:"p"},
+{q:"Which is correctly spelled?",o:["A. Accomodation","B. Accommodation","C. Acomodation","D. Acommodation"],a:"B",e:"Accommodation: double C and double M.",s:"p"},
+
+/* EXCEPTIONS (11) */
+{q:"Which word contains the /ɔː/ sound as in 'thought'?",o:["A. Pot","B. Through","C. Caught","D. Cough"],a:"C",e:"'Caught' /kɔːt/ shares the /ɔː/ vowel. 'Cough' = /kɒf/, 'through' = /θruː/.",s:"e"},
+{q:"The word 'present' (noun/adjective) is stressed on the _____ syllable.",o:["A. First — PRE-sent","B. Second — pre-SENT","C. Both equally","D. Neither"],a:"A",e:"Noun/adjective: PRE-sent. Verb: pre-SENT. A classic UTME word-stress trap.",s:"e"},
+{q:"Which set are ALL minimal pairs (differ by one phoneme)?",o:["A. Cat/Bat only","B. Ship/Chip only","C. Think/This only","D. All three pairs above"],a:"D",e:"cat/bat (/k/ vs /b/), ship/chip (/ʃ/ vs /tʃ/), think/this (/θ/ vs /ð/) — all are minimal pairs.",s:"e"},
+{q:"'The committee has/have reached a decision.' If acting as one unit, the correct form is:",o:["A. has","B. have","C. Either is always correct","D. Neither"],a:"A",e:"Collective noun used as a single unit → singular verb: 'has'.",s:"e"},
+{q:"'One of the boys _____ broken the window.' Choose correctly.",o:["A. have","B. has","C. are","D. were"],a:"B",e:"'One of + plural noun' takes a singular verb. The plural 'boys' does NOT govern the verb.",s:"e"},
+{q:"Identify the sentence with a MISPLACED modifier:",o:["A. She almost drove her children to school every day.","B. He quickly ran to the store.","C. The dog bit the man wearing blue trousers.","D. We ate the pizza that arrived warm."],a:"A",e:"'Almost' should modify 'every day' not 'drove'. Correct: 'She drove her children to school almost every day.'",s:"e"},
+{q:"Which sentence uses the semicolon CORRECTLY?",o:["A. She was tired; however, she continued working.","B. She was tired; and she continued working.","C. She was tired; to continue working.","D. She; was tired and continued."],a:"A",e:"Semicolons join two independent clauses, especially before conjunctive adverbs like 'however', 'therefore'.",s:"e"},
+{q:"Possessive of 'James' (singular):",o:["A. James' car","B. James's car","C. Jamess car","D. James car"],a:"B",e:"Standard rule: add 's even when the noun ends in s: James's. (James' is a style variant, not the JAMB standard.)",s:"e"},
+{q:"'The evidence was irrefutable.' Irrefutable means:",o:["A. Impossible to understand","B. Impossible to deny or disprove","C. Easily disputed","D. Largely circumstantial"],a:"B",e:"Irrefutable = cannot be refuted or denied; absolutely certain.",s:"e"},
+{q:"How many syllables does 'CHARACTERISTIC' have?",o:["A. 4","B. 5","C. 6","D. 7"],a:"B",e:"Char-ac-ter-is-tic = 5 syllables.",s:"e"},
+{q:"'Unless you study, you will fail.' This is a _____ sentence.",o:["A. Simple","B. Compound","C. Complex","D. Compound-complex"],a:"C",e:"One main clause + one subordinate conditional clause = complex sentence.",s:"e"},
+
+/* APPLICATION (12) */
+{q:"'Don't talk in class,' said the teacher. Convert to indirect speech.",o:["A. The teacher said don't talk in class.","B. The teacher told us not to talk in class.","C. The teacher told us to not talking in class.","D. The teacher said us not to talk in class."],a:"B",e:"Negative imperative → indirect: told + object + not to + infinitive.",s:"a"},
+{q:"'Where are you going?' he asked me. Convert to indirect speech.",o:["A. He asked me where I was going.","B. He asked me where was I going.","C. He asked me where I am going.","D. He asked where are you going."],a:"A",e:"Indirect wh-question: statement word order; tense shifts: 'are' → 'was'.",s:"a"},
+{q:"Read: 'The author's prose is pellucid and economical.' This means the writing is:",o:["A. Long and detailed","B. Clear and concise","C. Difficult and poetic","D. Emotional and persuasive"],a:"B",e:"Pellucid = crystal clear; economical = no wasted words. Together: clear and concise.",s:"a"},
+{q:"'The CEO's remarks raised eyebrows in the boardroom.' This expression means:",o:["A. Everyone looked up","B. The remarks caused surprise or concern","C. The CEO was shouting","D. People were falling asleep"],a:"B",e:"'Raised eyebrows' is an idiom for causing surprise, concern, or disapproval.",s:"a"},
+{q:"A text that aims to sell a product uses which register?",o:["A. Narrative","B. Persuasive/advertising","C. Descriptive","D. Expository"],a:"B",e:"Advertising register uses imperatives, positive adjectives, and second person to engage and persuade.",s:"a"},
+{q:"Choose the word CLOSEST in meaning to 'obsequious'.",o:["A. Outspoken","B. Servilely complimentary","C. Intelligent","D. Independent"],a:"B",e:"Obsequious = excessively eager to please, fawning, sycophantic.",s:"a"},
+{q:"'The politician's promises were mere rhetoric.' Rhetoric here implies:",o:["A. Sincere persuasion","B. Grand but empty language","C. Written policy","D. Foreign language"],a:"B",e:"Rhetoric (pejorative) = impressive-sounding but hollow talk with no substance.",s:"a"},
+{q:"Which is correctly spelled?",o:["A. Embarass","B. Embarrass","C. Embaras","D. Embarras"],a:"B",e:"Embarrass: double R, double S.",s:"a"},
+{q:"'The professor gave an abstruse lecture.' Abstruse means:",o:["A. Brief","B. Difficult to understand","C. Motivating","D. Well-structured"],a:"B",e:"Abstruse = obscure and difficult to understand; highly technical.",s:"a"},
+{q:"A letter written by a doctor to a hospital summarising a patient's case uses which register?",o:["A. Narrative","B. Medical","C. Formal personal","D. Informal"],a:"B",e:"Context (doctor to hospital, clinical purpose) determines register: medical register.",s:"a"},
+{q:"'The valley was carpeted with flowers.' Figure of speech?",o:["A. Onomatopoeia","B. Alliteration","C. Metaphor","D. Personification"],a:"C",e:"'Carpeted' applies a human action to the valley — a metaphorical comparison.",s:"a"},
+{q:"Choose the sentence in which 'lay' is used CORRECTLY.",o:["A. She lay the book on the table yesterday.","B. He lay down to rest an hour ago.","C. The hen had lain two eggs.","D. Please lay down immediately."],a:"B",e:"'Lay' (past tense of 'lie') = to recline: 'He lay down' is correct. 'Lay' (present of 'to lay') needs an object.",s:"a"}
+],
+
+/* ================================================================
+   PHYSICS — 35 questions  [12 Principles · 11 Exceptions · 12 Application]
+================================================================ */
+physics:[
+/* PRINCIPLES (12) */
+{q:"Which of the following is a scalar quantity?",o:["A. Velocity","B. Displacement","C. Kinetic energy","D. Weight"],a:"C",e:"Kinetic energy has magnitude only → scalar. Velocity, displacement, and weight all have direction.",s:"p"},
+{q:"Newton's 1st Law is also called the law of:",o:["A. Gravitation","B. Action and reaction","C. Inertia","D. Conservation of energy"],a:"C",e:"Newton's 1st Law: a body remains at rest or in uniform motion unless a net force acts — law of inertia.",s:"p"},
+{q:"The impulse-momentum theorem states that impulse equals:",o:["A. Force × distance","B. Change in momentum","C. Mass × acceleration","D. Work done"],a:"B",e:"Impulse = F×Δt = Δp (change in momentum).",s:"p"},
+{q:"The specific heat capacity of a substance is the heat needed to:",o:["A. Melt 1 kg","B. Vaporise 1 kg","C. Raise 1 kg by 1°C","D. Raise 1 g by 1°C"],a:"C",e:"SHC: heat per unit mass per kelvin rise. Units: J kg⁻¹ K⁻¹.",s:"p"},
+{q:"On a velocity-time graph, the GRADIENT represents:",o:["A. Displacement","B. Speed","C. Acceleration","D. Distance"],a:"C",e:"Gradient = Δv/Δt = acceleration. Area under the graph = displacement.",s:"p"},
+{q:"Which energy conversion occurs in a photovoltaic (solar) cell?",o:["A. Chemical → Electrical","B. Light → Electrical","C. Heat → Electrical","D. Nuclear → Electrical"],a:"B",e:"Photovoltaic cells use the photoelectric effect: light energy → electrical energy.",s:"p"},
+{q:"The frequency of a wave is 50 Hz. Its period is:",o:["A. 50 s","B. 0.2 s","C. 0.02 s","D. 2 s"],a:"C",e:"T = 1/f = 1/50 = 0.02 s.",s:"p"},
+{q:"Which colour of visible light has the HIGHEST frequency?",o:["A. Red","B. Yellow","C. Green","D. Violet"],a:"D",e:"ROYGBIV: violet has the highest frequency (and shortest wavelength).",s:"p"},
+{q:"Lenz's law is a consequence of the conservation of:",o:["A. Charge","B. Mass","C. Energy","D. Momentum"],a:"C",e:"Lenz's law: the induced current opposes the change that causes it — this enforces energy conservation.",s:"p"},
+{q:"The SI unit of electric charge is the:",o:["A. Ampere","B. Volt","C. Coulomb","D. Ohm"],a:"C",e:"Charge is measured in coulombs (C). 1 C = charge transported by 1 A in 1 s.",s:"p"},
+{q:"Total internal reflection occurs when light travels from a denser to a less-dense medium and the angle of incidence exceeds the:",o:["A. Angle of refraction","B. Critical angle","C. Angle of reflection","D. Brewster angle"],a:"B",e:"At and above the critical angle, all light is reflected back inside the denser medium.",s:"p"},
+{q:"In a simple transformer, the ratio of voltages equals the ratio of:",o:["A. Currents","B. Power outputs","C. Number of turns","D. Resistances"],a:"C",e:"Vₚ/Vₛ = Nₚ/Nₛ. Turns ratio governs the voltage transformation.",s:"p"},
+
+/* EXCEPTIONS (11) */
+{q:"A projectile is launched horizontally from a cliff. Which statement is TRUE?",o:["A. Horizontal velocity increases due to gravity","B. Vertical velocity is constant","C. Horizontal and vertical motions are independent","D. The path is a straight line"],a:"C",e:"Horizontal: constant velocity. Vertical: accelerates at g. The two components are completely independent.",s:"e"},
+{q:"Ohm's law holds ONLY when:",o:["A. Resistance is very high","B. Physical conditions (especially temperature) are constant","C. Voltage is very low","D. The conductor is a semiconductor"],a:"B",e:"V = IR is valid for ohmic conductors at constant temperature. It is NOT a universal law.",s:"e"},
+{q:"Sound travels FASTEST in:",o:["A. Vacuum","B. Air","C. Water","D. Steel"],a:"D",e:"Speed of sound: solids > liquids > gases. Sound cannot travel through a vacuum at all.",s:"e"},
+{q:"When a stationary wave forms in a closed pipe, the closed end is always a:",o:["A. Antinode","B. Node","C. Crest","D. Loop"],a:"B",e:"Closed end: displacement node (zero movement). Open end: antinode.",s:"e"},
+{q:"Ice at 0°C melts to water at 0°C. During this process, temperature:",o:["A. Rises steadily","B. Remains constant while latent heat is absorbed","C. Drops below 0°C","D. Rises, then falls"],a:"B",e:"During a change of state, absorbed energy goes into breaking bonds (latent heat) — not raising temperature.",s:"e"},
+{q:"A ray of light passes from glass (n=1.5) into air (n=1). sin(critical angle) =",o:["A. 1.5","B. 2/3","C. 1.5/1","D. 0.5"],a:"B",e:"sin c = n₂/n₁ = 1/1.5 = 2/3 ≈ 0.667.",s:"e"},
+{q:"A spring stores energy. Doubling the compression distance changes the stored energy by a factor of:",o:["A. 2","B. 4","C. 8","D. ½"],a:"B",e:"E = ½kx². Doubling x → E multiplied by 2² = 4. Energy is proportional to x².",s:"e"},
+{q:"Which statement about a body moving in a vertical circle is CORRECT at the top of the circle?",o:["A. Normal force equals weight","B. Normal force can be zero at minimum speed","C. Speed is maximum at the top","D. Net force is directed upward"],a:"B",e:"At minimum speed at the top, the centripetal force is entirely provided by gravity, so N = 0.",s:"e"},
+{q:"The period of a simple pendulum depends on:",o:["A. Mass of the bob","B. Amplitude of swing","C. Length and g only","D. Air resistance only"],a:"C",e:"T = 2π√(L/g). Period is independent of mass and amplitude (for small oscillations).",s:"e"},
+{q:"In electrolysis of concentrated NaCl solution, the product at the anode is:",o:["A. Oxygen","B. Hydrogen","C. Sodium","D. Chlorine"],a:"D",e:"High [Cl⁻] concentration causes Cl⁻ to be discharged preferentially over OH⁻ → Cl₂ at anode.",s:"e"},
+{q:"A transformer steps voltage up. Compared to the primary coil, the secondary coil has:",o:["A. Fewer turns and higher current","B. More turns and higher current","C. More turns and lower current","D. Fewer turns and lower current"],a:"C",e:"Step-up: Vₛ > Vₚ → Nₛ > Nₚ. Power is conserved (P = VI), so higher voltage means lower current.",s:"e"},
+
+/* APPLICATION (12) */
+{q:"An object decelerates uniformly from 20 m/s to 8 m/s in 4 s. The deceleration is:",o:["A. 2 m/s²","B. 3 m/s²","C. 4 m/s²","D. 7 m/s²"],a:"B",e:"a = (v−u)/t = (8−20)/4 = −3 m/s². Deceleration = 3 m/s².",s:"a"},
+{q:"A force of 6 N acts due North and 8 N due East. The resultant magnitude is:",o:["A. 14 N","B. 10 N","C. 12 N","D. 2 N"],a:"B",e:"R = √(6²+8²) = √100 = 10 N.",s:"a"},
+{q:"A 4 kg body moving at 5 m/s collides and sticks to a stationary 6 kg body. Final speed?",o:["A. 1 m/s","B. 2 m/s","C. 3 m/s","D. 5 m/s"],a:"B",e:"Conservation of momentum: 4×5 = 10v → v = 2 m/s.",s:"a"},
+{q:"A machine has work input 800 J and useful output 600 J. Efficiency is:",o:["A. 60%","B. 70%","C. 75%","D. 80%"],a:"C",e:"Efficiency = (600/800) × 100 = 75%.",s:"a"},
+{q:"A spring (k = 400 N/m) is compressed by 0.3 m. Energy stored?",o:["A. 9 J","B. 18 J","C. 36 J","D. 120 J"],a:"B",e:"E = ½kx² = ½ × 400 × 0.09 = 18 J.",s:"a"},
+{q:"A metal block (m = 0.5 kg, c = 400 J/kg°C) gains 1000 J. Temperature rise?",o:["A. 1°C","B. 2°C","C. 5°C","D. 10°C"],a:"C",e:"ΔT = Q/(mc) = 1000/(0.5×400) = 5°C.",s:"a"},
+{q:"A wave has wavelength 0.4 m and frequency 25 Hz. Its speed is:",o:["A. 0.016 m/s","B. 10 m/s","C. 62.5 m/s","D. 24.6 m/s"],a:"B",e:"v = fλ = 25 × 0.4 = 10 m/s.",s:"a"},
+{q:"A converging lens (f = 15 cm) forms a real image of an object 45 cm away. Image distance?",o:["A. 15 cm","B. 22.5 cm","C. 30 cm","D. 45 cm"],a:"B",e:"1/f = 1/v + 1/u → 1/15 − 1/45 = 2/45 → v = 22.5 cm.",s:"a"},
+{q:"Three resistors of 3 Ω, 6 Ω, and 9 Ω are connected in series. Total resistance?",o:["A. 1.6 Ω","B. 9 Ω","C. 18 Ω","D. 2 Ω"],a:"C",e:"Series: R_total = 3 + 6 + 9 = 18 Ω.",s:"a"},
+{q:"A 100 W bulb runs for 5 hours. Electrical energy consumed in kWh?",o:["A. 0.5 kWh","B. 5 kWh","C. 500 kWh","D. 20 kWh"],a:"A",e:"E = 0.1 kW × 5 h = 0.5 kWh.",s:"a"},
+{q:"²³⁸₉₂U undergoes alpha decay. The daughter nuclide has mass number / atomic number:",o:["A. 234 / 90","B. 238 / 90","C. 234 / 92","D. 236 / 90"],a:"A",e:"Alpha decay: −4 mass, −2 atomic. 238−4 = 234, 92−2 = 90 → ²³⁴₉₀Th.",s:"a"},
+{q:"A radioactive sample (half-life 8 days) is left for 32 days. Fraction remaining?",o:["A. 1/4","B. 1/8","C. 1/16","D. 1/32"],a:"C",e:"32 days = 4 half-lives. Fraction = (½)⁴ = 1/16.",s:"a"}
+],
+
+/* ================================================================
+   CHEMISTRY — 35 questions  [12 Principles · 11 Exceptions · 12 Application]
+================================================================ */
+chemistry:[
+/* PRINCIPLES (12) */
+{q:"Which electronic configuration represents isoelectronic species Na⁺ and Ne?",o:["A. 2,8","B. 2,8,1","C. 2,8,8","D. 2,6"],a:"A",e:"Both Na⁺ and Ne have 10 electrons: 2,8.",s:"p"},
+{q:"The hybridisation of nitrogen in NH₃ is:",o:["A. sp","B. sp²","C. sp³","D. sp³d"],a:"C",e:"3 bonding pairs + 1 lone pair = 4 regions → sp³ hybridisation.",s:"p"},
+{q:"The IUPAC name of CH₃CH₂CH₂OH is:",o:["A. Ethanol","B. Propan-1-ol","C. Propan-2-ol","D. Butan-1-ol"],a:"B",e:"3-carbon chain (prop-), −OH on C1 (-1-ol): propan-1-ol.",s:"p"},
+{q:"In K₂Cr₂O₇, the oxidation number of chromium is:",o:["A. +3","B. +6","C. +7","D. +12"],a:"B",e:"2(+1) + 2x + 7(−2) = 0 → 2x = 12 → x = +6.",s:"p"},
+{q:"In the electrolysis of dilute H₂SO₄, the gas produced at the cathode is:",o:["A. Oxygen","B. Sulphur dioxide","C. Hydrogen","D. Ozone"],a:"C",e:"Cathode: 2H⁺ + 2e⁻ → H₂. Oxygen is produced at the anode.",s:"p"},
+{q:"A catalyst increases reaction rate by:",o:["A. Increasing reactant concentration","B. Providing a lower-energy alternative pathway","C. Raising the temperature","D. Shifting equilibrium position"],a:"B",e:"A catalyst lowers activation energy Eₐ via an alternative mechanism. It does not change ΔH or K.",s:"p"},
+{q:"The process of covering iron with zinc to prevent rusting is called:",o:["A. Electroplating","B. Galvanisation","C. Anodising","D. Alloying"],a:"B",e:"Galvanisation: iron/steel coated with zinc. Zinc acts as a sacrificial anode.",s:"p"},
+{q:"Which gas turns moist red litmus blue?",o:["A. CO₂","B. SO₂","C. NH₃","D. HCl"],a:"C",e:"NH₃ is alkaline → turns moist red litmus blue. CO₂ and SO₂ are acidic.",s:"p"},
+{q:"Standard enthalpy of formation (ΔHf°) of an element in its standard state is:",o:["A. +100 kJ/mol","B. Dependent on temperature","C. Zero","D. Equal to its ionisation energy"],a:"C",e:"By definition, ΔHf° of elements in their standard states = 0.",s:"p"},
+{q:"Ethene reacts with bromine water. The observation is:",o:["A. No change","B. Brown colour retained","C. Brown bromine water decolourised","D. White precipitate"],a:"C",e:"Alkene addition: C=C + Br₂ → dibromo compound (colourless). Test for unsaturation.",s:"p"},
+{q:"Stainless steel is an alloy of iron mainly with:",o:["A. Copper and tin","B. Chromium and nickel","C. Carbon and manganese","D. Aluminium and zinc"],a:"B",e:"Stainless steel: Fe + Cr (≥10.5%) + Ni. Chromium oxide layer prevents corrosion.",s:"p"},
+{q:"A white precipitate SOLUBLE in excess NaOH indicates which cation?",o:["A. Fe³⁺","B. Cu²⁺","C. Al³⁺","D. Ca²⁺"],a:"C",e:"Al(OH)₃ is amphoteric — dissolves in excess NaOH to form aluminate. Fe³⁺ → rust-brown; Cu²⁺ → blue.",s:"p"},
+
+/* EXCEPTIONS (11) */
+{q:"Which electronic configuration VIOLATES Hund's rule?",o:["A. 1s² 2s² 2p⁶","B. 1s² 2s² 2p³ (↑ ↑ ↑)","C. 1s² 2s² 2p⁴ (↑↓ ↑↓ ↑ )","D. 1s² 2s² 2p⁴ (↑↓ ↑ ↑)"],a:"C",e:"Hund's rule: fill one electron in each orbital before pairing. Option C pairs two orbitals while the third is empty — violation.",s:"e"},
+{q:"CO₂ has polar bonds yet is a non-polar molecule because:",o:["A. It has no lone pairs","B. Its linear geometry makes the bond dipoles cancel exactly","C. Carbon is non-metallic","D. The molecule is very small"],a:"B",e:"The two C=O dipoles are equal and opposite in the linear molecule → net dipole = 0.",s:"e"},
+{q:"Hydrogen bonding is strongest in which pair?",o:["A. CH₄…CH₄","B. NH₃…NH₃","C. H₂O…H₂O","D. HF…HF"],a:"D",e:"H-bond strength: F−H···F > O−H···O > N−H···N. Fluorine's extreme electronegativity wins.",s:"e"},
+{q:"At the equivalence point of a strong acid–weak base titration, the pH is:",o:["A. Equal to 7","B. Greater than 7","C. Less than 7","D. Equal to pKa"],a:"C",e:"The salt formed (e.g., NH₄Cl) hydrolyses to give an acidic solution → pH < 7.",s:"e"},
+{q:"A buffer contains CH₃COOH and CH₃COONa. Adding small amounts of HCl causes:",o:["A. A large drop in pH","B. CH₃COO⁻ to absorb the H⁺ with minimal pH change","C. No change at all","D. All acid to convert to salt"],a:"B",e:"CH₃COO⁻ + H⁺ → CH₃COOH. This consumes the added acid — buffer action.",s:"e"},
+{q:"For N₂O₄(g) ⇌ 2NO₂(g) (endothermic), which change shifts equilibrium to the RIGHT?",o:["A. Increasing pressure","B. Decreasing temperature","C. Increasing temperature","D. Adding a catalyst"],a:"C",e:"Endothermic: increasing temperature favours the forward (heat-absorbing) direction.",s:"e"},
+{q:"The equilibrium constant K for a reverse reaction equals:",o:["A. −K of the forward reaction","B. 1/K of the forward reaction","C. K² of the forward reaction","D. K of the forward reaction"],a:"B",e:"Reversing the equation: K_reverse = 1/K_forward.",s:"e"},
+{q:"In a galvanic (voltaic) cell, oxidation occurs at the:",o:["A. Cathode (positive electrode)","B. Anode (negative electrode)","C. Electrolyte","D. Salt bridge"],a:"B",e:"Galvanic anode: spontaneous oxidation, negative terminal. Opposite to an electrolytic cell.",s:"e"},
+{q:"Which gas deviates MOST from ideal behaviour at high pressure?",o:["A. He","B. H₂","C. CO₂","D. Ne"],a:"C",e:"CO₂ has the largest molecules and strongest intermolecular forces → greatest deviation from ideal gas behaviour.",s:"e"},
+{q:"Fehling's solution is reduced (brick-red precipitate) by:",o:["A. Ketones only","B. Aldehydes only","C. Both aldehydes and ketones","D. Carboxylic acids"],a:"B",e:"Aldehydes are oxidised by Fehling's (Cu²⁺ → Cu₂O). Ketones cannot be oxidised — negative result.",s:"e"},
+{q:"Electronegativity across Period 3 (Na → Cl) INCREASES because:",o:["A. Atomic radius increases","B. Shielding increases","C. Nuclear charge increases and radius decreases","D. Number of shells increases"],a:"C",e:"Across a period: more protons pull electrons in closer → smaller radius → higher electronegativity.",s:"e"},
+
+/* APPLICATION (12) */
+{q:"An element has atomic number 17 and mass number 35. Its number of neutrons is:",o:["A. 17","B. 18","C. 35","D. 52"],a:"B",e:"Neutrons = mass number − atomic number = 35 − 17 = 18.",s:"a"},
+{q:"What is the pH of 0.001 M HCl?",o:["A. 1","B. 2","C. 3","D. 4"],a:"C",e:"HCl fully dissociates: [H⁺] = 0.001 = 10⁻³. pH = −log(10⁻³) = 3.",s:"a"},
+{q:"How many moles of H₂O are formed when 3 mol H₂ reacts completely with O₂? (2H₂ + O₂ → 2H₂O)",o:["A. 1.5 mol","B. 2 mol","C. 3 mol","D. 6 mol"],a:"C",e:"2:2 ratio (H₂ to H₂O). 3 mol H₂ → 3 mol H₂O.",s:"a"},
+{q:"Molar mass of Ca₃(PO₄)₂ is: (Ca=40, P=31, O=16)",o:["A. 278 g/mol","B. 310 g/mol","C. 262 g/mol","D. 326 g/mol"],a:"B",e:"3(40) + 2(31) + 8(16) = 120 + 62 + 128 = 310 g/mol.",s:"a"},
+{q:"The rate of effusion of helium (M=4) compared to oxygen (M=32) is:",o:["A. 2× faster","B. 4× faster","C. 2√2 × faster","D. The same"],a:"C",e:"Graham's law: rate ∝ 1/√M. Ratio = √32/√4 = √8 = 2√2 ≈ 2.83× faster.",s:"a"},
+{q:"²³⁸₉₂U emits an alpha particle. What is the new atomic number?",o:["A. 88","B. 90","C. 92","D. 94"],a:"B",e:"Alpha decay removes 2 protons: 92 − 2 = 90 (Thorium).",s:"a"},
+{q:"A radioactive sample has a half-life of 8 days. After 32 days, the fraction remaining is:",o:["A. 1/16","B. 1/8","C. 1/32","D. 1/4"],a:"A",e:"32/8 = 4 half-lives. (½)⁴ = 1/16.",s:"a"},
+{q:"The reaction CH₃COOH + CH₃OH ⇌ CH₃COOCH₃ + H₂O is:",o:["A. Hydrolysis","B. Esterification","C. Saponification","D. Polymerisation"],a:"B",e:"Acid + alcohol → ester + water: Fischer esterification.",s:"a"},
+{q:"25 cm³ of 0.1 mol/dm³ NaOH is exactly neutralised by 0.1 mol/dm³ HCl. Volume of HCl required?",o:["A. 10 cm³","B. 20 cm³","C. 25 cm³","D. 50 cm³"],a:"C",e:"Moles NaOH = 0.025 × 0.1 = 0.0025 mol. Since 1:1 ratio, 0.0025 mol HCl needed. Vol = 0.0025/0.1 = 0.025 dm³ = 25 cm³.",s:"a"},
+{q:"A solution has [OH⁻] = 10⁻² mol/dm³ at 25°C. Its pH is:",o:["A. 2","B. 10","C. 12","D. 14"],a:"C",e:"pOH = −log(10⁻²) = 2. pH = 14 − pOH = 12.",s:"a"},
+{q:"0.2 mol of an ideal gas occupies 5 dm³ at 300 K. Pressure? (R = 0.082 dm³·atm·mol⁻¹·K⁻¹)",o:["A. 0.492 atm","B. 0.984 atm","C. 1.23 atm","D. 2.46 atm"],a:"B",e:"PV = nRT → P = (0.2 × 0.082 × 300)/5 = 4.92/5 = 0.984 atm.",s:"a"},
+{q:"What volume of CO₂ at STP is produced when 10 g of CaCO₃ decomposes? (CaCO₃ → CaO + CO₂, M=100)",o:["A. 1.12 dm³","B. 2.24 dm³","C. 4.48 dm³","D. 22.4 dm³"],a:"B",e:"Moles CaCO₃ = 10/100 = 0.1 mol → 0.1 mol CO₂. Vol at STP = 0.1 × 22.4 = 2.24 dm³.",s:"a"}
+]
+
+};
+
+/* ================================================================
+   STATE
+================================================================ */
+var sub = "math";
+var ST = {correct:0, wrong:0, skipped:0, answered:0};
+var UA = {};   /* user answers by key = sub+idx */
+var TI = {};   /* per-question interval handles */
+var TS = {};   /* per-question seconds remaining */
+var globalDone = false;
+
+/* ================================================================
+   STATS
+================================================================ */
+function updStats(){
+    var sc = ST.correct * PTS_CORRECT + ST.wrong * PTS_WRONG;
+    var el = document.getElementById("sc-val");
+    el.textContent = sc.toFixed(2);
+    el.className = "sc-score-val " + (sc > 0 ? "pos" : sc < 0 ? "neg" : "zero");
+    document.getElementById("sc-co").textContent = ST.correct;
+    document.getElementById("sc-wr").textContent = ST.wrong;
+    document.getElementById("sc-sk").textContent = ST.skipped;
+    document.getElementById("sc-an").textContent = ST.answered;
+}
+
+/* ================================================================
+   GLOBAL TIMER
+================================================================ */
+function startGlobalTimer(){
+    var secs = GLOBAL_SECS;
+    var iv = setInterval(function(){
+        secs--;
+        var gd = document.getElementById("gd"), gt = document.getElementById("gt");
+        var h = Math.floor(secs/3600), m = Math.floor((secs%3600)/60), s = secs%60;
+        gt.textContent = h+":"+(m<10?"0":"")+m+":"+(s<10?"0":"")+s;
+        gt.className = "gtimer-txt"; gd.className = "gtimer-dot";
+        if(secs <= 300){gt.classList.add("warn"); gd.classList.add("warn");}
+        if(secs <= 60) {gt.classList.add("dang"); gd.classList.add("dang");}
+        if(secs <= 0){
+            clearInterval(iv); globalDone = true;
+            Object.keys(TI).forEach(function(k){if(TI[k]) clearInterval(TI[k]);});
+            var sc = ST.correct * PTS_CORRECT + ST.wrong * PTS_WRONG;
+            var ts = document.getElementById("tu-score");
+            ts.textContent = sc.toFixed(2);
+            ts.className = "timeup-score " + (sc >= 0 ? "pos" : "neg");
+            document.getElementById("tu-co").textContent = ST.correct;
+            document.getElementById("tu-wr").textContent = ST.wrong;
+            document.getElementById("tu-sk").textContent = ST.skipped;
+            document.getElementById("tu").classList.add("show");
+        }
+    }, 1000);
+}
+
+/* ================================================================
+   PER-QUESTION RING TIMER
+================================================================ */
+function startQTimers(){
+    var qs = D[sub];
+    for(var i = 0; i < qs.length; i++){
+        (function(idx){
+            var k = sub + idx;
+            TS[k] = TSECS_Q;
+            TI[k] = setInterval(function(){
+                if(globalDone){clearInterval(TI[k]); return;}
+                TS[k]--;
+                if(TS[k] <= 0){clearInterval(TI[k]); TI[k] = null; tUI(idx, 0); autoShow(idx); return;}
+                tUI(idx, TS[k]);
+            }, 1000);
+        })(i);
+    }
+}
+
+function tUI(i, s){
+    var r = document.getElementById("rn"+i), t = document.getElementById("tt"+i);
+    if(!r || !t) return;
+    r.querySelector(".fg").style.strokeDashoffset = CIRC2 * (1 - s/TSECS_Q);
+    r.classList.remove("warn","dang"); t.classList.remove("warn","dang");
+    if(s <= 30){r.classList.add("dang"); t.classList.add("dang");}
+    else if(s <= 60){r.classList.add("warn"); t.classList.add("warn");}
+    var m = Math.floor(s/60), sc = s%60;
+    t.textContent = m + ":" + (sc < 10 ? "0" : "") + sc;
+}
+
+function stopQTimer(i){var k = sub+i; if(TI[k]){clearInterval(TI[k]); TI[k] = null;}}
+
+function clearQTimers(){
+    Object.keys(TI).forEach(function(k){if(TI[k]) clearInterval(TI[k]);});
+    TI = {}; TS = {};
+}
+
+/* ================================================================
+   RENDER
+================================================================ */
+function render(){
+    var c = document.getElementById("qc"), qs = D[sub], h = "";
+    var lm = {math:"Math", english:"English", physics:"Physics", chemistry:"Chem"};
+    var tCls = {math:"tM", english:"tE", physics:"tP", chemistry:"tC"};
+    var lb = lm[sub], tc = tCls[sub];
+    for(var i = 0; i < qs.length; i++){
+        var q = qs[i];
+        var sc = q.s === "p" ? "sp" : q.s === "e" ? "se" : "sa";
+        var sn = q.s === "p" ? "Principles" : q.s === "e" ? "Exceptions" : "Application";
+        var oh = "";
+        for(var j = 0; j < q.o.length; j++){
+            oh += '<div class="opt" data-a="'+q.o[j].charAt(0)+'">'+q.o[j]+'</div>';
+        }
+        h += '<div class="qcard" data-i="'+i+'">'
+           + '<div class="qnum">Q'+(i+1)+' of '+qs.length
+           + ' <span class="sbadge '+sc+'">'+sn+'</span>'
+           + ' <span class="stag '+tc+'">'+lb+'</span></div>'
+           + '<div class="qtxt">'+q.q+'</div>'
+           + '<div class="trow">'
+           + '<svg class="tring" id="rn'+i+'" viewBox="0 0 38 38">'
+           + '<circle class="bg" cx="19" cy="19" r="14"/>'
+           + '<circle class="fg" cx="19" cy="19" r="14" style="stroke-dasharray:'+CIRC2+';stroke-dashoffset:0"/>'
+           + '</svg>'
+           + '<span class="ttxt" id="tt'+i+'">2:00</span><span class="tlbl"> left</span></div>'
+           + '<div class="opts">'+oh+'</div>'
+           + '<button class="abtn" disabled>Check Answer</button>'
+           + '<div class="exp" id="ex'+i+'"></div>'
+           + '</div>';
+    }
+    c.innerHTML = h;
+    listen();
+    startQTimers();
+}
+
+function autoShow(i){
+    var card = document.querySelector('.qcard[data-i="'+i+'"]');
+    if(!card || card.querySelector(".exp.show")) return;
+    var q = D[sub][i], k = sub + i;
+    card.querySelectorAll(".opt").forEach(function(o){
+        if(o.dataset.a === q.a) o.classList.add("ok");
+        o.style.pointerEvents = "none";
+    });
+    var ex = card.querySelector(".exp");
+    ex.innerHTML = '<span class="exp-mark nt">⏱ Time — no mark</span><br><b>Correct: '+q.a+'</b><br>'+(q.e||'');
+    ex.classList.add("show");
+    card.querySelector(".abtn").disabled = true;
+    if(!UA[k]){UA[k] = "AUTO"; ST.skipped++; ST.answered++; updStats();}
+}
+
+function listen(){
+    document.querySelectorAll(".opt").forEach(function(o){
+        o.addEventListener("click", function(){
+            var card = this.closest(".qcard"), k = sub + card.dataset.i;
+            if(this.style.pointerEvents === "none" || globalDone) return;
+            card.querySelectorAll(".opt").forEach(function(x){x.classList.remove("sel");});
+            this.classList.add("sel");
+            UA[k] = this.dataset.a;
+            card.querySelector(".abtn").disabled = false;
+        });
+    });
+    document.querySelectorAll(".abtn").forEach(function(btn){
+        btn.addEventListener("click", function(){
+            if(globalDone) return;
+            var card = this.closest(".qcard"), idx = parseInt(card.dataset.i, 10);
+            var k = sub + idx, q = D[sub][idx], chosen = UA[k];
+            var ok = chosen === q.a;
+            stopQTimer(idx);
+            card.querySelectorAll(".opt").forEach(function(x){
+                if(x.dataset.a === q.a) x.classList.add("ok");
+                else if(x.dataset.a === chosen) x.classList.add("no");
+                x.style.pointerEvents = "none";
+            });
+            var pts = ok ? PTS_CORRECT : PTS_WRONG;
+            var ptsLabel = ok ? "+"+pts.toFixed(2) : pts.toFixed(2);
+            var ptsCls = ok ? "pos" : "neg";
+            var ex = card.querySelector(".exp");
+            ex.innerHTML = '<span class="exp-mark '+ptsCls+'">'+(ok?"✓ ":"✗ ")+ptsLabel+' pts</span><br>'
+                + (ok ? "" : "<b>Correct: "+q.a+"</b><br>") + (q.e||'');
+            ex.classList.add("show");
+            this.disabled = true;
+            ST.answered++;
+            if(ok) ST.correct++; else ST.wrong++;
+            updStats();
+        });
+    });
+}
+
+/* ================================================================
+   TABS
+================================================================ */
+document.querySelectorAll(".tab").forEach(function(tab){
+    tab.addEventListener("click", function(){
+        document.querySelectorAll(".tab").forEach(function(t){t.classList.remove("active");});
+        this.classList.add("active");
+        clearQTimers();
+        sub = this.dataset.s;
+        render();
+    });
+});
+
+/* ================================================================
+   INIT
+================================================================ */
+updStats();
+render();
+startGlobalTimer();
+</script>
+</body>
+</html>

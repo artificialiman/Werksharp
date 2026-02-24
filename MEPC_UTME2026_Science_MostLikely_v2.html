@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>MEPC: UTME 2026 Most Likely — Science v2</title>
+    <style>
+        :root{--bg:#F2F2F7;--card:#FFF;--text:#000;--sec:rgba(60,60,67,0.85);--ter:rgba(60,60,67,0.55);--blue:#007AFF;--green:#34C759;--red:#FF3B30;--orange:#FF9500;--purple:#AF52DE;--teal:#30B0C7;--sep:rgba(198,198,200,0.5);--hov:#F8F8FA;--r:12px;--sh:0 1px 3px rgba(0,0,0,0.08)}
+        @media(prefers-color-scheme:dark){:root{--bg:#000;--card:#1C1C1E;--text:#FFF;--sec:rgba(235,235,245,0.85);--ter:rgba(235,235,245,0.55);--sep:rgba(56,56,58,0.5);--hov:#2C2C2E}}
+        *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+        body{font-family:-apple-system,BlinkMacSystemFont,system-ui,sans-serif;font-size:17px;color:var(--text);background:var(--bg);line-height:1.47;padding-bottom:env(safe-area-inset-bottom);-webkit-font-smoothing:antialiased}
+        .hdr{background:var(--card);border-bottom:.5px solid var(--sep);padding:calc(env(safe-area-inset-top)+12px) 16px 12px;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+        .hdr-row{display:flex;align-items:center;justify-content:space-between}
+        .ttl{font-size:22px;font-weight:700}
+        .sub{font-size:13px;color:var(--ter);margin-top:2px}
+        .gtimer{display:flex;align-items:center;gap:6px;padding:7px 13px;border-radius:20px;background:var(--hov);border:.5px solid var(--sep)}
+        .gtimer-txt{font-size:15px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:.5px;color:var(--text);transition:color .3s}
+        .gtimer-txt.warn{color:var(--orange)}.gtimer-txt.dang{color:var(--red)}
+        .gtimer-dot{width:7px;height:7px;border-radius:50%;background:var(--green);flex-shrink:0;transition:background .3s}
+        .gtimer-dot.warn{background:var(--orange)}.gtimer-dot.dang{background:var(--red);animation:blink 1s infinite}
+        @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+        .scorecard{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px 16px 4px}
+        .sc-main{grid-column:1/-1;background:var(--card);border-radius:var(--r);padding:14px 16px;box-shadow:var(--sh);display:flex;align-items:center;justify-content:space-between}
+        .sc-score-lbl{font-size:13px;color:var(--ter)}
+        .sc-score-val{font-size:32px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-1px}
+        .sc-score-val.pos{color:var(--green)}.sc-score-val.neg{color:var(--red)}.sc-score-val.zero{color:var(--text)}
+        .sc-out{font-size:13px;color:var(--ter);text-align:right}
+        .sc-out span{display:block;font-size:17px;font-weight:600;color:var(--sec)}
+        .sc-mini{background:var(--card);border-radius:var(--r);padding:11px 13px;box-shadow:var(--sh)}
+        .sc-mini-lbl{font-size:11px;color:var(--ter);letter-spacing:.2px}
+        .sc-mini-val{font-size:18px;font-weight:700;margin-top:3px}
+        .sc-mini-val.correct{color:var(--green)}.sc-mini-val.wrong{color:var(--red)}.sc-mini-val.skipped{color:var(--orange)}.sc-mini-val.answered{color:var(--blue)}
+        .sc-rule{font-size:11px;color:var(--ter);padding:4px 16px 10px;text-align:center}
+        .tabs{display:flex;gap:12px;padding:0 16px 14px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+        .tabs::-webkit-scrollbar{display:none}
+        .tab{padding:8px 16px;border-radius:20px;background:var(--card);color:var(--sec);border:none;font-size:15px;font-weight:500;cursor:pointer;white-space:nowrap;transition:all .2s;box-shadow:var(--sh)}
+        .tab.active{background:var(--blue);color:#fff}
+        .qcard{background:var(--card);border-radius:var(--r);margin:12px 16px;padding:20px;box-shadow:var(--sh)}
+        .qnum{font-size:13px;font-weight:600;color:var(--blue);margin-bottom:8px}
+        .sbadge{display:inline-block;padding:4px 10px;border-radius:6px;font-size:12px;font-weight:600;margin-left:8px}
+        .sp{background:rgba(0,122,255,.15);color:var(--blue)}
+        .se{background:rgba(255,149,0,.15);color:var(--orange)}
+        .sa{background:rgba(175,82,222,.15);color:var(--purple)}
+        .stag{display:inline-block;padding:3px 8px;border-radius:5px;font-size:11px;font-weight:600;margin-left:6px;vertical-align:middle}
+        .tM{background:rgba(0,122,255,.15);color:var(--blue)}
+        .tE{background:rgba(48,176,199,.15);color:var(--teal)}
+        .tC{background:rgba(52,199,89,.15);color:var(--green)}
+        .tP{background:rgba(175,82,222,.15);color:var(--purple)}
+        .tB{background:rgba(255,149,0,.15);color:var(--orange)}
+        .qtxt{font-size:17px;margin-bottom:16px;line-height:1.5}
+        .trow{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+        .tring{width:38px;height:38px;flex-shrink:0}
+        .tring .bg{fill:none;stroke:var(--sep);stroke-width:4}
+        .tring .fg{fill:none;stroke:var(--green);stroke-width:4;stroke-linecap:round;transition:stroke .4s,stroke-dashoffset .25s linear;transform:rotate(-90deg);transform-origin:center}
+        .ttxt{font-size:14px;font-weight:600;color:var(--green);transition:color .4s;min-width:42px}
+        .tlbl{font-size:13px;color:var(--ter)}
+        .tring.warn .fg{stroke:var(--orange)}.tring.dang .fg{stroke:var(--red)}
+        .ttxt.warn{color:var(--orange)}.ttxt.dang{color:var(--red)}
+        .opts{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+        .opt{padding:12px;border-radius:8px;background:var(--hov);cursor:pointer;transition:all .2s;font-size:15px;border:2px solid transparent;user-select:none;-webkit-user-select:none}
+        .opt:active{transform:scale(.98)}
+        .opt.sel{background:rgba(0,122,255,.1);border-color:var(--blue)}
+        .opt.ok{background:rgba(52,199,89,.1);border-color:var(--green)}
+        .opt.no{background:rgba(255,59,48,.1);border-color:var(--red)}
+        .abtn{width:100%;padding:12px;border-radius:10px;border:none;background:var(--blue);color:#fff;font-size:17px;font-weight:500;cursor:pointer;transition:opacity .2s}
+        .abtn:active{opacity:.8}.abtn:disabled{opacity:.5;cursor:not-allowed}
+        .exp{margin-top:16px;padding:12px;background:var(--hov);border-radius:8px;font-size:15px;color:var(--sec);display:none}
+        .exp.show{display:block;animation:si .3s ease}
+        .exp-mark{display:inline-block;padding:2px 8px;border-radius:5px;font-size:12px;font-weight:700;margin-bottom:6px}
+        .exp-mark.pos{background:rgba(52,199,89,.15);color:var(--green)}
+        .exp-mark.neg{background:rgba(255,59,48,.15);color:var(--red)}
+        .exp-mark.nt{background:rgba(255,149,0,.15);color:var(--orange)}
+        @keyframes si{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+        .timeup{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:300;align-items:center;justify-content:center;padding:24px}
+        .timeup.show{display:flex}
+        .timeup-box{background:var(--card);border-radius:20px;padding:28px 24px;max-width:340px;width:100%;text-align:center}
+        .timeup-icon{font-size:48px;margin-bottom:12px}
+        .timeup-ttl{font-size:22px;font-weight:700;margin-bottom:8px}
+        .timeup-score{font-size:40px;font-weight:700;margin:16px 0 4px;font-variant-numeric:tabular-nums}
+        .timeup-score.pos{color:var(--green)}.timeup-score.neg{color:var(--red)}
+        .timeup-sub{font-size:15px;color:var(--ter);margin-bottom:20px}
+        .timeup-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:20px}
+        .tu-stat{background:var(--hov);border-radius:10px;padding:10px 6px}
+        .tu-stat-v{font-size:20px;font-weight:700}
+        .tu-stat-v.c{color:var(--green)}.tu-stat-v.w{color:var(--red)}.tu-stat-v.s{color:var(--orange)}
+        .tu-stat-l{font-size:11px;color:var(--ter);margin-top:2px}
+        .timeup-btn{width:100%;padding:14px;border-radius:12px;border:none;background:var(--blue);color:#fff;font-size:17px;font-weight:600;cursor:pointer}
+    </style>
+</head>
+<body>
+
+<div class="hdr">
+    <div class="hdr-row">
+        <div>
+            <div class="ttl">MEPC: UTME 2026 Most Likely</div>
+            <div class="sub">Science Cluster · v2 · 35 Qs Per Subject</div>
+        </div>
+        <div class="gtimer">
+            <div class="gtimer-dot" id="gd"></div>
+            <div class="gtimer-txt" id="gt">1:00:00</div>
+        </div>
+    </div>
+</div>
+
+<div class="scorecard">
+    <div class="sc-main">
+        <div>
+            <div class="sc-score-lbl">Score</div>
+            <div class="sc-score-val zero" id="sc-val">0.00</div>
+        </div>
+        <div class="sc-out">
+            <div>out of</div>
+            <span>400</span>
+        </div>
+    </div>
+    <div class="sc-mini"><div class="sc-mini-lbl">✓ Correct</div><div class="sc-mini-val correct" id="sc-co">0</div></div>
+    <div class="sc-mini"><div class="sc-mini-lbl">✗ Wrong</div><div class="sc-mini-val wrong" id="sc-wr">0</div></div>
+    <div class="sc-mini"><div class="sc-mini-lbl">— Skipped</div><div class="sc-mini-val skipped" id="sc-sk">0</div></div>
+    <div class="sc-mini"><div class="sc-mini-lbl">Answered</div><div class="sc-mini-val answered" id="sc-an">0</div></div>
+</div>
+<div class="sc-rule">+2.86 correct · −0.50 wrong · 0 skipped</div>
+
+<div class="tabs">
+    <button class="tab active" data-s="math">Math</button>
+    <button class="tab" data-s="english">English</button>
+    <button class="tab" data-s="chemistry">Chemistry</button>
+    <button class="tab" data-s="physics">Physics</button>
+    <button class="tab" data-s="biology">Biology</button>
+</div>
+
+<div id="qc"></div>
+
+<div class="timeup" id="tu">
+    <div class="timeup-box">
+        <div class="timeup-icon">⏱</div>
+        <div class="timeup-ttl">Time's Up!</div>
+        <div id="tu-score" class="timeup-score pos">0.00</div>
+        <div class="timeup-sub">out of 400</div>
+        <div class="timeup-stats">
+            <div class="tu-stat"><div class="tu-stat-v c" id="tu-co">0</div><div class="tu-stat-l">Correct</div></div>
+            <div class="tu-stat"><div class="tu-stat-v w" id="tu-wr">0</div><div class="tu-stat-l">Wrong</div></div>
+            <div class="tu-stat"><div class="tu-stat-v s" id="tu-sk">0</div><div class="tu-stat-l">Skipped</div></div>
+        </div>
+        <button class="timeup-btn" onclick="document.getElementById('tu').classList.remove('show')">Review Answers</button>
+    </div>
+</div>
+
+<script>
+/* ============================================================
+   SCORING: 35 × 4 subjects tested = 140 Qs; max 400
+   +2.857 correct | −0.50 wrong | 0 skipped
+============================================================ */
+var PTS_CORRECT = 400/140;
+var PTS_WRONG   = -0.5;
+var TSECS_Q     = 120;   /* 2 min per question */
+var GLOBAL_SECS = 3600;  /* 1 hr global */
+var CIRC2       = 2*Math.PI*14;
+
+var D = {
+
+/* ================================================================
+   MATHEMATICS — 35 questions
+================================================================ */
+math:[
+/* NUMBER & NUMERATION */
+{q:"Simplify: log₃ 81 − log₃ 9.",o:["A. 1","B. 2","C. 3","D. 4"],a:"B",e:"log₃ 81 = 4; log₃ 9 = 2. 4 − 2 = 2.",s:"p"},
+{q:"Which of these is NOT a rational number?",o:["A. 0.333…","B. √9","C. √2","D. ²²⁄₇"],a:"C",e:"√2 ≈ 1.41421… is non-terminating, non-repeating — irrational. √9 = 3 (rational). ²²⁄₇ is a fraction (rational).",s:"e"},
+{q:"Convert 213 base 4 to base 10.",o:["A. 33","B. 39","C. 43","D. 47"],a:"B",e:"2(16) + 1(4) + 3(1) = 32 + 4 + 3 = 39.",s:"p"},
+{q:"Express 56 as a product of prime factors.",o:["A. 2 × 4 × 7","B. 2² × 14","C. 2³ × 7","D. 4 × 14"],a:"C",e:"56 = 2 × 28 = 2 × 2 × 14 = 2 × 2 × 2 × 7 = 2³ × 7.",s:"p"},
+{q:"If log₁₀ 2 = 0.3010, find log₁₀ 8.",o:["A. 0.6020","B. 0.9030","C. 1.2040","D. 2.4082"],a:"B",e:"log 8 = log 2³ = 3 × 0.3010 = 0.9030.",s:"p"},
+/* FRACTIONS / SURDS */
+{q:"Simplify: (√6 + √2)(√6 − √2).",o:["A. 2","B. 4","C. 8","D. 4√3"],a:"B",e:"Difference of squares: 6 − 2 = 4.",s:"p"},
+{q:"If x = 2 − √3, find x + 1/x.",o:["A. 4","B. 2√3","C. 4 − 2√3","D. 4 + 2√3"],a:"A",e:"1/x = 1/(2−√3) × (2+√3)/(2+√3) = (2+√3)/(4−3) = 2+√3. So x + 1/x = (2−√3) + (2+√3) = 4.",s:"e"},
+/* ALGEBRA */
+{q:"The expression x² − 6x + k is a perfect square when k =",o:["A. 3","B. 6","C. 9","D. 12"],a:"C",e:"Complete the square: (x−3)² = x²−6x+9. So k = 9.",s:"p"},
+{q:"Find the range of values of x satisfying: |2x − 3| < 5.",o:["A. −1 < x < 4","B. x < −1 or x > 4","C. −4 < x < 1","D. x > 4"],a:"A",e:"|2x−3| < 5 → −5 < 2x−3 < 5 → −2 < 2x < 8 → −1 < x < 4.",s:"e"},
+{q:"If α and β are roots of x² − 5x + 6 = 0, find α² + β².",o:["A. 12","B. 13","C. 25","D. 11"],a:"B",e:"α+β = 5, αβ = 6. α²+β² = (α+β)²−2αβ = 25−12 = 13.",s:"e"},
+{q:"Solve simultaneously: 2x + y = 7 and x − y = 2.",o:["A. x=2, y=3","B. x=3, y=1","C. x=4, y=−1","D. x=1, y=5"],a:"B",e:"Add equations: 3x = 9 → x = 3. y = x−2 = 1.",s:"p"},
+/* SEQUENCES & SERIES */
+{q:"The 5th term of a GP with first term 3 and common ratio −2 is:",o:["A. −48","B. 48","C. −96","D. 96"],a:"B",e:"T₅ = 3×(−2)⁴ = 3×16 = 48. (Negative ratio, even power → positive.)",s:"e"},
+{q:"How many terms of the AP 3, 7, 11, … give a sum of 210?",o:["A. 8","B. 9","C. 10","D. 11"],a:"C",e:"Sₙ = n/2(2a+(n−1)d) = n/2(6+4(n−1)) = n(2n+1). Set n(2n+1)=210: 2n²+n−210=0 → n=10.",s:"e"},
+/* COORDINATE GEOMETRY */
+{q:"A line passes through (1,3) and (4,−3). Find its gradient.",o:["A. −2","B. 2","C. −½","D. ½"],a:"A",e:"m = (−3−3)/(4−1) = −6/3 = −2.",s:"p"},
+{q:"The locus of a point equidistant from (2,0) and (8,0) is:",o:["A. x = 4","B. x = 5","C. y = 5","D. y = 4"],a:"B",e:"Perpendicular bisector of the segment: midpoint x = (2+8)/2 = 5. Locus is x = 5.",s:"e"},
+{q:"Find the equation of a circle with centre (3,−2) and radius 5.",o:["A. (x−3)²+(y+2)²=25","B. (x+3)²+(y−2)²=25","C. (x−3)²+(y−2)²=5","D. (x−3)²+(y+2)²=5"],a:"A",e:"Standard form: (x−h)²+(y−k)²=r². Centre (3,−2), r=5 → (x−3)²+(y+2)²=25.",s:"p"},
+/* TRIGONOMETRY */
+{q:"Find the exact value of tan 135°.",o:["A. 1","B. −1","C. √2","D. −√2"],a:"B",e:"135° is in Q2: reference angle 45°. tan 45° = 1; Q2 tangent is negative → −1.",s:"e"},
+{q:"In a triangle, a = 7, b = 9, C = 60°. Find c.",o:["A. √67","B. √109","C. √193","D. √130"],a:"A",e:"Cosine rule: c² = 49+81−2(7)(9)cos60° = 130−63 = 67. c = √67.",s:"a"},
+{q:"Which of these is equivalent to sin(90° − θ)?",o:["A. sin θ","B. cos θ","C. −cos θ","D. −sin θ"],a:"B",e:"Co-function identity: sin(90°−θ) = cos θ.",s:"p"},
+/* STATISTICS */
+{q:"Find the median of: 3, 7, 2, 9, 4, 6, 1.",o:["A. 3","B. 4","C. 5","D. 6"],a:"B",e:"Arrange: 1,2,3,4,6,7,9. Middle (4th) value = 4.",s:"p"},
+{q:"A data set has mean 10. If each value is multiplied by 3, the new mean is:",o:["A. 10","B. 13","C. 30","D. 100"],a:"C",e:"Multiplying all values by k multiplies the mean by k. New mean = 3×10 = 30.",s:"e"},
+{q:"The interquartile range is defined as:",o:["A. Q₃ − Q₁","B. Q₂ − Q₁","C. Q₃ − Q₂","D. Max − Min"],a:"A",e:"IQR = Upper quartile (Q₃) − Lower quartile (Q₁); measures middle 50% spread.",s:"p"},
+/* PROBABILITY */
+{q:"Three fair coins are tossed. P(exactly 2 heads)?",o:["A. 1/8","B. 3/8","C. 1/4","D. 1/2"],a:"B",e:"Total outcomes = 2³ = 8. Favourable (HHT, HTH, THH) = 3. P = 3/8.",s:"p"},
+{q:"If P(A) = 0.6 and P(B) = 0.5 and A, B are independent, find P(A ∩ B).",o:["A. 0.1","B. 0.3","C. 0.8","D. 0.11"],a:"B",e:"Independent: P(A∩B) = P(A)×P(B) = 0.6×0.5 = 0.3.",s:"p"},
+/* PERMUTATION & COMBINATION */
+{q:"In how many ways can the letters of the word LEVEL be arranged?",o:["A. 120","B. 60","C. 30","D. 15"],a:"C",e:"5 letters with L repeated twice and E repeated twice: 5!/(2!×2!) = 120/4 = 30.",s:"e"},
+{q:"A class of 10 students selects a president and secretary (different people). How many ways?",o:["A. 45","B. 90","C. 100","D. 10"],a:"B",e:"Ordered selection: ¹⁰P₂ = 10×9 = 90.",s:"p"},
+/* GEOMETRY */
+{q:"Find angle x in a regular hexagon (interior angle).",o:["A. 90°","B. 108°","C. 120°","D. 135°"],a:"C",e:"Interior angle = (n−2)×180°/n = (6−2)×180°/6 = 720°/6 = 120°.",s:"p"},
+{q:"A tangent from external point P touches a circle of radius 5 cm at T. If PO = 13 cm (O = centre), find PT.",o:["A. 8 cm","B. 10 cm","C. 12 cm","D. 18 cm"],a:"C",e:"Tangent ⊥ radius: PT² = PO²−r² = 169−25 = 144. PT = 12 cm.",s:"p"},
+{q:"Two parallel lines are cut by a transversal. Alternate interior angles are:",o:["A. Supplementary","B. Complementary","C. Equal","D. Reflex"],a:"C",e:"Alternate interior (Z-angles) are equal when lines are parallel.",s:"p"},
+/* MENSURATION */
+{q:"A sector has radius 9 cm and central angle 80°. Find its area. (π=22/7)",o:["A. 56.57 cm²","B. 56 cm²","C. 113 cm²","D. 226 cm²"],a:"A",e:"A = θ/360 × πr² = 80/360 × (22/7) × 81 = (2/9) × 254.57 ≈ 56.57 cm².",s:"a"},
+{q:"The volume of a sphere with diameter 6 cm is: (π=22/7)",o:["A. 36π cm³","B. 113.14 cm³","C. 72 cm³","D. 226.28 cm³"],a:"B",e:"r=3. V = (4/3)πr³ = (4/3)×(22/7)×27 = 4×22×27/21 = 2376/21 ≈ 113.14 cm³.",s:"p"},
+/* FUNCTIONS & CALCULUS */
+{q:"Differentiate y = 3x⁴ − 2x³ + x − 5.",o:["A. 12x³ − 6x² + 1","B. 12x³ − 6x² − 5","C. 12x⁴ − 6x³ + 1","D. 3x³ − 2x²"],a:"A",e:"dy/dx = 4(3x³) − 3(2x²) + 1 − 0 = 12x³ − 6x² + 1.",s:"p"},
+{q:"∫(4x³ − 2x + 3)dx =",o:["A. x⁴ − x² + 3x + C","B. 12x² − 2 + C","C. x⁴ + x² + 3x + C","D. 4x⁴ − 2x² + 3x + C"],a:"A",e:"∫4x³dx = x⁴; ∫−2x dx = −x²; ∫3 dx = 3x. Sum + C.",s:"p"},
+{q:"A curve y = x² − 3x has a turning point at:",o:["A. x = 0","B. x = 1.5","C. x = 3","D. x = −1.5"],a:"B",e:"dy/dx = 2x−3 = 0 → x = 1.5. This is the vertex (minimum).",s:"e"}
+],
+
+/* ================================================================
+   ENGLISH — 35 questions
+================================================================ */
+english:[
+/* LEXIS / VOCABULARY */
+{q:"Choose the word MOST NEARLY OPPOSITE in meaning to 'mendacious'.",o:["A. Truthful","B. Deceitful","C. Boastful","D. Cowardly"],a:"A",e:"Mendacious = not telling the truth; lying. Its antonym is truthful/honest.",s:"p"},
+{q:"'The professor gave an abstruse lecture.' Abstruse means:",o:["A. Brief","B. Difficult to understand","C. Motivating","D. Well-structured"],a:"B",e:"Abstruse = obscure and difficult to understand; highly technical or theoretical.",s:"p"},
+{q:"'His verbose speech bored the audience.' Verbose means:",o:["A. Inspiring","B. Brief","C. Using too many words","D. Entertaining"],a:"C",e:"Verbose = using more words than necessary; long-winded. Opposite: laconic, concise.",s:"p"},
+{q:"Choose the word CLOSEST in meaning to 'obsequious'.",o:["A. Outspoken","B. Servilely complimentary","C. Intelligent","D. Independent"],a:"B",e:"Obsequious = excessively eager to serve or please — fawning, sycophantic.",s:"p"},
+{q:"'The politician's promises were mere rhetoric.' Rhetoric here implies:",o:["A. Sincere persuasion","B. Grand but empty language","C. Written policy","D. Foreign language"],a:"B",e:"Rhetoric (in common pejorative use) = impressive-sounding but hollow talk; language used to influence without substance.",s:"p"},
+/* PHONETICS */
+{q:"Which word contains the /ɔː/ sound as in 'thought'?",o:["A. Pot","B. Through","C. Caught","D. Cough"],a:"C",e:"'Caught' /kɔːt/ shares the /ɔː/ vowel sound with 'thought'. 'Cough' = /kɒf/.",s:"e"},
+{q:"How many syllables does 'CHARACTERISTIC' have?",o:["A. 4","B. 5","C. 6","D. 7"],a:"B",e:"Char-ac-ter-is-tic = 5 syllables.",s:"p"},
+{q:"The word 'present' (noun/adj.) is stressed on the _____ syllable.",o:["A. First (PRE-sent)","B. Second (pre-SENT)","C. Both equally","D. Neither"],a:"A",e:"As a noun/adjective: PRE-sent (stress first). As a verb: pre-SENT (stress second). Common UTME trick.",s:"e"},
+{q:"Which pair contains a minimal pair (differ by ONE phoneme only)?",o:["A. Cat / Bat","B. Ship / Chip","C. Think / This","D. All of the above"],a:"D",e:"All are minimal pairs: cat/bat (/k/ vs /b/), ship/chip (/ʃ/ vs /tʃ/), think/this (/θ/ vs /ð/).",s:"e"},
+/* GRAMMAR — AGREEMENT / TENSE */
+{q:"'The committee has/have reached a decision.' If committee acts as one unit:",o:["A. has","B. have","C. Either is always correct","D. Neither"],a:"A",e:"Collective noun as a single unit → singular verb: 'has'. If members act individually: 'have'.",s:"e"},
+{q:"'She _____ in this school since 2018.' Choose correctly.",o:["A. taught","B. teaches","C. has been teaching","D. had taught"],a:"C",e:"An action continuing from a past time to now uses present perfect continuous: 'has been teaching'.",s:"p"},
+{q:"'If I were you, I _____ accept the offer.' Choose correctly.",o:["A. will","B. would","C. should","D. shall"],a:"B",e:"Type 2 conditional (hypothetical present): 'If I were…, I would…'.",s:"p"},
+{q:"'One of the boys _____ broken the window.' Choose correctly.",o:["A. have","B. has","C. are","D. were"],a:"B",e:"'One of…' takes a singular verb: 'has broken'. The plural noun after 'of' doesn't affect the verb.",s:"e"},
+/* ARTICLES / PREPOSITIONS */
+{q:"'She is _____ best student in the class.'",o:["A. a","B. an","C. the","D. No article"],a:"C",e:"Superlatives require 'the': the best, the tallest, the most talented.",s:"p"},
+{q:"'The results were contrary _____ expectations.'",o:["A. to","B. of","C. with","D. from"],a:"A",e:"The correct collocation is 'contrary to'.",s:"p"},
+{q:"'He was accused _____ theft.'",o:["A. for","B. of","C. with","D. on"],a:"B",e:"'Accused of' is the correct preposition usage.",s:"p"},
+/* CLAUSES / SENTENCES */
+{q:"'He is the kind of person who never gives up.' The italicised clause is:",o:["A. Adverbial","B. Noun clause","C. Relative (adjective) clause","D. Conditional"],a:"C",e:"'who never gives up' modifies the noun 'person' → relative (adjective) clause.",s:"p"},
+{q:"'Unless you study, you will fail.' This is a _____ sentence.",o:["A. Simple","B. Compound","C. Complex","D. Compound-complex"],a:"C",e:"One main clause + one subordinate (conditional) clause = complex sentence.",s:"p"},
+{q:"Identify the sentence with a misplaced modifier: ",o:["A. She almost drove her children to school every day.","B. He quickly ran to the store.","C. The dog bit the man wearing blue trousers.","D. We ate the pizza that arrived warm."],a:"A",e:"'Almost' should modify 'every day', not 'drove' — she didn't almost drive, she drove almost every day. Misplaced modifier.",s:"e"},
+/* IDIOMS & FIGURES OF SPEECH */
+{q:"'He has an axe to grind.' This means:",o:["A. He is a carpenter","B. He has a personal motive or grievance","C. He is very angry","D. He wants to fight"],a:"B",e:"'Have an axe to grind' = have a personal motive or hidden agenda behind an action.",s:"p"},
+{q:"'The classroom was a zoo today.' The figure of speech is:",o:["A. Simile","B. Irony","C. Metaphor","D. Hyperbole"],a:"C",e:"A direct comparison without 'like' or 'as' ('was a zoo') is a metaphor.",s:"p"},
+{q:"'The valley was carpeted with flowers.' The figure of speech is:",o:["A. Onomatopoeia","B. Alliteration","C. Metaphor","D. Personification"],a:"C",e:"'Carpeted' (a human action applied to the valley) is metaphorical comparison.",s:"p"},
+/* DIRECT / INDIRECT SPEECH */
+{q:"'Don't talk in class,' said the teacher. Indirect speech?",o:["A. The teacher said don't talk in class.","B. The teacher told us not to talk in class.","C. The teacher told us to not talking in class.","D. The teacher said us not to talk in class."],a:"B",e:"Negative imperative → indirect: 'told + object + not to + infinitive'.",s:"p"},
+{q:"'Where are you going?' he asked me. Indirect speech?",o:["A. He asked me where I was going.","B. He asked me where was I going.","C. He asked me where I am going.","D. He asked where are you going."],a:"A",e:"Indirect wh-question: statement word order (not inverted); tense shifts: 'are' → 'was'.",s:"p"},
+/* SPELLING */
+{q:"Which is correctly spelled?",o:["A. Accomodation","B. Accommodation","C. Acomodation","D. Acommodation"],a:"B",e:"Accommodation: double C, double M.",s:"p"},
+{q:"Which is correctly spelled?",o:["A. Embarass","B. Embarrass","C. Embaras","D. Embarras"],a:"B",e:"Embarrass: double R, double S.",s:"p"},
+/* REGISTER & COMPREHENSION */
+{q:"A letter written by a doctor to a hospital summarising a patient's case is an example of:",o:["A. Narrative register","B. Medical register","C. Formal personal register","D. Informal register"],a:"B",e:"Register is determined by context, purpose, and audience. Doctor-to-hospital clinical writing = medical register.",s:"p"},
+{q:"'The evidence was irrefutable.' Irrefutable means:",o:["A. Impossible to understand","B. Impossible to deny or disprove","C. Easily disputed","D. Largely circumstantial"],a:"B",e:"Irrefutable = not able to be refuted or denied; absolutely certain.",s:"p"},
+/* PUNCTUATION */
+{q:"Which sentence uses the semicolon correctly?",o:["A. She was tired; however, she continued working.","B. She was tired; and she continued working.","C. She was tired; to continue working.","D. She; was tired and continued working."],a:"A",e:"Semicolons join two independent clauses; they're also used before conjunctive adverbs like 'however', 'therefore'.",s:"e"},
+{q:"Which is correctly punctuated? (Possessive singular)",o:["A. James' car","B. James's car","C. Jamess car","D. James car"],a:"B",e:"For singular nouns ending in 's', add 's to form possessive: James's. (Some style guides allow James' but James's is more standard.)",s:"e"},
+/* COMPREHENSION INFERENCE */
+{q:"'The author's prose is pellucid and economical.' This means the writing is:",o:["A. Long and detailed","B. Clear and concise","C. Difficult and poetic","D. Emotional and persuasive"],a:"B",e:"Pellucid = crystal clear. Economical = using no unnecessary words. Together: clear and concise.",s:"a"},
+{q:"'The CEO's remarks raised eyebrows in the boardroom.' This figurative expression means:",o:["A. Everyone looked up","B. The remarks caused surprise or concern","C. The CEO was shouting","D. People were falling asleep"],a:"B",e:"'Raised eyebrows' is an idiom meaning to cause surprise, shock, or concern.",s:"p"},
+{q:"A text that aims to sell a product is written in _____ register.",o:["A. Narrative","B. Persuasive/advertising","C. Descriptive","D. Expository"],a:"B",e:"Advertising texts use persuasive register: imperatives, positive adjectives, second person to engage the reader.",s:"p"}
+],
+
+/* ================================================================
+   CHEMISTRY — 35 questions (emphasis on exceptions & traps)
+================================================================ */
+chemistry:[
+/* ATOMIC STRUCTURE */
+{q:"An element has atomic number 17 and mass number 35. Its number of neutrons is:",o:["A. 17","B. 18","C. 35","D. 52"],a:"B",e:"Neutrons = Mass number − Atomic number = 35 − 17 = 18.",s:"p"},
+{q:"Which electronic configuration violates Hund's rule?",o:["A. 1s² 2s² 2p⁶","B. 1s² 2s² 2p³ (↑ ↑ ↑)","C. 1s² 2s² 2p⁴ (↑↓ ↑↓ ↑)","D. 1s² 2s² 2p⁴ (↑↓ ↑ ↑)"],a:"C",e:"Hund's rule: electrons singly occupy each orbital before pairing. Option C pairs two orbitals before filling the third — violation.",s:"e"},
+{q:"The ion Na⁺ and the atom Ne both have 10 electrons. They are described as:",o:["A. Isotopes","B. Isobars","C. Isoelectronic","D. Allotropes"],a:"C",e:"Isoelectronic species have the same number of electrons. Na⁺ and Ne both have 10 electrons.",s:"p"},
+{q:"Electronegativity across Period 3 (Na to Cl): which statement is CORRECT?",o:["A. Decreases because atomic radius increases","B. Increases because nuclear charge increases and radius decreases","C. Stays constant","D. Increases because shielding increases"],a:"B",e:"Across a period: proton count rises, atomic radius falls → electrons pulled more strongly → electronegativity increases.",s:"p"},
+/* BONDING */
+{q:"CO₂ has polar bonds yet is a non-polar molecule because:",o:["A. It has no lone pairs","B. Its linear geometry makes the bond dipoles cancel exactly","C. Carbon is non-metallic","D. The molecule is very small"],a:"B",e:"The two C=O bond dipoles point in exactly opposite directions (linear molecule) → they cancel → zero net dipole moment.",s:"e"},
+{q:"Which property of graphite makes it different from other giant covalent structures?",o:["A. Very high melting point","B. Ability to conduct electricity","C. Hardness","D. Solubility in water"],a:"B",e:"Graphite has delocalised electrons between its sp² layers → conducts electricity. Diamond and SiO₂ do not.",s:"e"},
+{q:"The hybridization of nitrogen in NH₃ is:",o:["A. sp","B. sp²","C. sp³","D. sp³d"],a:"C",e:"NH₃: 3 bonding pairs + 1 lone pair = 4 regions → sp³. Lone pair compresses H-N-H angle to 107°.",s:"p"},
+{q:"Hydrogen bonding is strongest in which pair?",o:["A. CH₄…CH₄","B. NH₃…NH₃","C. H₂O…H₂O","D. HF…HF"],a:"D",e:"H-bond strength: F−H···F > O−H···O > N−H···N. Fluorine's extreme electronegativity makes HF H-bonds the strongest.",s:"e"},
+/* ACID-BASE & pH */
+{q:"What is the pH of 0.001 M HCl?",o:["A. 1","B. 2","C. 3","D. 4"],a:"C",e:"pH = −log[H⁺] = −log(10⁻³) = 3.",s:"p"},
+{q:"At the equivalence point of a strong acid–weak base titration, the pH is:",o:["A. Equal to 7","B. Greater than 7","C. Less than 7","D. Equal to pKa"],a:"C",e:"The salt formed (e.g., NH₄Cl) hydrolyses to give an acidic solution → pH < 7. Contrast with strong acid–strong base (pH = 7).",s:"e"},
+{q:"A buffer solution contains CH₃COOH and CH₃COONa. Adding a small amount of HCl:",o:["A. Greatly decreases pH","B. Is absorbed by CH₃COO⁻ ions, slight pH change","C. Has no effect at all","D. Converts all acid to salt"],a:"B",e:"CH₃COO⁻ reacts with added H⁺: CH₃COO⁻ + H⁺ → CH₃COOH. Minimal pH change — that's the buffer action.",s:"e"},
+/* REDOX & ELECTROCHEMISTRY */
+{q:"In K₂Cr₂O₇, the oxidation number of chromium is:",o:["A. +3","B. +6","C. +7","D. +12"],a:"B",e:"2(+1) + 2x + 7(−2) = 0 → 2x = 12 → x = +6.",s:"p"},
+{q:"In the electrolysis of dilute H₂SO₄, the gas produced at the cathode is:",o:["A. Oxygen","B. Sulphur dioxide","C. Hydrogen","D. Ozone"],a:"C",e:"Cathode = reduction. H⁺ ions are reduced: 2H⁺ + 2e⁻ → H₂. Oxygen is produced at the anode.",s:"p"},
+{q:"In a galvanic (voltaic) cell, oxidation occurs at the:",o:["A. Cathode (positive electrode)","B. Anode (negative electrode)","C. Electrolyte","D. Salt bridge"],a:"B",e:"Galvanic cell anode: spontaneous oxidation, negative terminal. Cathode: reduction, positive terminal. (Opposite in electrolytic cells!)",s:"e"},
+/* EQUILIBRIUM */
+{q:"For N₂O₄(g) ⇌ 2NO₂(g) (endothermic), which change shifts equilibrium to the RIGHT?",o:["A. Increasing pressure","B. Decreasing temperature","C. Increasing temperature","D. Adding a catalyst"],a:"C",e:"Endothermic: increasing T favours the forward (heat-absorbing) reaction. Increasing pressure would shift LEFT (fewer moles on left).",s:"e"},
+{q:"The equilibrium constant K for a reverse reaction equals:",o:["A. −K of the forward reaction","B. 1/K of the forward reaction","C. K² of the forward reaction","D. K of the forward reaction"],a:"B",e:"Reversing an equation: K_reverse = 1/K_forward. Multiplying equation by n raises K to power n.",s:"e"},
+/* ORGANIC CHEMISTRY */
+{q:"The IUPAC name of CH₃CH₂CH₂OH is:",o:["A. Ethanol","B. Propan-1-ol","C. Propan-2-ol","D. Butan-1-ol"],a:"B",e:"3-carbon chain (prop-), OH on C1 (-1-ol): propan-1-ol.",s:"p"},
+{q:"Ethene reacts with bromine water. The observation is:",o:["A. No change","B. Brown colour is retained","C. Brown bromine water is decolourised","D. A white precipitate forms"],a:"C",e:"Alkenes undergo addition with Br₂: CH₂=CH₂ + Br₂ → CH₂BrCH₂Br (colourless). Test for C=C.",s:"p"},
+{q:"Fehling's solution is reduced (brick-red precipitate) by:",o:["A. Ketones only","B. Aldehydes only","C. Both aldehydes and ketones","D. Carboxylic acids"],a:"B",e:"Aldehydes are oxidised by Fehling's (Cu²⁺ → Cu₂O, brick-red). Ketones cannot be oxidised → negative result.",s:"e"},
+{q:"The reaction CH₃COOH + CH₃OH ⇌ CH₃COOCH₃ + H₂O is:",o:["A. Hydrolysis","B. Esterification","C. Saponification","D. Polymerisation"],a:"B",e:"Acid + alcohol → ester + water. Acid-catalysed esterification (Fischer esterification).",s:"p"},
+/* GASES */
+{q:"Which gas deviates MOST from ideal behaviour at high pressure?",o:["A. He","B. H₂","C. CO₂","D. Ne"],a:"C",e:"CO₂ has the largest molecules and strongest intermolecular forces → greatest deviation from ideal gas law.",s:"e"},
+{q:"The rate of effusion of helium (M=4) compared to oxygen (M=32) is:",o:["A. 2× faster","B. 4× faster","C. 2√2 × faster","D. Same"],a:"C",e:"Graham's law: rate ∝ 1/√M. Ratio = √32/√4 = √8 = 2√2 ≈ 2.83× faster.",s:"e"},
+/* STOICHIOMETRY */
+{q:"How many moles of H₂O are formed when 3 mol H₂ reacts completely with O₂? (2H₂ + O₂ → 2H₂O)",o:["A. 1.5 mol","B. 2 mol","C. 3 mol","D. 6 mol"],a:"C",e:"2:2 ratio (H₂ to H₂O). 3 mol H₂ → 3 mol H₂O.",s:"p"},
+{q:"Molar mass of Ca₃(PO₄)₂ is: (Ca=40, P=31, O=16)",o:["A. 278 g/mol","B. 310 g/mol","C. 262 g/mol","D. 326 g/mol"],a:"B",e:"3(40) + 2(31) + 8(16) = 120 + 62 + 128 = 310 g/mol.",s:"p"},
+/* METALS / ALLOYS */
+{q:"The process of covering iron with zinc to prevent rusting is called:",o:["A. Electroplating","B. Galvanisation","C. Anodising","D. Alloying"],a:"B",e:"Galvanisation = coating iron/steel with zinc (hot-dip or electrolytic). Zinc acts as sacrificial anode.",s:"p"},
+{q:"Stainless steel is an alloy of iron mainly with:",o:["A. Copper and tin","B. Chromium and nickel","C. Carbon and manganese","D. Aluminium and zinc"],a:"B",e:"Stainless steel: Fe + Cr (≥10.5%) + Ni. Chromium oxide layer provides corrosion resistance.",s:"p"},
+/* QUALITATIVE ANALYSIS */
+{q:"A white precipitate soluble in excess NaOH is characteristic of which cation?",o:["A. Fe³⁺","B. Cu²⁺","C. Al³⁺","D. Ca²⁺"],a:"C",e:"Al(OH)₃ is amphoteric: forms white ppt with NaOH, dissolves in excess (aluminate ion). Fe³⁺ → rust-brown; Cu²⁺ → blue.",s:"e"},
+{q:"Which gas turns moist red litmus blue?",o:["A. CO₂","B. SO₂","C. NH₃","D. HCl"],a:"C",e:"NH₃ is alkaline → turns moist red litmus blue. CO₂ and SO₂ are acidic; HCl is acidic.",s:"p"},
+/* RATES / THERMOCHEMISTRY */
+{q:"A catalyst increases reaction rate by:",o:["A. Increasing reactant concentration","B. Providing an alternative pathway with lower activation energy","C. Increasing temperature","D. Shifting the equilibrium position"],a:"B",e:"Catalyst lowers Eₐ via alternative mechanism. It does NOT change ΔH, ΔG, or equilibrium constant.",s:"p"},
+{q:"The enthalpy change when one mole of a compound is formed from its elements in standard states is its:",o:["A. Enthalpy of combustion","B. Enthalpy of neutralisation","C. Standard enthalpy of formation","D. Enthalpy of solution"],a:"C",e:"Standard enthalpy of formation (ΔHf°): formation of 1 mol compound from elements in standard states. By definition, ΔHf° of elements = 0.",s:"p"},
+/* NUCLEAR CHEMISTRY */
+{q:"²³⁸₉₂U undergoes alpha decay. The daughter nuclide is:",o:["A. ²³⁴₉₀Th","B. ²³⁸₉₀Th","C. ²³⁴₉₂U","D. ²³⁶₉₀Th"],a:"A",e:"Alpha decay: mass number −4, atomic number −2. ²³⁸₉₂U → ²³⁴₉₀Th + ⁴₂He.",s:"e"},
+{q:"A radioactive sample has a half-life of 8 days. After 32 days, the fraction remaining is:",o:["A. 1/16","B. 1/8","C. 1/32","D. 1/4"],a:"A",e:"32 days = 4 half-lives. Fraction = (½)⁴ = 1/16.",s:"a"}
+],
+
+/* ================================================================
+   PHYSICS — 35 questions
+================================================================ */
+physics:[
+/* SCALARS & VECTORS */
+{q:"Which of the following is a scalar quantity?",o:["A. Velocity","B. Displacement","C. Kinetic energy","D. Weight"],a:"C",e:"Kinetic energy has magnitude only → scalar. Velocity, displacement, and weight all have direction → vectors.",s:"p"},
+{q:"A force of 6 N acts due North and 8 N due East. The resultant is:",o:["A. 14 N at 37° N of E","B. 10 N at 37° E of N","C. 10 N at 53° E of N","D. 10 N due NE"],a:"B",e:"R = √(6²+8²) = 10 N. θ = arctan(8/6) = 53° → 53° from North (= 37° from East). Direction is 53° E of N.",s:"a"},
+/* LINEAR MOTION */
+{q:"An object decelerates uniformly from 20 m/s to 8 m/s in 4 s. The deceleration is:",o:["A. 2 m/s²","B. 3 m/s²","C. 4 m/s²","D. 7 m/s²"],a:"B",e:"a = (v−u)/t = (8−20)/4 = −12/4 = −3 m/s². Deceleration = 3 m/s².",s:"p"},
+{q:"On a velocity-time graph, the GRADIENT represents:",o:["A. Displacement","B. Speed","C. Acceleration","D. Distance"],a:"C",e:"Gradient (slope) of v-t graph = Δv/Δt = acceleration. Area under the graph = displacement.",s:"p"},
+{q:"A projectile is launched horizontally from a cliff. Which statement is TRUE?",o:["A. Horizontal velocity increases due to gravity","B. Vertical velocity is constant","C. Horizontal and vertical motions are independent","D. The projectile follows a straight path"],a:"C",e:"Projectile motion: horizontal component (constant velocity) and vertical component (g downward) are completely independent.",s:"e"},
+/* NEWTON'S LAWS / MOMENTUM */
+{q:"A 4 kg body moving at 5 m/s collides and sticks to a stationary 6 kg body. Final speed?",o:["A. 1 m/s","B. 2 m/s","C. 3 m/s","D. 5 m/s"],a:"B",e:"Conservation of momentum: 4×5 = (4+6)v → v = 20/10 = 2 m/s.",s:"p"},
+{q:"Newton's 1st Law is also called the law of:",o:["A. Gravitation","B. Action and reaction","C. Inertia","D. Conservation of energy"],a:"C",e:"Newton's 1st Law (law of inertia): a body remains at rest or in uniform motion unless acted on by a net force.",s:"p"},
+{q:"The impulse-momentum theorem states that impulse equals:",o:["A. Force × distance","B. Change in momentum","C. Mass × acceleration","D. Work done"],a:"B",e:"Impulse = F×Δt = Δp (change in momentum). Impulse-momentum theorem connects force-time to momentum change.",s:"p"},
+/* WORK, ENERGY & POWER */
+{q:"A machine has work input 800 J and useful output 600 J. Efficiency is:",o:["A. 60%","B. 70%","C. 75%","D. 80%"],a:"C",e:"Efficiency = (useful output/input) × 100 = (600/800) × 100 = 75%.",s:"p"},
+{q:"A spring obeys Hooke's law. If it stores 18 J when compressed 0.3 m, find the spring constant.",o:["A. 60 N/m","B. 120 N/m","C. 400 N/m","D. 180 N/m"],a:"C",e:"E = ½kx² → 18 = ½ × k × 0.09 → k = 18/0.045 = 400 N/m.",s:"e"},
+{q:"Which energy conversion occurs in a photovoltaic (solar) cell?",o:["A. Chemical → Electrical","B. Light → Electrical","C. Heat → Electrical","D. Nuclear → Electrical"],a:"B",e:"Photovoltaic cells use the photoelectric effect to convert light energy directly to electrical energy.",s:"p"},
+/* HEAT & THERMODYNAMICS */
+{q:"The specific heat capacity of a substance is the heat needed to:",o:["A. Melt 1 kg of it","B. Vaporise 1 kg of it","C. Raise the temperature of 1 kg by 1°C","D. Raise 1 g by 1°C"],a:"C",e:"SHC: heat per unit mass per degree temperature rise. Units: J kg⁻¹ K⁻¹.",s:"p"},
+{q:"Ice at 0°C melts to water at 0°C. During this process, temperature:",o:["A. Rises steadily","B. Remains constant while latent heat is absorbed","C. Drops below 0°C","D. Rises, then falls"],a:"B",e:"During a change of state, energy absorbed goes into breaking bonds (latent heat) — temperature stays constant.",s:"e"},
+{q:"A metal block (m=0.5 kg, c=400 J/kg°C) gains 1000 J. Temperature rise?",o:["A. 1°C","B. 2°C","C. 5°C","D. 10°C"],a:"C",e:"ΔT = Q/(mc) = 1000/(0.5×400) = 1000/200 = 5°C.",s:"p"},
+/* WAVES */
+{q:"A wave has wavelength 0.4 m and frequency 25 Hz. Its speed is:",o:["A. 0.016 m/s","B. 10 m/s","C. 62.5 m/s","D. 24.6 m/s"],a:"B",e:"v = fλ = 25 × 0.4 = 10 m/s.",s:"p"},
+{q:"Sound travels FASTEST in:",o:["A. Vacuum","B. Air","C. Water","D. Steel"],a:"D",e:"Speed of sound increases with medium density/elasticity: solids > liquids > gases. Sound cannot travel in vacuum.",s:"e"},
+{q:"When a stationary wave forms in a closed pipe, the closed end is always a:",o:["A. Antinode","B. Node","C. Crest","D. Loop"],a:"B",e:"Closed end = displacement node (zero movement). Open end = antinode. Fundamental: λ/4 fits the pipe length.",s:"e"},
+/* LIGHT & OPTICS */
+{q:"A ray of light passes from glass (n=1.5) into air (n=1). Critical angle c is given by sin c =",o:["A. 1.5","B. 1/1.5","C. 1.5/1","D. 0.5"],a:"B",e:"sin c = n₂/n₁ = 1/1.5 = 2/3 ≈ 0.667. Above this angle, total internal reflection occurs.",s:"e"},
+{q:"A converging lens of focal length 15 cm forms a real image of an object 45 cm away. Image distance?",o:["A. 15 cm","B. 22.5 cm","C. 30 cm","D. 45 cm"],a:"B",e:"1/f = 1/v + 1/u → 1/15 = 1/v + 1/45 → 1/v = 3/45 − 1/45 = 2/45 → v = 22.5 cm.",s:"a"},
+{q:"Which colour of visible light has the HIGHEST frequency?",o:["A. Red","B. Yellow","C. Green","D. Violet"],a:"D",e:"ROYGBIV: frequency increases from red (lowest) to violet (highest). Violet also has the shortest wavelength.",s:"p"},
+/* ELECTRICITY */
+{q:"Three resistors of 3 Ω, 6 Ω, and 9 Ω are connected in SERIES. Total resistance?",o:["A. 1.6 Ω","B. 9 Ω","C. 18 Ω","D. 2 Ω"],a:"C",e:"Series: R_total = 3 + 6 + 9 = 18 Ω.",s:"p"},
+{q:"A 100 W bulb runs for 5 hours. Electrical energy consumed in kWh?",o:["A. 0.5 kWh","B. 5 kWh","C. 500 kWh","D. 20 kWh"],a:"A",e:"E = Power × time = 0.1 kW × 5 h = 0.5 kWh.",s:"p"},
+{q:"Ohm's law is valid ONLY when:",o:["A. Resistance is very high","B. Temperature and other physical conditions are constant","C. Voltage is very low","D. The conductor is a semiconductor"],a:"B",e:"Ohm's law (V = IR) holds when physical conditions (especially temperature) are constant — it's a special case, not universal.",s:"e"},
+/* MAGNETISM & ELECTROMAGNETISM */
+{q:"Lenz's law is a consequence of the conservation of:",o:["A. Charge","B. Mass","C. Energy","D. Momentum"],a:"C",e:"Lenz's law: induced current opposes the change causing it — this is energy conservation in electromagnetic induction.",s:"e"},
+{q:"A transformer steps voltage from 240 V (primary) to 12 V. If primary has 400 turns, secondary has:",o:["A. 10 turns","B. 20 turns","C. 200 turns","D. 8000 turns"],a:"B",e:"Vs/Vp = Ns/Np → Ns = 400 × 12/240 = 400/20 = 20 turns.",s:"p"},
+{q:"The force on a current-carrying conductor in a magnetic field is given by:",o:["A. F = BIL sinθ","B. F = BIL cosθ","C. F = B²IL","D. F = BIL²"],a:"A",e:"F = BIL sinθ (B = flux density, I = current, L = length, θ = angle between conductor and field).",s:"p"},
+/* PRESSURE & FLUIDS */
+{q:"An object floats when the upthrust equals:",o:["A. Its weight in air","B. Weight of fluid displaced","C. Weight of the object × 2","D. Its mass"],a:"A",e:"Archimedes: upthrust = weight of fluid displaced. Object floats when upthrust = weight in air (equilibrium).",s:"p"},
+{q:"Pressure at a point in a fluid depends on:",o:["A. Shape of container","B. Volume of fluid","C. Depth and density of fluid","D. Temperature only"],a:"C",e:"P = ρgh. Pressure depends only on depth (h) and density (ρ), not on container shape.",s:"p"},
+/* MODERN PHYSICS */
+{q:"In β⁻ decay, the particle emitted from the nucleus is:",o:["A. A proton","B. A neutron","C. A helium nucleus","D. An electron"],a:"D",e:"β⁻ decay: n → p + e⁻ + anti-neutrino. A fast electron (beta particle) is emitted.",s:"p"},
+{q:"The photoelectric effect demonstrates that light has:",o:["A. Wave properties only","B. Particle (quantum) properties","C. Both wave and particle simultaneously in all situations","D. Neither wave nor particle properties"],a:"B",e:"Photoelectric effect: light ejects electrons in discrete quanta (photons) — demonstrates particle nature. Einstein won Nobel Prize (1921) for this.",s:"p"},
+{q:"Einstein's mass-energy equivalence equation is:",o:["A. E = mc","B. E = m²c","C. E = mc²","D. E = m/c²"],a:"C",e:"E = mc². c = speed of light ≈ 3×10⁸ m/s. A tiny mass = enormous energy.",s:"p"}
+],
+
+/* ================================================================
+   BIOLOGY — 35 questions
+================================================================ */
+biology:[
+/* CELL BIOLOGY */
+{q:"The organelle responsible for ATP synthesis via aerobic respiration is the:",o:["A. Ribosome","B. Lysosome","C. Mitochondrion","D. Golgi apparatus"],a:"C",e:"Mitochondria are the 'powerhouse of the cell' — site of aerobic respiration (Krebs cycle + ETC) producing most ATP.",s:"p"},
+{q:"Which cell organelle is the site of protein synthesis?",o:["A. Nucleus","B. Ribosome","C. Vacuole","D. Centriole"],a:"B",e:"Ribosomes translate mRNA into proteins. Found free in cytoplasm or attached to rough ER.",s:"p"},
+{q:"The cell wall of plants is mainly composed of:",o:["A. Chitin","B. Lignin","C. Cellulose","D. Pectin"],a:"C",e:"Plant cell walls are primarily cellulose (polysaccharide). Chitin = fungal cell walls. Lignin = secondary thickening in wood.",s:"p"},
+{q:"Osmosis is defined as the movement of water molecules:",o:["A. From high to low solute concentration across a permeable membrane","B. From low to high water potential across a semi-permeable membrane","C. Of ions down a concentration gradient","D. Of glucose through active transport"],a:"B",e:"Osmosis: net movement of water from high water potential (dilute solution) to low water potential (concentrated solution) across a semi-permeable membrane.",s:"p"},
+/* GENETICS */
+{q:"A woman who is a carrier of haemophilia (X^H X^h) has children with a normal man. What fraction of sons will be haemophilic?",o:["A. 0","B. 1/4","C. 1/2","D. All of them"],a:"C",e:"Sons get Y from father and X from mother. Mother's X: 50% X^H, 50% X^h. So 1/2 of sons get X^h → haemophilic.",s:"e"},
+{q:"In a dihybrid cross (AaBb × AaBb), the phenotypic ratio is:",o:["A. 3:1","B. 1:2:1","C. 9:3:3:1","D. 1:1:1:1"],a:"C",e:"Classic Mendelian dihybrid ratio is 9:3:3:1 when both loci show independent assortment.",s:"p"},
+{q:"Sickle cell anaemia is an example of:",o:["A. Chromosomal mutation","B. Point (gene) mutation","C. Deletion of a chromosome","D. Non-disjunction"],a:"B",e:"Sickle cell: single nucleotide substitution (GAG→GTG) in the β-globin gene → different amino acid (Val instead of Glu). This is a point mutation.",s:"e"},
+{q:"Which of the following correctly describes codominance?",o:["A. One allele completely masks the other","B. The heterozygote shows an intermediate phenotype","C. Both alleles are expressed simultaneously in the heterozygote","D. An allele skips a generation"],a:"C",e:"Codominance: both alleles expressed simultaneously. Example: Blood group AB (I^A I^B). Contrast with incomplete dominance (intermediate phenotype).",s:"e"},
+/* ECOLOGY */
+{q:"The role played by an organism in its ecosystem (its 'job') is its:",o:["A. Habitat","B. Niche","C. Biome","D. Community"],a:"B",e:"Niche = functional role of a species in its ecosystem (what it eats, how it behaves, its relationships). Habitat = where it lives.",s:"p"},
+{q:"DDT is passed up a food chain in increasing concentrations. This is called:",o:["A. Decomposition","B. Bioaccumulation / biomagnification","C. Eutrophication","D. Succession"],a:"B",e:"Biomagnification: toxic substances (like DDT) become more concentrated at each trophic level because they are not metabolised.",s:"e"},
+{q:"Which nutrient cycle involves the processes of fixation, nitrification, denitrification, and ammonification?",o:["A. Carbon cycle","B. Water cycle","C. Nitrogen cycle","D. Phosphorus cycle"],a:"C",e:"These are all stages of the nitrogen cycle, involving bacteria that transform N₂, NH₄⁺, NO₂⁻, NO₃⁻ forms.",s:"p"},
+{q:"An organism that feeds at the second trophic level is a:",o:["A. Producer","B. Primary consumer","C. Secondary consumer","D. Decomposer"],a:"B",e:"Trophic levels: 1st = producers; 2nd = primary consumers (herbivores); 3rd = secondary consumers.",s:"p"},
+/* PHYSIOLOGY — HUMAN */
+{q:"The enzyme that begins protein digestion in the stomach is:",o:["A. Amylase","B. Lipase","C. Trypsin","D. Pepsin"],a:"D",e:"Pepsin (activated from pepsinogen) digests proteins in the acidic stomach. Trypsin continues in the small intestine.",s:"p"},
+{q:"Which blood component is primarily responsible for fighting infection?",o:["A. Red blood cells","B. Platelets","C. White blood cells (leucocytes)","D. Plasma proteins"],a:"C",e:"White blood cells (leucocytes — neutrophils, lymphocytes, etc.) are immune cells. RBCs carry oxygen; platelets are for clotting.",s:"p"},
+{q:"The sinoatrial (SA) node is called the 'pacemaker' of the heart because it:",o:["A. Pumps blood to the lungs","B. Initiates the electrical impulse for each heartbeat","C. Separates oxygenated from deoxygenated blood","D. Controls blood pressure"],a:"B",e:"SA node generates spontaneous electrical impulses that trigger atrial contraction → AV node → bundle of His → ventricles.",s:"e"},
+{q:"Insulin is secreted by the _____ cells of the islets of Langerhans.",o:["A. Alpha","B. Beta","C. Delta","D. Gamma"],a:"B",e:"Beta (β) cells secrete insulin (lowers blood glucose). Alpha (α) cells secrete glucagon (raises blood glucose).",s:"e"},
+/* PHYSIOLOGY — PLANT */
+{q:"In photosynthesis, oxygen is produced from the splitting of:",o:["A. Carbon dioxide","B. Glucose","C. Water (photolysis)","D. ATP"],a:"C",e:"Light-dependent reactions: 2H₂O → 4H⁺ + 4e⁻ + O₂. Oxygen comes from water, not CO₂.",s:"e"},
+{q:"The phloem transports _____ from leaves to other parts of the plant.",o:["A. Water and mineral salts","B. Organic solutes (mainly sucrose)","C. Oxygen only","D. Carbon dioxide"],a:"B",e:"Phloem: bidirectional transport of organic solutes (sugars, amino acids) from source to sink. Xylem: water and minerals upward.",s:"p"},
+{q:"Gibberellin promotes:",o:["A. Root growth","B. Fruit ripening","C. Stem elongation and germination","D. Leaf senescence"],a:"C",e:"Gibberellins stimulate stem elongation (dwarf plants), seed germination, and fruit development. Not primarily root growth.",s:"p"},
+/* REPRODUCTION */
+{q:"The process of meiosis results in:",o:["A. Two identical diploid cells","B. Four genetically identical haploid cells","C. Four genetically varied haploid cells","D. Two genetically varied diploid cells"],a:"C",e:"Meiosis: two successive divisions → 4 haploid cells. Crossing-over and random assortment ensure genetic variation.",s:"p"},
+{q:"In humans, fertilisation normally occurs in the:",o:["A. Ovary","B. Uterus","C. Fallopian tube (oviduct)","D. Vagina"],a:"C",e:"Sperm meets egg in the fallopian tube. The fertilised egg (zygote) travels to the uterus for implantation.",s:"p"},
+{q:"Which hormone triggers ovulation in the female cycle?",o:["A. Oestrogen","B. Progesterone","C. Luteinising hormone (LH)","D. FSH"],a:"C",e:"The LH surge (around day 14) triggers ovulation. FSH stimulates follicle growth; oestrogen thickens the uterine lining.",s:"e"},
+/* MICROORGANISMS & DISEASE */
+{q:"HIV attacks which specific type of immune cell?",o:["A. B lymphocytes","B. Neutrophils","C. CD4⁺ T helper cells","D. Natural killer cells"],a:"C",e:"HIV binds to CD4 receptor on T helper cells (CD4⁺ T cells), destroying them and weakening immune response → AIDS.",s:"e"},
+{q:"Antibiotics are effective against:",o:["A. Viruses","B. Fungi only","C. Bacteria","D. All pathogens"],a:"C",e:"Antibiotics target bacterial processes (cell wall synthesis, protein synthesis, etc.) — NOT viruses. Misuse causes resistance.",s:"p"},
+{q:"The vector for malaria is:",o:["A. Housefly","B. Tsetse fly","C. Female Anopheles mosquito","D. Culex mosquito"],a:"C",e:"Malaria is caused by Plasmodium, transmitted by the bite of infected female Anopheles mosquitoes.",s:"p"},
+/* EVOLUTION */
+{q:"According to Darwin's theory of natural selection, survival depends on:",o:["A. Largest body size","B. Inheritance of acquired characteristics","C. Variation and fitness to the environment","D. The will to survive"],a:"C",e:"Natural selection: individuals with favourable heritable variations survive and reproduce more → evolution over generations.",s:"p"},
+{q:"The evidence for evolution from the fossil record shows:",o:["A. All species were created at one time","B. Simpler organisms tend to appear in older rock strata","C. All fossils are complete","D. No species has ever gone extinct"],a:"B",e:"Fossil record: older (deeper) strata contain simpler organisms; more complex ones appear later — consistent with evolution.",s:"p"},
+/* NUTRITION */
+{q:"Vitamin K is essential for:",o:["A. Vision","B. Blood clotting","C. Bone calcification","D. Immune function"],a:"B",e:"Vitamin K is required for synthesis of clotting factors (II, VII, IX, X). Deficiency → prolonged bleeding.",s:"p"},
+{q:"The mineral required for synthesis of haemoglobin is:",o:["A. Calcium","B. Phosphorus","C. Iron","D. Iodine"],a:"C",e:"Haemoglobin contains an iron (Fe²⁺) porphyrin (haem) group that binds oxygen. Iron deficiency → anaemia.",s:"p"}
+]
+
+}; /* end D */
+
+/* ============================================================
+   ENGINE
+============================================================ */
+var sub = "math";
+var UA = {}, ST = {correct:0, wrong:0, skipped:0, answered:0};
+var TI = {}, TS = {};
+var globalSecs = GLOBAL_SECS, globalTI = null, globalDone = false;
+
+function calcScore(){
+    return (ST.correct * PTS_CORRECT) + (ST.wrong * PTS_WRONG);
+}
+
+function updStats(){
+    var raw = calcScore();
+    var el = document.getElementById("sc-val");
+    el.textContent = raw.toFixed(2);
+    el.className = "sc-score-val " + (raw > 0 ? "pos" : raw < 0 ? "neg" : "zero");
+    document.getElementById("sc-co").textContent = ST.correct;
+    document.getElementById("sc-wr").textContent = ST.wrong;
+    document.getElementById("sc-sk").textContent = ST.skipped;
+    document.getElementById("sc-an").textContent = ST.answered;
+}
+
+/* ---- GLOBAL TIMER ---- */
+function startGlobalTimer(){
+    globalTI = setInterval(function(){
+        globalSecs--;
+        if(globalSecs <= 0){
+            clearInterval(globalTI); globalSecs = 0;
+            tickGlobalUI(); timeUp(); return;
+        }
+        tickGlobalUI();
+    }, 1000);
+}
+
+function tickGlobalUI(){
+    var s = globalSecs;
+    var h = Math.floor(s/3600), m = Math.floor((s%3600)/60), ss = s%60;
+    var txt = (h>0 ? h+":" : "") + (h>0 && m<10 ? "0":"") + m + ":" + (ss<10?"0":"") + ss;
+    var el = document.getElementById("gt"), dot = document.getElementById("gd");
+    el.textContent = txt;
+    el.className = "gtimer-txt"; dot.className = "gtimer-dot";
+    if(s <= 600){el.classList.add("dang"); dot.classList.add("dang");}
+    else if(s <= 1800){el.classList.add("warn"); dot.classList.add("warn");}
+}
+
+function timeUp(){
+    globalDone = true;
+    var btns = document.querySelectorAll(".abtn:not([disabled])");
+    for(var i=0;i<btns.length;i++) btns[i].disabled = true;
+    var qs = D[sub];
+    for(var i=0;i<qs.length;i++){
+        var k = sub+i;
+        if(!UA[k]){ST.skipped++; UA[k]="SKIP";}
+    }
+    updStats();
+    var raw = calcScore();
+    document.getElementById("tu-score").textContent = raw.toFixed(2);
+    document.getElementById("tu-score").className = "timeup-score " + (raw>=0?"pos":"neg");
+    document.getElementById("tu-co").textContent = ST.correct;
+    document.getElementById("tu-wr").textContent = ST.wrong;
+    document.getElementById("tu-sk").textContent = ST.skipped;
+    document.getElementById("tu").classList.add("show");
+}
+
+/* ---- PER-QUESTION RING TIMER ---- */
+function startQTimers(){
+    var qs = D[sub];
+    for(var i=0;i<qs.length;i++){
+        (function(idx){
+            var k = sub+idx; TS[k] = TSECS_Q;
+            TI[k] = setInterval(function(){
+                if(globalDone){clearInterval(TI[k]); return;}
+                TS[k]--;
+                if(TS[k] <= 0){clearInterval(TI[k]); TI[k]=null; tUI(idx,0); autoShow(idx); return;}
+                tUI(idx, TS[k]);
+            }, 1000);
+        })(i);
+    }
+}
+
+function tUI(i, s){
+    var r = document.getElementById("rn"+i), t = document.getElementById("tt"+i);
+    if(!r||!t) return;
+    r.querySelector(".fg").style.strokeDashoffset = CIRC2*(1-s/TSECS_Q);
+    r.classList.remove("warn","dang"); t.classList.remove("warn","dang");
+    if(s <= 30){r.classList.add("dang"); t.classList.add("dang");}
+    else if(s <= 60){r.classList.add("warn"); t.classList.add("warn");}
+    var m = Math.floor(s/60), sc = s%60;
+    t.textContent = m+":"+(sc<10?"0":"")+sc;
+}
+
+function stopQTimer(i){var k=sub+i; if(TI[k]){clearInterval(TI[k]); TI[k]=null;}}
+
+function clearQTimers(){
+    Object.keys(TI).forEach(function(k){if(TI[k]) clearInterval(TI[k]);});
+    TI={}; TS={};
+}
+
+/* ---- RENDER ---- */
+function render(){
+    var c = document.getElementById("qc"), qs = D[sub];
+    var lm = {math:"Math",english:"English",chemistry:"Chemistry",physics:"Physics",biology:"Biology"};
+    var lb = lm[sub], h = "";
+    var tCls = {math:"tM",english:"tE",chemistry:"tC",physics:"tP",biology:"tB"};
+    for(var i=0;i<qs.length;i++){
+        var q = qs[i];
+        var sc = q.s==="p"?"sp":q.s==="e"?"se":"sa";
+        var sn = q.s==="p"?"Principles":q.s==="e"?"Exceptions":"Applications";
+        var oh = "";
+        for(var j=0;j<q.o.length;j++){
+            oh += '<div class="opt" data-a="'+q.o[j].charAt(0)+'">'+q.o[j]+'</div>';
+        }
+        h += '<div class="qcard" data-i="'+i+'">'
+           + '<div class="qnum">Q'+(i+1)+' of '+qs.length
+           + ' <span class="sbadge '+sc+'">'+sn+'</span>'
+           + ' <span class="stag '+tCls[sub]+'">'+lb+'</span></div>'
+           + '<div class="qtxt">'+q.q+'</div>'
+           + '<div class="trow">'
+           + '<svg class="tring" id="rn'+i+'" viewBox="0 0 38 38">'
+           + '<circle class="bg" cx="19" cy="19" r="14"/>'
+           + '<circle class="fg" cx="19" cy="19" r="14" style="stroke-dasharray:'+CIRC2+';stroke-dashoffset:0"/>'
+           + '</svg>'
+           + '<span class="ttxt" id="tt'+i+'">2:00</span><span class="tlbl"> left</span></div>'
+           + '<div class="opts">'+oh+'</div>'
+           + '<button class="abtn" disabled>Check Answer</button>'
+           + '<div class="exp" id="ex'+i+'"></div>'
+           + '</div>';
+    }
+    c.innerHTML = h;
+    listen();
+    startQTimers();
+}
+
+function autoShow(i){
+    var card = document.querySelector('.qcard[data-i="'+i+'"]');
+    if(!card || card.querySelector(".exp.show")) return;
+    var q = D[sub][i], k = sub+i;
+    var opts = card.querySelectorAll(".opt");
+    for(var j=0;j<opts.length;j++){
+        if(opts[j].dataset.a === q.a) opts[j].classList.add("ok");
+        opts[j].style.pointerEvents = "none";
+    }
+    var ex = card.querySelector(".exp");
+    ex.innerHTML = '<span class="exp-mark nt">⏱ Time — no mark</span><br><b>Correct: '+q.a+'</b><br>'+(q.e||'');
+    ex.classList.add("show");
+    card.querySelector(".abtn").disabled = true;
+    if(!UA[k]){UA[k]="AUTO"; ST.skipped++; ST.answered++; updStats();}
+}
+
+function listen(){
+    document.querySelectorAll(".opt").forEach(function(o){
+        o.addEventListener("click", function(){
+            var card = this.closest(".qcard"), k = sub+card.dataset.i;
+            if(this.style.pointerEvents==="none" || globalDone) return;
+            card.querySelectorAll(".opt").forEach(function(x){x.classList.remove("sel");});
+            this.classList.add("sel");
+            UA[k] = this.dataset.a;
+            card.querySelector(".abtn").disabled = false;
+        });
+    });
+    document.querySelectorAll(".abtn").forEach(function(btn){
+        btn.addEventListener("click", function(){
+            if(globalDone) return;
+            var card = this.closest(".qcard"), idx = parseInt(card.dataset.i, 10);
+            var k = sub+idx, q = D[sub][idx], chosen = UA[k];
+            var ok = chosen === q.a;
+            stopQTimer(idx);
+            card.querySelectorAll(".opt").forEach(function(x){
+                if(x.dataset.a === q.a) x.classList.add("ok");
+                else if(x.dataset.a === chosen) x.classList.add("no");
+                x.style.pointerEvents = "none";
+            });
+            var pts = ok ? PTS_CORRECT : PTS_WRONG;
+            var ptsLabel = ok ? "+"+pts.toFixed(2) : pts.toFixed(2);
+            var ptsCls = ok ? "pos" : "neg";
+            var ex = card.querySelector(".exp");
+            ex.innerHTML = '<span class="exp-mark '+ptsCls+'">'+(ok?"✓ ":"✗ ")+ptsLabel+' pts</span><br>'
+                + (ok ? "" : "<b>Correct: "+q.a+"</b><br>") + (q.e||'');
+            ex.classList.add("show");
+            this.disabled = true;
+            ST.answered++;
+            if(ok) ST.correct++; else ST.wrong++;
+            updStats();
+        });
+    });
+}
+
+/* ---- TABS ---- */
+document.querySelectorAll(".tab").forEach(function(tab){
+    tab.addEventListener("click", function(){
+        document.querySelectorAll(".tab").forEach(function(t){t.classList.remove("active");});
+        this.classList.add("active");
+        clearQTimers();
+        sub = this.dataset.s;
+        render();
+    });
+});
+
+/* ---- INIT ---- */
+updStats();
+render();
+startGlobalTimer();
+</script>
+</body>
+</html>

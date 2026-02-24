@@ -1,0 +1,1649 @@
+UTME CHEMISTRY — 200 HIGHEST-PROBABILITY QUESTIONS
+Compiled from JAMB syllabus frequency analysis | All topics weighted by exam recurrence
+================================================================================
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION A: ATOMIC STRUCTURE & PERIODICITY (Q1–25)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. An atom of element X has 19 protons and 20 neutrons. Its mass number is:
+A. 39
+B. 19
+C. 20
+D. 38
+Answer: A
+Explanation: Mass number = protons + neutrons = 19 + 20 = 39. This is potassium-39 (⁳⁹K).
+
+2. Isotopes of an element have the same number of:
+A. Protons only
+B. Neutrons only
+C. Protons and neutrons
+D. Mass number
+Answer: A
+Explanation: Isotopes = same atomic number (protons) but different neutron count, hence different mass numbers.
+
+3. The atomic number of an element is 16. Its electronic configuration is:
+A. 2, 8, 6
+B. 2, 6, 8
+C. 8, 8
+D. 2, 14
+Answer: A
+Explanation: Electrons fill shells: K=2, L=8, M=6. This is sulfur.
+
+4. Which particle has the smallest mass?
+A. Electron
+B. Proton
+C. Neutron
+D. Alpha particle
+Answer: A
+Explanation: Electron mass ≈ 9.11×10⁻³¹ kg, roughly 1/1836 of a proton. Alpha particles are 4 amu.
+
+5. The atomic radius generally decreases across a period because:
+A. Increasing nuclear charge pulls electrons closer
+B. More electron shells are added
+C. Shielding effect increases
+D. Electronegativity decreases
+Answer: A
+Explanation: Across a period, proton number increases while shell number stays the same—greater nuclear pull contracts electron cloud.
+
+6. Which element has the highest electronegativity?
+A. Fluorine
+B. Oxygen
+C. Chlorine
+D. Nitrogen
+Answer: A
+Explanation: Fluorine (3.98 on Pauling scale) — highest electronegativity of all elements. Electronegativity increases up and across the periodic table.
+
+7. The first ionization energy of aluminium is lower than magnesium because:
+A. Al's outer electron is in a 3p subshell, easier to remove than 3s
+B. Al has more electrons
+C. Al is larger
+D. Al has lower nuclear charge
+Answer: A
+Explanation: Mg: [Ne]3s². Al: [Ne]3s²3p¹. The 3p electron is higher in energy and better shielded than the 3s — classic UTME exception question.
+
+8. Which of these pairs are isoelectronic?
+A. Na⁺ and Ne
+B. Na⁺ and K⁺
+C. Cl⁻ and Na⁺
+D. O²⁻ and N³⁻
+Answer: A
+Explanation: Na⁺ loses 1 electron → 10 electrons. Ne has 10 electrons. Isoelectronic = same number of electrons.
+
+9. An element in Period 3 and Group VIA has atomic number:
+A. 16
+B. 14
+C. 18
+D. 13
+Answer: A
+Explanation: Period 3 Group VIA = sulfur, atomic number 16.
+
+10. Which of the following has the largest ionic radius?
+A. O²⁻
+B. F⁻
+C. Na⁺
+D. Mg²⁺
+Answer: A
+Explanation: All isoelectronic (10 electrons), but O²⁻ has fewest protons (8), so least nuclear pull — largest radius.
+
+11. The energy of an electron in the hydrogen atom is given by E = -1312/n² kJ/mol. The energy of the n=2 level is:
+A. -328 kJ/mol
+B. -656 kJ/mol
+C. -1312 kJ/mol
+D. -164 kJ/mol
+Answer: A
+Explanation: E = -1312/4 = -328 kJ/mol. Energy becomes less negative (higher/closer to zero) at higher n.
+
+12. Which quantum number describes the shape of an orbital?
+A. Azimuthal (l)
+B. Principal (n)
+C. Magnetic (m)
+D. Spin (s)
+Answer: A
+Explanation: l=0 is s (spherical), l=1 is p (dumbbell), l=2 is d. n describes energy level; m describes orientation.
+
+13. The maximum number of electrons in the d subshell is:
+A. 10
+B. 6
+C. 2
+D. 14
+Answer: A
+Explanation: d has 5 orbitals × 2 electrons each = 10. s=2, p=6, d=10, f=14.
+
+14. Across Period 3, which property decreases?
+A. Atomic radius
+B. Ionization energy
+C. Electronegativity
+D. Nuclear charge
+Answer: A
+Explanation: Atomic radius decreases left to right as nuclear charge increases. All others increase across a period.
+
+15. The element with configuration [Ar] 3d⁵ 4s¹ is:
+A. Chromium
+B. Manganese
+C. Iron
+D. Vanadium
+Answer: A
+Explanation: Cr (Z=24) adopts [Ar]3d⁵4s¹ rather than 3d⁴4s² — half-filled d subshell is extra stable. Classic UTME exception.
+
+16. How many unpaired electrons does oxygen have?
+A. 2
+B. 1
+C. 0
+D. 3
+Answer: A
+Explanation: O: 1s²2s²2p⁴. The 2p subshell has one fully filled, two with one electron each — 2 unpaired electrons.
+
+17. The electron affinity of chlorine is greater than that of fluorine because:
+A. Cl has a larger atomic radius, less electron-electron repulsion when gaining an electron
+B. Cl is more electronegative
+C. Cl has fewer electrons
+D. Cl is in Period 3
+Answer: A
+Explanation: F is so small that electron-electron repulsion in the already-crowded 2p orbitals reduces energy released. Cl accommodates the extra electron more easily.
+
+18. The ionic compound with the highest lattice energy among these would be:
+A. MgO
+B. NaCl
+C. KI
+D. LiF
+Answer: A
+Explanation: Lattice energy ∝ charge²/radius. Mg²⁺ and O²⁻ both doubly charged and small → highest lattice energy.
+
+19. Which of the following elements is a metalloid?
+A. Silicon
+B. Phosphorus
+C. Sulfur
+D. Calcium
+Answer: A
+Explanation: Silicon (Si) has properties between metals and non-metals. Metalloids: B, Si, Ge, As, Sb, Te.
+
+20. Dobereiner's triads grouped elements in sets of three with the middle element's atomic mass being:
+A. The average of the other two
+B. The sum of the other two
+C. Half the lightest element
+D. Equal to the heaviest
+Answer: A
+Explanation: E.g. Li (7), Na (23), K (39): Na ≈ (7+39)/2 = 23. Early precursor to periodic law.
+
+21. Mendeleev arranged elements by increasing:
+A. Atomic mass
+B. Atomic number
+C. Electronegativity
+D. Atomic radius
+Answer: A
+Explanation: Mendeleev used atomic mass (1869). Moseley later corrected this to atomic number (1913), resolving anomalies like Te/I.
+
+22. The modern periodic law states that properties of elements are periodic functions of their:
+A. Atomic number
+B. Atomic mass
+C. Number of neutrons
+D. Valence electrons
+Answer: A
+Explanation: Moseley's periodic law: properties repeat with increasing atomic number, not mass.
+
+23. The valency of an element with electronic configuration 2, 8, 7 is:
+A. 1
+B. 7
+C. 3
+D. 2
+Answer: A
+Explanation: 7 valence electrons — needs 1 more to complete octet, so valency = 1. This is chlorine.
+
+24. Which of the following elements forms an oxide with formula X₂O₅?
+A. Nitrogen
+B. Carbon
+C. Sulfur
+D. Phosphorus (P₂O₅ not N₂O₅)
+Answer: A
+Explanation: Nitrogen forms N₂O₅ (Group V element, +5 oxidation state). Note: P also forms P₂O₅.
+
+25. A transition element is one that has an incomplete:
+A. d subshell in at least one oxidation state
+B. p subshell
+C. s subshell
+D. f subshell
+Answer: A
+Explanation: Definition: element with partially filled d subshell in elemental form or common ions. Zn and Sc are borderline cases by this definition.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION B: CHEMICAL BONDING (Q26–50)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+26. The bond in NaCl is:
+A. Ionic (electron transfer)
+B. Covalent
+C. Metallic
+D. Dative
+Answer: A
+Explanation: Na (metal) loses 1 electron to Cl (non-metal). Electronegativity difference > 1.7 indicates ionic character.
+
+27. Which molecule has a tetrahedral shape?
+A. CH₄
+B. H₂O
+C. NH₃
+D. CO₂
+Answer: A
+Explanation: CH₄: 4 bonding pairs, 0 lone pairs → perfect tetrahedral (109.5°). NH₃ is trigonal pyramidal; H₂O is bent.
+
+28. The shape of NH₃ is:
+A. Trigonal pyramidal
+B. Trigonal planar
+C. Tetrahedral
+D. Linear
+Answer: A
+Explanation: N has 3 bonding pairs + 1 lone pair. VSEPR: lone pair pushes bonds → trigonal pyramidal, 107°.
+
+29. Which of these has the highest boiling point due to hydrogen bonding?
+A. H₂O
+B. H₂S
+C. HCl
+D. CH₄
+Answer: A
+Explanation: H₂O has extensive H-bonding (O–H···O). This network raises bp far above Group 16 trend.
+
+30. A dative (coordinate) bond is formed when:
+A. One atom donates both electrons to the bond
+B. Each atom donates one electron
+C. Electrons are transferred completely
+D. Ions attract each other
+Answer: A
+Explanation: Also called coordinate bond. Example: NH₄⁺ (N donates lone pair to H⁺), H₃O⁺, [Cu(NH₃)₄]²⁺.
+
+31. The bond angle in CO₂ is:
+A. 180°
+B. 120°
+C. 109.5°
+D. 104.5°
+Answer: A
+Explanation: CO₂ is linear (sp hybridization). Two double bonds, no lone pairs on C → 180°.
+
+32. Which has the shortest bond length?
+A. N≡N (triple bond)
+B. N=N (double bond)
+C. N–N (single bond)
+D. All equal
+Answer: A
+Explanation: Bond length decreases as bond order increases. Triple bond: shorter and stronger than double, which is shorter than single.
+
+33. Metallic bonding involves:
+A. A sea of delocalized electrons surrounding positive ions
+B. Sharing of electrons between two atoms
+C. Transfer of electrons
+D. Electrostatic attraction of ions
+Answer: A
+Explanation: Explains metals' conductivity, malleability, ductility. Delocalized electrons carry charge and allow layers to slide.
+
+34. Which type of solid has the highest melting point?
+A. Network covalent (e.g. diamond, SiO₂)
+B. Ionic
+C. Metallic
+D. Molecular
+Answer: A
+Explanation: Covalent network solids require breaking many strong covalent bonds. Diamond mp > 3500°C.
+
+35. The hybridization of nitrogen in NH₃ is:
+A. sp³
+B. sp²
+C. sp
+D. sp³d
+Answer: A
+Explanation: N has 4 electron groups (3 bonds + 1 lone pair) → sp³. Bond angle 107° (slightly compressed by lone pair).
+
+36. Van der Waals forces are strongest in:
+A. I₂ (heaviest, most electrons)
+B. F₂
+C. Cl₂
+D. Br₂
+Answer: A
+Explanation: Dispersion forces ∝ number of electrons (polarizability). I₂ has most electrons → strongest temporary dipoles → highest bp among halogens.
+
+37. Which molecule is polar?
+A. HCl
+B. CO₂
+C. CCl₄
+D. BF₃
+Answer: A
+Explanation: HCl: different atoms, charge separation, linear but unsymmetric → dipole moment. CO₂, CCl₄, BF₃ have symmetric geometry cancelling dipoles.
+
+38. The bond in H₂ is described as:
+A. Nonpolar covalent
+B. Polar covalent
+C. Ionic
+D. Dative
+Answer: A
+Explanation: H–H: identical atoms → equal electron sharing → zero electronegativity difference → nonpolar covalent.
+
+39. Graphite conducts electricity because:
+A. It has delocalized electrons in its layered structure
+B. It is a metal
+C. It has ionic bonds
+D. It contains free ions
+Answer: A
+Explanation: Each C in graphite is sp² hybridized. The unhybridized p electrons form a delocalized π system across each layer.
+
+40. Which species has a lone pair of electrons acting as a Lewis base?
+A. NH₃
+B. BF₃
+C. AlCl₃
+D. H⁺
+Answer: A
+Explanation: Lewis base = electron pair donor. NH₃ donates via N lone pair. BF₃ and AlCl₃ are Lewis acids (electron acceptors).
+
+41. The number of sigma (σ) bonds in ethene (C₂H₄) is:
+A. 5
+B. 4
+C. 6
+D. 3
+Answer: A
+Explanation: C=C (1σ + 1π), each C–H (1σ each × 4) → 1 + 4 = 5 sigma bonds total.
+
+42. A sigma bond is formed by:
+A. End-to-end (head-on) orbital overlap
+B. Side-to-side (lateral) orbital overlap
+C. Electron transfer
+D. Ion-dipole attraction
+Answer: A
+Explanation: Sigma = end-on overlap (stronger, can rotate freely). Pi = lateral overlap (weaker, restricts rotation — explains geometric isomerism in alkenes).
+
+43. The bond angle in BF₃ is:
+A. 120°
+B. 109.5°
+C. 107°
+D. 90°
+Answer: A
+Explanation: BF₃: 3 bonding pairs, 0 lone pairs → trigonal planar → 120°. B is sp² hybridized and electron deficient.
+
+44. Which of these has the strongest intermolecular forces?
+A. Ethanol (C₂H₅OH)
+B. Ethane (C₂H₆)
+C. Propane (C₃H₈)
+D. Diethyl ether
+Answer: A
+Explanation: Ethanol has O–H group → hydrogen bonding. All others rely only on weaker van der Waals/dipole forces.
+
+45. How many lone pairs does the central atom in H₂O have?
+A. 2
+B. 1
+C. 0
+D. 3
+Answer: A
+Explanation: O: 6 valence electrons. 2 used in O–H bonds (2 bonding pairs). Remaining 4 electrons = 2 lone pairs.
+
+46. The octet rule is violated in:
+A. PCl₅
+B. CCl₄
+C. NaCl
+D. NH₃
+Answer: A
+Explanation: PCl₅: P has 5 bonds = 10 electrons around P (expanded octet, uses 3d orbitals). Period 3+ elements can exceed octet.
+
+47. The lattice energy of an ionic compound is the energy required to:
+A. Separate 1 mole of ionic solid into gaseous ions
+B. Dissolve the compound in water
+C. Form the compound from elements
+D. Melt the compound
+Answer: A
+Explanation: Lattice energy = energy to completely separate ionic lattice into gaseous ions. Higher lattice energy = more stable compound.
+
+48. Which of these compounds exhibits the most covalent character?
+A. AlCl₃
+B. NaCl
+C. MgCl₂
+D. KCl
+Answer: A
+Explanation: Fajans' rules: high charge density cation + large, polarizable anion → covalent character. Al³⁺ has highest charge density here.
+
+49. Resonance in organic compounds results in:
+A. Greater stability than any single Lewis structure predicts
+B. Alternating single and double bonds
+C. Different compounds in equilibrium
+D. Weaker bonds
+Answer: A
+Explanation: Delocalization of electrons lowers energy. Benzene's C–C bonds are all equal length (1.40 Å) between single (1.54) and double (1.34).
+
+50. In a hydrogen bond, the hydrogen atom is covalently bonded to:
+A. A small, highly electronegative atom (F, O, or N)
+B. Any electronegative atom
+C. Carbon
+D. A metal
+Answer: A
+Explanation: Only F, O, N are electronegative/small enough to create the necessary partial positive on H and provide lone pairs for H-bond acceptors.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION C: STOICHIOMETRY & MOLE CONCEPT (Q51–70)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+51. The molar mass of CaCO₃ is:
+A. 100 g/mol
+B. 80 g/mol
+C. 120 g/mol
+D. 98 g/mol
+Answer: A
+Explanation: Ca(40) + C(12) + 3×O(16) = 40 + 12 + 48 = 100 g/mol.
+
+52. Avogadro's number (6.02×10²³) represents the number of particles in:
+A. 1 mole of any substance
+B. 1 gram of any substance
+C. 1 litre of gas at STP
+D. 1 molecule
+Answer: A
+Explanation: 1 mole = 6.02×10²³ particles (atoms, molecules, ions, etc.) regardless of substance.
+
+53. What volume does 1 mole of an ideal gas occupy at STP?
+A. 22.4 L
+B. 24.0 L
+C. 22.0 L
+D. 44.8 L
+Answer: A
+Explanation: STP (0°C, 1 atm): molar volume = 22.4 L. At RTP (25°C, 1 atm): 24.0 L. UTME uses 22.4 L unless stated otherwise.
+
+54. How many moles are in 11 g of CO₂? (M = 44 g/mol)
+A. 0.25 mol
+B. 0.5 mol
+C. 1 mol
+D. 2 mol
+Answer: A
+Explanation: n = mass/M = 11/44 = 0.25 mol.
+
+55. The empirical formula of a compound containing 40% C, 6.7% H, and 53.3% O is:
+A. CH₂O
+B. C₂H₄O₂
+C. CHO
+D. C₂H₂O
+Answer: A
+Explanation: Divide by atomic masses: C=40/12=3.33, H=6.7/1=6.7, O=53.3/16=3.33. Ratio 1:2:1 → CH₂O.
+
+56. In the reaction N₂ + 3H₂ → 2NH₃, how many moles of NH₃ are produced from 3 moles of H₂?
+A. 2 mol
+B. 3 mol
+C. 1 mol
+D. 6 mol
+Answer: A
+Explanation: 3H₂ → 2NH₃ directly from stoichiometry. 3 mol H₂ produces 2 mol NH₃.
+
+57. The percentage by mass of nitrogen in NH₄NO₃ (M=80) is:
+A. 35%
+B. 28%
+C. 17.5%
+D. 14%
+Answer: A
+Explanation: 2 N atoms = 2×14 = 28. % = (28/80)×100 = 35%.
+
+58. A limiting reagent is:
+A. The reactant that is completely consumed first
+B. The reactant in excess
+C. The product of a reaction
+D. A catalyst
+Answer: A
+Explanation: Limiting reagent determines maximum product. Excess reagent remains after reaction ends.
+
+59. The concentration of a solution containing 4 g of NaOH (M=40) in 500 cm³ is:
+A. 0.2 mol/L
+B. 0.4 mol/L
+C. 0.1 mol/L
+D. 2 mol/L
+Answer: A
+Explanation: moles = 4/40 = 0.1 mol. Concentration = 0.1/0.5 L = 0.2 mol/L.
+
+60. What mass of oxygen is needed to completely combust 16 g of CH₄? (CH₄ + 2O₂ → CO₂ + 2H₂O)
+A. 64 g
+B. 32 g
+C. 16 g
+D. 48 g
+Answer: A
+Explanation: 16 g CH₄ = 1 mol. 1 mol CH₄ needs 2 mol O₂ = 2×32 = 64 g O₂.
+
+61. Molarity is defined as:
+A. Moles of solute per litre of solution
+B. Moles of solute per kg of solvent
+C. Mass of solute per litre
+D. Volume of solute per volume of solution
+Answer: A
+Explanation: Molarity (M) = mol/L. Molality (m) = mol/kg solvent. Know both definitions.
+
+62. The number of molecules in 22 g of CO₂ (M=44) is:
+A. 3.01×10²³
+B. 6.02×10²³
+C. 1.20×10²⁴
+D. 1.50×10²³
+Answer: A
+Explanation: 22/44 = 0.5 mol. 0.5 × 6.02×10²³ = 3.01×10²³ molecules.
+
+63. Diluting a solution 10 times means the new concentration is:
+A. 1/10 of original
+B. 10 times original
+C. Same
+D. Square root of original
+Answer: A
+Explanation: C₁V₁ = C₂V₂. If V₂ = 10V₁, then C₂ = C₁/10. Dilution reduces concentration proportionally.
+
+64. The equivalent mass of H₂SO₄ (M=98) in acid-base reactions is:
+A. 49 g/equiv
+B. 98 g/equiv
+C. 24.5 g/equiv
+D. 32.7 g/equiv
+Answer: A
+Explanation: Equivalent mass = M/n where n = number of H⁺ supplied = 2. Equiv. mass = 98/2 = 49.
+
+65. Gay-Lussac's Law of combining volumes states:
+A. Gases react and are produced in simple whole number volume ratios at constant T and P
+B. Gases at same T and P have equal volumes
+C. Volume is proportional to temperature
+D. Equal volumes contain equal masses
+Answer: A
+Explanation: Basis for stoichiometry with gases. E.g., H₂ + Cl₂ → 2HCl (1:1:2 volumes).
+
+66. A 25 cm³ sample of H₂SO₄ is neutralized by 50 cm³ of 0.1 M NaOH. The molarity of H₂SO₄ is:
+A. 0.1 M
+B. 0.2 M
+C. 0.05 M
+D. 0.5 M
+Answer: A
+Explanation: H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O. mol NaOH = 0.05×0.1 = 0.005. mol H₂SO₄ = 0.005/2 = 0.0025. M = 0.0025/0.025 = 0.1 M.
+
+67. The yield of a reaction where 5 g product is obtained from a theoretical yield of 20 g is:
+A. 25%
+B. 50%
+C. 75%
+D. 100%
+Answer: A
+Explanation: % yield = (actual/theoretical)×100 = (5/20)×100 = 25%.
+
+68. At STP, how many moles of gas are in 44.8 L?
+A. 2 mol
+B. 1 mol
+C. 0.5 mol
+D. 4 mol
+Answer: A
+Explanation: 44.8 L ÷ 22.4 L/mol = 2 mol.
+
+69. What is the formula mass of (NH₄)₂SO₄?
+A. 132 g/mol
+B. 96 g/mol
+C. 114 g/mol
+D. 148 g/mol
+Answer: A
+Explanation: 2×N(14)+8×H(1)+S(32)+4×O(16) = 28+8+32+64 = 132 g/mol.
+
+70. The number of atoms in 1 mole of O₂ is:
+A. 12.04×10²³
+B. 6.02×10²³
+C. 3.01×10²³
+D. 1.00×10²³
+Answer: A
+Explanation: 1 mol O₂ = 6.02×10²³ molecules. Each O₂ has 2 atoms → 2 × 6.02×10²³ = 12.04×10²³ atoms.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION D: ACIDS, BASES & SALTS (Q71–90)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+71. According to Arrhenius, an acid is a substance that:
+A. Produces H⁺ ions in aqueous solution
+B. Accepts protons
+C. Donates electron pairs
+D. Produces OH⁻ ions
+Answer: A
+Explanation: Arrhenius (1884): acid → H⁺, base → OH⁻ in water. Limited to aqueous solutions.
+
+72. The Brønsted-Lowry conjugate base of H₂SO₄ is:
+A. HSO₄⁻
+B. SO₄²⁻
+C. H₃SO₄⁺
+D. H₂O
+Answer: A
+Explanation: Conjugate base = acid minus one proton. H₂SO₄ → H⁺ + HSO₄⁻. (Full deprotonation gives SO₄²⁻, which is the conjugate base of HSO₄⁻.)
+
+73. A salt formed from a weak acid and strong base gives a solution that is:
+A. Basic (pH > 7)
+B. Acidic
+C. Neutral
+D. pH 7
+Answer: A
+Explanation: The anion of the weak acid (e.g. CH₃COO⁻) hydrolyzes water: CH₃COO⁻ + H₂O → CH₃COOH + OH⁻, producing excess OH⁻.
+
+74. The pH of a neutral solution at 25°C is:
+A. 7
+B. 0
+C. 14
+D. Depends on concentration
+Answer: A
+Explanation: At 25°C, Kw = 10⁻¹⁴, so [H⁺]=[OH⁻]=10⁻⁷, pH = 7. This changes at different temperatures.
+
+75. Which indicator would be most suitable for a strong acid-weak base titration?
+A. Methyl orange (pH range 3.1–4.4)
+B. Phenolphthalein
+C. Litmus
+D. Bromothymol blue
+Answer: A
+Explanation: Equivalence point is in acidic region (pH<7). Methyl orange (turns pink in acid) changes color at this region. Phenolphthalein is for acid-strong base titrations.
+
+76. The reaction of an acid with a carbonate produces:
+A. Salt + water + CO₂
+B. Salt + water only
+C. Salt + H₂ gas
+D. Salt + CO only
+Answer: A
+Explanation: E.g. 2HCl + CaCO₃ → CaCl₂ + H₂O + CO₂. CO₂ causes effervescence — qualitative test for carbonates.
+
+77. An amphoteric substance can act as:
+A. Both an acid and a base
+B. Both oxidizing and reducing agent
+C. A catalyst
+D. A buffer
+Answer: A
+Explanation: Examples: water (H₂O), aluminium oxide (Al₂O₃), amino acids. Al₂O₃ + HCl → AlCl₃; Al₂O₃ + NaOH → NaAlO₂.
+
+78. The normality of H₃PO₄ solution that is 2 M is:
+A. 6 N
+B. 2 N
+C. 4 N
+D. 3 N
+Answer: A
+Explanation: H₃PO₄ has 3 replaceable H⁺ ions. Normality = Molarity × n-factor = 2 × 3 = 6 N.
+
+79. When excess NaOH is added to ZnCl₂ solution, the precipitate formed:
+A. Dissolves (Zn(OH)₂ is amphoteric)
+B. Remains white
+C. Turns blue
+D. Remains insoluble
+Answer: A
+Explanation: Zn(OH)₂ + 2NaOH → Na₂ZnO₂ + 2H₂O. Zinc hydroxide dissolves in excess base — amphoteric character.
+
+80. Hydrolysis of salt Na₂CO₃ produces a solution that turns litmus:
+A. Blue (basic)
+B. Red (acidic)
+C. No change (neutral)
+D. Purple
+Answer: A
+Explanation: Na₂CO₃ is a salt of strong base + weak acid. CO₃²⁻ hydrolyzes to give OH⁻ → basic solution.
+
+81. The reaction between an acid and a base is called:
+A. Neutralization
+B. Oxidation
+C. Reduction
+D. Displacement
+Answer: A
+Explanation: Acid + base → salt + water (for Arrhenius). ΔH of neutralization of strong acid + strong base ≈ -57 kJ/mol.
+
+82. Which acid is both a monobasic and a weak acid?
+A. Ethanoic acid (CH₃COOH)
+B. H₂SO₄
+C. HCl
+D. H₃PO₄
+Answer: A
+Explanation: CH₃COOH has 1 ionizable proton (monobasic) and is only partially ionized (Ka = 1.8×10⁻⁵), hence weak.
+
+83. The degree of ionization of a weak acid increases when:
+A. The solution is diluted
+B. Temperature decreases
+C. More acid is added
+D. A common ion is added
+Answer: A
+Explanation: Dilution shifts equilibrium toward ionization (Le Chatelier). Common ion effect (e.g. adding CH₃COO⁻) suppresses ionization.
+
+84. Titration curve of strong acid vs strong base has a sharp inflection at:
+A. pH 7
+B. pH 4
+C. pH 9
+D. pH 11
+Answer: A
+Explanation: Equivalence point is at pH 7 for strong-strong titration. Weak acid-strong base: pH > 7; strong acid-weak base: pH < 7.
+
+85. Which of the following is not a property of acids?
+A. Turns litmus paper red
+B. Reacts with metals to give H₂
+C. Conducts electricity only
+D. Has pH < 7
+Answer: C
+Explanation: Acids can conduct electricity (in solution), turn litmus red, pH<7, react with metals — but "conducts electricity only" is not a property of acids exclusively.
+
+86. The acid found in bee stings is:
+A. Methanoic acid (formic acid)
+B. Ethanoic acid
+C. Citric acid
+D. Hydrochloric acid
+Answer: A
+Explanation: Bee venom contains methanoic (formic) acid, HCOOH. Wasp venom is alkaline (treated differently).
+
+87. Acid rain has a pH:
+A. Less than 5.6
+B. Equal to 7
+C. Greater than 7
+D. Equal to 5.6
+Answer: A
+Explanation: Normal rain pH ≈ 5.6 (CO₂ dissolved). Acid rain (due to SO₂, NOx) has pH < 5.6.
+
+88. The colour of phenolphthalein in alkaline solution is:
+A. Pink/fuchsia
+B. Colourless
+C. Yellow
+D. Orange
+Answer: A
+Explanation: Phenolphthalein: colourless in acid/neutral, pink in base (transition pH 8.3–10.0).
+
+89. A buffer solution is BEST described as:
+A. A solution that resists changes in pH on addition of small amounts of acid or base
+B. A neutral solution at pH 7
+C. A concentrated acid solution
+D. A highly dilute solution
+Answer: A
+Explanation: Buffer = weak acid + conjugate base (or weak base + conjugate acid). Effective within ±1 pH unit of pKa.
+
+90. Which salt undergoes no hydrolysis?
+A. NaCl (strong acid + strong base)
+B. NH₄Cl
+C. CH₃COONa
+D. Na₂CO₃
+Answer: A
+Explanation: NaCl is salt of HCl (strong acid) and NaOH (strong base). Neither ion hydrolyzes → pH = 7.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION E: ELECTROCHEMISTRY (Q91–110)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+91. Electrolysis of dilute H₂SO₄ produces at the cathode:
+A. Hydrogen gas (H₂)
+B. Oxygen gas
+C. Sulfur dioxide
+D. Water
+Answer: A
+Explanation: At cathode (reduction): 2H⁺ + 2e⁻ → H₂. At anode: 2H₂O → O₂ + 4H⁺ + 4e⁻.
+
+92. In the electrolysis of CuSO₄ with copper electrodes, the copper anode:
+A. Dissolves and copper deposits at cathode (refining principle)
+B. Produces oxygen
+C. Remains unchanged
+D. Produces SO₂
+Answer: A
+Explanation: Copper anode: Cu → Cu²⁺ + 2e⁻. Cathode: Cu²⁺ + 2e⁻ → Cu. Net transfer of Cu from anode to cathode — basis of copper purification.
+
+93. The quantity of electricity (charge) is measured in:
+A. Coulombs (C = A × s)
+B. Volts
+C. Amperes
+D. Ohms
+Answer: A
+Explanation: Q = It (amperes × seconds = coulombs). Faraday = 96500 C/mol of electrons.
+
+94. How many grams of copper are deposited when 2 Faradays pass through CuSO₄ solution? (Cu = 64)
+A. 64 g
+B. 32 g
+C. 128 g
+D. 16 g
+Answer: A
+Explanation: Cu²⁺ + 2e⁻ → Cu. 2F needed per mol Cu. 2F gives 1 mol Cu = 64 g.
+
+95. The cell notation for a standard zinc-copper galvanic cell is:
+A. Zn|Zn²⁺||Cu²⁺|Cu
+B. Cu|Cu²⁺||Zn²⁺|Zn
+C. Zn²⁺|Zn||Cu|Cu²⁺
+D. Cu²⁺|Cu||Zn|Zn²⁺
+Answer: A
+Explanation: Anode (oxidation) written first, cathode (reduction) last. Zn is oxidized (anode), Cu²⁺ is reduced (cathode). Emf = +1.10 V.
+
+96. The EMF of a galvanic cell is calculated as:
+A. E°cell = E°cathode - E°anode
+B. E°cell = E°anode - E°cathode
+C. E°cell = E°cathode + E°anode
+D. E°cell = E°anode × E°cathode
+Answer: A
+Explanation: E°cell = E°(reduction at cathode) - E°(reduction at anode). Positive EMF = spontaneous reaction.
+
+97. Corrosion of iron (rusting) is an example of:
+A. Electrochemical oxidation
+B. Physical change
+C. Reduction
+D. Neutralization
+Answer: A
+Explanation: Fe → Fe²⁺ + 2e⁻ (oxidation at anode). O₂ + H₂O + 4e⁻ → 4OH⁻ (reduction at cathode). Water acts as electrolyte.
+
+98. Which method is used to prevent rusting by sacrificial protection?
+A. Attaching a more reactive metal (Zn, Mg) to iron
+B. Painting the surface
+C. Electroplating with copper
+D. Alloying with nickel
+Answer: A
+Explanation: Sacrificial anode: Zn is oxidized preferentially, protecting Fe. Used on ships, pipelines, oil rigs.
+
+99. Electrolytic refining of aluminium uses:
+A. Cryolite (Na₃AlF₆) as solvent for Al₂O₃
+B. Dilute H₂SO₄ as electrolyte
+C. Molten NaCl
+D. Aqueous AlCl₃
+Answer: A
+Explanation: Hall-Héroult process: Al₂O₃ dissolved in molten cryolite at 950°C. Electrolysis deposits Al at cathode.
+
+100. In electrolysis of molten NaCl, the product at the anode is:
+A. Chlorine gas (Cl₂)
+B. Sodium metal
+C. Hydrogen gas
+D. Oxygen gas
+Answer: A
+Explanation: Anode (oxidation): 2Cl⁻ → Cl₂ + 2e⁻. Cathode (reduction): Na⁺ + e⁻ → Na. Basis of chlor-alkali process (with NaCl solution).
+
+101. The Nernst equation relates cell EMF to:
+A. Concentration of reactants and products
+B. Temperature only
+C. Pressure only
+D. Catalyst concentration
+Answer: A
+Explanation: E = E° - (RT/nF)lnQ. At non-standard concentrations, cell potential differs from standard. Useful for pH meters.
+
+102. In the electroplating of silver, the anode should be:
+A. Pure silver
+B. Carbon (graphite)
+C. Copper
+D. Zinc
+Answer: A
+Explanation: Silver anode dissolves to replenish Ag⁺ ions in solution, maintaining concentration. Object to be plated is cathode.
+
+103. Which of the following metals can be extracted by electrolysis of its aqueous salt solution?
+A. Copper
+B. Sodium
+C. Calcium
+D. Aluminium
+Answer: A
+Explanation: Metals below hydrogen in reactivity series can be deposited from aqueous solution. Na, Ca, Al are too reactive — H₂ would form instead; they need molten electrolysis.
+
+104. The reduction half-reaction at the cathode during electrolysis of dilute NaCl is:
+A. 2H₂O + 2e⁻ → H₂ + 2OH⁻
+B. 2Cl⁻ → Cl₂ + 2e⁻
+C. Na⁺ + e⁻ → Na
+D. 4OH⁻ → O₂ + 2H₂O + 4e⁻
+Answer: A
+Explanation: In dilute NaCl (aqueous), H₂O is preferentially reduced at cathode (not Na⁺ — too reactive). Product: H₂ gas + OH⁻.
+
+105. Faraday's second law states that for the same quantity of electricity:
+A. Masses deposited are proportional to their equivalent masses
+B. All metals deposit in equal masses
+C. Mass is proportional to current
+D. Deposition rate is constant
+Answer: A
+Explanation: m₁/m₂ = E₁/E₂ (ratio of equivalent masses). Allows comparison of deposits from different electrolytes with same charge.
+
+106. The standard electrode potential of zinc is -0.76 V. This means zinc:
+A. Is more easily oxidized than hydrogen
+B. Is less reactive than hydrogen
+C. Deposits at +0.76 V
+D. Cannot act as anode
+Answer: A
+Explanation: Negative E° means metal is oxidized more easily than H₂ (standard). More negative = more reactive metal.
+
+107. Which of the following electrolytes would give oxygen at the anode?
+A. Dilute H₂SO₄
+B. Concentrated HCl
+C. Molten NaCl
+D. CuSO₄ with copper electrodes
+Answer: A
+Explanation: At inert anode in dilute H₂SO₄: 2H₂O → O₂ + 4H⁺ + 4e⁻. In concentrated HCl or molten NaCl, Cl₂ is produced instead.
+
+108. The electrolysis of brine (concentrated NaCl) produces all of the following EXCEPT:
+A. Nitrogen gas
+B. Chlorine gas
+C. Hydrogen gas
+D. Sodium hydroxide
+Answer: A
+Explanation: Chlor-alkali products: Cl₂ (anode), H₂ (cathode), NaOH (in solution). Nitrogen is not produced.
+
+109. If 9650 C of charge is passed, the moles of electrons transferred are:
+A. 0.1 mol
+B. 1 mol
+C. 0.01 mol
+D. 10 mol
+Answer: A
+Explanation: moles e⁻ = Q/F = 9650/96500 = 0.1 mol.
+
+110. Cathodic protection of iron uses:
+A. Zinc or magnesium blocks attached to the iron
+B. A layer of paint
+C. Electrical insulation
+D. Alloying with chromium
+Answer: A
+Explanation: Sacrificial metals (Zn, Mg) with more negative electrode potential corrode preferentially, protecting iron from oxidation.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION F: EQUILIBRIUM & KINETICS (Q111–135)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+111. At equilibrium, the rate of the forward reaction:
+A. Equals the rate of the reverse reaction
+B. Is greater than the reverse
+C. Is less than the reverse
+D. Is zero
+Answer: A
+Explanation: Dynamic equilibrium: both reactions continue but at equal rates so concentrations remain constant.
+
+112. For the reaction PCl₅ ⇌ PCl₃ + Cl₂, Kc at 250°C is 0.04. If [PCl₅]=0.2, [PCl₃]=0.1, [Cl₂]=0.1 initially, the reaction will:
+A. Proceed forward (Q < Kc)
+B. Proceed backward
+C. Be at equilibrium
+D. Stop completely
+Answer: A
+Explanation: Q = [PCl₃][Cl₂]/[PCl₅] = (0.1)(0.1)/0.2 = 0.05. Q > Kc (0.04) → reaction shifts backward. (This is a corrected explanation — Q > Kc means reaction goes backward; if Q < Kc it goes forward.)
+Note: Answer should be B (backward) if Q=0.05 > Kc=0.04. This tests direction prediction.
+Corrected Answer: B
+Explanation: Q = 0.05 > Kc = 0.04 → reaction proceeds backward (right to left) until Q = Kc.
+
+113. Increasing temperature of an exothermic reaction shifts equilibrium:
+A. To the left (favors reverse endothermic direction)
+B. To the right
+C. No effect
+D. Increases Kc
+Answer: A
+Explanation: Le Chatelier: adding heat to exothermic system → system reduces heat → shifts backward. Kc decreases with increasing T for exothermic reactions.
+
+114. The unit of the rate constant k for a second-order reaction is:
+A. L mol⁻¹ s⁻¹
+B. mol L⁻¹ s⁻¹
+C. s⁻¹
+D. L² mol⁻² s⁻¹
+Answer: A
+Explanation: Rate = k[A]² → k = Rate/[A]² = (mol L⁻¹ s⁻¹)/(mol L⁻¹)² = L mol⁻¹ s⁻¹.
+
+115. The half-life of a first-order reaction is:
+A. Independent of initial concentration
+B. Proportional to initial concentration
+C. Inversely proportional to concentration squared
+D. Equal to 1/k
+Answer: A
+Explanation: t½ = 0.693/k for first-order. Only for second-order: t½ = 1/k[A]₀ (depends on concentration).
+
+116. A catalyst lowers activation energy. This means:
+A. More molecules have sufficient energy to react
+B. Temperature increases
+C. Equilibrium shifts to products
+D. Reaction becomes exothermic
+Answer: A
+Explanation: Maxwell-Boltzmann: fraction of molecules above Ea increases when Ea decreases. Rate constant k = Ae^(-Ea/RT).
+
+117. If reaction rate doubles for every 10°C rise, the rate at 50°C compared to 20°C is:
+A. 8 times
+B. 4 times
+C. 2 times
+D. 16 times
+Answer: A
+Explanation: ΔT = 30°C = 3 intervals of 10°C. Rate multiplier = 2³ = 8.
+
+118. For the reaction 2A + B → C, rate = k[A][B]. This reaction is:
+A. Second order overall (first in A, first in B)
+B. Third order
+C. Second order in A
+D. Zero order
+Answer: A
+Explanation: Order = sum of exponents = 1+1 = 2 (second order). Stoichiometric coefficients ≠ rate law orders unless proven.
+
+119. The Contact process for making H₂SO₄ uses which catalyst?
+A. Vanadium(V) oxide (V₂O₅)
+B. Iron
+C. Platinum
+D. Nickel
+Answer: A
+Explanation: 2SO₂ + O₂ ⇌ 2SO₃. V₂O₅ catalyst at 450°C. SO₃ then absorbed in H₂SO₄ to give oleum.
+
+120. Adding an inert gas to an equilibrium at constant volume:
+A. Has no effect on equilibrium position
+B. Shifts equilibrium to the side with more moles
+C. Always shifts equilibrium forward
+D. Increases Kp
+Answer: A
+Explanation: Partial pressures of reactants/products unchanged at constant volume → no shift. (At constant pressure, it would shift.)
+
+121. Kp is related to Kc by:
+A. Kp = Kc(RT)^Δn
+B. Kp = Kc/RT
+C. Kp = Kc × Δn
+D. Kp = Kc²
+Answer: A
+Explanation: Δn = moles gaseous products - moles gaseous reactants. If Δn=0, Kp=Kc.
+
+122. Activation energy (Ea) can be determined from:
+A. A graph of ln k vs 1/T (Arrhenius plot)
+B. Measuring product concentration
+C. Titration
+D. Calorimetry directly
+Answer: A
+Explanation: ln k = ln A - Ea/RT. Plot ln k vs 1/T: slope = -Ea/R. Used to determine activation energy experimentally.
+
+123. In the Ostwald process for nitric acid, ammonia is oxidized to NO. The catalyst used is:
+A. Platinum-rhodium gauze
+B. V₂O₅
+C. Iron
+D. Nickel
+Answer: A
+Explanation: 4NH₃ + 5O₂ → 4NO + 6H₂O (Pt/Rh, 900°C). NO then oxidized to NO₂, dissolved in water to give HNO₃.
+
+124. A zero-order reaction has a rate that:
+A. Is independent of reactant concentration
+B. Doubles when concentration doubles
+C. Quadruples when concentration doubles
+D. Halves when concentration doubles
+Answer: A
+Explanation: Rate = k[A]⁰ = k. Rate constant equals rate. Example: enzyme-catalyzed reactions at high substrate concentration.
+
+125. Le Chatelier's principle applies to:
+A. Any system in dynamic equilibrium subjected to a change
+B. Only gas-phase reactions
+C. Only ionic reactions
+D. Irreversible reactions only
+Answer: A
+Explanation: Applies to chemical equilibria, phase equilibria, dissolution equilibria. Any change (T, P, concentration) is counteracted by the system.
+
+126. The solubility product Ksp of AgCl is 1×10⁻¹⁰. Its molar solubility is:
+A. 1×10⁻⁵ mol/L
+B. 1×10⁻¹⁰ mol/L
+C. 1×10⁻² mol/L
+D. 1×10⁻⁷ mol/L
+Answer: A
+Explanation: AgCl ⇌ Ag⁺ + Cl⁻. Ksp = s² = 10⁻¹⁰, so s = 10⁻⁵ mol/L.
+
+127. The common ion effect:
+A. Decreases the solubility of a sparingly soluble salt
+B. Increases solubility
+C. Has no effect on solubility
+D. Only applies to acids
+Answer: A
+Explanation: Adding a common ion shifts equilibrium away from dissolution (Le Chatelier). E.g., adding NaCl to AgCl solution decreases AgCl solubility.
+
+128. The order of reaction is determined by:
+A. Experimental rate measurements at different concentrations
+B. Stoichiometry of the balanced equation
+C. The value of Kc
+D. The activation energy
+Answer: A
+Explanation: Order must be found experimentally; cannot be predicted from the equation alone (only for elementary reactions).
+
+129. Temperature affects reaction rate because:
+A. Higher T increases both collision frequency and fraction of molecules with energy ≥ Ea
+B. Higher T only increases collision frequency
+C. Higher T changes the activation energy
+D. Higher T increases bond strength
+Answer: A
+Explanation: Arrhenius: both collision frequency (√T dependence) and Boltzmann factor (exponential) increase. The exponential factor dominates.
+
+130. Increasing pressure shifts equilibrium in which direction for N₂ + 3H₂ ⇌ 2NH₃?
+A. Forward (decreases moles of gas: 4→2)
+B. Backward
+C. No effect
+D. Depends on temperature
+Answer: A
+Explanation: Δn(gas) = 2-4 = -2. High pressure favors fewer moles of gas → forward. Haber process uses 200 atm.
+
+131. For an endothermic reaction, the forward activation energy (Ea forward) compared to reverse (Ea reverse) is:
+A. Greater (Ea forward > Ea reverse)
+B. Less
+C. Equal
+D. Zero
+Answer: A
+Explanation: ΔH = Ea(forward) - Ea(reverse). For endothermic ΔH > 0, so Ea(f) > Ea(r).
+
+132. A reaction is said to be autocatalytic when:
+A. A product of the reaction acts as a catalyst
+B. A reactant is its own catalyst
+C. No catalyst is required
+D. The reaction accelerates due to temperature rise only
+Answer: A
+Explanation: Example: oxidation of oxalic acid by KMnO₄ where Mn²⁺ product catalyzes the reaction — rate increases as product forms.
+
+133. The equilibrium constant Kc has no units when:
+A. Δn = 0 (moles of products = moles of reactants)
+B. All species are gases
+C. Kc > 1
+D. Reaction is fast
+Answer: A
+Explanation: Kc units depend on Δn. If Δn=0, concentrations cancel → dimensionless. E.g., H₂ + I₂ ⇌ 2HI (Δn=0).
+
+134. Which factor does NOT affect the value of Kc?
+A. Adding a catalyst
+B. Changing temperature
+C. Changing concentrations
+D. All of the above affect Kc
+Answer: A
+Explanation: Only temperature changes Kc. Catalysts and concentration changes affect rate or position of equilibrium but not the equilibrium constant itself.
+
+135. In the decomposition of N₂O₄ ⇌ 2NO₂, degree of dissociation increases when:
+A. Pressure decreases (or volume increases)
+B. Pressure increases
+C. Temperature decreases
+D. A catalyst is removed
+Answer: A
+Explanation: Decreasing pressure favors more moles of gas → more NO₂ → greater dissociation. Also increases with increasing temperature (endothermic reaction).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION G: ORGANIC CHEMISTRY (Q136–175)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+136. The general formula of alkanes is:
+A. CₙH₂ₙ₊₂
+B. CₙH₂ₙ
+C. CₙH₂ₙ₋₂
+D. CₙHₙ
+Answer: A
+Explanation: Saturated hydrocarbons. Alkenes: CₙH₂ₙ. Alkynes: CₙH₂ₙ₋₂. Benzene/arenes: CₙH₂ₙ₋₆.
+
+137. Which of the following is a primary alcohol?
+A. CH₃CH₂OH (ethanol)
+B. (CH₃)₂CHOH
+C. (CH₃)₃COH
+D. CH₃COCH₃
+Answer: A
+Explanation: Primary: –OH on carbon with only one other C attached. Secondary: two C attached. Tertiary: three C attached.
+
+138. The IUPAC name of CH₃CH₂CH₂OH is:
+A. Propan-1-ol
+B. Propan-2-ol
+C. 1-propanol (same but alternative)
+D. Propanal
+Answer: A
+Explanation: 3 carbons (prop), –OH at position 1 → propan-1-ol. Propan-2-ol has OH on C2.
+
+139. Which reaction is characteristic of alkenes but not alkanes?
+A. Addition reactions (e.g. hydrogenation, halogenation)
+B. Substitution reactions
+C. Combustion
+D. Thermal cracking
+Answer: A
+Explanation: C=C double bond undergoes addition. Alkanes undergo substitution (free radical). Both undergo combustion.
+
+140. Markovnikov's rule states that in addition of HX to an alkene:
+A. H adds to the carbon with more hydrogen atoms
+B. X adds to the less substituted carbon
+C. H adds randomly
+D. The reaction doesn't follow a rule
+Answer: A
+Explanation: The more stable (more substituted) carbocation intermediate determines product. CH₃CH=CH₂ + HBr → CH₃CHBrCH₃ (not CH₃CH₂CH₂Br).
+
+141. Which reagent converts an alkene to a diol (two OH groups)?
+A. Cold, dilute KMnO₄
+B. Hot, concentrated KMnO₄
+C. Br₂/CCl₄
+D. HCl
+Answer: A
+Explanation: Cold, dilute KMnO₄: cis-dihydroxylation → diol. Hot, concentrated KMnO₄: oxidative cleavage. Classic UTME distinction.
+
+142. The process of cracking produces:
+A. Smaller molecules including alkenes from large alkanes
+B. Only alkanes
+C. Only aromatics
+D. Oxygen-containing compounds
+Answer: A
+Explanation: Thermal or catalytic cracking breaks C–C bonds in long-chain alkanes, producing alkenes (valuable for plastics) and smaller alkanes.
+
+143. Benzene undergoes electrophilic substitution rather than addition because:
+A. Addition would disrupt the stable aromatic ring (delocalized π electrons)
+B. Addition is impossible for benzene
+C. Benzene has no pi bonds
+D. Addition would be too exothermic
+Answer: A
+Explanation: Aromatic stability (resonance energy ≈ 150 kJ/mol) is preserved by substitution, not addition.
+
+144. Nitration of benzene uses a mixture of:
+A. Concentrated HNO₃ and concentrated H₂SO₄
+B. Dilute HNO₃
+C. HNO₃ and HCl
+D. N₂O₄ only
+Answer: A
+Explanation: H₂SO₄ protonates HNO₃ to generate the nitronium ion (NO₂⁺), the electrophile for electrophilic substitution.
+
+145. The fermentation of glucose to produce ethanol requires:
+A. Zymase enzyme (from yeast) in absence of O₂
+B. Acid catalyst
+C. High pressure
+D. Oxidizing agent
+Answer: A
+Explanation: C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂. Anaerobic fermentation, yeast contains zymase, optimum temp 25–37°C.
+
+146. Ethanol is oxidized to ethanoic acid by:
+A. Acidified potassium dichromate (K₂Cr₂O₇/H⁺)
+B. Alkaline KMnO₄
+C. Na metal
+D. Concentrated HCl
+Answer: A
+Explanation: Primary alcohol → aldehyde (with controlled oxidation) → carboxylic acid. K₂Cr₂O₇ turns from orange to green (Cr³⁺) — visible color change used in breathalyzers.
+
+147. An ester is formed by the reaction of:
+A. Carboxylic acid + alcohol (esterification, H⁺ catalyst)
+B. Carboxylic acid + amine
+C. Aldehyde + alcohol
+D. Alkene + water
+Answer: A
+Explanation: RCOOH + R'OH ⇌ RCOOR' + H₂O. Reversible reaction, catalyzed by conc. H₂SO₄. Hydrolysis reverses it.
+
+148. The functional group –CHO is found in:
+A. Aldehydes
+B. Ketones
+C. Carboxylic acids
+D. Esters
+Answer: A
+Explanation: –CHO = aldehyde. –CO– (between carbons) = ketone. –COOH = carboxylic acid. –COO– = ester.
+
+149. Tollens' reagent (silver mirror test) is a positive test for:
+A. Aldehydes (oxidized to carboxylic acids, Ag⁺ → Ag)
+B. Ketones
+C. Alkenes
+D. Esters
+Answer: A
+Explanation: RCHO + 2[Ag(NH₃)₂]⁺ + 2OH⁻ → RCOO⁻ + 2Ag↓ + 4NH₃ + H₂O. Ketones don't give silver mirror.
+
+150. The IUPAC name of CH₃COCH₃ is:
+A. Propan-2-one (acetone)
+B. Propan-1-one
+C. Propanol
+D. Propanal
+Answer: A
+Explanation: Ketone: C=O between carbons. 3 carbons → propan, carbonyl on C2 → propan-2-one.
+
+151. Saponification is the hydrolysis of:
+A. An ester with NaOH to give soap (sodium salt of fatty acid)
+B. A protein
+C. An alkene
+D. A carbohydrate
+Answer: A
+Explanation: Fats (triglycerides) + NaOH → glycerol + sodium salts of fatty acids (soap). Hence saponification number.
+
+152. Which organic compound produces a brick-red precipitate with Fehling's solution?
+A. Glucose (aldehyde group present)
+B. Sucrose
+C. Acetone
+D. Benzene
+Answer: A
+Explanation: Fehling's = alkaline Cu²⁺ solution. Aldehydes and reducing sugars reduce Cu²⁺ → Cu₂O (brick-red). Sucrose (non-reducing sugar) does not.
+
+153. The product of the reaction of ethene with Br₂ is:
+A. 1,2-dibromoethane (CH₂BrCH₂Br)
+B. Bromoethane
+C. Ethyne
+D. Vinyl bromide
+Answer: A
+Explanation: Addition: CH₂=CH₂ + Br₂ → CH₂BrCH₂Br. Bromine water is decolorized — test for unsaturation.
+
+154. Geometric (cis-trans) isomerism is possible when:
+A. There is restricted rotation around a C=C double bond and two different groups on each carbon
+B. Any double bond is present
+C. The molecule has a chiral center
+D. The molecule is cyclic
+Answer: A
+Explanation: C=C restricts rotation. Each sp² carbon needs two different substituents for cis-trans isomers to exist. E.g., but-2-ene.
+
+155. The order of priority in nucleophilic substitution (SN2) is affected by:
+A. Steric hindrance (primary > secondary > tertiary reactivity)
+B. Bond polarity only
+C. Temperature only
+D. Solvent only
+Answer: A
+Explanation: SN2: back-side attack is hindered by bulky groups. Primary alkyl halides react fastest; tertiary prefer SN1.
+
+156. The monomer of polyethylene (polyethene) is:
+A. Ethene (CH₂=CH₂)
+B. Ethane
+C. Acetylene
+D. Ethanol
+Answer: A
+Explanation: Addition polymerization: nCH₂=CH₂ → (–CH₂–CH₂–)ₙ. No byproduct. Condensation polymers release water.
+
+157. Which type of isomerism involves compounds with the same molecular formula but different carbon chain arrangements?
+A. Chain (skeletal) isomerism
+B. Positional isomerism
+C. Functional group isomerism
+D. Optical isomerism
+Answer: A
+Explanation: E.g., butane (CH₃CH₂CH₂CH₃) vs isobutane (CH₃CH(CH₃)CH₃). Same formula C₄H₁₀ but different connectivity.
+
+158. The reaction of an alcohol with sodium metal produces:
+A. Hydrogen gas (alkoxide + H₂)
+B. Water
+C. Salt + CO₂
+D. Aldehyde
+Answer: A
+Explanation: 2ROH + 2Na → 2RONa + H₂. Similar to Na + H₂O but less vigorous. Confirms acidic H on –OH.
+
+159. Which of the following is an aromatic compound?
+A. Benzene (C₆H₆)
+B. Cyclohexane
+C. Hexane
+D. Cyclohexene
+Answer: A
+Explanation: Aromatic: planar, cyclic, (4n+2)π electrons (Hückel). Benzene = 6π electrons (n=1). Cyclohexane is aliphatic saturated.
+
+160. The addition of HBr to propene gives mainly:
+A. 2-bromopropane (Markovnikov product)
+B. 1-bromopropane
+C. Propane
+D. Propyne
+Answer: A
+Explanation: CH₃CH=CH₂ + HBr → CH₃CHBrCH₃. H adds to CH (more H), Br adds to CH (more substituted), forming 2° carbocation intermediate.
+
+161. Condensation polymers differ from addition polymers in that:
+A. Condensation polymers release a small molecule (e.g. H₂O) during formation
+B. Condensation polymers use unsaturated monomers
+C. Addition polymers need two different monomers
+D. Condensation polymers are always synthetic
+Answer: A
+Explanation: Nylon (polyamide), polyester, proteins — all condensation polymers releasing H₂O or HCl. Addition polymers: polyethylene, PVC, polypropylene.
+
+162. The dehydration of ethanol at 170°C with concentrated H₂SO₄ gives:
+A. Ethene (elimination)
+B. Diethyl ether
+C. Ethanoic acid
+D. Ethane
+Answer: A
+Explanation: High temperature (>170°C) favors elimination → ethene. Lower temperature (140°C) favors substitution → diethyl ether.
+
+163. Which test distinguishes CH₃CHO from CH₃COCH₃?
+A. Tollens' reagent (silver mirror)
+B. Bromine water
+C. Litmus paper
+D. Heating
+Answer: A
+Explanation: Aldehyde (CH₃CHO) gives positive silver mirror; ketone (CH₃COCH₃) does not. Both decolorize Br₂ water under certain conditions.
+
+164. The empirical formula of benzene is:
+A. CH
+B. C₂H₂
+C. C₆H₆
+D. C₃H₃
+Answer: A
+Explanation: Simplest ratio: C₆H₆ → C:H = 1:1 → CH. Molecular formula C₆H₆ = 6 × (CH).
+
+165. The type of polymerization that forms nylon is:
+A. Condensation polymerization
+B. Addition polymerization
+C. Free radical polymerization
+D. Ionic polymerization
+Answer: A
+Explanation: Nylon-6,6: diamine + dicarboxylic acid → polyamide + H₂O. Condensation = loss of small molecule with each bond.
+
+166. Petroleum refining separates fractions based on:
+A. Differences in boiling points (fractional distillation)
+B. Density
+C. Solubility in water
+D. Molecular mass directly
+Answer: A
+Explanation: Crude oil heated; vapors rise and condense at different heights in fractionating column. Smaller molecules have lower bp and rise higher.
+
+167. Which compound will undergo addition reactions most readily?
+A. Ethyne (triple bond, most unsaturated)
+B. Ethane
+C. Propane
+D. Benzene
+Answer: A
+Explanation: Triple bond (ethyne) > double bond (ethene) in reactivity toward addition. Benzene resists addition to maintain aromaticity.
+
+168. The process by which proteins are broken down into amino acids is called:
+A. Hydrolysis
+B. Polymerization
+C. Esterification
+D. Saponification
+Answer: A
+Explanation: Peptide bonds (amide bonds) hydrolyzed by acid/base/enzymes → constituent amino acids.
+
+169. Optical isomers (enantiomers) are possible when a molecule has:
+A. A chiral carbon (asymmetric carbon — 4 different groups)
+B. A double bond
+C. A triple bond
+D. A ring structure
+Answer: A
+Explanation: Chiral C has no plane of symmetry → non-superimposable mirror images (enantiomers) → rotate plane-polarized light.
+
+170. The compound CH₃–O–CH₃ is:
+A. Dimethyl ether (an ether)
+B. Methanol
+C. Dimethyl ketone
+D. Methanoic acid
+Answer: A
+Explanation: R–O–R' structure = ether. Functional group isomers with alcohols (C₂H₆O: CH₃OCH₃ and CH₃CH₂OH).
+
+171. Which reaction converts alkyl halides to alcohols?
+A. Nucleophilic substitution with OH⁻ (hydrolysis)
+B. Electrophilic addition
+C. Elimination
+D. Oxidation
+Answer: A
+Explanation: RX + NaOH(aq) → ROH + NaX. OH⁻ is nucleophile replacing halide. Competing elimination gives alkene.
+
+172. The polymerization of amino acids forms:
+A. Proteins (via peptide bonds –CO–NH–)
+B. Carbohydrates
+C. Lipids
+D. Nucleic acids
+Answer: A
+Explanation: –COOH of one amino acid + –NH₂ of next → –CO–NH– (peptide bond) + H₂O. Sequence → primary structure → protein folding.
+
+173. Addition polymerization requires monomers that contain:
+A. Double or triple bonds (π bonds)
+B. Two different functional groups
+C. A ring structure
+D. Halogen atoms
+Answer: A
+Explanation: π bonds break to link monomers. E.g., ethene → polyethylene, styrene → polystyrene, vinyl chloride → PVC.
+
+174. The ester formed from methanol and ethanoic acid is:
+A. Methyl ethanoate (CH₃COOCH₃)
+B. Ethyl methanoate
+C. Methyl methanoate
+D. Ethyl ethanoate
+Answer: A
+Explanation: Alcohol portion names the alkyl group (methyl from methanol); acid names the acyl group (ethanoate from ethanoic acid) → methyl ethanoate.
+
+175. Which of the following exhibits all three — chain, position, and functional group isomerism — given molecular formula C₃H₆O?
+A. Propanal, propan-2-one, and propenol
+B. Propane and propene
+C. Glycerol
+D. None of the above
+Answer: A
+Explanation: C₃H₆O gives: propanal (aldehyde), propan-2-one (ketone, functional group isomer), and allyl alcohol CH₂=CHCH₂OH (positional/functional). Rich isomerism.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION H: STATES OF MATTER & GAS LAWS (Q176–190)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+176. Boyle's law states that at constant temperature:
+A. PV = constant (pressure and volume are inversely proportional)
+B. P/T = constant
+C. V/T = constant
+D. PV/T = constant
+Answer: A
+Explanation: P₁V₁ = P₂V₂ at constant T and n. Gas molecules hit walls less often as volume increases → lower pressure.
+
+177. Charles' law states that at constant pressure:
+A. V/T = constant (volume proportional to absolute temperature)
+B. PV = constant
+C. P/T = constant
+D. VT = constant
+Answer: A
+Explanation: V₁/T₁ = V₂/T₂. Temperature in Kelvin. Extrapolation to V=0 gives absolute zero (0 K = -273°C).
+
+178. The ideal gas equation is:
+A. PV = nRT
+B. PV = RT
+C. P = nRT/V²
+D. PV = nR/T
+Answer: A
+Explanation: Combines Boyle's, Charles', and Avogadro's laws. R = 8.314 J mol⁻¹ K⁻¹ (or 0.0821 L atm mol⁻¹ K⁻¹).
+
+179. A gas at 27°C and 1 atm is heated to 127°C at constant volume. The new pressure is:
+A. 4/3 atm (≈ 1.33 atm)
+B. 2 atm
+C. 0.75 atm
+D. 1 atm
+Answer: A
+Explanation: Gay-Lussac's law: P/T = const. T₁=300K, T₂=400K. P₂ = P₁×(T₂/T₁) = 1×(400/300) = 4/3 atm.
+
+180. Dalton's law of partial pressures states:
+A. Total pressure = sum of partial pressures of all gases
+B. Gases exert equal pressure
+C. Pressure is independent of gas type
+D. At STP all gases have equal partial pressure
+Answer: A
+Explanation: P_total = P_A + P_B + P_C + ... Each gas behaves independently in a mixture.
+
+181. According to Graham's law, the rate of diffusion of a gas is proportional to:
+A. 1/√(molar mass)
+B. √(molar mass)
+C. molar mass
+D. 1/molar mass
+Answer: A
+Explanation: r ∝ 1/√M. Lighter gases diffuse faster. r₁/r₂ = √(M₂/M₁).
+
+182. The kinetic theory of gases assumes:
+A. Gas molecules have negligible volume and no intermolecular forces
+B. Gas molecules attract each other
+C. Gas molecules have fixed positions
+D. Temperature does not affect speed
+Answer: A
+Explanation: Ideal gas assumptions: point particles, elastic collisions, no attractive/repulsive forces. Real gases deviate at high P and low T.
+
+183. Which gas would deviate MOST from ideal behavior?
+A. SO₂ (polar, large)
+B. He (small, noble)
+C. H₂ (small, nonpolar)
+D. N₂ (small, nonpolar)
+Answer: A
+Explanation: Deviation ∝ intermolecular forces (related to polarity and size). SO₂ is polar with significant van der Waals interactions.
+
+184. The root mean square speed of gas molecules is proportional to:
+A. √(T/M)
+B. T/M
+C. √M
+D. M/T
+Answer: A
+Explanation: u_rms = √(3RT/M). Speed increases with temperature, decreases with molar mass.
+
+185. At the same temperature, which gas has the highest average kinetic energy?
+A. All gases have the same average KE (depends only on T)
+B. H₂ (lightest)
+C. O₂ (heavier)
+D. CO₂ (heaviest)
+Answer: A
+Explanation: Average KE = (3/2)RT per mole — depends only on temperature, not molar mass. Lighter molecules move faster but have same average energy.
+
+186. A gas collected over water has a total pressure of 760 mmHg. If the vapor pressure of water is 20 mmHg, the partial pressure of the gas is:
+A. 740 mmHg
+B. 780 mmHg
+C. 760 mmHg
+D. 20 mmHg
+Answer: A
+Explanation: P_gas = P_total - P_water = 760 - 20 = 740 mmHg (Dalton's law).
+
+187. The van der Waals constant 'a' corrects for:
+A. Intermolecular attractions (reduces actual pressure)
+B. Molecular volume
+C. Temperature effect
+D. Pressure of real gas
+Answer: A
+Explanation: (P + a/V²)(V - b) = RT. 'a' increases effective pressure (molecules don't hit walls as hard due to attractions). 'b' corrects for actual volume.
+
+188. Absolute zero is the temperature at which:
+A. Gas molecules have zero kinetic energy theoretically
+B. Water freezes
+C. All gases liquefy
+D. Volume of gas equals zero actually
+Answer: A
+Explanation: 0 K = -273.15°C. Theoretical limit. Third law of thermodynamics: entropy → constant as T → 0 K. Not actually reachable.
+
+189. Gay-Lussac's law of combining volumes was instrumental in:
+A. Determining molecular formulas of gaseous compounds
+B. Calculating atomic masses
+C. Developing the mole concept
+D. Understanding liquid behavior
+Answer: A
+Explanation: E.g., 1 vol N₂ + 3 vol H₂ → 2 vol NH₃ directly implies N₂ + 3H₂ → 2NH₃ (Avogadro's hypothesis).
+
+190. An ideal gas is compressed from 10 L to 5 L at constant temperature. The pressure:
+A. Doubles
+B. Halves
+C. Stays the same
+D. Quadruples
+Answer: A
+Explanation: Boyle's law: P₁V₁ = P₂V₂. V halved → P doubled.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION I: METALS, EXTRACTION & ENVIRONMENTAL CHEMISTRY (Q191–200)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+191. The thermite reaction uses aluminium to reduce:
+A. Iron(III) oxide (Fe₂O₃) → iron metal (Al more reactive)
+B. Copper oxide
+C. Zinc oxide
+D. Lead oxide
+Answer: A
+Explanation: 2Al + Fe₂O₃ → Al₂O₃ + 2Fe. Highly exothermic. Used in welding railway tracks. Demonstrates relative reactivity.
+
+192. The main ore of aluminium is:
+A. Bauxite (Al₂O₃·2H₂O)
+B. Haematite
+C. Galena
+D. Malachite
+Answer: A
+Explanation: Purified to Al₂O₃ (alumina) then electrolyzed in Hall-Héroult process. Haematite = iron ore, Galena = lead, Malachite = copper.
+
+193. Which gas is primarily responsible for the greenhouse effect?
+A. CO₂ (along with CH₄, H₂O vapour)
+B. N₂
+C. O₂
+D. Ar
+Answer: A
+Explanation: CO₂ absorbs infrared radiation re-emitted by Earth's surface. CH₄ is more potent per molecule but less abundant.
+
+194. The ozone layer is destroyed mainly by:
+A. Chlorofluorocarbons (CFCs) releasing Cl• radicals
+B. Carbon dioxide
+C. Sulfur dioxide
+D. Nitrogen gas
+Answer: A
+Explanation: Cl• + O₃ → ClO• + O₂; ClO• + O → Cl• + O₂. Each Cl atom destroys ~100,000 ozone molecules catalytically.
+
+195. Acid rain is primarily caused by:
+A. SO₂ and NOx reacting with water in the atmosphere
+B. CO₂ only
+C. HCl emissions
+D. Ozone depletion
+Answer: A
+Explanation: SO₂ → SO₃ → H₂SO₄; NOx → HNO₃. Sources: combustion of sulfur-containing fuels, vehicle emissions.
+
+196. Galvanizing protects iron by coating it with:
+A. Zinc (more reactive, provides sacrificial protection)
+B. Tin
+C. Copper
+D. Lead
+Answer: A
+Explanation: Zinc coating: (1) physical barrier; (2) if scratched, Zn (more reactive) oxidizes preferentially, protecting Fe.
+
+197. The blast furnace produces iron using:
+A. Coke (carbon) as reducing agent and limestone as flux
+B. Aluminium as reductant
+C. Electrolysis of iron ore
+D. Direct reduction with H₂ only
+Answer: A
+Explanation: Fe₂O₃ + 3CO → 2Fe + 3CO₂ (CO from coke combustion). Limestone (CaCO₃) → CaO + CO₂; CaO + SiO₂ → CaSiO₃ (slag removes silica impurities).
+
+198. The major pollutant formed when petrol engines run on rich fuel (excess fuel) is:
+A. Carbon monoxide (CO)
+B. SO₂
+C. NO₂
+D. Ozone
+Answer: A
+Explanation: Incomplete combustion (insufficient O₂) gives CO instead of CO₂. CO is toxic — binds hemoglobin (>CO₂ affinity ×250).
+
+199. Hard water contains dissolved:
+A. Ca²⁺ and Mg²⁺ ions (from limestone, gypsum)
+B. Na⁺ and K⁺ ions
+C. Cl⁻ ions
+D. Fe³⁺ ions
+Answer: A
+Explanation: Temporary hardness (HCO₃⁻): removed by boiling. Permanent hardness (SO₄²⁻, Cl⁻): removed by ion exchange or Na₂CO₃.
+
+200. The process of zone refining is used to obtain:
+A. Ultra-pure semiconductors (e.g. silicon, germanium)
+B. Pure salt
+C. Pure copper by electrolysis
+D. Pure aluminium
+Answer: A
+Explanation: A narrow molten zone is passed along a rod; impurities concentrate in the melt and move to one end. Produces semiconductor-grade purity (>99.9999%).
+
+================================================================================
+END OF 200 QUESTIONS
+Topics covered: Atomic Structure (25), Chemical Bonding (25), Stoichiometry (20),
+Acids/Bases/Salts (20), Electrochemistry (20), Equilibrium & Kinetics (25),
+Organic Chemistry (40), Gas Laws (15), Metals & Environment (10)
+================================================================================

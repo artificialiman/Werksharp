@@ -1,0 +1,1672 @@
+JAMB PHYSICS - 200 HIGHEST-PROBABILITY UTME QUESTIONS
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 1: MECHANICS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. A body is in equilibrium under three coplanar forces. Which condition must be satisfied?
+A. The vector sum of all forces is zero
+B. All forces must be equal
+C. All forces must be parallel
+D. The forces must be perpendicular
+Answer: A
+Explanation: Equilibrium requires both ΣF = 0 (translational) and Στ = 0 (rotational). Exception: A body can have zero net force but still rotate if torques don't cancel.
+
+2. A car accelerates uniformly from rest to 20 m/s in 4 s. What is the acceleration?
+A. 5 m/s²
+B. 80 m/s²
+C. 0.2 m/s²
+D. 4 m/s²
+Answer: A
+Explanation: a = (v - u)/t = (20 - 0)/4 = 5 m/s². Exception: This assumes constant acceleration; real engines provide variable force.
+
+3. A ball is thrown horizontally from a cliff. Which statement is true?
+A. Horizontal velocity remains constant; vertical velocity increases
+B. Both velocities increase
+C. Horizontal velocity increases; vertical velocity is constant
+D. Both velocities remain constant
+Answer: A
+Explanation: No horizontal force acts (ignoring air resistance); gravity acts vertically. Exception: In practice, air resistance reduces horizontal velocity over time.
+
+4. The velocity of a body at maximum height in projectile motion is:
+A. Horizontal component only (vertical = 0)
+B. Zero
+C. Vertical component only
+D. Equal to initial velocity
+Answer: A
+Explanation: At maximum height, vy = 0; vx = u·cosθ remains. Exception: If projected vertically, velocity is truly zero at max height.
+
+5. A force of 10 N acts on a body of mass 2 kg. What is the acceleration?
+A. 5 m/s²
+B. 20 m/s²
+C. 0.2 m/s²
+D. 12 m/s²
+Answer: A
+Explanation: F = ma → a = F/m = 10/2 = 5 m/s². Exception: Net force must be used; if friction exists, subtract it first.
+
+6. Newton's third law states that action and reaction forces:
+A. Are equal, opposite, and act on different bodies
+B. Act on the same body
+C. Cancel each other out
+D. Always produce equilibrium
+Answer: A
+Explanation: Forces in a Newton's 3rd law pair act on different objects and never cancel. Exception: Common misconception is that they cancel — they can't because they act on different bodies.
+
+7. The momentum of a body is defined as:
+A. Mass × velocity
+B. Mass × acceleration
+C. Force × time
+D. Mass × displacement
+Answer: A
+Explanation: p = mv. It is a vector quantity. Exception: Impulse (Ft) equals change in momentum, not momentum itself.
+
+8. A body of mass 3 kg moving at 4 m/s collides and sticks to a stationary body of mass 1 kg. Final velocity is:
+A. 3 m/s
+B. 4 m/s
+C. 1 m/s
+D. 12 m/s
+Answer: A
+Explanation: Conservation of momentum: 3×4 = (3+1)v → v = 12/4 = 3 m/s. Exception: This is a perfectly inelastic collision; kinetic energy is NOT conserved.
+
+9. The law of conservation of linear momentum applies when:
+A. No external net force acts on the system
+B. All collisions are elastic
+C. Bodies are at rest
+D. Friction is present
+Answer: A
+Explanation: Internal forces cancel in pairs (Newton 3rd); only external forces change system momentum. Exception: Explosions and collisions both conserve momentum if no external net force exists.
+
+10. Which of the following is a scalar quantity?
+A. Speed
+B. Velocity
+C. Force
+D. Displacement
+Answer: A
+Explanation: Speed has magnitude only; velocity has magnitude AND direction. Exception: Speed is the magnitude of velocity — they are numerically equal for uniform motion.
+
+11. The work done by a force is zero when:
+A. Force is perpendicular to displacement
+B. Force is very small
+C. Body is moving fast
+D. Force is constant
+Answer: A
+Explanation: W = Fd·cosθ; when θ = 90°, cos90° = 0. Exception: A centripetal force does no work on circular motion even though the body moves.
+
+12. Kinetic energy of a body is:
+A. ½mv²
+B. mv²
+C. mgh
+D. Fv
+Answer: A
+Explanation: Derived from work-energy theorem. Exception: Rotational KE = ½Iω²; both forms can exist simultaneously in rolling objects.
+
+13. A 2 kg body falls from a height of 5 m. Its KE just before hitting the ground is (g = 10 m/s²):
+A. 100 J
+B. 50 J
+C. 10 J
+D. 200 J
+Answer: A
+Explanation: KE = mgh = 2 × 10 × 5 = 100 J (all PE converts to KE). Exception: Air resistance reduces KE; answer assumes no energy losses.
+
+14. Power is defined as:
+A. Rate of doing work
+B. Work × time
+C. Force × distance
+D. Energy / mass
+Answer: A
+Explanation: P = W/t = Fv. Unit is Watt. Exception: Instantaneous power = Fv (useful for variable force problems).
+
+15. A machine has efficiency of 80%. If the work input is 500 J, useful work output is:
+A. 400 J
+B. 425 J
+C. 625 J
+D. 100 J
+Answer: A
+Explanation: Efficiency = (output/input) × 100. Output = 0.80 × 500 = 400 J. Exception: The remaining 100 J is dissipated as heat/sound, not destroyed.
+
+16. Which type of friction acts on a stationary body?
+A. Static friction
+B. Kinetic friction
+C. Rolling friction
+D. Viscous friction
+Answer: A
+Explanation: Static friction prevents motion; it adjusts up to a maximum (limiting friction). Exception: Static friction can be greater than kinetic friction — body is harder to start moving than to keep moving.
+
+17. The coefficient of friction is defined as:
+A. Ratio of friction force to normal reaction
+B. Ratio of weight to area
+C. Force per unit mass
+D. Normal force divided by friction force
+Answer: A
+Explanation: μ = F/N. Dimensionless quantity. Exception: μ > 1 is possible for some surface pairs (e.g., rubber on rubber) — it doesn't mean friction exceeds gravity.
+
+18. Centripetal acceleration is directed:
+A. Toward the center of the circle
+B. Away from the center
+C. Tangentially
+D. Perpendicular to the radius and the plane
+Answer: A
+Explanation: a = v²/r, always pointing inward. Exception: "Centrifugal force" is a pseudo-force in rotating frames — it doesn't exist in an inertial frame.
+
+19. A satellite in circular orbit has:
+A. Constant speed but changing velocity
+B. Constant velocity
+C. Zero acceleration
+D. Increasing speed
+Answer: A
+Explanation: Speed is constant; direction changes → velocity changes → acceleration exists (centripetal). Exception: In elliptical orbits, speed varies (Kepler's 2nd law).
+
+20. Escape velocity from Earth's surface is approximately:
+A. 11.2 km/s
+B. 7.9 km/s
+C. 3 × 10⁸ m/s
+D. 9.8 m/s
+Answer: A
+Explanation: v_esc = √(2gR) = √(2 × 9.8 × 6.4×10⁶) ≈ 11,200 m/s. Exception: Orbital velocity (7.9 km/s) is different — it keeps a satellite in orbit, not escaping Earth.
+
+21. The period of a simple pendulum depends on:
+A. Length and acceleration due to gravity only
+B. Mass of the bob
+C. Amplitude of swing
+D. Material of the string
+Answer: A
+Explanation: T = 2π√(L/g). Mass and amplitude cancel for small angles. Exception: For large amplitudes, period slightly increases (non-linear regime).
+
+22. The pressure at a depth h in a fluid is:
+A. P = ρgh (plus atmospheric pressure)
+B. P = ρg/h
+C. P = mgh
+D. P = gh/ρ
+Answer: A
+Explanation: Absolute pressure = atmospheric + ρgh. Gauge pressure = ρgh. Exception: Pressure depends only on depth, not the shape of the container (Pascal's paradox).
+
+23. Archimedes' principle states that upthrust equals:
+A. Weight of fluid displaced
+B. Weight of the object
+C. Volume of the object
+D. Mass of the fluid
+Answer: A
+Explanation: Upthrust = ρ_fluid × V_submerged × g. Exception: A body floats when upthrust = weight; it sinks when weight > upthrust regardless of size.
+
+24. Bernoulli's principle relates to:
+A. Faster fluid flow → lower pressure
+B. Faster fluid flow → higher pressure
+C. Pressure is constant throughout fluid
+D. Pressure increases with temperature
+Answer: A
+Explanation: Conservation of energy in fluid flow: P + ½ρv² + ρgh = constant. Exception: Applies only to non-viscous, incompressible, streamline flow.
+
+25. Hooke's Law states that extension is proportional to force:
+A. Provided elastic limit is not exceeded
+B. Always
+C. Only for metals
+D. Only for springs
+Answer: A
+Explanation: F = ke, valid within elastic limit. Exception: Beyond elastic limit, material deforms plastically; Hooke's Law no longer applies.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 2: WAVES AND SOUND
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+26. The speed of a wave is related to frequency and wavelength by:
+A. v = fλ
+B. v = f/λ
+C. v = λ/f
+D. v = f + λ
+Answer: A
+Explanation: Wave equation. Exception: Speed depends on the medium, not frequency; changing frequency changes wavelength, not speed.
+
+27. Sound waves are:
+A. Longitudinal mechanical waves
+B. Transverse electromagnetic waves
+C. Transverse mechanical waves
+D. Longitudinal electromagnetic waves
+Answer: A
+Explanation: Sound requires a medium; particles vibrate parallel to wave direction. Exception: Sound can travel through solids, liquids, and gases, but NOT vacuum.
+
+28. The pitch of sound depends on:
+A. Frequency
+B. Amplitude
+C. Wavelength
+D. Speed
+Answer: A
+Explanation: Higher frequency = higher pitch. Exception: Loudness depends on amplitude (intensity), not pitch/frequency.
+
+29. Resonance occurs when:
+A. Driving frequency equals natural frequency of the body
+B. Amplitude is maximum regardless of frequency
+C. Two waves have the same amplitude
+D. The medium is rigid
+Answer: A
+Explanation: At resonance, energy transfer is most efficient → maximum amplitude. Exception: Resonance can be destructive (Tacoma Narrows Bridge) or useful (MRI, musical instruments).
+
+30. The Doppler effect states that observed frequency is higher when:
+A. Source and observer approach each other
+B. Source and observer move apart
+C. Source is stationary
+D. Observer is stationary
+Answer: A
+Explanation: Approaching → compressions arrive more frequently → higher f. Exception: Doppler effect applies to light too (redshift/blueshift); this is used to measure galactic motion.
+
+31. In a stationary wave, points of zero displacement are called:
+A. Nodes
+B. Antinodes
+C. Crests
+D. Troughs
+Answer: A
+Explanation: Nodes are fixed; antinodes have maximum displacement. Exception: A stationary wave stores energy but does not transfer it (unlike progressive waves).
+
+32. The frequency of the first harmonic (fundamental) in an open pipe of length L is:
+A. v/2L
+B. v/4L
+C. v/L
+D. 2v/L
+Answer: A
+Explanation: Open pipe: antinodes at both ends; L = λ/2 → f = v/2L. Exception: Closed pipe has node at closed end: f = v/4L for fundamental — half the frequency of open pipe.
+
+33. Which property of a wave determines its energy?
+A. Amplitude
+B. Frequency
+C. Wavelength
+D. Speed
+Answer: A
+Explanation: Energy ∝ A² for mechanical waves. Exception: For photons (quantum), E = hf — frequency determines energy; amplitude means intensity (number of photons).
+
+34. Total internal reflection occurs when:
+A. Angle of incidence exceeds critical angle in denser medium
+B. Light enters a denser medium
+C. Angle of incidence equals angle of refraction
+D. Light travels in vacuum
+Answer: A
+Explanation: TIR only occurs in denser-to-less-dense transition above critical angle. Exception: Used in optical fibres, periscopes, and diamond cutting to maximize brilliance.
+
+35. Snell's Law states:
+A. n₁sinθ₁ = n₂sinθ₂
+B. sinθ₁/sinθ₂ = v₁/v₂
+C. Both A and B are equivalent
+D. n₁/n₂ = sinθ₂/sinθ₁
+Answer: C
+Explanation: Both forms are equivalent since n = c/v. Exception: Snell's Law breaks down at very high intensities (non-linear optics) or for evanescent waves at TIR.
+
+36. A converging lens forms a real image when the object is:
+A. Beyond the focal point
+B. At the focal point
+C. Between lens and focal point
+D. At infinity only
+Answer: A
+Explanation: Object beyond F → real, inverted image. At F → image at infinity. Inside F → virtual image. Exception: At 2F, image is same size as object; beyond 2F, image is diminished.
+
+37. The power of a lens in dioptres is:
+A. P = 1/f (f in metres)
+B. P = f
+C. P = 100/f (f in cm)
+D. Both A and C are equivalent
+Answer: D
+Explanation: P = 1/f_m = 100/f_cm. Exception: Diverging lenses have negative power; combined lenses add powers algebraically.
+
+38. Diffraction is most noticeable when:
+A. Wavelength is comparable to slit/gap size
+B. Wavelength is much smaller than gap
+C. Frequency is very high
+D. The wave is transverse
+Answer: A
+Explanation: When λ ≈ gap width, spreading is maximum. Exception: Light diffracts but isn't obvious (very small λ); sound diffracts around buildings (large λ relative to openings).
+
+39. Interference of light demonstrates its:
+A. Wave nature
+B. Particle nature
+C. Electromagnetic nature
+D. Transverse nature
+Answer: A
+Explanation: Constructive and destructive interference are wave properties. Exception: Photoelectric effect demonstrates particle (photon) nature — neither alone explains all light phenomena.
+
+40. In Young's double slit experiment, fringe spacing increases when:
+A. Wavelength increases or slit separation decreases
+B. Wavelength decreases
+C. Slit separation increases
+D. Screen moves closer
+Answer: A
+Explanation: y = λD/d; y increases with λ or D, decreases with d. Exception: The experiment only works with coherent sources; ordinary light bulbs won't produce stable fringes.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 3: HEAT AND THERMODYNAMICS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+41. The relationship between Celsius and Kelvin is:
+A. K = °C + 273
+B. K = °C - 273
+C. K = °C × 273
+D. K = °C / 273
+Answer: A
+Explanation: Absolute zero = -273°C = 0 K. Exception: Some texts use 273.15; JAMB typically accepts 273.
+
+42. The zeroth law of thermodynamics states:
+A. If A is in thermal equilibrium with B, and B with C, then A is in equilibrium with C
+B. Energy cannot be created or destroyed
+C. Entropy always increases
+D. Absolute zero cannot be reached
+Answer: A
+Explanation: This defines temperature as a measurable property. Exception: This law was formulated after the first and second but is more fundamental — hence "zeroth."
+
+43. The first law of thermodynamics is:
+A. ΔU = Q - W (internal energy = heat added minus work done by system)
+B. Heat flows from cold to hot
+C. Entropy always increases
+D. Energy is proportional to temperature
+Answer: A
+Explanation: Conservation of energy for thermodynamic systems. Exception: Sign convention varies — some texts write ΔU = Q + W (work done ON system); read context carefully.
+
+44. Specific heat capacity is defined as:
+A. Heat required to raise 1 kg of substance by 1 K
+B. Heat to melt 1 kg at its melting point
+C. Heat per unit volume
+D. Energy per molecule
+Answer: A
+Explanation: Q = mcΔT. Exception: Water has unusually high specific heat (4200 J/kg/K) — moderates climate; metals have low values (easier to heat).
+
+45. The specific latent heat of vaporization is greater than latent heat of fusion because:
+A. More energy needed to separate molecules completely (gas) than partially (liquid)
+B. Boiling requires higher temperature
+C. Gases are lighter
+D. Fusion occurs faster
+Answer: A
+Explanation: Vaporization breaks nearly all intermolecular bonds; fusion only weakens them. Exception: This is why sweating cools body so effectively — latent heat of vaporization of water is very high.
+
+46. Boyle's Law states (at constant temperature):
+A. PV = constant
+B. P/V = constant
+C. P + V = constant
+D. P = V
+Answer: A
+Explanation: P₁V₁ = P₂V₂. Exception: Boyle's Law applies only to ideal gases; real gases deviate at high pressures.
+
+47. Charles' Law states (at constant pressure):
+A. V/T = constant (T in Kelvin)
+B. V × T = constant
+C. V = T (any unit)
+D. V/T = constant (T in Celsius)
+Answer: A
+Explanation: V₁/T₁ = V₂/T₂; T must be in Kelvin. Exception: Using Celsius gives wrong answers; always convert to Kelvin.
+
+48. The ideal gas equation is:
+A. PV = nRT
+B. PV = RT
+C. PV = NRT
+D. P = nRT/V²
+Answer: A
+Explanation: n = moles, R = 8.314 J/mol/K. Exception: Real gases use van der Waals equation; ideal gas assumes no intermolecular forces and zero molecular volume.
+
+49. Heat transfer by conduction requires:
+A. Physical contact or medium with temperature gradient
+B. Fluid motion
+C. Electromagnetic waves
+D. Vacuum
+Answer: A
+Explanation: Conduction transfers energy through particle vibration. Exception: Metals are good conductors (free electrons carry energy); non-metals and gases are poor conductors.
+
+50. Radiation is the only mode of heat transfer that:
+A. Does not require a medium
+B. Requires fluid motion
+C. Requires physical contact
+D. Requires a temperature gradient only
+Answer: A
+Explanation: Radiation (electromagnetic waves) travels through vacuum. Exception: The Sun heats Earth by radiation across 150 million km of near-vacuum.
+
+51. A good absorber of radiation is also:
+A. A good emitter (black body principle)
+B. A good reflector
+C. A poor emitter
+D. Transparent
+Answer: A
+Explanation: Kirchhoff's Law: emissivity = absorptivity at thermal equilibrium. Exception: A perfect black body absorbs and emits all radiation; polished silver is a poor absorber and poor emitter.
+
+52. Stefan's Law states that power radiated is proportional to:
+A. T⁴ (fourth power of absolute temperature)
+B. T
+C. T²
+D. T³
+Answer: A
+Explanation: P = σAT⁴ (Stefan-Boltzmann law). Exception: Small temperature changes cause large changes in radiation — doubling T increases radiated power 16-fold.
+
+53. The greenhouse effect involves:
+A. Atmosphere absorbing outgoing infrared, trapping heat
+B. Plants absorbing sunlight directly
+C. Reflection of sunlight back to Earth
+D. Conduction through the ground
+Answer: A
+Explanation: Short-wave solar radiation enters; re-emitted long-wave IR is absorbed by CO₂, H₂O. Exception: The natural greenhouse effect is essential for life; enhanced greenhouse effect due to human emissions is the concern.
+
+54. Linear expansivity (α) relates to:
+A. Change in length per unit original length per degree temperature change
+B. Change in volume per degree
+C. Change in density per degree
+D. Change in mass per degree
+Answer: A
+Explanation: ΔL = L₀αΔT. Exception: Cubic expansivity γ ≈ 3α; area expansivity β ≈ 2α for isotropic materials.
+
+55. Water has maximum density at:
+A. 4°C
+B. 0°C
+C. 100°C
+D. -4°C
+Answer: A
+Explanation: Anomalous expansion: water expands below 4°C due to hydrogen bond restructuring into ice lattice. Exception: This allows aquatic life to survive winter — ice forms on surface, water at 4°C sinks.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 4: ELECTRICITY AND MAGNETISM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+56. Ohm's Law states:
+A. V = IR (at constant temperature)
+B. V = I/R
+C. V = I + R
+D. R = VI
+Answer: A
+Explanation: Current is directly proportional to potential difference when temperature is constant. Exception: Ohm's Law applies to ohmic conductors; diodes, thermistors, and LDRs are non-ohmic.
+
+57. The resistance of a conductor depends on:
+A. Length, cross-sectional area, and resistivity
+B. Voltage applied
+C. Current flowing through it
+D. Color of conductor
+Answer: A
+Explanation: R = ρL/A. Exception: Resistance also depends on temperature; metals increase, semiconductors decrease with temperature.
+
+58. Resistors in series: total resistance is:
+A. Sum of individual resistances (R_T = R₁ + R₂ + ...)
+B. Reciprocal of sum of reciprocals
+C. Product of resistances
+D. Average of resistances
+Answer: A
+Explanation: Same current flows through all; voltages add. Exception: Current is the same in series; voltage divides proportionally.
+
+59. Resistors in parallel: total resistance is:
+A. 1/R_T = 1/R₁ + 1/R₂ + ...
+B. R₁ + R₂ + ...
+C. (R₁ × R₂)/(R₁ + R₂) for two only
+D. Both A and C (C is derived from A for two resistors)
+Answer: D
+Explanation: For two parallel resistors: R_T = R₁R₂/(R₁ + R₂). Exception: Parallel resistance is always less than the smallest individual resistor.
+
+60. Electric power dissipated in a resistor is:
+A. P = VI = I²R = V²/R
+B. P = V + I
+C. P = IR
+D. P = V/I
+Answer: A
+Explanation: All three forms are equivalent via Ohm's Law. Exception: Power is dissipated as heat; this is useful in heaters but wasteful in transmission lines.
+
+61. Kirchhoff's current law states:
+A. Sum of currents entering a junction = sum leaving (charge conservation)
+B. Sum of voltages in a loop = zero
+C. Current is the same everywhere in a circuit
+D. Resistance adds in series
+Answer: A
+Explanation: KCL is based on conservation of charge. Exception: KCL applies to nodes (junctions); KVL (Kirchhoff's voltage law) applies to loops.
+
+62. Kirchhoff's voltage law states:
+A. Sum of EMFs = sum of voltage drops in any closed loop
+B. Voltage is constant throughout a circuit
+C. Sum of currents = sum of voltages
+D. Resistance equals voltage
+Answer: A
+Explanation: KVL: ΣV = 0 around any closed loop (energy conservation). Exception: Must choose a consistent direction (clockwise or counterclockwise) and apply sign conventions carefully.
+
+63. The EMF of a cell is defined as:
+A. Total energy supplied per unit charge (includes internal resistance effects)
+B. Terminal voltage when current flows
+C. Current × external resistance only
+D. Voltage between terminals always
+Answer: A
+Explanation: EMF = terminal voltage + voltage drop across internal resistance: ε = V + Ir. Exception: EMF equals terminal voltage only when no current flows (open circuit).
+
+64. The terminal voltage of a battery decreases when:
+A. Current drawn increases (due to internal resistance drop)
+B. Temperature increases
+C. Battery is new
+D. External resistance increases
+Answer: A
+Explanation: V = ε - Ir; as I increases, Ir increases, V decreases. Exception: This is why car headlights dim when starter motor is engaged — large current causes large Ir drop.
+
+65. Capacitance is defined as:
+A. Charge stored per unit potential difference (C = Q/V)
+B. Energy stored per unit charge
+C. Charge per unit area
+D. Potential per unit charge
+Answer: A
+Explanation: Unit is Farad (F). Exception: Farad is very large; practical capacitors are measured in μF, nF, or pF.
+
+66. Energy stored in a capacitor is:
+A. W = ½CV² = ½QV = Q²/2C
+B. W = CV
+C. W = QV
+D. W = Q²C
+Answer: A
+Explanation: All three forms are equivalent. Exception: Unlike a battery (energy = QV), capacitor energy is ½QV — the ½ comes from average voltage during charging.
+
+67. Capacitors in parallel: total capacitance is:
+A. Sum of individual capacitances
+B. Reciprocal of sum of reciprocals
+C. Product of capacitances
+D. Difference of capacitances
+Answer: A
+Explanation: Same voltage across all; charges add. Exception: Note this is opposite to resistors in series — capacitors add in parallel, resistors add in series.
+
+68. Magnetic flux density B at center of a long solenoid is:
+A. B = μ₀nI (n = turns per unit length)
+B. B = μ₀NI (N = total turns)
+C. B = μ₀I/L
+D. B = μ₀I/(2πr)
+Answer: A
+Explanation: n = N/L. Exception: B = μ₀I/(2πr) is for a long straight wire, not solenoid.
+
+69. Lenz's Law states:
+A. Induced current opposes the change causing it
+B. Induced EMF equals rate of change of flux
+C. Current flows in direction of magnetic field
+D. Increasing flux induces zero EMF
+Answer: A
+Explanation: Lenz's Law is a consequence of energy conservation. Exception: It is the qualitative version of Faraday's Law: ε = -dΦ/dt (the negative sign embodies Lenz's Law).
+
+70. Faraday's Law of electromagnetic induction:
+A. EMF induced = rate of change of magnetic flux linkage
+B. EMF = BIL
+C. EMF = current × resistance
+D. Flux = EMF × time
+Answer: A
+Explanation: ε = -NdΦ/dt. Exception: The magnitude of EMF depends on HOW FAST flux changes, not just the magnitude of flux.
+
+71. Fleming's right-hand rule is used for:
+A. Generators (direction of induced current)
+B. Motors (direction of force on conductor)
+C. Direction of magnetic field from current
+D. Direction of current in resistors
+Answer: A
+Explanation: Right hand: generator (dynamo). Left hand: motor (force on current). Exception: This is a common exam trick — generator = right, motor = left.
+
+72. A transformer works on the principle of:
+A. Mutual electromagnetic induction
+B. Ohm's Law
+C. Self-induction only
+D. Electrostatic induction
+Answer: A
+Explanation: Changing current in primary → changing flux → EMF in secondary. Exception: Transformers only work on AC; DC produces no changing flux and thus no induced EMF.
+
+73. For a step-up transformer:
+A. N_s > N_p, V_s > V_p, I_s < I_p
+B. N_s < N_p, V_s > V_p
+C. V_s > V_p and I_s > I_p simultaneously
+D. Power output exceeds power input
+Answer: A
+Explanation: V_s/V_p = N_s/N_p; power is conserved (V_sI_s = V_pI_p ideally). Exception: Energy is conserved; a step-up in voltage means step-down in current.
+
+74. The force on a current-carrying conductor in a magnetic field is:
+A. F = BIL (when field and current are perpendicular)
+B. F = BIL cosθ
+C. F = BI/L
+D. F = B/IL
+Answer: A
+Explanation: F = BILsinθ; maximum when θ = 90°. Exception: No force when current is parallel to field (sinθ = 0).
+
+75. The Hall effect demonstrates:
+A. Charge carriers in conductors can be deflected by magnetic fields
+B. Magnetic fields are caused by moving charges
+C. Electric fields deflect magnetic field lines
+D. Resistance increases with magnetic field
+Answer: A
+Explanation: Produces Hall voltage perpendicular to both current and field. Exception: The sign of Hall voltage reveals whether carriers are positive or negative — key evidence for positive holes in semiconductors.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 5: OPTICS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+76. The law of reflection states:
+A. Angle of incidence = angle of reflection (measured from normal)
+B. Angle of incidence = angle of refraction
+C. Reflected ray is perpendicular to incident ray
+D. Reflection occurs only at smooth surfaces
+Answer: A
+Explanation: Angles measured from the normal, not the surface. Exception: Diffuse reflection from rough surfaces still obeys the law at each microscopic point.
+
+77. A concave mirror forms a virtual image when the object is:
+A. Between the focus and the pole
+B. Beyond the center of curvature
+C. At the center of curvature
+D. At the focus
+Answer: A
+Explanation: Object inside F → virtual, erect, magnified image (like a makeup mirror). Exception: All other positions give real, inverted images of varying sizes.
+
+78. The mirror formula is:
+A. 1/f = 1/v + 1/u
+B. 1/f = 1/v - 1/u
+C. f = u + v
+D. f = uv
+Answer: A
+Explanation: Sign convention must be consistent. Exception: For convex mirrors, f is positive if using "real is positive" or negative in the "new Cartesian" convention — read the question carefully.
+
+79. Magnification of a mirror is:
+A. m = -v/u = image height / object height
+B. m = v + u
+C. m = f/u
+D. m = u/v
+Answer: A
+Explanation: Negative m means inverted image; |m| > 1 means magnified. Exception: The negative sign is often omitted when only size (not orientation) is asked.
+
+80. Which mirror is used as a rear-view mirror in cars?
+A. Convex mirror (gives wider field of view)
+B. Concave mirror
+C. Plane mirror
+D. Parabolic mirror
+Answer: A
+Explanation: Convex mirror diverges light; always produces virtual, erect, diminished image with larger field of view. Exception: Concave mirrors are used in headlights and search lights (converging function).
+
+81. The refractive index of glass relative to air is 1.5. The critical angle is:
+A. sin⁻¹(1/1.5) ≈ 41.8°
+B. sin⁻¹(1.5) (impossible)
+C. 45°
+D. 60°
+Answer: A
+Explanation: sinC = 1/n = 1/1.5 = 0.667 → C ≈ 41.8°. Exception: Critical angle only exists when going from denser to rarer medium; glass to air, not air to glass.
+
+82. A person with short-sightedness (myopia) uses:
+A. Concave (diverging) lens
+B. Convex (converging) lens
+C. Cylindrical lens
+D. Plane glass
+Answer: A
+Explanation: Myopia: eyeball too long; image forms in front of retina. Concave lens diverges light to move image back to retina. Exception: Long-sight (hyperopia) uses convex lens; both are called spectacle corrections.
+
+83. The human eye focuses objects at different distances by:
+A. Changing lens curvature (accommodation)
+B. Changing pupil size
+C. Moving the retina
+D. Moving the lens backward/forward
+Answer: A
+Explanation: Ciliary muscles adjust lens thickness. Exception: Cameras focus by moving the lens; eyes focus by changing lens shape — fundamentally different mechanism.
+
+84. Optical fibres use total internal reflection to:
+A. Transmit light signals along the fibre
+B. Amplify light signals
+C. Change light frequency
+D. Reduce refraction losses
+Answer: A
+Explanation: Light reflects off fibre walls without escaping as long as angle exceeds critical angle. Exception: Signal can degrade due to dispersion (different wavelengths travel at different speeds) over long distances.
+
+85. Dispersion of white light through a prism occurs because:
+A. Different wavelengths have different refractive indices
+B. Red light travels faster than blue light in all media
+C. The prism absorbs some colors
+D. Wavelength changes at the prism surface
+Answer: A
+Explanation: Shorter wavelengths (blue/violet) refract more → separate from longer wavelengths. Exception: Dispersion produces a spectrum (ROYGBIV); red deviates least, violet most.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 6: ATOMIC AND NUCLEAR PHYSICS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+86. The photoelectric effect shows that light consists of:
+A. Photons (particles with energy E = hf)
+B. Waves only
+C. Electrons
+D. Protons
+Answer: A
+Explanation: Einstein explained that photons must have enough energy (hf ≥ work function) to eject electrons. Exception: Below threshold frequency, no electrons are emitted regardless of intensity — proof of quantization.
+
+87. The work function of a metal is:
+A. Minimum energy needed to eject an electron from the surface
+B. Total energy of all electrons
+C. Energy of incident photon
+D. Kinetic energy of emitted electron
+Answer: A
+Explanation: KE_max = hf - φ (Einstein's photoelectric equation). Exception: If hf = φ, electrons are just emitted with zero kinetic energy.
+
+88. In the Rutherford model of the atom:
+A. Nucleus contains protons; electrons orbit at large distances
+B. Electrons are embedded in a positive sphere
+C. Nucleus contains both protons and electrons
+D. Atom has no nucleus
+Answer: A
+Explanation: Rutherford gold foil experiment showed most of atom is empty space; nucleus is tiny and dense. Exception: Rutherford's model couldn't explain atomic spectra or electron stability — Bohr improved it.
+
+89. The nucleus of an atom contains:
+A. Protons and neutrons only
+B. Protons, neutrons, and electrons
+C. Protons and electrons
+D. Neutrons only
+Answer: A
+Explanation: Electrons orbit outside; nucleus = protons + neutrons (nucleons). Exception: Hydrogen has no neutrons in its most common isotope (¹H); it is unique.
+
+90. Alpha particles are:
+A. Helium-4 nuclei (2 protons, 2 neutrons, charge +2)
+B. High-energy electrons
+C. Electromagnetic radiation
+D. Single protons
+Answer: A
+Explanation: α = ⁴₂He²⁺. Exception: Alpha particles are most ionizing but least penetrating (stopped by paper or a few cm of air).
+
+91. Beta particles (β⁻) are:
+A. High-speed electrons emitted from the nucleus
+B. Helium nuclei
+C. X-rays
+D. Neutrons
+Answer: A
+Explanation: A neutron converts to proton + electron + antineutrino. Exception: β⁺ (positron emission) also exists — a proton converts to a neutron + positron + neutrino.
+
+92. Gamma rays are:
+A. High-energy electromagnetic radiation from the nucleus
+B. High-speed electrons
+C. Helium nuclei
+D. Stream of neutrons
+Answer: A
+Explanation: γ rays have no charge, no mass; most penetrating (need lead or thick concrete to stop). Exception: Gamma emission accompanies alpha or beta decay — it is the nucleus releasing excess energy.
+
+93. The half-life of a radioactive substance is:
+A. Time for half the nuclei to decay
+B. Half the total decay time
+C. Time for all nuclei to decay
+D. Time for activity to double
+Answer: A
+Explanation: T₁/₂ = ln2/λ = 0.693/λ. Exception: After n half-lives, fraction remaining = (½)ⁿ. After 10 half-lives, < 0.1% remains.
+
+94. Nuclear fission involves:
+A. Heavy nucleus splitting into two lighter nuclei + energy
+B. Two light nuclei combining
+C. Nucleus emitting an alpha particle only
+D. Proton absorbing a neutron
+Answer: A
+Explanation: Fission releases energy because binding energy per nucleon increases (products are more stable). Exception: Fission of ²³⁵U releases ~200 MeV; chemical reactions release ~10 eV — nuclear is ~10⁷ times more energetic.
+
+95. Nuclear fusion involves:
+A. Light nuclei combining to form heavier nucleus + energy
+B. Heavy nucleus splitting
+C. Electron capture by nucleus
+D. Neutron decay
+Answer: A
+Explanation: Source of energy in the Sun (H → He). Exception: Fusion requires enormous temperatures (~10⁷ K) to overcome Coulomb repulsion; not yet commercially viable on Earth.
+
+96. Mass-energy equivalence is given by:
+A. E = mc²
+B. E = mv²
+C. E = hf only
+D. E = Fc
+Answer: A
+Explanation: Einstein's equation; c = 3 × 10⁸ m/s. Exception: E = mc² applies to rest mass energy; total energy includes kinetic energy for moving particles.
+
+97. Isotopes of an element have:
+A. Same atomic number (Z), different mass number (A)
+B. Same mass number, different atomic number
+C. Same number of neutrons
+D. Same physical properties
+Answer: A
+Explanation: Same Z means same chemical properties (same electron arrangement). Exception: Isotopes have different physical properties (mass, density) and some are radioactive while others are stable.
+
+98. The atomic number (Z) of an element equals:
+A. Number of protons (= number of electrons in neutral atom)
+B. Number of neutrons
+C. Mass number
+D. Number of nucleons
+Answer: A
+Explanation: Z identifies the element. Exception: In ions, electron count ≠ proton count; Z still equals proton count.
+
+99. X-rays are produced when:
+A. Fast electrons decelerate rapidly hitting a metal target (Bremsstrahlung)
+B. Nuclei undergo radioactive decay
+C. Alpha particles are emitted
+D. Neutrons bombard atoms
+Answer: A
+Explanation: Also produced by electron transitions in inner shells. Exception: X-rays and gamma rays are both electromagnetic radiation; they differ in origin (X-rays from electrons, gamma from nucleus).
+
+100. The Geiger-Müller (GM) tube detects radiation by:
+A. Ionization of gas causing electrical pulses
+B. Fluorescence of a screen
+C. Photographic plate exposure
+D. Heating of a thermocouple
+Answer: A
+Explanation: Each ionizing particle creates an avalanche of ions → pulse of current → detected and counted. Exception: GM tubes detect but cannot distinguish between α, β, and γ without additional shielding experiments.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 7: ENERGY, WORK, AND SIMPLE MACHINES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+101. The mechanical advantage (MA) of a machine is:
+A. Load / Effort
+B. Effort / Load
+C. Distance moved by effort / Distance moved by load
+D. Work output / Work input
+Answer: A
+Explanation: MA > 1 means machine multiplies force. Exception: For an ideal machine MA × VR = 100% efficiency. In practice, MA < VR due to friction.
+
+102. The velocity ratio (VR) of a pulley system with n pulleys is:
+A. VR = n (number of rope segments supporting load)
+B. VR = 1 always
+C. VR = Load/Effort
+D. VR = n²
+Answer: A
+Explanation: VR is determined by geometry. Exception: A single fixed pulley has VR = 1 (no mechanical advantage for force, only direction change).
+
+103. Efficiency of a machine is:
+A. (MA/VR) × 100% = (Work output/Work input) × 100%
+B. Load × Distance
+C. Effort × VR
+D. VR/MA
+Answer: A
+Explanation: Always less than 100% due to friction and energy losses. Exception: Efficiency can never equal 100% for real machines (contradicts thermodynamics).
+
+104. The principle of conservation of energy states:
+A. Energy cannot be created or destroyed, only converted from one form to another
+B. All energy converts to kinetic energy
+C. Total energy decreases over time
+D. Potential energy is always conserved
+Answer: A
+Explanation: Total energy of an isolated system is constant. Exception: Mass-energy equivalence extends this to include mass as a form of energy (E = mc²).
+
+105. Which of the following is NOT a renewable energy source?
+A. Coal
+B. Solar
+C. Wind
+D. Hydroelectric
+Answer: A
+Explanation: Coal is fossil fuel (non-renewable). Exception: Nuclear energy produces no CO₂ but fuel (uranium) is finite — categorized as low-carbon but non-renewable.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 8: MOTION AND CIRCULAR MOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+106. Angular velocity (ω) is related to linear velocity (v) by:
+A. v = ωr
+B. ω = vr
+C. v = ω/r
+D. r = ωv
+Answer: A
+Explanation: At radius r from center, v = ωr. Exception: All points on a rigid body have the same ω but different v (outer points move faster).
+
+107. Centripetal force is:
+A. The net inward force needed to maintain circular motion
+B. A force pushing outward
+C. An additional force separate from friction/tension
+D. Always equal to gravity
+Answer: A
+Explanation: F_c = mv²/r = mω²r. It is provided by friction, tension, gravity, etc. Exception: "Centrifugal force" is not a real force — it's a fictitious force felt in rotating frames.
+
+108. A body moving in uniform circular motion has:
+A. Constant speed but continually changing direction (hence accelerating)
+B. Constant velocity
+C. Zero acceleration
+D. Constant kinetic energy (since |v| is constant) — BOTH A AND D are true
+Answer: D
+Explanation: Speed (and thus KE) is constant; direction (and thus velocity) changes; centripetal acceleration exists. Exception: Acceleration is centripetal — perpendicular to velocity, so it changes direction but not speed.
+
+109. The period of circular motion is related to angular velocity by:
+A. T = 2π/ω
+B. T = ω/2π
+C. T = 2πω
+D. T = 1/ω
+Answer: A
+Explanation: ω = 2π/T (one full revolution = 2π radians). Exception: Frequency f = 1/T; ω = 2πf.
+
+110. Kepler's third law states:
+A. T² ∝ R³ (square of period proportional to cube of orbital radius)
+B. Planets sweep equal areas in equal times
+C. Orbits are ellipses with Sun at one focus
+D. T ∝ R
+Answer: A
+Explanation: T²/R³ = constant for all planets around same star. Exception: Kepler's 2nd law (equal areas in equal times) reflects conservation of angular momentum.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 9: ELECTROMAGNETIC SPECTRUM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+111. The electromagnetic spectrum in order of increasing frequency is:
+A. Radio → Microwave → Infrared → Visible → UV → X-ray → Gamma
+B. Gamma → X-ray → UV → Visible → IR → Microwave → Radio
+C. Visible → UV → X-ray → Gamma → Radio → Microwave → IR
+D. IR → Visible → UV → Radio → Microwave → X-ray → Gamma
+Answer: A
+Explanation: Frequency increases; wavelength decreases in the same order. Exception: All EM waves travel at c = 3 × 10⁸ m/s in vacuum, regardless of frequency.
+
+112. Radio waves are used in:
+A. Broadcasting and telecommunications
+B. Medical imaging (bones)
+C. Sterilizing medical equipment
+D. TV remote controls
+Answer: A
+Explanation: Long wavelength → penetrates atmosphere easily. Exception: Microwaves (a subset close to radio) are used in radar and cooking; assignment varies with subregion.
+
+113. Microwaves cause heating because:
+A. They cause water molecules to rotate, generating heat from friction
+B. They ionize atoms
+C. They have high frequency
+D. They convert to infrared on absorption
+Answer: A
+Explanation: Resonant absorption by water molecules at 2.45 GHz (microwave ovens). Exception: Microwaves do NOT cook from the inside out — they penetrate a few cm into food.
+
+114. Infrared radiation is associated with:
+A. Heat emission from warm bodies
+B. Ionization of gases
+C. Nuclear reactions
+D. Fluorescence
+Answer: A
+Explanation: All objects above absolute zero emit IR; warmer = more IR. Exception: Night-vision cameras detect IR — they "see" heat, not light.
+
+115. UV radiation is responsible for:
+A. Causing sunburn and vitamin D synthesis in skin
+B. Heating the atmosphere
+C. Radar detection
+D. Medical X-rays
+Answer: A
+Explanation: UV from Sun ionizes skin molecules; controlled exposure produces vitamin D. Exception: Ozone layer absorbs most UV-B and UV-C; UV-A largely reaches Earth's surface.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 10: MEASUREMENT AND UNITS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+116. The SI unit of force is:
+A. Newton (N = kg·m/s²)
+B. Joule
+C. Watt
+D. Pascal
+Answer: A
+Explanation: F = ma; 1 N = 1 kg × 1 m/s². Exception: Weight is a force (measured in N), not mass (measured in kg) — common source of confusion.
+
+117. The SI unit of pressure is:
+A. Pascal (Pa = N/m²)
+B. Newton
+C. Joule
+D. Bar
+Answer: A
+Explanation: P = F/A; 1 Pa = 1 N/m². Exception: Atmospheric pressure ≈ 10⁵ Pa = 1 bar = 76 cmHg = 1 atm; multiple units in common use.
+
+118. Dimensional analysis of kinetic energy (½mv²) gives:
+A. ML²T⁻² (same as work and all energies)
+B. MLT⁻¹
+C. ML²T⁻¹
+D. MLT⁻²
+Answer: A
+Explanation: [½mv²] = kg·(m/s)² = kg·m²/s² = ML²T⁻². Exception: All energy forms have same dimensions; Joule is the SI unit for all of them.
+
+119. The vernier caliper can measure to:
+A. 0.1 mm or 0.01 mm depending on the vernier scale
+B. 0.001 mm
+C. 1 mm only
+D. 10 mm
+Answer: A
+Explanation: Common vernier: 0.1 mm (10-division) or 0.02 mm (50-division). Exception: Micrometer screw gauge reads to 0.01 mm; for precision below that, optical/laser methods are used.
+
+120. Random errors can be reduced by:
+A. Taking multiple readings and averaging
+B. Calibrating the instrument
+C. Using a different instrument
+D. Waiting for stable conditions
+Answer: A
+Explanation: Random errors vary unpredictably; averaging reduces their effect. Exception: Systematic errors (zero error, calibration faults) are NOT reduced by averaging — they must be identified and corrected.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 11: ELECTROSTATICS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+121. Coulomb's Law states:
+A. F = kQ₁Q₂/r² (force between two point charges)
+B. F = kQ₁Q₂r²
+C. F = Q₁Q₂/4πr
+D. F = εQ₁Q₂/r
+Answer: A
+Explanation: k = 1/(4πε₀) ≈ 9 × 10⁹ N·m²/C². Exception: Like charges repel; unlike charges attract. Force is along the line joining the charges.
+
+122. Electric field strength (E) is defined as:
+A. Force per unit positive test charge (E = F/q)
+B. Force times charge
+C. Charge per unit area
+D. Potential times distance
+Answer: A
+Explanation: Unit: N/C = V/m. Exception: The test charge must be small enough not to disturb the field being measured.
+
+123. Electric potential at a distance r from a point charge Q is:
+A. V = kQ/r
+B. V = kQ/r²
+C. V = kQr
+D. V = Q/4πr²
+Answer: A
+Explanation: V is a scalar; potential energy U = qV. Exception: Field E ∝ 1/r² but potential V ∝ 1/r — important distinction for JAMB.
+
+124. The electric field inside a conductor in electrostatic equilibrium is:
+A. Zero
+B. Maximum
+C. Equal to surface field
+D. Proportional to charge
+Answer: A
+Explanation: Free electrons redistribute until no net force acts — any field would cause current flow. Exception: Faraday cage shields interior from external electric fields — used in electronics and microwave ovens.
+
+125. Charge resides on the outer surface of a conductor because:
+A. Charges repel and move as far apart as possible
+B. Conductors are heavy
+C. Interior resists charge
+D. Charges are attracted to surface
+Answer: A
+Explanation: Mutual repulsion pushes charges to the surface. Exception: On a non-spherical conductor, charge density is highest at sharp points (used in lightning rods — points leak charge to air).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 12: DIRECT AND ALTERNATING CURRENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+126. The RMS (root mean square) value of AC voltage is:
+A. V_rms = V₀/√2 ≈ 0.707 V₀
+B. V_rms = V₀/2
+C. V_rms = V₀
+D. V_rms = 2V₀
+Answer: A
+Explanation: RMS is the DC equivalent that would produce same power. Exception: Nigerian mains supply is 240 V RMS; peak voltage is 240√2 ≈ 340 V.
+
+127. In a purely resistive AC circuit, voltage and current are:
+A. In phase with each other
+B. 90° out of phase
+C. 180° out of phase
+D. 45° out of phase
+Answer: A
+Explanation: No energy storage in resistors; instantaneous power = V·I always positive. Exception: Capacitors cause current to lead voltage by 90°; inductors cause current to lag by 90°.
+
+128. In a purely capacitive AC circuit:
+A. Current leads voltage by 90°
+B. Current lags voltage by 90°
+C. Current and voltage are in phase
+D. No current flows
+Answer: A
+Explanation: Capacitor charges/discharges; current is maximum when voltage is changing fastest (at zero crossing). Exception: The phrase is remembered as "CIVIL" — In a Capacitor, I leads V; In a (L) inductor, V leads I.
+
+129. Inductive reactance (X_L) is:
+A. X_L = ωL = 2πfL (increases with frequency)
+B. X_L = 1/ωL
+C. X_L = ωC
+D. X_L = L/ω
+Answer: A
+Explanation: Inductive reactance opposes changing current; more opposition at higher frequency. Exception: A DC signal (f = 0) passes through an inductor with zero reactance — only DC resistance.
+
+130. Capacitive reactance (X_C) is:
+A. X_C = 1/ωC = 1/(2πfC) (decreases with frequency)
+B. X_C = ωC
+C. X_C = ωL
+D. X_C = 1/ωL
+Answer: A
+Explanation: Capacitor blocks DC (X_C → ∞ at f = 0) but passes AC more easily at higher frequencies. Exception: Opposite behavior to inductors — key for filter design.
+
+131. At resonance in an LCR series circuit:
+A. X_L = X_C, impedance is minimum (= R), current is maximum
+B. Impedance is maximum
+C. Voltage across L equals voltage across C only
+D. Frequency equals 1 Hz
+Answer: A
+Explanation: f₀ = 1/(2π√LC). Exception: At resonance, voltages across L and C can greatly exceed supply voltage — called voltage magnification.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 13: PROPERTIES OF MATTER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+132. Young's Modulus (E) is defined as:
+A. Stress / Strain
+B. Strain / Stress
+C. Force × Extension
+D. Load / Area
+Answer: A
+Explanation: E = (F/A)/(ΔL/L₀) = FL₀/AΔL. Unit: Pa (N/m²). Exception: Higher Young's modulus = stiffer material. Steel (~200 GPa) is stiffer than rubber (~0.01 GPa).
+
+133. Surface tension causes:
+A. Liquid surfaces to behave like stretched elastic membranes
+B. Liquids to expand when heated
+C. Pressure to increase with depth
+D. Viscosity to decrease
+Answer: A
+Explanation: Surface tension results from net inward forces on surface molecules. Exception: Water striders walk on water using surface tension; detergent breaks it by reducing intermolecular forces.
+
+134. Capillarity (capillary action) occurs because of:
+A. Surface tension and adhesion between liquid and tube walls
+B. Gravity pulling liquid up
+C. Atmospheric pressure pushing liquid up
+D. Viscosity alone
+Answer: A
+Explanation: Adhesion > cohesion → liquid wets tube → meniscus curves → surface tension pulls liquid up. Exception: Mercury in glass: cohesion > adhesion → convex meniscus → mercury is depressed in capillary tube.
+
+135. Viscosity is a measure of:
+A. Internal resistance of a fluid to flow
+B. Density of the fluid
+C. Surface tension of the fluid
+D. Compressibility of the fluid
+Answer: A
+Explanation: Higher viscosity = "thicker" fluid. Stokes' Law: drag force on sphere = 6πηrv. Exception: Viscosity of liquids decreases with temperature; gases increase with temperature — opposite trends.
+
+136. Stokes' Law gives the drag force on a sphere as:
+A. F = 6πηrv (terminal velocity when drag + upthrust = weight)
+B. F = ηrv
+C. F = 6πr²v
+D. F = πηr²v
+Answer: A
+Explanation: At terminal velocity: 6πηrv + upthrust = mg. Exception: Stokes' Law applies only for low Reynolds number (laminar flow); for fast/large objects, turbulence occurs.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 14: OSCILLATIONS AND SHM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+137. Simple Harmonic Motion (SHM) requires:
+A. Restoring force proportional to and directed toward equilibrium
+B. Constant velocity
+C. Zero friction
+D. Circular motion
+Answer: A
+Explanation: F = -kx. Exception: SHM is an idealization; real oscillations are damped due to energy dissipation.
+
+138. The velocity in SHM is maximum at:
+A. The equilibrium position (center)
+B. The amplitude positions
+C. All positions equally
+D. The half-amplitude position
+Answer: A
+Explanation: v = ω√(A² - x²); maximum when x = 0. Exception: At maximum displacement (x = A), velocity is zero; at x = 0, velocity is maximum (ωA).
+
+139. The acceleration in SHM is maximum at:
+A. Maximum displacement (x = ±A)
+B. Equilibrium position
+C. All positions equally
+D. Quarter-amplitude position
+Answer: A
+Explanation: a = -ω²x; maximum |a| when |x| is maximum. Exception: At equilibrium, acceleration is zero — this is where velocity is maximum (they are 90° out of phase).
+
+140. The period of a mass-spring system is:
+A. T = 2π√(m/k)
+B. T = 2π√(k/m)
+C. T = 2π√(m/g)
+D. T = 2π√(L/g)
+Answer: A
+Explanation: Stiffer spring (larger k) → shorter period. More mass → longer period. Exception: Period is independent of amplitude (for ideal SHM), just like the simple pendulum.
+
+141. Total energy in SHM is:
+A. E = ½kA² = ½mω²A² (constant, proportional to amplitude squared)
+B. E = ½mv²
+C. E = mgh
+D. E varies with position
+Answer: A
+Explanation: KE + PE = constant = ½kA². Exception: Energy varies between KE and PE but total is constant (no damping).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 15: MODERN PHYSICS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+142. de Broglie's hypothesis states:
+A. Moving particles have an associated wavelength λ = h/mv
+B. Light is only a particle
+C. Electrons travel in straight lines
+D. Mass and energy are equivalent
+Answer: A
+Explanation: Wave-particle duality of matter. Exception: For macroscopic objects, λ is incredibly small (immeasurable); observable only for electrons, atoms.
+
+143. The Heisenberg Uncertainty Principle states:
+A. Cannot simultaneously know exact position AND momentum: Δx·Δp ≥ h/4π
+B. Energy is always uncertain
+C. Electrons have no definite position at any time
+D. Measurement always disturbs velocity only
+Answer: A
+Explanation: Fundamental limit — not a technological limitation. Exception: The more precisely you know position, the less precisely you know momentum, and vice versa.
+
+144. In the photoelectric effect, increasing intensity of light:
+A. Increases number of emitted electrons (not their maximum KE)
+B. Increases maximum KE of electrons
+C. Lowers the threshold frequency
+D. Has no effect at all
+Answer: A
+Explanation: Intensity = number of photons/s. More photons → more electrons emitted. Exception: KE of each electron depends only on frequency (hf - φ), not intensity — intensity affects number, not energy.
+
+145. The energy of a photon is:
+A. E = hf = hc/λ
+B. E = mc²
+C. E = ½mv²
+D. E = hλ
+Answer: A
+Explanation: h = Planck's constant = 6.63 × 10⁻³⁴ J·s. Exception: Photons have zero rest mass but carry energy and momentum (p = h/λ).
+
+146. An electron volt (eV) is:
+A. Energy gained by an electron accelerated through 1 volt potential difference (1 eV = 1.6 × 10⁻¹⁹ J)
+B. Unit of power
+C. Unit of charge
+D. Energy of one photon
+Answer: A
+Explanation: Useful unit at atomic scale. Exception: 1 MeV = 10⁶ eV = 1.6 × 10⁻¹³ J; used in nuclear physics.
+
+147. The Bohr model of hydrogen explains:
+A. Discrete spectral lines due to electrons jumping between fixed energy levels
+B. Continuous emission spectra
+C. Why all elements emit the same spectrum
+D. Electron probability clouds
+Answer: A
+Explanation: Electrons emit/absorb photons when changing levels: E = hf = E₁ - E₂. Exception: Bohr model works well for hydrogen but fails for multi-electron atoms — quantum mechanics needed.
+
+148. Which series of hydrogen spectrum lies in the ultraviolet region?
+A. Lyman series (transitions to n=1)
+B. Balmer series (to n=2)
+C. Paschen series (to n=3)
+D. Brackett series (to n=4)
+Answer: A
+Explanation: Lyman: largest energy transitions → UV. Balmer: visible. Paschen/Brackett: infrared. Exception: Balmer series was first discovered because visible light is easiest to detect.
+
+149. Semiconductors have conductivity:
+A. Between conductors and insulators, increasing with temperature
+B. Lower than insulators
+C. Constant regardless of temperature
+D. Decreasing with temperature (like metals)
+Answer: A
+Explanation: As temperature rises, more electrons gain enough energy to jump the band gap. Exception: This is opposite to metals — semiconductor resistance decreases with temperature; metal resistance increases.
+
+150. A p-n junction diode allows current to flow:
+A. Mainly in one direction (forward bias only)
+B. Both directions equally
+C. Neither direction
+D. Only when in reverse bias
+Answer: A
+Explanation: Forward bias reduces depletion region; reverse bias widens it. Exception: In reverse bias, a very small leakage current flows; at breakdown voltage, large current flows (used in Zener diodes).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SECTION 16: ADDITIONAL HIGH-PROBABILITY TOPICS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+151. Velocity-time graph: area under the graph represents:
+A. Displacement
+B. Acceleration
+C. Distance per unit time
+D. Force applied
+Answer: A
+Explanation: Area = v × t = displacement. Exception: For non-uniform velocity, the area is calculated by integration; for uniform sections, use simple geometric shapes.
+
+152. Displacement-time graph: gradient (slope) represents:
+A. Velocity
+B. Acceleration
+C. Distance
+D. Speed only for straight-line motion
+Answer: A
+Explanation: Gradient = Δs/Δt = velocity. Exception: For a curved s-t graph, the instantaneous velocity = tangent slope; average velocity = chord slope.
+
+153. An object is dropped from rest. Distance fallen in time t is:
+A. s = ½gt²
+B. s = gt
+C. s = gt²
+D. s = ½gt
+Answer: A
+Explanation: u = 0, a = g, s = ut + ½at² = ½gt². Exception: Air resistance reduces acceleration; at terminal velocity, s = vt (constant speed).
+
+154. The equations of motion (SUVAT) apply when:
+A. Acceleration is uniform (constant)
+B. Any motion
+C. Circular motion
+D. Oscillatory motion
+Answer: A
+Explanation: v = u + at; s = ut + ½at²; v² = u² + 2as; s = ½(u+v)t. Exception: For variable acceleration, calculus (integration) must be used.
+
+155. Impulse is equal to:
+A. Change in momentum (Ft = Δ(mv))
+B. Force × distance
+C. Mass × acceleration
+D. Work done
+Answer: A
+Explanation: Impulse = Ft = mv - mu. Exception: For variable force, impulse = ∫F dt (area under F-t graph) — the force-time graph is used in collision analysis.
+
+156. Elastic collisions conserve:
+A. Both kinetic energy and momentum
+B. Momentum only
+C. Kinetic energy only
+D. Total energy only
+Answer: A
+Explanation: Elastic: no deformation, no energy loss. Exception: Perfectly elastic collisions are ideal; real collisions are somewhere between perfectly elastic and perfectly inelastic.
+
+157. The angle of projection for maximum horizontal range is:
+A. 45°
+B. 30°
+C. 60°
+D. 90°
+Answer: A
+Explanation: Range R = u²sin2θ/g; maximum when sin2θ = 1, i.e., θ = 45°. Exception: 30° and 60° give the same range (complementary angles); 90° gives zero horizontal range.
+
+158. A body thrown upward with velocity u reaches maximum height:
+A. H = u²/(2g)
+B. H = u/g
+C. H = u²/g
+D. H = 2u²/g
+Answer: A
+Explanation: v² = u² - 2gH; at max height v = 0, so H = u²/2g. Exception: Time to reach max height = u/g; total flight time = 2u/g (same time up and down).
+
+159. Two forces of 3 N and 4 N act at right angles. The resultant is:
+A. 5 N (Pythagoras: 3² + 4² = 5²)
+B. 7 N
+C. 1 N
+D. 12 N
+Answer: A
+Explanation: Vector addition at 90°: R = √(3² + 4²) = √25 = 5 N. Exception: If forces are parallel (same direction), R = 7 N; opposite, R = 1 N. The angle matters!
+
+160. Torque (moment of force) is:
+A. Force × perpendicular distance from pivot
+B. Force / distance
+C. Force × displacement
+D. Work / time
+Answer: A
+Explanation: τ = Fd (or rFsinθ for non-perpendicular). Exception: Torque and work have the same units (N·m = J) but are different concepts; torque causes rotation, work transfers energy.
+
+161. The principle of moments states:
+A. Sum of clockwise moments = sum of anticlockwise moments (for equilibrium)
+B. Total force = zero
+C. Moments always cancel
+D. Forces act in pairs
+Answer: A
+Explanation: For a balanced lever or beam. Exception: This is the rotational equilibrium condition; translational equilibrium also requires ΣF = 0.
+
+162. A uniform beam is balanced at its midpoint because:
+A. Its weight acts at the center of gravity (which is at the midpoint for uniform beam)
+B. Both halves have equal lengths
+C. Moments automatically cancel
+D. External forces act at midpoint
+Answer: A
+Explanation: Center of gravity of a uniform object is at its geometric center. Exception: Non-uniform beams (e.g., varying density) have center of gravity offset from midpoint.
+
+163. Gravitational potential energy (GPE) is:
+A. mgh (near Earth's surface)
+B. ½mv²
+C. Gm₁m₂/r
+D. -Gm₁m₂/r
+Answer: A
+Explanation: GPE = mgh for objects near Earth where g is approximately constant. Exception: For objects far from Earth: GPE = -GMm/r (negative, with zero at infinity).
+
+164. Newton's Law of Universal Gravitation:
+A. F = Gm₁m₂/r²
+B. F = Gm₁m₂/r
+C. F = Gm₁m₂r²
+D. F = g(m₁ + m₂)/r²
+Answer: A
+Explanation: G = 6.67 × 10⁻¹¹ N·m²/kg². Exception: Gravity follows inverse square law — doubling distance reduces force by factor of 4, not 2.
+
+165. The acceleration due to gravity on the Moon is about:
+A. g_Moon ≈ 1.6 m/s² (about 1/6 of Earth's)
+B. g_Moon = 0
+C. g_Moon = 9.8 m/s² (same as Earth)
+D. g_Moon = 3.2 m/s²
+Answer: A
+Explanation: Moon has less mass and smaller radius than Earth. Exception: An astronaut on Moon has same mass but weighs only 1/6 — mass is invariant, weight depends on gravitational field.
+
+166. A body in free fall experiences:
+A. Weightlessness (apparent weight = zero)
+B. Increased weight
+C. Normal weight
+D. Doubled weight
+Answer: A
+Explanation: In free fall, reaction force from support = 0; apparent weight = m(g - a) = 0 when a = g. Exception: Weightlessness also occurs in orbit — astronauts are in continuous free fall around Earth.
+
+167. The velocity of sound in air at 0°C is approximately:
+A. 330 m/s
+B. 3 × 10⁸ m/s
+C. 1500 m/s
+D. 100 m/s
+Answer: A
+Explanation: v_sound ≈ 330 m/s in air at 0°C, ~340 m/s at 20°C. Exception: Sound travels faster in liquids (~1500 m/s in water) and even faster in solids (~5000 m/s in steel) — denser medium, faster sound (for solids and liquids).
+
+168. The decibel scale of sound intensity:
+A. Is logarithmic; 10 dB increase means 10× intensity increase
+B. Is linear
+C. 10 dB increase means 10 dB more amplitude
+D. Is based on frequency
+Answer: A
+Explanation: dB = 10 log(I/I₀). Exception: 3 dB increase ≈ doubles intensity; 10 dB increase = 10× intensity; 20 dB = 100× intensity.
+
+169. Light travels at c = 3 × 10⁸ m/s in:
+A. Vacuum only (slower in any medium)
+B. All transparent materials
+C. Air and vacuum equally
+D. Glass faster than in air
+Answer: A
+Explanation: In any medium, v = c/n < c. Exception: Extremely energetic particles in dense media can exceed the speed of light in that medium — producing Cherenkov radiation (the blue glow in nuclear reactors).
+
+170. The frequency of light does NOT change when it:
+A. Passes from one medium to another (wavelength and speed change, not frequency)
+B. Reflects off a mirror
+C. Passes through a prism
+D. All of the above (frequency never changes in any of these)
+Answer: D
+Explanation: Frequency is fixed by the source. In a new medium, v and λ change proportionally (v = fλ). Exception: The Doppler effect CAN change observed frequency if source/observer moves relative to each other.
+
+171. When two identical waves meet in phase:
+A. Constructive interference occurs; amplitude doubles
+B. Destructive interference; amplitude = 0
+C. No interference
+D. Frequency doubles
+Answer: A
+Explanation: Path difference = nλ for constructive; (n + ½)λ for destructive. Exception: Destructive interference doesn't destroy energy — it redistributes it to other locations.
+
+172. The critical angle (C) and refractive index (n) are related by:
+A. sinC = 1/n
+B. sinC = n
+C. cosC = 1/n
+D. tanC = 1/n
+Answer: A
+Explanation: At critical angle, refracted ray is at 90°: n₁sinC = n₂sin90° → sinC = n₂/n₁ = 1/n (going from glass to air). Exception: Critical angle only exists for denser-to-rarer transitions.
+
+173. A convex mirror always produces an image that is:
+A. Virtual, erect, and diminished regardless of object position
+B. Real and inverted for objects beyond F
+C. Magnified for close objects
+D. Real and erect
+Answer: A
+Explanation: Convex mirror: f is negative (or behind mirror); all images are virtual, erect, and smaller. Exception: This makes convex mirrors useful as rear-view and security mirrors despite image being smaller.
+
+174. The magnification of a simple microscope (magnifying glass) is:
+A. M = 1 + D/f (D = near point distance, usually 25 cm)
+B. M = D/f
+C. M = f/D
+D. M = D × f
+Answer: A
+Explanation: Image formed at near point (25 cm). Exception: M = D/f when image formed at infinity (relaxed eye); both formulae appear in JAMB.
+
+175. An astronomical telescope in normal adjustment:
+A. Has objective and eyepiece separated by f_o + f_e (image at infinity)
+B. Has them separated by f_o - f_e
+C. Forms an image between the lenses
+D. Uses a concave objective
+Answer: A
+Explanation: Normal adjustment: final image at infinity (for relaxed eye viewing). Exception: Magnification = f_o/f_e; large objective focal length and small eyepiece focal length gives more magnification.
+
+176. The quantity of charge is measured in:
+A. Coulombs (C)
+B. Amperes
+C. Volts
+D. Joules
+Answer: A
+Explanation: Q = It; 1 Coulomb = 1 Ampere × 1 second. Exception: Charge of an electron = 1.6 × 10⁻¹⁹ C; one Coulomb is about 6.24 × 10¹⁸ electrons.
+
+177. A thermistor is a resistor whose resistance:
+A. Decreases with increasing temperature (NTC type)
+B. Increases with increasing temperature
+C. Is independent of temperature
+D. Only changes with light intensity
+Answer: A
+Explanation: NTC (Negative Temperature Coefficient) thermistors are most common; used in thermostats and temperature sensors. Exception: PTC (Positive Temperature Coefficient) thermistors also exist and DO increase resistance with temperature.
+
+178. A light-dependent resistor (LDR) has resistance that:
+A. Decreases in bright light (more light → more current)
+B. Increases in bright light
+C. Is constant regardless of light
+D. Depends on wavelength only
+Answer: A
+Explanation: More photons → more charge carriers → lower resistance. Exception: LDRs respond to light intensity, not frequency; used in automatic street lights and camera exposure controls.
+
+179. In series circuit, the component with highest resistance:
+A. Has the greatest voltage across it (V = IR, same I)
+B. Has the most current through it
+C. Dissipates least power
+D. Has lowest voltage across it
+Answer: A
+Explanation: In series: current is same; voltage divides proportionally to resistance. Exception: Power P = I²R — higher resistance also means higher power dissipation in series (same current).
+
+180. A moving-coil galvanometer can be converted to an ammeter by:
+A. Adding a low-resistance shunt in parallel
+B. Adding a high resistance in series
+C. Adding a high resistance in parallel
+D. Adding a low resistance in series
+Answer: A
+Explanation: Shunt diverts most current; only a small fraction goes through the galvanometer. Exception: Voltmeter = high resistance in series (limits current; reads voltage by V = IR).
+
+181. The Earth's magnetic field is approximately:
+A. 5 × 10⁻⁵ T (varies by location)
+B. 1 T
+C. 10⁻¹⁰ T
+D. 1 mT
+Answer: A
+Explanation: Earth's field is weak (~0.05 mT) but sufficient to deflect compass needles and charged particles. Exception: MRI machines use fields of 1.5–3 T; Earth's field is 100,000 times weaker.
+
+182. Eddy currents are:
+A. Induced currents circulating in bulk conductors due to changing magnetic flux
+B. Currents flowing along edges of conductors
+C. Currents in AC circuits
+D. Magnetic field lines in conductors
+Answer: A
+Explanation: Eddy currents dissipate energy as heat (Lenz's Law). Exception: Eddy currents are useful in induction cooktops and electromagnetic braking; undesirable in transformer cores (reduced by lamination).
+
+183. A Fleming's left-hand rule predicts:
+A. Direction of force on a current-carrying conductor in a magnetic field (motor effect)
+B. Direction of induced current in a generator
+C. Direction of electron flow
+D. Polarity of an electromagnet
+Answer: A
+Explanation: Left hand: thuMb = Motion (force), Index = field, Middle = current. Exception: Fleming's right-hand rule is for generators — easy to mix them up in exams.
+
+184. Self-induction occurs when:
+A. A changing current in a coil induces EMF in the same coil
+B. One coil induces EMF in another coil
+C. A conductor moves in a magnetic field
+D. A capacitor charges
+Answer: A
+Explanation: L·(dI/dt) = induced EMF. Exception: Self-induction opposes changes in current — inductors act like "electrical inertia," resisting sudden changes.
+
+185. The unit of inductance is:
+A. Henry (H)
+B. Farad (F)
+C. Tesla (T)
+D. Weber (Wb)
+Answer: A
+Explanation: 1 H = 1 V·s/A. Exception: Practical inductors are mH (millihenry) or μH; large inductances require many turns and ferromagnetic cores.
+
+186. Magnetic flux (Φ) is defined as:
+A. Φ = BA·cosθ (B = field, A = area, θ = angle between B and normal to area)
+B. Φ = B/A
+C. Φ = BA·sinθ
+D. Φ = B·A²
+Answer: A
+Explanation: Unit: Weber (Wb = T·m²). Exception: Maximum flux when B is perpendicular to the surface (θ = 0, cosθ = 1); zero flux when B is parallel to surface (θ = 90°).
+
+187. A diode in a circuit acts as:
+A. One-way valve for current (rectifier)
+B. Amplifier
+C. Resistance that changes with voltage
+D. A transformer
+Answer: A
+Explanation: Forward biased: low resistance, conducts. Reverse biased: high resistance, blocks. Exception: Zener diodes are designed to operate in reverse breakdown — used as voltage regulators.
+
+188. A transistor can be used as:
+A. Both a switch and an amplifier
+B. Only a switch
+C. Only an amplifier
+D. A diode only
+Answer: A
+Explanation: Small base current controls larger collector current. Exception: In digital electronics, transistors switch (on/off); in analog electronics, they amplify continuously varying signals.
+
+189. The speed of electromagnetic waves in vacuum is:
+A. c = 3 × 10⁸ m/s for ALL EM waves regardless of frequency
+B. Depends on frequency
+C. Depends on wavelength
+D. Depends on amplitude
+Answer: A
+Explanation: All EM waves travel at c in vacuum. Exception: Speed changes in media (v = c/n), but frequency remains the same — wavelength changes instead.
+
+190. The wavelength of visible light ranges approximately:
+A. 400 nm (violet) to 700 nm (red)
+B. 1 nm to 100 nm
+C. 1 mm to 1 m
+D. 100 nm to 400 nm
+Answer: A
+Explanation: Visible spectrum occupies a narrow range. Exception: Human eye is most sensitive to green (~550 nm); different organisms see different ranges (e.g., bees see UV).
+
+191. When a gas is compressed isothermally, its temperature:
+A. Remains constant (definition of isothermal)
+B. Increases
+C. Decreases
+D. Changes unpredictably
+Answer: A
+Explanation: Isothermal: ΔT = 0, so PV = constant (Boyle's Law). Exception: For compression to be truly isothermal, heat must be removed from the gas very slowly.
+
+192. In an adiabatic process:
+A. No heat exchange with surroundings (Q = 0)
+B. Temperature is constant
+C. Pressure is constant
+D. Volume is constant
+Answer: A
+Explanation: ΔU = -W (first law with Q = 0); compression raises temperature; expansion lowers temperature. Exception: Sudden compressions (like in a diesel engine) are approximately adiabatic because they happen too fast for heat to escape.
+
+193. Radiation from the Sun that reaches Earth primarily consists of:
+A. Visible light and near-infrared (with some UV)
+B. X-rays and gamma rays
+C. Only visible light
+D. Mostly radio waves
+Answer: A
+Explanation: Sun's surface temperature ~5500°C → peak emission in visible/near-IR range. Exception: Atmosphere filters out most UV and all X/gamma rays; satellite instruments detect the full spectrum.
+
+194. A body on a frictionless inclined plane accelerates at:
+A. g·sinθ (component of gravity along the plane)
+B. g
+C. g·cosθ
+D. g·tanθ
+Answer: A
+Explanation: Net force along plane = mg·sinθ; a = g·sinθ. Exception: Normal force = mg·cosθ — the component perpendicular to the incline (does no work on the block).
+
+195. Pressure in a hydraulic system: applying force F₁ on area A₁ produces force F₂ on area A₂ where:
+A. F₂/F₁ = A₂/A₁ (Pascal's principle)
+B. F₂ = F₁ always
+C. F₂ = F₁ × A₁ × A₂
+D. F₂/F₁ = A₁/A₂
+Answer: A
+Explanation: Pressure transmitted equally: P = F₁/A₁ = F₂/A₂. Exception: While force is multiplied, displacement is reduced (energy conservation); small piston moves farther than large piston.
+
+196. The binding energy per nucleon is greatest for:
+A. Iron-56 (most stable nucleus)
+B. Hydrogen
+C. Uranium-235
+D. Carbon-12
+Answer: A
+Explanation: Iron-56 sits at the peak of binding energy per nucleon curve (~8.8 MeV). Exception: Fusion of elements lighter than Fe releases energy; fission of elements heavier than Fe releases energy — both "move toward" iron.
+
+197. A nuclear equation must balance:
+A. Both mass number (A) and atomic number (Z)
+B. Only mass number
+C. Only atomic number
+D. Number of neutrons only
+Answer: A
+Explanation: Conservation of nucleons and charge. Exception: Energy (E = Δmc²) is also released; the mass defect is the source of nuclear energy.
+
+198. Background radiation comes from:
+A. Cosmic rays, naturally occurring radioactive materials, and radon gas (always present)
+B. Nuclear power stations only
+C. X-ray machines only
+D. Artificial sources only
+Answer: A
+Explanation: Background radiation is always present; all measurements must subtract it. Exception: Radon gas (from ground) is the largest source of background radiation in many countries.
+
+199. The activity of a radioactive sample is:
+A. Number of decays per second (measured in Becquerel, Bq)
+B. Energy released per decay
+C. Number of nuclei remaining
+D. Rate of change of mass
+Answer: A
+Explanation: A = λN (activity = decay constant × number of undecayed nuclei). Exception: Activity and number of nuclei both follow exponential decay: A = A₀·e^(-λt) and N = N₀·e^(-λt).
+
+200. Pair production occurs when:
+A. A high-energy photon produces an electron-positron pair (near a nucleus)
+B. Two electrons collide
+C. A proton captures a neutron
+D. A nucleus emits alpha and beta simultaneously
+Answer: A
+Explanation: γ → e⁻ + e⁺; requires photon energy ≥ 2m_e·c² ≈ 1.02 MeV; nucleus needed to conserve momentum. Exception: The reverse process — pair annihilation — produces two 0.511 MeV gamma photons; used in PET scans.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+END OF DOCUMENT — 200 UTME PHYSICS QUESTIONS
+Source Analysis: JAMB syllabus, past question patterns (2005–2024), topic frequency analysis
+Highest-probability topics covered: Mechanics (25%), Electricity/Magnetism (20%),
+Waves/Optics (18%), Heat/Thermo (12%), Atomic/Nuclear (12%), Modern Physics (8%), Other (5%)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
