@@ -1,0 +1,221 @@
+Principles Python
+Reduced to Sums & Differences
+W R I T T E N B Y
+I m a n C h r i s t i a n B a s s e y
+S P O N S O R E D B Y
+T e n d e r C a r e C o m p r e h e n s i v e C o l l e g e
+S E C O N D E D I T I O N · A C O M P R E S S E D R E F E R E N C E F O R T H E S E R I O U S S T U D E N T
+A G R A N T E D P U B L I C A T I O N
+T A B L E O F C O N T E N T S
+Core Build
+Program Skeleton
+Text & Sequence Content
+Functions & Reusable Blocks
+Bonding Equivalent — Coupling
+Acid/Base/Salt — Deployment Role
+Redox Equivalent
+Thermodynamics — Execution Economics
+Forms Equivalent
+Distinguishing Pairs
+Variables & Scope
+Reference Plates (Pillars) appear as full-page interludes between sections, the same structural role Electronegativity, Activity Series, and pH/
+Solubility play in the companion chemistry volume.
+§01.py
+§02.py
+§03.py
+§04.py
+§05.py
+§06.py
+§07.py
+§08.py
+§09.py
+§10.py
+§11.py
+PRINCIPLES PYTHON ·GRANTED 2
+The Type Hierarchy & Object Model
+Classified by Python's own numbers/collections.abc, not by editorial
+grouping
+Every element in the chemistry Periodic Table earned its place through an external, checkable authority
+— IUPAC, not the book's author. This plate holds itself to the same standard: every type below is
+grouped by Python's actual abstract base class hierarchy, verifiable in the standard library itself.
+The Numeric Tower — numbers module
+A strict inheritance ladder, each rung a real ABC, checkable via isinstance().
+Complex Base of the numeric tower — complex
+Real Subtype of Complex — has ordering — float
+Rational Subtype of Real — expressible as a fraction — Fraction
+Integral Subtype of Rational — whole numbers only — int, bool
+collections.abc — the container families
+Each family defined by which dunder methods a type actually implements — not by vibes.
+FAMILY REQUIRES MEMBERS
+Iterable __iter__ list, tuple, str, dict, set, generators
+Sequence __getitem__, __len__, ordered list, tuple, str, range
+Mapping __getitem__ by key, keys() dict, MappingProxyType
+Set unordered, unique, supports & | - set, frozenset
+Callable __call__ functions, classes, lambdas, objects with __call__
+Where chemistry's Periodic Table sorts by shell-filling family (Reactive Metals, Halogens, Noble Gases), Python's real sort is
+by protocol family — which dunder methods a type actually implements. bool is Integral (it IS an int subtype); range is a
+Sequence but deliberately not a full list — same spirit as a noble gas: complete, stable, resistant to the usual mutation
+reactions.
+R E F E R E N C E P L A T E · P I L L A R I
+PRINCIPLES PYTHON ·GRANTED 3
+Power of 10 — The Electronegativity Equivalent
+Holzmann, NASA/JPL Laboratory for Reliable Software, 2006
+Electronegativity explained WHY a bond resolves the way it does — not just that it does. Power of 10
+does the same job for code: it is the derivation underneath this book's own Strong-Acid-vs-Weak-Acid
+claim, and the rule-set that bounds Pillar V's chaos tree so every branch terminates somewhere known.
+01 Restrict all control flow to simple constructs
+No goto, no setjmp/longjmp, no direct or indirect recursion.
+02 Bound every loop
+Every loop must have a fixed, provable upper iteration bound.
+03 No dynamic memory allocation after initialization
+Fixed, predictable memory usage — nothing allocated mid-run.
+04 No function longer than one printed page
+One function, one clear purpose, reviewable at a glance.
+05 Minimum two assertions per function
+Assumptions stated explicitly, checked at runtime.
+06 Declare data at the smallest possible scope
+Narrow scope limits how much state a bug can touch.
+07 Check every return value; check every parameter
+No silent failure paths — this is the rule the chaos tree's 'known-good-or-logged-error' leaf rule is modeled
+on directly.
+08 Limit preprocessor use
+Keep the code that runs close to the code that's read.
+09 Restrict pointer use
+No more than one level of dereferencing; no function pointers.
+10 Compile with all warnings enabled, zero warnings tolerated
+Every warning is treated as an error before it ships.
+R E F E R E N C E P L A T E · P I L L A R I I
+PRINCIPLES PYTHON ·GRANTED 4
+HOW THIS EXPLAINS STRONG ACID VS WEAK ACID (SECTION 6, THIS BOOK)
+Strong Acid: A script that bounds its loops, checks every return value, and has no unbounded
+recursion runs deterministically to completion for any valid input — this book's own definition of
+Strong Acid, now with a checkable rule-set behind it instead of just a label.
+Weak Acid: A script with unbounded recursion, unchecked returns, or open-ended loops may
+branch, early-exit, or hang depending on input — Weak Acid, and Power of 10's violations are
+precisely where to look for why.
+ΔEN gave the chemistry book a number: 0.96, 2.23, threshold at 1.7. Power of 10 gives this book a checklist instead of a
+number — chemistry's currency is a continuous scale; code's currency here is closer to a compliance boundary, crossed or not
+crossed, rule by rule. A different shape, the same job: explain why the earlier claim holds, not just assert that it does.
+PRINCIPLES PYTHON ·GRANTED 5
+Method Resolution Order — The Activity Series
+Equivalent
+A strict, fixed, checkable displacement ranking — same job, different table
+The Activity Series doesn't describe attraction, it predicts EVICTION — put a higher-ranked element
+near a lower-ranked one's compound, and the higher one displaces it. MRO does exactly this job for
+method lookup: a strict, computed-once ordering that decides which class's version of a method displaces
+another's, every time, no exceptions.
+Mechanism
+Python computes MRO via C3 linearization the moment a class is defined. The result is a fixed list
+— checkable with ClassName.__mro__ — that governs every subsequent method lookup on that
+class, the same way the Activity Series, once memorized, governs every displacement reaction that
+follows it.
+READING THE RANKING
+A ranks above B in C's MRO, the same way Zinc ranks above Copper in the Reactivity Series. A's
+greet() displaces B's — not because A's version is better, but purely because of fixed positional rank.
+R E F E R E N C E P L A T E · P I L L A R I I I
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+class A:
+def greet(self):
+return "A"
+class B:
+def greet(self):
+return "B"
+class C(A, B):
+pass
+C().greet() # "A" — A displaces B, by rank
+C.__mro__ # (C, A, B, object) — the fixed ranking
+PRINCIPLES PYTHON ·GRANTED 6
+DISTINGUISHING NOTE
+Variable shadowing (a local x hiding a global x) is a smaller cousin of this same displacement idea,
+but MRO is the one that is genuinely a fixed, memorized-in-spirit ranking used to predict eviction
+ahead of time — not just a per-call, per-scope accident.
+Where the chemistry book's Activity Series needed three separate ladders (cation reactivity, halogen displacement, radical
+stability) because each tracked a different currency, MRO stays a single ladder — Python only has one lookup mechanism to
+rank, not three independent phenomena.
+PRINCIPLES PYTHON ·GRANTED 7
+Acid, Base, Salt, Neutral/Amphoteric, Complex
+Deployment role, not reaction — same five buckets, stress-tested for Python
+Not what a substance IS, but what ROLE it plays in its environment. Chemistry's five buckets sort
+compounds by proton-donor/acceptor character. Python's sort by whether an object acts, is acted upon,
+sits inert, does both symmetrically, or contains all of the above at once inside one larger structure.
+Acid Acts on other files/systems, itself runs to completion (or exits)
+A build pipeline; a CSV→HTML generator script
+Base Holds data, waits to be acted upon, never initiates
+A config file; a template; a data class with no mutating methods
+Salt Settled output — stable, done, no longer needs what made it
+A rendered student report page; a compiled artifact
+Neutral / AmphotericNeutral: inert to the acid-base question entirely, by design. Amphoteric:
+genuinely both roles, symmetrically, resolved only by who acts first —
+not by context, not by type.
+Neutral: math.sqrt(), a pure constant.
+Amphoteric: two instances of the same class acting on each other with reversible roles
+— a.transfer_to(b) vs b.transfer_to(a). This mirrors water's own mechanism (2 H2O ⇌
+H3O+ + OH-) more precisely than a context-dependent validator would: identical
+objects, either can play either role, decided only by who calls whom.
+Complex A whole object with mixed internal roles — no single label fits the
+object as a whole, only its individual parts
+A model class mixing pure methods (Base-like), mutating methods (Acid-like),
+and held state (Salt-like) all in one object — same spirit as an alloy or polymer
+being too large/composite for a single acid-base answer.
+R E F E R E N C E P L A T E · P I L L A R I V
+PRINCIPLES PYTHON ·GRANTED 8
+ON WATER — TWO CORRECT READINGS, NOT A CONFLICT
+Water in the chemistry book plays two separate, equally correct roles: it is THE textbook
+Amphoteric substance (autoionization), and separately it is the byproduct sitting on the right side
+of Acid + Base = Salt + Water. Neither reading cancels the other. In this Python table, the byproduct
+reading maps to console output / logs — the ambient thing produced by a reaction running — while
+the amphoteric reading earns its own seat in the bucket above, on its own chemical merits.
+The reaction itself, restated in this book's own terms: CSV + report_template.html (+ generator script) = rendered student page
+(Salt) + console output (byproduct, water's other role). The generator is the Acid; the CSV and template are both Bases; what
+drops out afterward no longer needs the script that made it.
+PRINCIPLES PYTHON ·GRANTED 9
+The State Tree
+Python-only — branching execution, bounded by Power of 10
+Every chemistry plate in this book's companion volume describes a single interaction, fully specified in
+advance — you know K displaces Na before the reaction runs. Python's real concern once state and
+repeated calls enter the picture is different in kind: the SAME code, called many times, on objects whose
+internal state keeps changing between calls, can produce a genuinely different outcome depending on
+history — something no chemistry table has to represent, because K's reactivity never depends on what K
+did five minutes ago.
+PHILOSOPHY
+Modeled on an error-first approach to software: keep errors at zero by default, so that creative risktaking
+becomes a deliberate choice rather than an accident — and when that risk is taken, every
+path it opens is logged, not silently swallowed. This is the same discipline behind NASA/JPL's Power
+of 10 (Pillar II): the branching is real and allowed, but it is bounded, and no leaf is permitted to be
+an unknown state.
+THE TREE RULE
+Every leaf in the tree is one of exactly two things: a known-good terminal state, or an explicitly
+caught and logged error. There is no third option. A silent failure, an uncaught exception that
+crashes the process, or a mutation nobody logged — these are not valid leaves. They are what this
+plate exists to make visible and design against.
+R E F E R E N C E P L A T E · P I L L A R V · P Y T H O N - O N L Y
+PRINCIPLES PYTHON ·GRANTED 10
+Worked example
+This is the honest shape of 'a program can be Strong Acid for one input and Weak Acid for the same lines of code on
+another' (Section 6, Strong/Weak Acid). The tree doesn't resolve that tension — it displays it, the same way the periodic table
+doesn't explain WHY electronegativity trends the way it does, it just shows the honest shape of what's true.
+process_student_row(csv_row)
+└— row has all required fields
+└— password already hashed this run
+SKIP — known-good, idempotent
+└— password present, not yet hashed
+HASH + WRITE — known-good terminal state
+└— row missing a required field
+└— missing field is non-critical (e.g. optional remark)
+WRITE with placeholder + LOG WARNING — known-good, degraded
+└— missing field is critical (e.g. student ID)
+RAISE + LOG ERROR, do not write — explicitly caught, never
+silent
+PRINCIPLES PYTHON ·GRANTED 11
