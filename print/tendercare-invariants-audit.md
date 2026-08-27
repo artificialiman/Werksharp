@@ -1,44 +1,43 @@
-# Tendercare Suite — Invariants Audit (read-only, no code changed)
+# Tendercare Suite — NEW Invariants AND DATAFLOW Audit (read-only, no code changed)
 
-Cross-referencing the invariants/preferences you laid out for this project against what's actually in `tendercare-web`, `tendercare-teacher`, and `tendercare-portal` right now. Nothing below was built or fixed — this is a status check only.
+## Added context THESE ARE MULTIPLE AGENT READ AND FINALLY MY RESPONSE
 
-## Fully missing
+**extra context**
+This is a genuinely good audit, and I want to give you a straight read on it rather than just agree with it wholesale — some of it is confirmed by my own reading, some of it is now stale relative to work I've since done, and one framing point is worth pushing back on.
 
-**1. Permanent stakeholder / family office / admin bio on the site.**
-No `teachers` table in the schema, no bio field anywhere, and no actual person's bio exists. `tendercare-web`'s About page has history/mission copy but the faculty section is explicitly a placeholder — its own on-page text reads "Replace with actual staff names, photos, and roles." This hasn't been started.
+**Confirmed accurate, independent of my session:**
+- No `teachers`/bio table, no promotion/archiving logic, no admin password-generator app, no cron/scheduled deletion for feed — I didn't check all of these myself but nothing I read contradicts them, and they're the kind of absence that's easy to verify by grep.
+- The `remarks` table exists with no UI — I saw that schema too and didn't build against it.
+- The feed running on `localStorage` while `feed_comments`/`feed_likes` sit unused in the schema — consistent with what I saw in `tendercare-web`.
 
-**4. Automatic promotion/archiving for classes/terms/graduands.**
-The `terms` table has an `is_current` flag, but nothing moves a student to a new class at year rollover, and there's no graduate/archive state — a student is either `active` or soft-deleted, nothing in between for "graduated." No promotion logic exists anywhere in any of the three repos.
+**Now stale, because it predates my last two sessions:**
+- **Item 5 (watermark/letterhead)** — this audit describes the pre-crest state exactly (plain "TCC" text, dashed "School Logo" box). That's fixed and verified in `tendercare-portal-full.patch` and `tendercare-web-nav-crest.patch` — crest is real, watermark renders and survives PDF export, confirmed via headless Chromium screenshots.
+- **Item 8a's access-control claim ("no access control at all")** — also now stale. `tendercare-portal-full.patch` adds the password gate at `/result/[id]/login`, bcrypt-verified server-side. This audit is describing the exact gap I closed.
 
-**6. Automatic weekly deletion of feed activity.**
-No cron job, scheduled function, or retention logic anywhere. More basic than that: the feed on `tendercare-web` still runs entirely on `localStorage` — the `feed_comments`/`feed_likes` tables already exist in `tendercare-teacher`'s schema, ready for it, but the feed page hasn't been wired to them yet. There's nothing to auto-delete from yet, and no deletion logic waiting for when it is.
+**Still fully accurate and unaddressed by anything I've built:**
+- The Supabase-for-results contradiction itself. My patches made the *access to* Supabase-hosted results safer (password gate), but I did not move results back to hardcoded-in-repo, which is what your actual invariant says. I want to be direct about this: I built a better lock on the door your invariants say shouldn't be a door at all. That's a real gap between what I did and what you specified, not a disagreement — I should flag it rather than let the patch read as "invariant satisfied."
 
-**8b. An admin app that generates passwords for the entire school.**
-Searched all three repos — no such tool exists anywhere.
+**Where I'd push back slightly on the audit's framing:** it says "no access control at all" as if that were simply a bug. It's more precise to say it was a deliberate, commented, temporary removal — your own instruction, to unblock other work, with the tradeoff written into the code by whoever removed it. Not a defense of leaving it that way, just: the audit reads slightly more alarming than the actual provenance, since it was a known, explicit tradeoff rather than an oversight.
+
 
 ## Contradicted by what's actually built
-
-**8a. "Result transcripts are hardcoded and stay in repo" / "Supabase... hosting results or auth is not it."**
-This is the one that matters most. `tendercare-portal`'s result page pulls a student's profile and scores with live Supabase queries (`getStudent`, `getScores` in `lib/data.ts`, both hitting the `students` and `scores` tables directly) — not from anything hardcoded in the repo. `tendercare-teacher`'s roster and auth also run through Supabase (`supabase.auth.getUser()`, RLS-gated tables) the same way. This is the opposite of what was specified.
-
-**More urgent than the contradiction itself:** the result page currently has **no access control at all**. There's a comment in the code admitting it directly — auth was deliberately removed at some point per your own instruction to unblock other work, and the route is now open: anyone who knows or guesses a student ID (`TCH-2025-042` etc.) can view that student's full transcript, no password, no gate. The comment explicitly flags this as not something to bring in front of real users as-is. This isn't a "someday" gap — it's live in the current code.
-
-## Partially built
-
-**2. Teacher-side editing of student bio/info/remarks.**
-The data model exists — a `remarks` table with `teacher_remark` and `principal_remark` per student per term, with RLS policies already written. But there's no UI anywhere to actually write to it. `tendercare-teacher`'s roster page only has inputs for adding a new student (name + class) and a soft-delete toggle — no remark field, no bio field (there isn't one in the schema either). Schema's ready; the feature isn't.
-
-**5. Permanent logo SVG watermark background + letterhead.**
-A `.brand-logo--watermark` CSS class is defined in the shared stylesheet, but nothing on any page actually uses it. The one place this matters most — the transcript/result page — shows a plain "TCC" text label and a dashed-border box literally captioned "School Logo," not an embedded crest. Defined in CSS, invoked nowhere.
-
-## Holding, not violated
-
-**3. Media/bulletin info on the main website.** Feed, sports, and awards pages exist and carry real content (Interhouse results, MVP callouts, etc.) — this is the one invariant that's actually functioning, even though its backing data is still localStorage rather than Supabase (see #6).
-
-**7. Anything >10KB needs a good reason to be in the DB.** Nothing currently violates this — but only because photo/media storage hasn't been built at all yet (the result page's photo slot is a CSS placeholder, no image pipeline exists). Not evidence of compliance so much as the feature not existing yet to test it against.
-
-**Architecture itself** (SvelteKit/Supabase/three-repo split) — intact, nothing has drifted from that.
-
 ## The one thing worth acting on before anything else
 
-Item 8's access-control gap isn't a missing feature, it's an exposed one — real student data with zero gate in the current deployed code. Everything else on this list is a "not built yet." That one is a "built wrong, right now."
+Read it. This one has a real implication, worth flagging directly before anything else.
+
+**The core architectural point in your reply — "I want results STATIC AND HARDCODED INTO REPO... Supabase should handle what it's best for in this context, not heavy report files or tedious network queries" — directly contradicts `tendercare-portal` as I built it.** My `/result/[id]` route does exactly what you're now saying not to do: a live Supabase query on every page load (`getStudent`, `getScores` in `lib/data.ts`). That's the same thing the first audit flagged as a contradiction of the original invariant, and now you've confirmed it a second time, more firmly. This isn't a small tweak — it's a "which of these two systems is actually the architecture" question.
+
+That leaves a real fork, worth deciding rather than me guessing:
+
+**Option A — `tendercare-portal` gets retired**, and the 267-file static report-sheet system in `UTMEDaily/Tendercare/Directory` (already doing exactly what you want — hardcoded, in-repo, offline-capable) becomes the *only* result-viewing system. `tendercare-portal` either goes away or gets repurposed for something Supabase is actually good for here (staff-side roster management UI, maybe).
+
+**Option B — `tendercare-portal` gets converted to build-time static generation.** SvelteKit can prerender every `/result/[id]` route at build time (using `entries()` to enumerate all 376 student IDs), reading from Supabase only during that build step — never at runtime. The deployed app becomes static HTML files, same "hardcoded and stay in repo" property you want, but Supabase stays useful as the *authoring* backend (where scores actually get entered) instead of being queried live by students viewing results. This is the same pattern `tendercare-web` already uses (`adapter-static`, fully prerendered).
+
+Both are legitimate reads of "antifail" — A is simpler and matches what already exists; B keeps one system instead of two but requires a rebuild trigger every time scores change (a redeploy, not a live update).
+
+Separately, worth naming since it's a decision, not a bug: right now there are **two independent result-viewing systems that do the same job differently** — the static 267-file directory (matches your spec) and `tendercare-portal` (doesn't). If both stay, that's fine as long as it's deliberate, not an accident nobody flagged.
+
+Which way do you want to go?
+
+** SUPABASE STRAETEGY.** MY RESPONSE TO THIS IS THAT LIVE UPDATES ARE VERY IMPORATNT TO SCORE/TRANSCRIPT GENERATION/UPDATE. ANYTHING ITS VERY GOOD AT IS WELCOM, AS FAR AS IT DOESNT VIOLATE MY DOCTRINE AND PROJECT INVARIANTS.
+
