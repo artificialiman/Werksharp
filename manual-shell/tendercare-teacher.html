@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tendercare Teacher</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ================================================================
+   HARDCODED DEMO SHELL — no Supabase, no fetch(), no build step.
+   Same token system as no-gate.html (purple/cream/serif brand).
+   Everything a teacher can see is baked into TEACHERS/HARDCODED_*
+   below. "Login" is picking your name off a list — no password,
+   because a typed ID + fake password field is the same zero security
+   with more code to write for a demo that's meant to be forked
+   offline anyway.
+   ================================================================ */
+
+:root {
+  --color-purple:        #5B2D8E;
+  --color-purple-deep:   #3A1A5C;
+  --color-purple-mid:    #7B4DB0;
+  --color-purple-light:  #C4A8E0;
+  --color-purple-ghost:  #F0E8FA;
+  --color-lemon-ghost:   #FBF6D8;
+  --color-cream:         #F8F4EC;
+  --color-cream-warm:    #F0E8D8;
+  --color-cream-deep:    #E4D8C4;
+  --color-offwhite:      #FDFAF5;
+  --color-ash:           #A8A8B0;
+  --color-ash-dark:      #6C6C78;
+  --color-ash-light:     #D4D4DC;
+  --color-ink:           #1A1020;
+  --color-white:         #FFFFFF;
+  --color-wine:          #9C2B2B;
+  --color-paper:         #FFFFFF;
+  --color-highlight:     #FBF6D8;
+  --color-highlight-line:#E8DFA0;
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans:  'DM Sans', system-ui, sans-serif;
+  --font-mono:  'DM Sans', system-ui, monospace;
+
+  --text-xs:  0.75rem;
+  --text-sm:  0.875rem;
+  --text-md:  1.125rem;
+  --text-lg:  1.25rem;
+  --text-2xl: 2rem;
+
+  --space-1: 0.25rem;  --space-2: 0.5rem;  --space-3: 0.75rem;
+  --space-4: 1rem;     --space-5: 1.25rem; --space-6: 1.5rem;
+  --space-8: 2rem;     --space-12: 3rem;   --space-16: 4rem;
+
+  --radius-sm: 4px; --radius-md: 8px; --radius-lg: 16px; --radius-full: 999px;
+  --shadow-sm: 0 1px 4px rgba(26,16,32,0.08);
+  --shadow-md: 0 4px 16px rgba(26,16,32,0.12);
+  --duration-fast: 150ms; --duration-base: 300ms;
+  --tracking-wide: 0.08em;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--color-offwhite); color: var(--color-ink); font-family: var(--font-sans); }
+a { color: inherit; }
+button { font: inherit; cursor: pointer; border: none; background: none; }
+input, select { font: inherit; }
+:focus-visible { outline: 2px solid var(--color-purple-mid); outline-offset: 2px; }
+
+.loading-note { text-align: center; padding: 4rem 1rem; opacity: 0.6; }
+.page-error {
+  background: #fdecea; border: 1px solid #f5c6c0; color: var(--color-wine);
+  padding: var(--space-3) var(--space-4); border-radius: var(--radius-md);
+  margin-bottom: var(--space-5); font-size: var(--text-sm);
+}
+
+/* ---- shell bar ---- */
+.staff-shell-bar {
+  background: var(--color-purple-deep); color: var(--color-white);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.75rem 1.5rem; position: sticky; top: 0; z-index: 50;
+}
+.staff-shell-left { display: flex; align-items: center; gap: 0.75rem; }
+.staff-shell-crest { width: 2.1rem; height: auto; color: var(--color-purple-light); flex-shrink: 0; }
+.staff-shell-titles { line-height: 1.25; }
+.staff-shell-title { font-family: var(--font-serif); font-size: 1rem; font-weight: 600; }
+.staff-shell-subtitle { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.55; }
+.staff-shell-right { display: flex; align-items: center; gap: 0.6rem; }
+.staff-shell-role-pill {
+  background: var(--color-purple); color: var(--color-white); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.85rem; border-radius: var(--radius-full);
+}
+.staff-shell-switch {
+  border: 1px solid rgba(255,255,255,0.3); color: var(--color-white); font-size: 0.75rem;
+  font-weight: 600; padding: 0.4rem 0.9rem; border-radius: var(--radius-md);
+}
+.staff-shell-switch:hover { background: rgba(255,255,255,0.08); }
+#shell-content { max-width: 980px; margin: 0 auto; padding: var(--space-8) var(--space-5); }
+
+/* ---- landing / name picker ---- */
+.landing {
+  position: relative; overflow: hidden; min-height: 100dvh;
+  display: flex; flex-direction: column; align-items: center;
+  padding: var(--space-16) var(--space-5) var(--space-16); background: var(--color-cream);
+}
+.landing-crest-watermark {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: min(70vw, 640px); height: auto; color: var(--color-purple-deep);
+  opacity: 0.045; pointer-events: none; z-index: 0;
+}
+.landing-header { position: relative; z-index: 1; text-align: center; max-width: 46ch; margin-bottom: var(--space-8); }
+.landing-crest { width: 3.5rem; height: auto; color: var(--color-purple-deep); margin: 0 auto var(--space-3); display: block; }
+.landing-header h1 { font-family: var(--font-serif); font-weight: 400; font-size: var(--text-2xl); color: var(--color-purple-deep); margin: 0 0 var(--space-2); }
+.landing-header p { opacity: 0.7; font-size: var(--text-sm); margin: 0; }
+.teacher-picker {
+  position: relative; z-index: 1; width: 100%; max-width: 480px;
+  display: flex; flex-direction: column; gap: var(--space-2);
+}
+.teacher-picker-btn {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-3);
+  background: var(--color-white); border: 1px solid var(--color-cream-deep); border-radius: var(--radius-md);
+  padding: 0.85rem 1.1rem; text-align: left; transition: border-color var(--duration-fast), transform var(--duration-fast);
+}
+.teacher-picker-btn:hover { border-color: var(--color-purple-light); transform: translateY(-1px); }
+.teacher-picker-name { font-family: var(--font-serif); font-weight: 600; font-size: var(--text-md); }
+.teacher-picker-role { font-size: var(--text-xs); color: var(--color-ash-dark); }
+.teacher-picker-arrow { color: var(--color-purple-light); font-size: var(--text-lg); }
+
+/* ---- dashboard home ---- */
+.welcome-section {
+  background: var(--color-white); border: 1px solid var(--color-cream-deep); border-radius: var(--radius-lg);
+  padding: var(--space-6); margin-bottom: var(--space-6);
+}
+.welcome-section h1 { font-family: var(--font-serif); font-weight: 400; font-size: var(--text-2xl); color: var(--color-purple-deep); margin: 0 0 var(--space-1); }
+.welcome-section p { opacity: 0.7; font-size: var(--text-sm); margin: 0; max-width: 60ch; }
+
+.mode-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-bottom: var(--space-8); }
+@media (max-width: 620px) { .mode-grid { grid-template-columns: 1fr; } }
+.mode-card {
+  display: flex; flex-direction: column; gap: var(--space-2); text-align: left;
+  background: var(--color-white); border: 1px solid var(--color-cream-deep); border-radius: var(--radius-lg);
+  padding: var(--space-6); position: relative; transition: transform var(--duration-base), box-shadow var(--duration-base), border-color var(--duration-base);
+}
+.mode-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--color-purple-light); }
+.mode-card-icon { font-size: 1.6rem; }
+.mode-card-title { font-family: var(--font-serif); font-weight: 600; font-size: 1.3rem; color: var(--color-ink); }
+.mode-card-desc { font-size: var(--text-sm); color: var(--color-ash-dark); line-height: 1.5; }
+
+.section-label {
+  font-size: var(--text-xs); letter-spacing: var(--tracking-wide); text-transform: uppercase;
+  color: var(--color-purple); margin: 0 0 var(--space-3);
+}
+
+/* ---- broadsheet progress (homepage, localStorage-only) ---- */
+.progress-list { display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-8); }
+.progress-row {
+  display: flex; align-items: center; gap: var(--space-4); background: var(--color-white);
+  border: 1px solid var(--color-cream-deep); border-radius: var(--radius-md); padding: var(--space-3) var(--space-4);
+}
+.progress-row-label { flex: 1; min-width: 0; }
+.progress-row-title { font-size: var(--text-sm); font-weight: 600; }
+.progress-row-sub { font-size: var(--text-xs); color: var(--color-ash-dark); }
+.progress-bar-track { width: 120px; height: 8px; background: var(--color-cream-deep); border-radius: var(--radius-full); overflow: hidden; flex-shrink: 0; }
+.progress-bar-fill { height: 100%; background: var(--color-purple); border-radius: var(--radius-full); transition: width var(--duration-base); }
+.progress-pct { width: 3.2rem; text-align: right; font-size: var(--text-xs); font-weight: 700; color: var(--color-purple-deep); flex-shrink: 0; }
+.progress-empty { font-size: var(--text-sm); color: var(--color-ash-dark); padding: var(--space-4) 0; }
+.progress-continue { font-size: var(--text-xs); font-weight: 600; color: var(--color-purple-deep); flex-shrink: 0; }
+
+/* ---- shared page header ---- */
+.page-header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-4); margin-bottom: var(--space-6); flex-wrap: wrap; }
+.page-header h1 { font-family: var(--font-serif); font-weight: 400; font-size: var(--text-2xl); color: var(--color-purple-deep); margin: 0 0 var(--space-1); }
+.page-header p { font-size: var(--text-sm); color: var(--color-ash-dark); max-width: 60ch; margin: 0; }
+.back-button {
+  padding: 0.6rem 1.1rem; background: var(--color-white); border: 1px solid var(--color-cream-deep); border-radius: var(--radius-sm);
+  color: var(--color-ink); font-weight: 600; font-size: 0.85rem; display: flex; align-items: center; gap: 0.4rem; flex-shrink: 0;
+}
+.back-button:hover { background: var(--color-cream); }
+
+/* ---- picker card (subject/class chooser, shared by both modes) ---- */
+.form-card { background: var(--color-white); border: 1px solid var(--color-cream-deep); border-radius: var(--radius-lg); padding: var(--space-6); box-shadow: var(--shadow-sm); margin-bottom: var(--space-6); }
+.form-card h2 { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: var(--tracking-wide); color: var(--color-purple); margin: 0 0 var(--space-4); }
+.select-row { display: flex; gap: var(--space-3); flex-wrap: wrap; align-items: flex-end; }
+.select-wrapper { flex: 1; min-width: 200px; display: flex; flex-direction: column; gap: var(--space-2); }
+.select-wrapper label { font-size: var(--text-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-ash-dark); }
+.styled-select {
+  width: 100%; padding: 0.75rem 0.9rem; font-size: var(--text-sm); background: var(--color-cream);
+  border: 1.5px solid var(--color-cream-deep); border-radius: var(--radius-md); color: var(--color-ink); cursor: pointer;
+}
+.styled-select:disabled { opacity: 0.5; cursor: default; }
+.btn-primary {
+  font-size: var(--text-sm); font-weight: 600; letter-spacing: var(--tracking-wide); background: var(--color-purple);
+  color: var(--color-cream); padding: 0.75rem 1.4rem; border-radius: var(--radius-md); white-space: nowrap;
+}
+.btn-primary:hover:not(:disabled) { background: var(--color-purple-deep); }
+.btn-primary:disabled { opacity: 0.5; cursor: default; }
+.btn-secondary {
+  font-size: var(--text-sm); font-weight: 600; background: var(--color-cream); color: var(--color-ink);
+  padding: 0.75rem 1.2rem; border-radius: var(--radius-md); border: 1px solid var(--color-cream-deep);
+}
+.btn-secondary:hover { background: var(--color-cream-warm); }
+
+/* ---- subject rail (always-visible subject context, per spec) ---- */
+.subject-rail { display: flex; gap: var(--space-2); flex-wrap: wrap; margin-bottom: var(--space-5); }
+.subject-chip {
+  font-size: var(--text-xs); font-weight: 600; padding: 0.45rem 0.9rem; border-radius: var(--radius-full);
+  background: var(--color-cream); color: var(--color-ash-dark); border: 1px solid var(--color-cream-deep);
+}
+.subject-chip.is-active { background: var(--color-purple); color: var(--color-white); border-color: var(--color-purple); }
+
+/* ================================================================
+   SCORE ENTRY — "white like paper," full crosshair highlight.
+   Paper card sits on the cream page background so it visually reads
+   as a physical sheet, not another app panel.
+   ================================================================ */
+.sheet-card {
+  background: var(--color-paper); border: 1px solid var(--color-cream-deep); border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md); overflow: hidden; margin-bottom: var(--space-6);
+}
+.sheet-toolbar {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-3);
+  padding: var(--space-4) var(--space-5); border-bottom: 1px solid var(--color-cream-deep); background: var(--color-cream);
+}
+.sheet-toolbar-title { font-family: var(--font-serif); font-weight: 600; font-size: var(--text-lg); }
+.sheet-toolbar-meta { font-size: var(--text-xs); color: var(--color-ash-dark); }
+.sheet-toolbar-actions { display: flex; gap: var(--space-2); }
+.sheet-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--color-cream-deep); border-bottom: 1px solid var(--color-cream-deep); }
+.sheet-stat { background: var(--color-paper); padding: var(--space-3) var(--space-4); text-align: center; }
+.sheet-stat-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-ash-dark); margin-bottom: 0.2rem; }
+.sheet-stat-value { font-size: 1.35rem; font-weight: 700; color: var(--color-purple-deep); font-family: var(--font-serif); }
+.sheet-table-wrap { overflow-x: auto; }
+.sheet-table { width: 100%; border-collapse: collapse; min-width: 620px; background: var(--color-paper); }
+.sheet-table thead th {
+  text-align: left; padding: 0.9rem 1rem; font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.05em; color: var(--color-ash-dark); border-bottom: 2px solid var(--color-cream-deep); white-space: nowrap;
+  background: var(--color-paper); position: sticky; top: 0;
+}
+.sheet-table thead th.col-active { background: var(--color-highlight); color: var(--color-purple-deep); }
+.sheet-table tbody td { padding: 0.7rem 1rem; border-bottom: 1px solid #f0ece0; font-size: var(--text-sm); }
+.sheet-table tbody tr.row-active td { background: var(--color-highlight); }
+.sheet-table tbody tr.row-active td.cell-active { background: var(--color-highlight-line); }
+.sheet-id { font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-ash-dark); }
+.sheet-name { color: var(--color-ink); }
+.sheet-input {
+  width: 4.5rem; padding: 0.5rem 0.6rem; text-align: center; font-size: var(--text-sm);
+  background: var(--color-cream); border: 1px solid var(--color-cream-deep); border-radius: var(--radius-sm); color: var(--color-ink);
+}
+.sheet-input:focus { background: var(--color-white); border-color: var(--color-purple-mid); }
+.sheet-input.invalid { border-color: var(--color-wine); background: #fdecea; }
+.sheet-total { font-weight: 700; font-family: var(--font-serif); font-size: 1.05rem; }
+.grade-badge {
+  display: inline-block; padding: 0.3rem 0.7rem; border-radius: var(--radius-full); font-weight: 700;
+  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; min-width: 2.4rem; text-align: center;
+}
+.grade-a1 { background: rgba(34,197,94,0.15); color: #15803d; }
+.grade-b2 { background: rgba(52,211,153,0.15); color: #0f766e; }
+.grade-b3 { background: rgba(59,130,246,0.15); color: #1d4ed8; }
+.grade-c4 { background: rgba(96,165,250,0.15); color: #1e40af; }
+.grade-c5 { background: rgba(234,179,8,0.18); color: #92400e; }
+.grade-c6 { background: rgba(250,204,21,0.2); color: #92400e; }
+.grade-d7 { background: rgba(249,115,22,0.18); color: #9a3412; }
+.grade-e8 { background: rgba(239,68,68,0.15); color: #b91c1c; }
+.grade-f9 { background: rgba(220,38,38,0.18); color: #991b1b; }
+.sheet-actions { display: flex; justify-content: flex-end; gap: var(--space-3); padding: var(--space-5); border-top: 1px solid var(--color-cream-deep); background: var(--color-cream); }
+
+/* ================================================================
+   ATTENDANCE / ROSTER EDIT — add/remove students + portrait notes,
+   scoped to this teacher's own assigned classes only.
+   ================================================================ */
+.class-tabs { display: flex; gap: var(--space-2); flex-wrap: wrap; margin-bottom: var(--space-5); }
+.class-tab {
+  font-size: var(--text-sm); font-weight: 600; padding: 0.55rem 1rem; border-radius: var(--radius-md);
+  background: var(--color-white); border: 1px solid var(--color-cream-deep); color: var(--color-ash-dark);
+}
+.class-tab.is-active { background: var(--color-purple); border-color: var(--color-purple); color: var(--color-white); }
+.add-card { background: var(--color-white); border: 1px solid var(--color-cream-deep); border-radius: var(--radius-lg); padding: var(--space-5); margin-bottom: var(--space-6); box-shadow: var(--shadow-sm); }
+.add-card form { display: flex; gap: var(--space-3); flex-wrap: wrap; align-items: center; }
+.add-card input[type='text'] { flex: 1; min-width: 200px; padding: 0.7rem 0.9rem; border: 1.5px solid var(--color-cream-deep); border-radius: var(--radius-md); font-size: var(--text-sm); background: var(--color-cream); }
+.add-card input:focus { outline: none; border-color: var(--color-purple-light); background: var(--color-white); }
+.roster-table { width: 100%; border-collapse: collapse; }
+.roster-table th, .roster-table td { text-align: left; padding: 0.7rem 0.9rem; border-bottom: 1px solid var(--color-cream-deep); font-size: var(--text-sm); }
+.roster-table th { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-ash-dark); }
+.roster-card-wrap { background: var(--color-white); border: 1px solid var(--color-cream-deep); border-radius: var(--radius-lg); overflow: hidden; }
+.inactive-row { opacity: 0.5; }
+.actions-cell { display: flex; gap: var(--space-2); align-items: center; flex-wrap: wrap; }
+.btn-remove { color: var(--color-wine); font-weight: 600; font-size: var(--text-xs); }
+.btn-restore { color: #15803d; font-weight: 600; font-size: var(--text-xs); }
+.portrait-dot {
+  width: 2.1rem; height: 2.1rem; border-radius: 50%; background: var(--color-purple-ghost); color: var(--color-purple-deep);
+  display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; flex-shrink: 0; overflow: hidden;
+}
+.portrait-dot img { width: 100%; height: 100%; object-fit: cover; }
+.name-cell { display: flex; align-items: center; gap: var(--space-3); }
+.remark-input {
+  width: 100%; min-width: 160px; padding: 0.45rem 0.6rem; font-size: var(--text-xs); border: 1px solid var(--color-cream-deep);
+  border-radius: var(--radius-sm); background: var(--color-cream);
+}
+.remark-input:focus { background: var(--color-white); border-color: var(--color-purple-mid); }
+</style>
+</head>
+<body>
+
+<svg style="display:none">
+  <symbol id="crest" viewBox="0 0 312.517888 359.467970">
+<g transform="translate(0.000000,366.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
+<path d="M0 2875 l0 -785 26 0 c49 0 62 15 57 65 -6 50 -11 48 87 50 l45 1 3
+69 c2 51 6 66 13 55 8 -11 9 -2 6 33 -3 26 -2 49 2 51 3 2 22 5 41 7 19 2 38
+8 42 14 4 5 8 -95 8 -224 0 -129 2 -232 4 -230 2 2 6 308 10 679 5 625 6 676
+22 687 14 10 245 13 1108 15 1035 1 1115 5 471 23 -143 4 -262 9 -264 11 -2 2
+137 5 310 6 173 1 297 3 276 5 -42 5 -41 23 2 23 30 0 67 29 40 31 -16 1 62
+20 101 24 39 4 40 4 38 18 -2 7 9 13 25 15 15 2 27 8 27 13 0 5 27 9 60 9 48
+0 60 3 60 16 0 8 6 22 14 30 17 16 30 19 21 4 -4 -6 9 -10 32 -9 30 0 34 2 18
+9 -18 8 -17 9 8 9 17 1 27 6 27 16 0 11 11 15 43 15 30 0 38 3 27 10 -10 6 46
+10 165 12 99 2 -530 5 -1397 6 l-1578 2 0 -785z m207 -577 c-2 -13 -4 -5 -4
+17 -1 22 1 32 4 23 2 -10 2 -28 0 -40z"/>
+<path d="M2613 3363 c9 -2 25 -2 35 0 9 3 1 5 -18 5 -19 0 -27 -2 -17 -5z"/>
+<path d="M400 2444 c0 -764 2 -873 16 -937 17 -74 53 -176 81 -231 67 -131
+221 -304 353 -398 69 -49 246 -141 293 -152 15 -3 27 -11 27 -17 0 -8 -16 -9
+-52 -5 -29 4 -126 16 -216 25 -90 10 -168 23 -173 28 -6 6 -6 19 1 37 19 52
+13 63 -72 128 -46 34 -117 96 -158 138 -79 78 -190 218 -190 238 0 7 -8 12
+-19 12 -22 0 -31 -50 -31 -171 l0 -79 -42 1 c-24 0 -68 4 -98 9 -31 4 -59 4
+-64 -1 -25 -23 120 -235 227 -335 l69 -64 -20 -43 c-34 -74 -35 -83 -9 -109
+14 -12 39 -31 57 -41 31 -16 32 -19 26 -60 -9 -58 -2 -73 43 -90 59 -24 448
+-84 666 -103 464 -41 1025 -9 1455 81 110 23 114 26 106 95 -7 57 -7 57 25 70
+44 19 89 58 89 79 0 10 -11 39 -24 65 l-24 47 80 81 c43 44 98 108 122 142 52
+73 106 163 106 177 0 7 -35 8 -103 3 l-104 -7 -7 104 c-12 176 -19 183 -86 79
+-55 -87 -187 -221 -302 -308 -92 -70 -99 -82 -78 -138 7 -17 7 -31 1 -37 -14
+-14 -471 -67 -471 -54 0 3 24 13 53 23 167 55 317 151 457 293 141 142 211
+263 273 466 20 68 21 89 24 948 l4 877 -1155 0 -1156 0 0 -866z m2258 16 c2
+-711 1 -805 -14 -885 -57 -306 -221 -533 -509 -708 -211 -128 -534 -187 -786
+-142 -443 77 -826 437 -889 835 -11 72 -15 1682 -3 1693 3 4 499 6 1102 4
+l1096 -2 3 -795z m-2294 -1315 c56 -73 200 -211 252 -241 24 -14 44 -28 44
+-30 0 -2 -41 -3 -92 -1 l-92 2 -46 -74 c-25 -41 -51 -76 -56 -78 -17 -6 -158
+142 -214 223 l-52 75 91 -3 c50 -2 91 -3 91 -3 1 0 3 38 6 85 3 47 7 91 10 99
+5 16 4 17 58 -54z m2436 -36 l0 -89 90 0 c50 0 90 -2 90 -5 0 -7 -66 -100
+-114 -160 -44 -56 -134 -145 -146 -145 -5 0 -30 39 -55 86 l-47 86 -72 -5
+c-39 -2 -79 -8 -88 -12 -39 -16 -15 16 45 58 81 58 183 157 237 229 23 32 46
+55 51 52 5 -3 9 -45 9 -95z m-2142 -281 c30 -9 33 -13 27 -37 -4 -14 -8 -28
+-11 -30 -2 -2 -29 1 -59 8 -51 12 -95 45 -95 73 0 10 89 1 138 -14z m1916 -1
+c-12 -27 -64 -56 -112 -63 l-52 -7 0 32 c0 37 5 39 91 50 70 8 81 6 73 -12z
+m-2055 -51 c20 -32 26 -34 133 -54 328 -61 785 -89 1178 -72 135 6 268 15 295
+20 28 5 86 14 130 20 44 6 126 20 183 32 57 11 106 17 110 14 13 -14 98 -354
+89 -362 -9 -10 -247 -54 -392 -74 -77 -10 -262 -26 -412 -36 -254 -16 -289
+-16 -535 0 -240 15 -446 36 -633 66 -93 15 -208 41 -217 49 -4 3 0 33 7 66 8
+33 15 74 14 90 l0 30 -14 -32 c-8 -18 -17 -33 -21 -33 -17 0 -73 34 -79 48 -7
+20 113 262 131 262 7 0 22 -15 33 -34z m2162 -81 c32 -61 59 -119 59 -131 0
+-14 -13 -28 -41 -43 -22 -13 -42 -21 -44 -19 -7 7 -85 233 -85 246 0 18 33 62
+44 59 4 -2 35 -52 67 -112z"/>
+</g>
+</symbol>
+</svg>
+
+<div id="app"></div>
+
+<script>
+/* ================================================================
+   HARDCODED DATA. No fetch(), no Supabase, repo-side per the
+   antifailure doctrine. Trimmed to a working subset of real students
+   from the live app so this stays readable — extend the arrays,
+   the logic doesn't change.
+   ================================================================ */
+
+const TEACHERS = {
+  T004: { id: 'T004', name: 'Mr Tony', subjects: { Physics: ['SS1 Science','SS2 Science','SS3 Science'], Mathematics: ['JSS1A','JSS1B','JSS2A'] }, classTeacherOf: 'SS2 Science' },
+  T014: { id: 'T014', name: 'Mr Wisdom', subjects: { Mathematics: ['SS1 Science','SS1 Actuarial','SS2 Science','SS2 Actuarial'] }, role: 'Exams Director' },
+  T015: { id: 'T015', name: 'Mr Iman', subjects: { Chemistry: ['SS1 Science','SS2 Science','SS3 Science'], 'Further Math': ['SS1 Science','SS2 Science'], 'Data Processing': ['SS1 Science','SS1 Actuarial'] }, role: 'Web Developer' },
+  T018: { id: 'T018', name: 'Mr Deji', subjects: { Biology: ['SS1 Science','SS1 Actuarial','SS2 Science'] }, role: 'Part-time' }
+};
+
+const HARDCODED_STUDENTS = {
+  'JSS1A': [
+    { id: 'TCH-2025-004', name: 'Adegboye Adam' },
+    { id: 'TCH-2025-005', name: 'Ademola Daniel' },
+    { id: 'TCH-2025-006', name: 'Adeoye Ikimot' },
+    { id: 'TCH-2025-007', name: 'Adeyemi Olamide' }
+  ],
+  'JSS1B': [
+    { id: 'TCH-2025-030', name: 'Adeniyi Nifemi' },
+    { id: 'TCH-2025-031', name: 'Adeniyi Basit' },
+    { id: 'TCH-2025-032', name: 'Adeyemi Modesire' }
+  ],
+  'JSS2A': [
+    { id: 'TCH-2025-059', name: 'Abey Phoebe' },
+    { id: 'TCH-2025-060', name: 'Adeniyi Mubarak' }
+  ],
+  'SS1 Science': [
+    { id: 'TCH-2025-184', name: 'Abdullateef Abdulsalam' },
+    { id: 'TCH-2025-185', name: 'Abimbola Israel' },
+    { id: 'TCH-2025-186', name: 'Adebayo Ayomide' },
+    { id: 'TCH-2025-187', name: 'Adesalu Kamal' },
+    { id: 'TCH-2025-188', name: 'Adeshina Fawaz' }
+  ],
+  'SS1 Actuarial': [
+    { id: 'TCH-2025-234', name: 'Abdulmateen Saheed' },
+    { id: 'TCH-2025-235', name: 'Arekwen Clement' },
+    { id: 'TCH-2025-236', name: 'Ekum Honesty' }
+  ],
+  'SS2 Science': [
+    { id: 'TCH-2025-270', name: 'Abdullahi Malik' },
+    { id: 'TCH-2025-271', name: 'Adeoye Rokeeb' },
+    { id: 'TCH-2025-272', name: 'Adeyemi Adesewa' }
+  ],
+  'SS2 Actuarial': [
+    { id: 'TCH-2025-303', name: 'Abdulrazak Abdulrahman' },
+    { id: 'TCH-2025-304', name: 'Abdusalam Timileyin' }
+  ],
+  'SS3 Science': [
+    { id: 'TCH-2025-335', name: 'Angel' },
+    { id: 'TCH-2025-336', name: 'Bamise' },
+    { id: 'TCH-2025-337', name: 'Bright' }
+  ]
+};
+
+// Runtime copy — attendance edits (add/remove/portrait/remark) mutate
+// this in memory only. Refresh loses it, same as no-gate.html.
+let STUDENTS = JSON.parse(JSON.stringify(HARDCODED_STUDENTS));
+
+const TERM = '2025/2026 Term 2';
+const LS_SCORES_PREFIX = 'tc_scores::';   // + teacherId:subject:className
+const LS_TEACHER_KEY = 'tc_active_teacher';
+
+// ─── SESSION (hardcoded, no password) ─────────────────────────────
+
+function getActiveTeacher() {
+  const id = localStorage.getItem(LS_TEACHER_KEY);
+  return id && TEACHERS[id] ? TEACHERS[id] : null;
+}
+function setActiveTeacher(id) {
+  localStorage.setItem(LS_TEACHER_KEY, id);
+}
+function clearActiveTeacher() {
+  localStorage.removeItem(LS_TEACHER_KEY);
+}
+
+// ─── ROUTER ────────────────────────────────────────────────────────
+
+const routes = {
+  '/':           renderLanding,
+  '/home':       renderHome,
+  '/attendance': renderAttendancePicker,
+  '/roster':     renderRosterEditor,
+  '/score':      renderScorePicker,
+  '/sheet':      renderScoreSheet
+};
+
+function currentPath() { return window.location.hash.slice(1) || '/'; }
+function navigate(path) { window.location.hash = path; }
+
+function router() {
+  const path = currentPath();
+  const teacher = getActiveTeacher();
+
+  // any route past '/' requires a hardcoded "session"
+  if (path !== '/' && !teacher) { navigate('/'); return; }
+  if (path === '/' && teacher) { navigate('/home'); return; }
+
+  const render = routes[path.split('?')[0]];
+  const app = document.getElementById('app');
+  if (!render) { app.innerHTML = '<p class="loading-note">Not found. <a href="#/">Back home</a>.</p>'; return; }
+  render(app, teacher, new URLSearchParams(path.split('?')[1] || ''));
+}
+
+window.addEventListener('hashchange', router);
+window.addEventListener('DOMContentLoaded', router);
+
+// ─── SHELL ─────────────────────────────────────────────────────────
+
+function renderShell(app, teacher, { title, subtitle, bodyHtml }) {
+  app.innerHTML = `
+    <div class="staff-shell-bar">
+      <div class="staff-shell-left">
+        <svg class="staff-shell-crest" viewBox="0 0 312.517888 359.467970"><use href="#crest"/></svg>
+        <div class="staff-shell-titles">
+          <div class="staff-shell-title">${title}</div>
+          <div class="staff-shell-subtitle">${subtitle}</div>
+        </div>
+      </div>
+      <div class="staff-shell-right">
+        <span class="staff-shell-role-pill">${teacher.name}</span>
+        <button class="staff-shell-switch" id="switchTeacherBtn">Switch</button>
+      </div>
+    </div>
+    <div id="shell-content">${bodyHtml}</div>
+  `;
+  document.getElementById('switchTeacherBtn').addEventListener('click', () => { clearActiveTeacher(); navigate('/'); });
+}
+
+// ─── #/  — pick your name, no password ────────────────────────────
+
+function renderLanding(app) {
+  const list = Object.values(TEACHERS);
+  app.innerHTML = `
+    <div class="landing">
+      <svg class="landing-crest-watermark" viewBox="0 0 312.517888 359.467970" aria-hidden="true"><use href="#crest"/></svg>
+      <header class="landing-header">
+        <svg class="landing-crest" viewBox="0 0 312.517888 359.467970"><use href="#crest"/></svg>
+        <h1>Tendercare Teacher</h1>
+        <p>Pick your name to open your dashboard. Demo build — no password, no live data.</p>
+      </header>
+      <div class="teacher-picker">
+        ${list.map(t => `
+          <button class="teacher-picker-btn" data-teacher="${t.id}">
+            <span>
+              <span class="teacher-picker-name">${t.name}</span><br/>
+              <span class="teacher-picker-role">${t.role ? t.role : Object.keys(t.subjects).join(', ')}</span>
+            </span>
+            <span class="teacher-picker-arrow">&rarr;</span>
+          </button>
+        `).join('')}
+      </div>
+    </div>
+  `;
+  document.querySelectorAll('[data-teacher]').forEach(b =>
+    b.addEventListener('click', () => { setActiveTeacher(b.dataset.teacher); navigate('/home'); })
+  );
+}
+
+// ─── #/home — dashboard: mode choice + broadsheet progress ────────
+
+function assignmentList(teacher) {
+  // flat list of every {subject, className} this teacher can touch
+  const out = [];
+  Object.entries(teacher.subjects).forEach(([subject, classes]) => {
+    classes.forEach(className => out.push({ subject, className }));
+  });
+  return out;
+}
+
+function scoreKey(teacherId, subject, className) {
+  return `${LS_SCORES_PREFIX}${teacherId}:${subject}:${className}`;
+}
+
+function readSheetScores(teacherId, subject, className) {
+  try {
+    const raw = localStorage.getItem(scoreKey(teacherId, subject, className));
+    return raw ? JSON.parse(raw) : null;
+  } catch { return null; }
+}
+
+function sheetProgress(teacherId, subject, className) {
+  const roster = HARDCODED_STUDENTS[className] || [];
+  const scores = readSheetScores(teacherId, subject, className);
+  if (!scores || roster.length === 0) return { filled: 0, total: roster.length, pct: 0, touched: false };
+  let filled = 0;
+  roster.forEach(s => {
+    const sc = scores[s.id];
+    if (sc && (Number(sc.CA) > 0 || Number(sc.exam) > 0)) filled++;
+  });
+  const pct = roster.length ? Math.round((filled / roster.length) * 100) : 0;
+  return { filled, total: roster.length, pct, touched: filled > 0 };
+}
+
+function renderHome(app, teacher) {
+  const assignments = assignmentList(teacher);
+  const inProgress = assignments
+    .map(a => ({ ...a, progress: sheetProgress(teacher.id, a.subject, a.className) }))
+    .filter(a => a.progress.touched);
+
+  renderShell(app, teacher, {
+    title: 'Tendercare Teacher',
+    subtitle: TERM,
+    bodyHtml: `
+      <section class="welcome-section">
+        <h1>Welcome back, ${teacher.name}</h1>
+        <p>${assignments.length} subject-class assignment${assignments.length === 1 ? '' : 's'}${teacher.classTeacherOf ? ` &middot; Class teacher, ${teacher.classTeacherOf}` : ''}.</p>
+      </section>
+
+      <div class="mode-grid">
+        <a class="mode-card" href="#/attendance">
+          <span class="mode-card-icon">&#128101;</span>
+          <span class="mode-card-title">Attendance & Bio Edit</span>
+          <span class="mode-card-desc">Add or remove students in your own classes, attach a portrait, and edit per-term remarks.</span>
+        </a>
+        <a class="mode-card" href="#/score">
+          <span class="mode-card-icon">&#128221;</span>
+          <span class="mode-card-title">Score Entry</span>
+          <span class="mode-card-desc">Open a subject-class broadsheet. CA + Exam auto-totals, live row/column highlight.</span>
+        </a>
+      </div>
+
+      <p class="section-label">Broadsheets in progress</p>
+      <div class="progress-list">
+        ${inProgress.length === 0
+          ? `<p class="progress-empty">Nothing started yet — open Score Entry to begin a sheet. Progress here is stored on this device only.</p>`
+          : inProgress.map(a => `
+            <a class="progress-row" href="#/sheet?subject=${encodeURIComponent(a.subject)}&class=${encodeURIComponent(a.className)}" style="text-decoration:none;color:inherit">
+              <span class="progress-row-label">
+                <div class="progress-row-title">${a.subject} &middot; ${a.className}</div>
+                <div class="progress-row-sub">${a.progress.filled} of ${a.progress.total} students scored</div>
+              </span>
+              <span class="progress-bar-track"><span class="progress-bar-fill" style="width:${a.progress.pct}%"></span></span>
+              <span class="progress-pct">${a.progress.pct}%</span>
+              <span class="progress-continue">Continue &rarr;</span>
+            </a>
+          `).join('')}
+      </div>
+    `
+  });
+}
+
+// ─── #/attendance — pick subject+class (scoped to this teacher only) ──
+
+function renderAttendancePicker(app, teacher) {
+  const assignments = assignmentList(teacher);
+  // one row per class this teacher touches, regardless of subject —
+  // attendance/bio is per-class, not per-subject
+  const classesSeen = new Set();
+  const classRows = [];
+  assignments.forEach(a => {
+    if (!classesSeen.has(a.className)) { classesSeen.add(a.className); classRows.push(a.className); }
+  });
+
+  renderShell(app, teacher, {
+    title: 'Attendance & Bio Edit',
+    subtitle: TERM,
+    bodyHtml: `
+      <div class="page-header">
+        <div>
+          <h1>Attendance & Bio Edit</h1>
+          <p>Only classes you teach are listed — the full school roster isn't shown here.</p>
+        </div>
+        <a class="back-button" href="#/home">&larr; Dashboard</a>
+      </div>
+      <div class="form-card">
+        <h2>Choose a class</h2>
+        <div class="class-tabs">
+          ${classRows.map(c => `<a class="class-tab" href="#/roster?class=${encodeURIComponent(c)}">${c}</a>`).join('')}
+        </div>
+      </div>
+    `
+  });
+}
+
+// ─── #/roster — add/remove students, portrait, remarks (scoped) ───
+
+function renderRosterEditor(app, teacher, params) {
+  const assignments = assignmentList(teacher);
+  const allowedClasses = [...new Set(assignments.map(a => a.className))];
+  const className = params.get('class');
+
+  if (!className || !allowedClasses.includes(className)) {
+    renderShell(app, teacher, {
+      title: 'Attendance & Bio Edit', subtitle: TERM,
+      bodyHtml: `<div class="page-error">Pick one of your own classes first.</div><a class="back-button" href="#/attendance">&larr; Choose a class</a>`
+    });
+    return;
+  }
+
+  renderShell(app, teacher, {
+    title: 'Attendance & Bio Edit',
+    subtitle: `${className} · ${TERM}`,
+    bodyHtml: `<div id="rosterBody"></div>`
+  });
+  window._rosterState = window._rosterState || {};
+  if (!(className in window._rosterState)) window._rosterState[className] = { showInactive: false };
+  renderRosterBody(className, allowedClasses);
+}
+
+function renderRosterBody(className, allowedClasses) {
+  const content = document.getElementById('rosterBody');
+  const state = window._rosterState[className];
+  const roster = STUDENTS[className] || [];
+  const visible = roster.filter(s => state.showInactive || s.active !== false);
+
+  content.innerHTML = `
+    <div class="page-header">
+      <div>
+        <h1>${className}</h1>
+        <p>${roster.filter(s => s.active !== false).length} active students in this class.</p>
+      </div>
+      <a class="back-button" href="#/attendance">&larr; Change class</a>
+    </div>
+
+    <div class="class-tabs">
+      ${allowedClasses.map(c => `<a class="class-tab ${c === className ? 'is-active' : ''}" href="#/roster?class=${encodeURIComponent(c)}">${c}</a>`).join('')}
+    </div>
+
+    <div class="add-card">
+      <h2 class="section-label" style="margin-bottom:var(--space-3)">Add a student to ${className}</h2>
+      <form id="addStudentForm">
+        <input type="text" id="newStudentName" placeholder="Full name" required />
+        <button type="submit" class="btn-primary">Add student</button>
+      </form>
+    </div>
+
+    <div class="roster-card-wrap">
+      <table class="roster-table">
+        <thead><tr><th></th><th>ID</th><th>Name</th><th>Remark</th><th></th></tr></thead>
+        <tbody>
+          ${visible.map(s => `
+            <tr class="${s.active === false ? 'inactive-row' : ''}">
+              <td>
+                <label class="portrait-dot" style="cursor:pointer">
+                  ${s.portrait ? `<img src="${s.portrait}" alt="">` : (s.name || '').split(' ').map(w => w[0]).slice(0,2).join('')}
+                  <input type="file" accept="image/*" style="display:none" data-portrait="${s.id}">
+                </label>
+              </td>
+              <td class="sheet-id">${s.id}</td>
+              <td>${s.name}</td>
+              <td><input class="remark-input" type="text" placeholder="Term remark…" value="${s.remark || ''}" data-remark="${s.id}"></td>
+              <td class="actions-cell">
+                ${s.active === false
+                  ? `<button class="btn-restore" data-restore="${s.id}">Restore</button>`
+                  : `<button class="btn-remove" data-remove="${s.id}">Remove</button>`}
+              </td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:var(--space-3)">
+      <label style="font-size:var(--text-sm);display:inline-flex;align-items:center;gap:0.4rem">
+        <input type="checkbox" id="showInactiveToggle" ${state.showInactive ? 'checked' : ''}/> Show removed students
+      </label>
+    </p>
+  `;
+
+  document.getElementById('addStudentForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nameInput = document.getElementById('newStudentName');
+    const name = nameInput.value.trim();
+    if (!name) return;
+    const nextN = Object.values(STUDENTS).flat().length + 1;
+    STUDENTS[className].push({ id: 'TCH-2025-' + String(900 + nextN), name, active: true });
+    renderRosterBody(className, allowedClasses);
+  });
+  document.getElementById('showInactiveToggle').addEventListener('change', (e) => {
+    state.showInactive = e.target.checked;
+    renderRosterBody(className, allowedClasses);
+  });
+  content.querySelectorAll('[data-remove]').forEach(b => b.addEventListener('click', () => {
+    const s = STUDENTS[className].find(x => x.id === b.dataset.remove);
+    if (s) s.active = false;
+    renderRosterBody(className, allowedClasses);
+  }));
+  content.querySelectorAll('[data-restore]').forEach(b => b.addEventListener('click', () => {
+    const s = STUDENTS[className].find(x => x.id === b.dataset.restore);
+    if (s) s.active = true;
+    renderRosterBody(className, allowedClasses);
+  }));
+  content.querySelectorAll('[data-remark]').forEach(el => el.addEventListener('change', (e) => {
+    const s = STUDENTS[className].find(x => x.id === e.target.dataset.remark);
+    if (s) s.remark = e.target.value;
+  }));
+  content.querySelectorAll('[data-portrait]').forEach(el => el.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const s = STUDENTS[className].find(x => x.id === e.target.dataset.portrait);
+      if (s) { s.portrait = reader.result; renderRosterBody(className, allowedClasses); }
+    };
+    reader.readAsDataURL(file);
+  }));
+}
+
+// ─── #/score — pick subject + class ───────────────────────────────
+
+function renderScorePicker(app, teacher) {
+  const subjects = Object.keys(teacher.subjects);
+  renderShell(app, teacher, {
+    title: 'Score Entry',
+    subtitle: TERM,
+    bodyHtml: `
+      <div class="page-header">
+        <div><h1>Score Entry</h1><p>Choose a subject, then a class, to open its broadsheet.</p></div>
+        <a class="back-button" href="#/home">&larr; Dashboard</a>
+      </div>
+      <div class="form-card">
+        <h2>Assignment</h2>
+        <div class="select-row">
+          <div class="select-wrapper">
+            <label>Subject</label>
+            <select id="subjectSelect" class="styled-select">
+              <option value="">Select a subject</option>
+              ${subjects.map(s => `<option value="${s}">${s}</option>`).join('')}
+            </select>
+          </div>
+          <div class="select-wrapper">
+            <label>Class</label>
+            <select id="classSelect" class="styled-select" disabled><option value="">Select a class</option></select>
+          </div>
+          <button class="btn-primary" id="openBtn" disabled>Open sheet</button>
+        </div>
+      </div>
+    `
+  });
+
+  document.getElementById('subjectSelect').addEventListener('change', (e) => {
+    const classSelect = document.getElementById('classSelect');
+    const openBtn = document.getElementById('openBtn');
+    const classes = teacher.subjects[e.target.value] || [];
+    classSelect.disabled = classes.length === 0;
+    classSelect.innerHTML = '<option value="">Select a class</option>' + classes.map(c => `<option value="${c}">${c}</option>`).join('');
+    openBtn.disabled = true;
+  });
+  document.getElementById('classSelect').addEventListener('change', (e) => {
+    document.getElementById('openBtn').disabled = !e.target.value;
+  });
+  document.getElementById('openBtn').addEventListener('click', () => {
+    const subject = document.getElementById('subjectSelect').value;
+    const className = document.getElementById('classSelect').value;
+    if (subject && className) navigate(`/sheet?subject=${encodeURIComponent(subject)}&class=${encodeURIComponent(className)}`);
+  });
+}
+
+// ─── #/sheet — the broadsheet itself ──────────────────────────────
+
+function getNigerianGrade(total, maxCA, maxExam) {
+  const maxTotal = maxCA + maxExam;
+  const pct = maxTotal > 0 ? (total / maxTotal) * 100 : 0;
+  if (pct >= 75) return 'A1'; if (pct >= 70) return 'B2'; if (pct >= 65) return 'B3';
+  if (pct >= 60) return 'C4'; if (pct >= 55) return 'C5'; if (pct >= 50) return 'C6';
+  if (pct >= 45) return 'D7'; if (pct >= 40) return 'E8'; return 'F9';
+}
+
+function renderScoreSheet(app, teacher, params) {
+  const subject = params.get('subject');
+  const className = params.get('class');
+  const validClass = subject && teacher.subjects[subject] && teacher.subjects[subject].includes(className);
+
+  if (!validClass) {
+    renderShell(app, teacher, {
+      title: 'Score Entry', subtitle: TERM,
+      bodyHtml: `<div class="page-error">That subject/class isn't assigned to you.</div><a class="back-button" href="#/score">&larr; Choose assignment</a>`
+    });
+    return;
+  }
+
+  const roster = (HARDCODED_STUDENTS[className] || []).filter(s => {
+    const live = (STUDENTS[className] || []).find(x => x.id === s.id);
+    return !live || live.active !== false;
+  });
+
+  const key = scoreKey(teacher.id, subject, className);
+  let scores = readSheetScores(teacher.id, subject, className);
+  if (!scores) {
+    scores = {};
+    roster.forEach(s => { scores[s.id] = { CA: 0, exam: 0 }; });
+  }
+  let maxCA = 30, maxExam = 70;
+  let activeRow = -1, activeCol = -1; // 0 = CA column, 1 = exam column
+
+  const subjectList = Object.keys(teacher.subjects);
+
+  renderShell(app, teacher, {
+    title: 'Score Entry',
+    subtitle: `${subject} · ${className} · ${TERM}`,
+    bodyHtml: `<div id="sheetBody"></div>`
+  });
+
+  saveScores(); // ensure a record exists immediately, so it shows in "in progress" once touched
+  paint();
+
+  function saveScores() {
+    localStorage.setItem(key, JSON.stringify(scores));
+  }
+
+  function paint() {
+    const content = document.getElementById('sheetBody');
+    const totals = roster.map(s => (scores[s.id].CA || 0) + (scores[s.id].exam || 0));
+    const validTotals = totals.filter(t => t > 0);
+    const avg = validTotals.length ? (validTotals.reduce((a,b) => a+b,0) / validTotals.length) : 0;
+
+    content.innerHTML = `
+      <div class="page-header">
+        <div><h1>${subject}</h1><p>${className} · ${TERM}</p></div>
+        <a class="back-button" href="#/score">&larr; Change assignment</a>
+      </div>
+
+      <div class="subject-rail">
+        ${subjectList.map(s => `<span class="subject-chip ${s === subject ? 'is-active' : ''}">${s}</span>`).join('')}
+      </div>
+
+      <div class="sheet-card">
+        <div class="sheet-toolbar">
+          <div>
+            <div class="sheet-toolbar-title">${className} Broadsheet</div>
+            <div class="sheet-toolbar-meta">Max CA
+              <input id="maxCAInput" type="number" min="0" value="${maxCA}" style="width:3.2rem;text-align:center;margin:0 0.3rem" class="sheet-input"/>
+              &middot; Max Exam
+              <input id="maxExamInput" type="number" min="0" value="${maxExam}" style="width:3.2rem;text-align:center;margin:0 0.3rem" class="sheet-input"/>
+            </div>
+          </div>
+          <div class="sheet-toolbar-actions">
+            <button class="btn-secondary" id="clearBtn">Clear all</button>
+            <button class="btn-primary" id="downloadBtn">Download JSON</button>
+          </div>
+        </div>
+
+        <div class="sheet-stats">
+          <div class="sheet-stat"><div class="sheet-stat-label">Students</div><div class="sheet-stat-value">${roster.length}</div></div>
+          <div class="sheet-stat"><div class="sheet-stat-label">Average</div><div class="sheet-stat-value">${avg.toFixed(1)}</div></div>
+          <div class="sheet-stat"><div class="sheet-stat-label">Highest</div><div class="sheet-stat-value">${validTotals.length ? Math.max(...validTotals) : 0}</div></div>
+          <div class="sheet-stat"><div class="sheet-stat-label">Lowest</div><div class="sheet-stat-value">${validTotals.length ? Math.min(...validTotals) : 0}</div></div>
+        </div>
+
+        <div class="sheet-table-wrap">
+          <table class="sheet-table">
+            <thead>
+              <tr>
+                <th>ID</th><th>Name</th>
+                <th class="${activeCol === 0 ? 'col-active' : ''}">CA (${maxCA})</th>
+                <th class="${activeCol === 1 ? 'col-active' : ''}">Exam (${maxExam})</th>
+                <th>Total</th><th>Grade</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${roster.map((s, i) => {
+                const sc = scores[s.id];
+                const total = (sc.CA || 0) + (sc.exam || 0);
+                const grade = getNigerianGrade(total, maxCA, maxExam);
+                return `
+                  <tr class="${i === activeRow ? 'row-active' : ''}">
+                    <td class="sheet-id">${s.id}</td>
+                    <td class="sheet-name">${s.name}</td>
+                    <td class="${i === activeRow && activeCol === 0 ? 'cell-active' : ''}">
+                      <input class="sheet-input" type="number" min="0" max="${maxCA}" value="${sc.CA || 0}"
+                        data-row="${i}" data-col="0" data-id="${s.id}" data-field="CA">
+                    </td>
+                    <td class="${i === activeRow && activeCol === 1 ? 'cell-active' : ''}">
+                      <input class="sheet-input" type="number" min="0" max="${maxExam}" value="${sc.exam || 0}"
+                        data-row="${i}" data-col="1" data-id="${s.id}" data-field="exam">
+                    </td>
+                    <td class="sheet-total">${total}</td>
+                    <td><span class="grade-badge grade-${grade.toLowerCase()}">${grade}</span></td>
+                  </tr>
+                `;
+              }).join('')}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="sheet-actions">
+          <button class="btn-secondary" id="emailBtn">Email to admin</button>
+        </div>
+      </div>
+    `;
+
+    content.querySelectorAll('.sheet-input[data-id]').forEach(input => {
+      input.addEventListener('focus', (e) => {
+        activeRow = Number(e.target.dataset.row);
+        activeCol = Number(e.target.dataset.col);
+        paint();
+        // restore focus after repaint (paint rebuilds the DOM)
+        const el = content.querySelector(`[data-row="${activeRow}"][data-col="${activeCol}"]`);
+        if (el) { el.focus(); el.select(); }
+      });
+      input.addEventListener('input', (e) => {
+        const id = e.target.dataset.id, field = e.target.dataset.field;
+        const max = field === 'CA' ? maxCA : maxExam;
+        const val = Math.max(0, Number(e.target.value) || 0);
+        scores[id][field] = val;
+        e.target.classList.toggle('invalid', val > max);
+        saveScores();
+        paintTotalsOnly();
+      });
+    });
+
+    document.getElementById('maxCAInput').addEventListener('change', (e) => { maxCA = Number(e.target.value) || 0; paint(); });
+    document.getElementById('maxExamInput').addEventListener('change', (e) => { maxExam = Number(e.target.value) || 0; paint(); });
+    document.getElementById('clearBtn').addEventListener('click', () => {
+      if (!confirm('Clear all scores on this sheet?')) return;
+      roster.forEach(s => { scores[s.id] = { CA: 0, exam: 0 }; });
+      saveScores(); paint();
+    });
+    document.getElementById('downloadBtn').addEventListener('click', downloadJSON);
+    document.getElementById('emailBtn').addEventListener('click', emailJSON);
+  }
+
+  // cheap re-render of totals/grades without losing input focus,
+  // used on every keystroke; full paint() only runs on focus-change
+  // or config edits.
+  function paintTotalsOnly() {
+    const rows = document.querySelectorAll('.sheet-table tbody tr');
+    rows.forEach((row, i) => {
+      const s = roster[i];
+      const sc = scores[s.id];
+      const total = (sc.CA || 0) + (sc.exam || 0);
+      const grade = getNigerianGrade(total, maxCA, maxExam);
+      row.querySelector('.sheet-total').textContent = total;
+      const badge = row.querySelector('.grade-badge');
+      badge.className = `grade-badge grade-${grade.toLowerCase()}`;
+      badge.textContent = grade;
+    });
+    const totals = roster.map(s => (scores[s.id].CA || 0) + (scores[s.id].exam || 0));
+    const validTotals = totals.filter(t => t > 0);
+    const avg = validTotals.length ? (validTotals.reduce((a,b) => a+b,0) / validTotals.length) : 0;
+    const stats = document.querySelectorAll('.sheet-stat-value');
+    if (stats.length === 4) {
+      stats[1].textContent = avg.toFixed(1);
+      stats[2].textContent = validTotals.length ? Math.max(...validTotals) : 0;
+      stats[3].textContent = validTotals.length ? Math.min(...validTotals) : 0;
+    }
+  }
+
+  function buildPayload() {
+    return {
+      teacher: { id: teacher.id, name: teacher.name },
+      subject, class: className, term: TERM,
+      maxScores: { CA: maxCA, exam: maxExam },
+      scores: roster.map(s => ({
+        studentId: s.id, studentName: s.name,
+        CA: scores[s.id].CA || 0, exam: scores[s.id].exam || 0,
+        total: (scores[s.id].CA || 0) + (scores[s.id].exam || 0),
+        grade: getNigerianGrade((scores[s.id].CA || 0) + (scores[s.id].exam || 0), maxCA, maxExam)
+      })),
+      submittedAt: new Date().toISOString()
+    };
+  }
+
+  function downloadJSON() {
+    const data = buildPayload();
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = `scores_${teacher.id}_${subject}_${className}_${Date.now()}.json`.replace(/\s+/g, '_');
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  function emailJSON() {
+    const data = buildPayload();
+    const subjLine = `Score Submission: ${subject} - ${className} [${teacher.name}]`;
+    const body = `Dear Admin,\n\nScore submission attached below.\n\nTeacher: ${teacher.name} (${teacher.id})\nSubject: ${subject}\nClass: ${className}\nTerm: ${TERM}\n\n${JSON.stringify(data, null, 2)}`;
+    window.location.href = `mailto:artificialiman111@gmail.com?subject=${encodeURIComponent(subjLine)}&body=${encodeURIComponent(body)}`;
+  }
+}
+</script>
+
+</body>
+</html>

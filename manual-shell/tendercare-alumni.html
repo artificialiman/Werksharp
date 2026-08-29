@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tendercare Alumni</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ================================================================
+   PUBLIC ALUMNI / YEARBOOK BROWSER — standalone, hardcoded, no
+   build step, no Supabase. Same token system as tendercare-teacher
+   and no-gate.html (purple/cream/serif brand) since this is a
+   public-facing sibling of tendercare-web, not a new identity.
+
+   Data shape mirrors HARDCODED_STUDENTS/STUDENTS from
+   tendercare-teacher.html on purpose — ALUMNI[] below is a straight
+   copy-paste bridge once a real archive action exists there, not a
+   parallel schema to reconcile later.
+
+   Two sections, not one filtered list, per spec:
+     #/yearbooks        — graduands, grouped by graduating year,
+                           printed-annual page-spread styling
+     #/transfers        — any student a staff member removed from an
+                           active roster (not graduated) — plain list,
+                           no yearbook treatment
+   ================================================================ */
+
+:root {
+  --color-purple:        #5B2D8E;
+  --color-purple-deep:   #3A1A5C;
+  --color-purple-mid:    #7B4DB0;
+  --color-purple-light:  #C4A8E0;
+  --color-purple-ghost:  #F0E8FA;
+  --color-lemon-ghost:   #FBF6D8;
+  --color-cream:         #F8F4EC;
+  --color-cream-warm:    #F0E8D8;
+  --color-cream-deep:    #E4D8C4;
+  --color-offwhite:      #FDFAF5;
+  --color-ash:           #A8A8B0;
+  --color-ash-dark:      #6C6C78;
+  --color-ash-light:     #D4D4DC;
+  --color-ink:           #1A1020;
+  --color-white:         #FFFFFF;
+  --color-wine:          #9C2B2B;
+  --color-gold:          #A6813C;
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans:  'DM Sans', system-ui, sans-serif;
+
+  --text-xs:  0.75rem;
+  --text-sm:  0.875rem;
+  --text-md:  1.125rem;
+  --text-lg:  1.25rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.75rem;
+
+  --space-1: 0.25rem;  --space-2: 0.5rem;  --space-3: 0.75rem;
+  --space-4: 1rem;     --space-5: 1.25rem; --space-6: 1.5rem;
+  --space-8: 2rem;     --space-12: 3rem;   --space-16: 4rem;
+
+  --radius-sm: 4px; --radius-md: 8px; --radius-lg: 16px; --radius-full: 999px;
+  --shadow-sm: 0 1px 4px rgba(26,16,32,0.08);
+  --shadow-md: 0 4px 16px rgba(26,16,32,0.12);
+  --shadow-page: 0 12px 40px rgba(26,16,32,0.14);
+  --duration-fast: 150ms; --duration-base: 300ms;
+  --tracking-wide: 0.08em;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--color-offwhite); color: var(--color-ink); font-family: var(--font-sans); }
+a { color: inherit; }
+button { font: inherit; cursor: pointer; border: none; background: none; }
+input, select { font: inherit; }
+:focus-visible { outline: 2px solid var(--color-purple-mid); outline-offset: 2px; }
+
+/* ---- top bar ---- */
+.site-bar {
+  background: var(--color-purple-deep); color: var(--color-white);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.85rem 1.75rem; position: sticky; top: 0; z-index: 50;
+}
+.site-bar-left { display: flex; align-items: center; gap: 0.75rem; }
+.site-bar-crest { width: 2.1rem; height: auto; color: var(--color-purple-light); flex-shrink: 0; }
+.site-bar-title { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 600; }
+.site-bar-subtitle { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.55; }
+.site-bar-nav { display: flex; gap: 0.4rem; }
+.site-bar-nav a {
+  font-size: 0.8rem; font-weight: 600; padding: 0.5rem 1rem; border-radius: var(--radius-md);
+  color: rgba(255,255,255,0.75); text-decoration: none;
+}
+.site-bar-nav a.is-active { background: rgba(255,255,255,0.12); color: var(--color-white); }
+.site-bar-nav a:hover { color: var(--color-white); }
+
+#page-content { max-width: 1080px; margin: 0 auto; padding: var(--space-8) var(--space-5) var(--space-16); }
+
+/* ---- hero ---- */
+.alumni-hero {
+  position: relative; overflow: hidden; text-align: center;
+  padding: var(--space-16) var(--space-5) var(--space-12); background: var(--color-cream);
+  margin: 0 0 var(--space-8);
+}
+.alumni-hero-watermark {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: min(60vw, 560px); height: auto; color: var(--color-purple-deep); opacity: 0.045; pointer-events: none;
+}
+.alumni-hero-crest { position: relative; width: 3.2rem; height: auto; color: var(--color-purple-deep); margin: 0 auto var(--space-3); display: block; }
+.alumni-hero h1 { position: relative; font-family: var(--font-serif); font-weight: 400; font-size: var(--text-3xl); color: var(--color-purple-deep); margin: 0 0 var(--space-2); }
+.alumni-hero p { position: relative; opacity: 0.7; font-size: var(--text-sm); max-width: 46ch; margin: 0 auto; }
+
+/* ---- section label / year rail ---- */
+.section-label { font-size: var(--text-xs); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--color-purple); margin: 0 0 var(--space-3); }
+.year-rail { display: flex; gap: var(--space-2); flex-wrap: wrap; margin-bottom: var(--space-8); }
+.year-pill {
+  font-family: var(--font-serif); font-size: 1rem; font-weight: 600; padding: 0.5rem 1.1rem;
+  border-radius: var(--radius-full); background: var(--color-white); border: 1px solid var(--color-cream-deep); color: var(--color-ink);
+}
+.year-pill.is-active { background: var(--color-purple); border-color: var(--color-purple); color: var(--color-white); }
+.year-pill .year-count { font-family: var(--font-sans); font-size: 0.68rem; opacity: 0.6; margin-left: 0.35rem; }
+.year-pill.is-active .year-count { opacity: 0.8; }
+
+/* ================================================================
+   YEARBOOK PAGE-SPREAD — the one deliberate risk: this reads as a
+   printed annual laid open, not a directory grid. Gold rule + serif
+   running head stand in for a physical spine.
+   ================================================================ */
+.yearbook-spread {
+  background: var(--color-white); border: 1px solid var(--color-cream-deep); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-page); overflow: hidden; margin-bottom: var(--space-8);
+}
+.yearbook-runninghead {
+  display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-4);
+  padding: var(--space-6) var(--space-8) var(--space-4); border-bottom: 2px solid var(--color-gold);
+}
+.yearbook-runninghead h2 { font-family: var(--font-serif); font-weight: 500; font-size: 1.9rem; color: var(--color-purple-deep); margin: 0; }
+.yearbook-runninghead .class-of { font-size: var(--text-sm); color: var(--color-ash-dark); }
+.yearbook-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--space-6);
+  padding: var(--space-6) var(--space-8) var(--space-8);
+}
+.grad-card { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--space-2); }
+.grad-portrait {
+  width: 96px; height: 96px; border-radius: 50%; background: var(--color-purple-ghost); color: var(--color-purple-deep);
+  display: flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-size: 1.6rem;
+  font-weight: 600; overflow: hidden; border: 3px solid var(--color-lemon-ghost); flex-shrink: 0;
+}
+.grad-portrait img { width: 100%; height: 100%; object-fit: cover; }
+.grad-name { font-family: var(--font-serif); font-weight: 600; font-size: 1.02rem; line-height: 1.25; }
+.grad-class { font-size: 0.7rem; color: var(--color-ash-dark); text-transform: uppercase; letter-spacing: 0.04em; }
+.grad-remark {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase;
+  padding: 0.2rem 0.6rem; border-radius: var(--radius-full); margin-top: 0.1rem;
+}
+.remark-distinction { background: rgba(166,129,60,0.15); color: var(--color-gold); }
+.remark-credit { background: rgba(91,45,142,0.12); color: var(--color-purple-deep); }
+.remark-pass { background: var(--color-cream-warm); color: var(--color-ash-dark); }
+.grad-bio { font-size: 0.75rem; color: var(--color-ash-dark); line-height: 1.4; max-width: 15ch; }
+
+.yearbook-empty, .list-empty { text-align: center; padding: var(--space-16) var(--space-5); color: var(--color-ash-dark); font-size: var(--text-sm); }
+
+/* ---- transfers: plain list, no yearbook treatment, per spec ---- */
+.transfer-card-wrap { background: var(--color-white); border: 1px solid var(--color-cream-deep); border-radius: var(--radius-lg); overflow: hidden; }
+.transfer-table { width: 100%; border-collapse: collapse; }
+.transfer-table th, .transfer-table td { text-align: left; padding: 0.85rem 1.1rem; border-bottom: 1px solid var(--color-cream-deep); font-size: var(--text-sm); }
+.transfer-table th { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-ash-dark); background: var(--color-cream); }
+.transfer-table tbody tr:last-child td { border-bottom: none; }
+.transfer-id { font-family: var(--font-sans); font-size: 0.78rem; color: var(--color-ash-dark); }
+.transfer-portrait {
+  width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--color-cream-warm); color: var(--color-ash-dark);
+  display: flex; align-items: center; justify-content: center; font-size: 0.68rem; font-weight: 700; overflow: hidden; flex-shrink: 0;
+}
+.transfer-portrait img { width: 100%; height: 100%; object-fit: cover; }
+.transfer-name-cell { display: flex; align-items: center; gap: var(--space-3); }
+</style>
+</head>
+<body>
+
+<svg style="display:none">
+  <symbol id="crest" viewBox="0 0 312.517888 359.467970">
+<g transform="translate(0.000000,366.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
+<path d="M0 2875 l0 -785 26 0 c49 0 62 15 57 65 -6 50 -11 48 87 50 l45 1 3
+69 c2 51 6 66 13 55 8 -11 9 -2 6 33 -3 26 -2 49 2 51 3 2 22 5 41 7 19 2 38
+8 42 14 4 5 8 -95 8 -224 0 -129 2 -232 4 -230 2 2 6 308 10 679 5 625 6 676
+22 687 14 10 245 13 1108 15 1035 1 1115 5 471 23 -143 4 -262 9 -264 11 -2 2
+137 5 310 6 173 1 297 3 276 5 -42 5 -41 23 2 23 30 0 67 29 40 31 -16 1 62
+20 101 24 39 4 40 4 38 18 -2 7 9 13 25 15 15 2 27 8 27 13 0 5 27 9 60 9 48
+0 60 3 60 16 0 8 6 22 14 30 17 16 30 19 21 4 -4 -6 9 -10 32 -9 30 0 34 2 18
+9 -18 8 -17 9 8 9 17 1 27 6 27 16 0 11 11 15 43 15 30 0 38 3 27 10 -10 6 46
+10 165 12 99 2 -530 5 -1397 6 l-1578 2 0 -785z m207 -577 c-2 -13 -4 -5 -4
+17 -1 22 1 32 4 23 2 -10 2 -28 0 -40z"/>
+<path d="M2613 3363 c9 -2 25 -2 35 0 9 3 1 5 -18 5 -19 0 -27 -2 -17 -5z"/>
+<path d="M400 2444 c0 -764 2 -873 16 -937 17 -74 53 -176 81 -231 67 -131
+221 -304 353 -398 69 -49 246 -141 293 -152 15 -3 27 -11 27 -17 0 -8 -16 -9
+-52 -5 -29 4 -126 16 -216 25 -90 10 -168 23 -173 28 -6 6 -6 19 1 37 19 52
+13 63 -72 128 -46 34 -117 96 -158 138 -79 78 -190 218 -190 238 0 7 -8 12
+-19 12 -22 0 -31 -50 -31 -171 l0 -79 -42 1 c-24 0 -68 4 -98 9 -31 4 -59 4
+-64 -1 -25 -23 120 -235 227 -335 l69 -64 -20 -43 c-34 -74 -35 -83 -9 -109
+14 -12 39 -31 57 -41 31 -16 32 -19 26 -60 -9 -58 -2 -73 43 -90 59 -24 448
+-84 666 -103 464 -41 1025 -9 1455 81 110 23 114 26 106 95 -7 57 -7 57 25 70
+44 19 89 58 89 79 0 10 -11 39 -24 65 l-24 47 80 81 c43 44 98 108 122 142 52
+73 106 163 106 177 0 7 -35 8 -103 3 l-104 -7 -7 104 c-12 176 -19 183 -86 79
+-55 -87 -187 -221 -302 -308 -92 -70 -99 -82 -78 -138 7 -17 7 -31 1 -37 -14
+-14 -471 -67 -471 -54 0 3 24 13 53 23 167 55 317 151 457 293 141 142 211
+263 273 466 20 68 21 89 24 948 l4 877 -1155 0 -1156 0 0 -866z m2258 16 c2
+-711 1 -805 -14 -885 -57 -306 -221 -533 -509 -708 -211 -128 -534 -187 -786
+-142 -443 77 -826 437 -889 835 -11 72 -15 1682 -3 1693 3 4 499 6 1102 4
+l1096 -2 3 -795z"/>
+</g>
+</symbol>
+</svg>
+
+<div id="app"></div>
+
+<script>
+/* ================================================================
+   HARDCODED ALUMNI DATA. Shape deliberately mirrors
+   tendercare-teacher.html's STUDENTS records — { id, name, class_id,
+   active:false, ... } plus the two fields that only apply once a
+   student leaves: `left_as` ('graduand' | 'transfer') and, for
+   graduands, `grad_year` + final `scores` (used to compute the
+   remark band, never entered by hand).
+
+   PER SPEC: "transfers are any student removed by staff" — i.e. the
+   `transfer` bucket below is exactly what the Remove button in
+   tendercare-teacher's attendance editor produces once wired up.
+   Graduands are the third path — SS3 completion — kept distinct
+   because a yearbook entry needs a final average, not just a removal.
+   ================================================================ */
+
+const ALUMNI = [
+  // ── Graduands ──────────────────────────────────────────────────
+  { id: 'TCH-2022-041', name: 'Okonjo Adaeze',      class_id: 'SS3 Science',   left_as: 'graduand', grad_year: 2023, avg_total: 88, portrait: null, bio: 'Head girl, science club lead' },
+  { id: 'TCH-2022-058', name: 'Balogun Kunle',      class_id: 'SS3 Actuarial', left_as: 'graduand', grad_year: 2023, avg_total: 74, portrait: null, bio: 'Debate captain' },
+  { id: 'TCH-2022-063', name: 'Ihenacho Chidera',   class_id: 'SS3 Science',   left_as: 'graduand', grad_year: 2023, avg_total: 91, portrait: null, bio: 'Chemistry olympiad, 2023' },
+  { id: 'TCH-2022-070', name: 'Yakubu Fatima',      class_id: 'SS3 Actuarial', left_as: 'graduand', grad_year: 2023, avg_total: 61, portrait: null, bio: 'School choir' },
+  { id: 'TCH-2023-012', name: 'Adewale Boluwatife', class_id: 'SS3 Science',   left_as: 'graduand', grad_year: 2024, avg_total: 79, portrait: null, bio: 'Football, first XI' },
+  { id: 'TCH-2023-019', name: 'Chukwu Ifeoma',      class_id: 'SS3 Actuarial', left_as: 'graduand', grad_year: 2024, avg_total: 95, portrait: null, bio: 'Valedictorian, class of 2024' },
+  { id: 'TCH-2023-027', name: 'Musa Aliyu',         class_id: 'SS3 Science',   left_as: 'graduand', grad_year: 2024, avg_total: 58, portrait: null, bio: '' },
+  { id: 'TCH-2023-033', name: 'Effiong Mmesoma',    class_id: 'SS3 Actuarial', left_as: 'graduand', grad_year: 2024, avg_total: 82, portrait: null, bio: 'JETS club president' },
+  { id: 'TCH-2024-005', name: 'Oyelaran Damilare',  class_id: 'SS3 Science',   left_as: 'graduand', grad_year: 2025, avg_total: 69, portrait: null, bio: '' },
+  { id: 'TCH-2024-014', name: 'Nwankwo Grace',      class_id: 'SS3 Actuarial', left_as: 'graduand', grad_year: 2025, avg_total: 87, portrait: null, bio: 'Editor, school press' },
+
+  // ── Transfers (any staff removal, not graduation) ──────────────
+  { id: 'TCH-2025-091', name: 'Abolanle Nancy',   class_id: 'JSS2B',       left_as: 'transfer', removed_on: '2026-02-14', portrait: null },
+  { id: 'TCH-2025-116', name: 'Abdul Rasheed Rodiat', class_id: 'JSS3A',   left_as: 'transfer', removed_on: '2026-03-02', portrait: null },
+  { id: 'TCH-2025-184', name: 'Abdullateef Abdulsalam', class_id: 'SS1 Science', left_as: 'transfer', removed_on: '2026-05-19', portrait: null },
+  { id: 'TCH-2025-234', name: 'Abdulmateen Saheed', class_id: 'SS1 Actuarial', left_as: 'transfer', removed_on: '2026-06-30', portrait: null }
+];
+
+const MAX_TOTAL = 100; // avg_total is out of 100, matching CA(30)+Exam(70)
+
+function remarkBand(avgTotal) {
+  if (avgTotal >= 75) return { label: 'Distinction', cls: 'remark-distinction' };
+  if (avgTotal >= 60) return { label: 'Credit', cls: 'remark-credit' };
+  return { label: 'Pass', cls: 'remark-pass' };
+}
+
+function initials(name) {
+  return name.split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase();
+}
+
+// ─── ROUTER ────────────────────────────────────────────────────────
+
+const routes = { '/': renderYearbooks, '/yearbooks': renderYearbooks, '/transfers': renderTransfers };
+
+function currentPath() { return window.location.hash.slice(1) || '/'; }
+function navigate(path) { window.location.hash = path; }
+
+function router() {
+  const path = currentPath();
+  const render = routes[path] || renderYearbooks;
+  const app = document.getElementById('app');
+  render(app, path === '/' ? '/yearbooks' : path);
+}
+
+window.addEventListener('hashchange', router);
+window.addEventListener('DOMContentLoaded', router);
+
+// ─── SHELL ─────────────────────────────────────────────────────────
+
+function renderShell(app, activePath, bodyHtml) {
+  app.innerHTML = `
+    <div class="site-bar">
+      <div class="site-bar-left">
+        <svg class="site-bar-crest" viewBox="0 0 312.517888 359.467970"><use href="#crest"/></svg>
+        <div>
+          <div class="site-bar-title">Tendercare Alumni</div>
+          <div class="site-bar-subtitle">Comprehensive College</div>
+        </div>
+      </div>
+      <nav class="site-bar-nav">
+        <a href="#/yearbooks" class="${activePath === '/yearbooks' ? 'is-active' : ''}">Yearbooks</a>
+        <a href="#/transfers" class="${activePath === '/transfers' ? 'is-active' : ''}">Transferred Students</a>
+      </nav>
+    </div>
+    <div id="page-content">${bodyHtml}</div>
+  `;
+}
+
+function heroHtml(title, sub) {
+  return `
+    <div class="alumni-hero">
+      <svg class="alumni-hero-watermark" viewBox="0 0 312.517888 359.467970" aria-hidden="true"><use href="#crest"/></svg>
+      <svg class="alumni-hero-crest" viewBox="0 0 312.517888 359.467970"><use href="#crest"/></svg>
+      <h1>${title}</h1>
+      <p>${sub}</p>
+    </div>
+  `;
+}
+
+// ─── #/yearbooks — graduands grouped by year, page-spread styling ──
+
+function renderYearbooks(app) {
+  const graduands = ALUMNI.filter(a => a.left_as === 'graduand');
+  const years = [...new Set(graduands.map(g => g.grad_year))].sort((a, b) => b - a);
+  const state = window._alumniState || (window._alumniState = { year: years[0] || null });
+
+  renderShell(app, '/yearbooks', `
+    ${heroHtml('Yearbooks', 'Every graduating class, by year — a running record of who came through Tendercare.')}
+    <p class="section-label">Class of…</p>
+    <div class="year-rail" id="yearRail">
+      ${years.map(y => `
+        <button class="year-pill ${y === state.year ? 'is-active' : ''}" data-year="${y}">
+          ${y}<span class="year-count">${graduands.filter(g => g.grad_year === y).length}</span>
+        </button>
+      `).join('')}
+    </div>
+    <div id="yearbookSpread"></div>
+  `);
+
+  document.querySelectorAll('#yearRail [data-year]').forEach(btn =>
+    btn.addEventListener('click', () => { state.year = Number(btn.dataset.year); paintSpread(); })
+  );
+  paintSpread();
+
+  function paintSpread() {
+    document.querySelectorAll('#yearRail [data-year]').forEach(btn =>
+      btn.classList.toggle('is-active', Number(btn.dataset.year) === state.year)
+    );
+    const spreadEl = document.getElementById('yearbookSpread');
+    const cohort = graduands.filter(g => g.grad_year === state.year);
+    if (!state.year || cohort.length === 0) {
+      spreadEl.innerHTML = `<p class="yearbook-empty">No graduating class on record yet.</p>`;
+      return;
+    }
+    spreadEl.innerHTML = `
+      <div class="yearbook-spread">
+        <div class="yearbook-runninghead">
+          <h2>Class of ${state.year}</h2>
+          <span class="class-of">${cohort.length} graduand${cohort.length === 1 ? '' : 's'}</span>
+        </div>
+        <div class="yearbook-grid">
+          ${cohort.map(g => {
+            const band = remarkBand(g.avg_total);
+            return `
+              <div class="grad-card">
+                <div class="grad-portrait">${g.portrait ? `<img src="${g.portrait}" alt="">` : initials(g.name)}</div>
+                <div class="grad-name">${g.name}</div>
+                <div class="grad-class">${g.class_id}</div>
+                <span class="grad-remark ${band.cls}">${band.label}</span>
+                ${g.bio ? `<div class="grad-bio">${g.bio}</div>` : ''}
+              </div>
+            `;
+          }).join('')}
+        </div>
+      </div>
+    `;
+  }
+}
+
+// ─── #/transfers — plain list, no yearbook treatment ──────────────
+
+function renderTransfers(app) {
+  const transfers = ALUMNI.filter(a => a.left_as === 'transfer')
+    .sort((a, b) => (b.removed_on || '').localeCompare(a.removed_on || ''));
+
+  renderShell(app, '/transfers', `
+    ${heroHtml('Transferred Students', 'Students who left an active roster for reasons other than graduation, most recent first.')}
+    <p class="section-label">${transfers.length} on record</p>
+    <div class="transfer-card-wrap">
+      ${transfers.length === 0 ? `<p class="list-empty">No transfers on record.</p>` : `
+      <table class="transfer-table">
+        <thead><tr><th></th><th>ID</th><th>Name</th><th>Last class</th><th>Left on</th></tr></thead>
+        <tbody>
+          ${transfers.map(t => `
+            <tr>
+              <td>
+                <span class="transfer-name-cell">
+                  <span class="transfer-portrait">${t.portrait ? `<img src="${t.portrait}" alt="">` : initials(t.name)}</span>
+                </span>
+              </td>
+              <td class="transfer-id">${t.id}</td>
+              <td>${t.name}</td>
+              <td>${t.class_id}</td>
+              <td>${t.removed_on ? new Date(t.removed_on).toLocaleDateString() : '—'}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+      `}
+    </div>
+  `);
+}
+</script>
+
+</body>
+</html>
