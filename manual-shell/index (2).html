@@ -1,0 +1,2543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TENDERCARE TEACHER-CARE-APP</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-bg: #0a0a19;
+      --secondary-bg: rgba(20, 20, 40, 0.7);
+      --accent-blue: rgba(59, 130, 246, 0.5);
+      --accent-green: rgba(34, 197, 94, 0.5);
+      --accent-purple: rgba(139, 92, 246, 0.5);
+      --accent-orange: rgba(249, 115, 22, 0.5);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.7);
+      --text-muted: rgba(255, 255, 255, 0.5);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --border-active: rgba(255, 255, 255, 0.2);
+      --success-bg: rgba(22, 163, 74, 0.15);
+      --success-border: rgba(34, 197, 94, 0.3);
+      --error-bg: rgba(220, 38, 38, 0.15);
+      --error-border: rgba(239, 68, 68, 0.3);
+      --warning-bg: rgba(234, 179, 8, 0.15);
+      --warning-border: rgba(250, 204, 21, 0.3);
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--primary-bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(30, 30, 60, 0.3) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(40, 40, 80, 0.2) 0%, transparent 20%);
+    }
+
+    .view {
+      display: none;
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    .view.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== AUTHENTICATION VIEW ===== */
+    .auth-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: linear-gradient(135deg, rgba(10, 10, 25, 0.95) 0%, rgba(20, 20, 45, 0.95) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .auth-container::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+      animation: pulse 15s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulse {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(5%, 5%) scale(1.1); }
+    }
+
+    .auth-card {
+      background: var(--secondary-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 3rem 2.5rem;
+      width: 100%;
+      max-width: 420px;
+      position: relative;
+      z-index: 10;
+      box-shadow: var(--shadow);
+      transform: translateY(0);
+      transition: var(--transition);
+    }
+
+    .auth-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--border-active);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .logo i {
+      font-size: 2.5rem;
+      color: var(--accent-blue);
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .logo h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #60a5fa, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .logo p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+    }
+
+    .form-group {
+      margin-bottom: 1.75rem;
+      position: relative;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .input-with-icon {
+      position: relative;
+    }
+
+    .input-with-icon i {
+      position: absolute;
+      left: 1.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    .input-with-icon input {
+      width: 100%;
+      padding: 1.1rem 1.25rem 1.1rem 3.5rem;
+      font-size: 1rem;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      transition: var(--transition);
+    }
+
+    .input-with-icon input:focus {
+      outline: none;
+      border-color: var(--accent-blue);
+      background: rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .button-primary {
+      width: 100%;
+      padding: 1.25rem;
+      font-size: 1rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--accent-blue), rgba(139, 92, 246, 0.7));
+      border: none;
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: var(--transition);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 0.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .button-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+    }
+
+    .button-primary:active {
+      transform: translateY(0);
+    }
+
+    .button-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .button-secondary {
+      padding: 0.75rem 1.5rem;
+      background: var(--secondary-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .button-secondary:hover {
+      background: rgba(255, 255, 255, 0.05);
+      transform: translateY(-2px);
+    }
+
+    .auth-footer {
+      text-align: center;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* ===== DASHBOARD VIEW ===== */
+    .dashboard-header {
+      background: var(--secondary-bg);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1.5rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .teacher-info h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      background: linear-gradient(90deg, #60a5fa, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .teacher-meta {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .teacher-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .teacher-meta i {
+      font-size: 0.8rem;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .logout-btn {
+      padding: 0.75rem 1.5rem;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: var(--radius-sm);
+      color: #fca5a5;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logout-btn:hover {
+      background: rgba(239, 68, 68, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .dashboard-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .welcome-section {
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: linear-gradient(135deg, var(--secondary-bg), rgba(30, 30, 60, 0.7));
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+    }
+
+    .welcome-section h2 {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .welcome-section p {
+      color: var(--text-secondary);
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .stat-card {
+      background: var(--secondary-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--border-active);
+      box-shadow: var(--shadow);
+    }
+
+    .stat-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .stat-content h3 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    /* ===== PROGRESS BAR SECTION ===== */
+    .progress-bar-container {
+      background: var(--secondary-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .progress-bar-container:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-active);
+      box-shadow: var(--shadow);
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .progress-title {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .progress-title i {
+      font-size: 1.5rem;
+      color: var(--accent-purple);
+    }
+
+    .progress-title h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .progress-percentage {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent-purple);
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 12px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
+      border-radius: 6px;
+      transition: width 0.5s ease-out;
+    }
+
+    .progress-stats {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .feature-card {
+      background: var(--secondary-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      transition: var(--transition);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-blue), transparent);
+    }
+
+    .feature-card:nth-child(2)::before {
+      background: linear-gradient(90deg, var(--accent-green), transparent);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--border-active);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .feature-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .feature-header h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .feature-card p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ===== SELECTION VIEW ===== */
+    .selection-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .selection-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .selection-header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .selection-header p {
+      color: var(--text-secondary);
+    }
+
+    .back-button {
+      padding: 0.875rem 1.75rem;
+      background: var(--secondary-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .back-button:hover {
+      background: rgba(255, 255, 255, 0.05);
+      transform: translateX(-3px);
+    }
+
+    .form-card {
+      background: var(--secondary-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .form-card h2 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 2rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .select-wrapper {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .select-wrapper label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .styled-select {
+      width: 100%;
+      padding: 1.25rem;
+      font-size: 1rem;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1.5rem center;
+      padding-right: 3.5rem;
+      transition: var(--transition);
+    }
+
+    .styled-select:focus {
+      outline: none;
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .styled-select:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* ===== ENTRY VIEW ===== */
+    .entry-view {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(10, 10, 25, 0.98);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      overflow-y: auto;
+      animation: slideUp 0.4s ease-out;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .entry-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .entry-title h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .entry-title p {
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .entry-controls {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .config-section {
+      background: var(--secondary-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .config-section h3 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .config-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .config-item {
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+    }
+
+    .config-item label {
+      display: block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .config-item input {
+      width: 100%;
+      padding: 0.875rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-align: center;
+      background: transparent;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      transition: var(--transition);
+    }
+
+    .config-item input:focus {
+      outline: none;
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .stats-summary {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-box {
+      background: var(--secondary-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .stat-box:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-active);
+    }
+
+    .stat-box h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .stat-box p {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .scores-table-container {
+      background: var(--secondary-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .table-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem;
+      background: rgba(0, 0, 0, 0.2);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .table-header h3 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-secondary);
+    }
+
+    .table-actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+    }
+
+    .scores-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1000px;
+    }
+
+    .scores-table thead {
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .scores-table th {
+      padding: 1.25rem 1rem;
+      text-align: left;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border-color);
+      white-space: nowrap;
+    }
+
+    .scores-table tbody tr {
+      transition: var(--transition);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .scores-table tbody tr:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .scores-table td {
+      padding: 1.25rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .scores-table input {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 0.95rem;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      transition: var(--transition);
+    }
+
+    .scores-table input:focus {
+      outline: none;
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .scores-table input.invalid {
+      border-color: rgba(239, 68, 68, 0.5);
+      background: rgba(239, 68, 68, 0.1);
+    }
+
+    .grade-badge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      min-width: 50px;
+      text-align: center;
+    }
+
+    /* Nigerian Grading Scale */
+    .grade-a1 { background: rgba(34, 197, 94, 0.15); color: #22c55e; border: 1px solid rgba(34, 197, 94, 0.3); }
+    .grade-b2 { background: rgba(52, 211, 153, 0.15); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.3); }
+    .grade-b3 { background: rgba(59, 130, 246, 0.15); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .grade-c4 { background: rgba(96, 165, 250, 0.15); color: #60a5fa; border: 1px solid rgba(96, 165, 250, 0.3); }
+    .grade-c5 { background: rgba(234, 179, 8, 0.15); color: #eab308; border: 1px solid rgba(234, 179, 8, 0.3); }
+    .grade-c6 { background: rgba(250, 204, 21, 0.15); color: #facc15; border: 1px solid rgba(250, 204, 21, 0.3); }
+    .grade-d7 { background: rgba(249, 115, 22, 0.15); color: #f97316; border: 1px solid rgba(249, 115, 22, 0.3); }
+    .grade-e8 { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); }
+    .grade-f9 { background: rgba(220, 38, 38, 0.15); color: #dc2626; border: 1px solid rgba(220, 38, 38, 0.3); }
+
+    .entry-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* ===== NOTIFICATIONS ===== */
+    .notification {
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius-md);
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      animation: slideIn 0.3s ease-out;
+      display: none;
+    }
+
+    .notification.show {
+      display: flex;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .notification.success {
+      background: var(--success-bg);
+      border: 1px solid var(--success-border);
+      color: #86efac;
+    }
+
+    .notification.error {
+      background: var(--error-bg);
+      border: 1px solid var(--error-border);
+      color: #fca5a5;
+    }
+
+    .notification.warning {
+      background: var(--warning-bg);
+      border: 1px solid var(--warning-border);
+      color: #fde047;
+    }
+
+    .notification i {
+      font-size: 1.25rem;
+    }
+
+    /* ===== RESPONSIVE DESIGN ===== */
+    @media (max-width: 1024px) {
+      .config-grid,
+      .stats-summary {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .dashboard-container,
+      .selection-container,
+      .entry-container {
+        padding: 1rem;
+      }
+
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .teacher-meta {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .config-grid,
+      .stats-summary {
+        grid-template-columns: 1fr;
+      }
+
+      .entry-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .entry-controls {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .entry-actions {
+        flex-direction: column;
+      }
+
+      .entry-actions button {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .auth-card {
+        padding: 2rem 1.5rem;
+      }
+
+      .form-card {
+        padding: 1.5rem;
+      }
+
+      .selection-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+    }
+
+    /* ===== LOADING STATES ===== */
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: #60a5fa;
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* ===== SCROLLBAR STYLING ===== */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <!-- AUTHENTICATION VIEW -->
+  <div id="authView" class="view active">
+    <div class="auth-container">
+      <div class="auth-card">
+        <div class="logo">
+          <i class="fas fa-chalkboard-teacher"></i>
+          <h1> Teacher-care </h1>
+          <p> TENDERCARE School Mgmt </p>
+        </div>
+
+        <form id="loginForm" onsubmit="login(event)">
+          <div class="form-group">
+            <label>Teacher ID</label>
+            <div class="input-with-icon">
+              <i class="fas fa-user"></i>
+              <input type="text" id="teacherId" placeholder="Enter your teacher ID" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Password</label>
+            <div class="input-with-icon">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+          </div>
+
+          <button type="submit" class="button-primary" id="loginBtn">
+            <span id="loginText">Sign In</span>
+            <span id="loginLoading" class="loading" style="display: none;"></span>
+          </button>
+        </form>
+
+        <div class="auth-footer">
+          <p><i class="fas fa-shield-alt"></i> Secure teacher authentication</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DASHBOARD VIEW -->
+  <div id="dashboardView" class="view">
+    <header class="dashboard-header">
+      <div class="header-content">
+        <div class="teacher-info">
+          <h1 id="teacherName"></h1>
+          <div class="teacher-meta">
+            <span><i class="fas fa-id-card"></i> ID: <strong id="teacherIdDisplay"></strong></span>
+            <span><i class="fas fa-calendar-alt"></i> Term: <strong>2025/2026 Term 2</strong></span>
+            <span id="roleDisplay"></span>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button class="logout-btn" onclick="logout()">
+            <i class="fas fa-sign-out-alt"></i>
+            Logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="dashboard-container">
+      <section class="welcome-section">
+        <h2>Welcome back, <span id="teacherFirstName"></span>!</h2>
+        <p>You are assigned to <strong id="assignmentCount">0</strong> subject-class combinations. Select a subject and class to enter scores.</p>
+      </section>
+
+      <div class="stats-grid">
+        <div class="stat-card" onclick="goToScoreEntry()">
+          <div class="stat-icon" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">
+            <i class="fas fa-edit"></i>
+          </div>
+          <div class="stat-content">
+            <h3>Score Entry</h3>
+            <div class="stat-value">Start</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: rgba(34, 197, 94, 0.15); color: #4ade80;">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="stat-content">
+            <h3>Your Classes</h3>
+            <div class="stat-value" id="classCount">0</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: rgba(139, 92, 246, 0.15); color: #a78bfa;">
+            <i class="fas fa-book"></i>
+          </div>
+          <div class="stat-content">
+            <h3>Your Subjects</h3>
+            <div class="stat-value" id="subjectCount">0</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: rgba(249, 115, 22, 0.15); color: #fb923c;">
+            <i class="fas fa-chalkboard"></i>
+          </div>
+          <div class="stat-content">
+            <h3>Class Teacher</h3>
+            <div class="stat-value" id="classTeacherDisplay">-</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HORIZONTAL PROGRESS BAR -->
+      <div class="progress-bar-container">
+        <div class="progress-header">
+          <div class="progress-title">
+            <i class="fas fa-chart-line"></i>
+            <h3>Progress Tracking</h3>
+          </div>
+          <div class="progress-percentage" id="progressPercentage">0%</div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+        </div>
+        <div class="progress-stats">
+          <span><i class="fas fa-check-circle"></i> <span id="completedCount">0</span> Completed</span>
+          <span><i class="fas fa-clock"></i> <span id="pendingCount">0</span> Pending</span>
+        </div>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card" onclick="goToScoreEntry()">
+          <div class="feature-header">
+            <div class="feature-icon" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">
+              <i class="fas fa-table"></i>
+            </div>
+            <h3>Score Entry</h3>
+          </div>
+          <p>Enter and submit student assessment scores for your assigned subjects (auto-scaled (A1-F9)).</p>
+        </div>
+
+        <div class="feature-card" onclick="viewLessonNotes()">
+          <div class="feature-header">
+            <div class="feature-icon" style="background: rgba(34, 197, 94, 0.15); color: #4ade80;">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <h3>Lesson Notes & Materials</h3>
+          </div>
+          <p>Access your teaching materials, and curriculum guides.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- SELECTION VIEW -->
+  <div id="selectionView" class="view">
+    <div class="selection-container">
+      <div class="selection-header">
+        <div>
+          <h1>Score Entry</h1>
+          <p>Select subject and class to begin entering scores</p>
+        </div>
+        <button class="back-button" onclick="backToDashboard()">
+          <i class="fas fa-arrow-left"></i>
+          Back to Dashboard
+        </button>
+      </div>
+
+      <div class="form-card">
+        <h2><i class="fas fa-tasks"></i> Assignment Selection</h2>
+
+        <div class="select-wrapper">
+          <label>Subject</label>
+          <select id="subjectSelect" class="styled-select" onchange="updateClasses()">
+            <option value="">Select a subject</option>
+          </select>
+        </div>
+
+        <div class="select-wrapper">
+          <label>Class</label>
+          <select id="classSelect" class="styled-select" disabled>
+            <option value="">Select a class</option>
+          </select>
+        </div>
+
+        <button class="button-primary" id="openEntryBtn" onclick="openEntry()" disabled>
+          <i class="fas fa-external-link-alt"></i>
+          Open Score Entry Sheet
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENTRY VIEW -->
+  <div id="entryView" class="view entry-view">
+    <div class="entry-container">
+      <div class="entry-header">
+        <div class="entry-title">
+          <h2 id="entryTitle"></h2>
+          <p><i class="fas fa-calendar-alt"></i> 2025/2026 Term 2 • <i class="fas fa-user"></i> <span id="entryTeacher"></span></p>
+        </div>
+        <div class="entry-controls">
+          <button class="back-button" onclick="closeEntry()">
+            <i class="fas fa-arrow-left"></i>
+            Back to Selection
+          </button>
+        </div>
+      </div>
+
+      <div id="entryNotification" class="notification"></div>
+
+      <div class="config-section">
+        <h3><i class="fas fa-sliders-h"></i> Maximum Scores Configuration</h3>
+        <div class="config-grid">
+          <div class="config-item">
+            <label>CA Maximum</label>
+            <input type="number" id="maxCA" value="30" min="0" step="1" onchange="recalculate()">
+          </div>
+          <div class="config-item">
+            <label>Exam Maximum</label>
+            <input type="number" id="maxExam" value="70" min="0" step="1" onchange="recalculate()">
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-summary">
+        <div class="stat-box">
+          <h4>Total Students</h4>
+          <p id="totalStudents">0</p>
+        </div>
+        <div class="stat-box">
+          <h4>Class Average</h4>
+          <p id="classAvg">0.0</p>
+        </div>
+        <div class="stat-box">
+          <h4>Highest Score</h4>
+          <p id="highest">0</p>
+        </div>
+        <div class="stat-box">
+          <h4>Lowest Score</h4>
+          <p id="lowest">0</p>
+        </div>
+      </div>
+
+      <div class="scores-table-container">
+        <div class="table-header">
+          <h3><i class="fas fa-table"></i> Student Scores Sheet</h3>
+          <div class="table-actions">
+            <button class="button-secondary" onclick="validateAllScores()">
+              <i class="fas fa-check-circle"></i>
+              Validate
+            </button>
+            <button class="button-secondary" onclick="clearAllScores()">
+              <i class="fas fa-eraser"></i>
+              Clear All
+            </button>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="scores-table">
+            <thead>
+              <tr>
+                <th>Student ID</th>
+                <th>Student Name</th>
+                <th>CA (30)</th>
+                <th>Exam (70)</th>
+                <th>Total</th>
+                <th>Grade</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="scoresBody">
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="entry-actions">
+        <button class="button-secondary" onclick="closeEntry()">
+          <i class="fas fa-times"></i>
+          Cancel
+        </button>
+        <button class="button-primary" onclick="downloadJSON()">
+          <i class="fas fa-download"></i>
+          Download JSON
+        </button>
+        <button class="button-primary" onclick="emailJSON()">
+          <i class="fas fa-envelope"></i>
+          Email to Admin
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const ADMIN_EMAIL = 'artificialiman111@gmail.com';
+
+  
+    const HARDCODED_STUDENTS = {
+      'JSS1A': [
+        { id: 'TCH-2025-001', name: 'Abraham Comfort Princess' },
+        { id: 'TCH-2025-002', name: 'Abraham Nanmwa' },
+        { id: 'TCH-2025-003', name: 'Adebanjo Anjola' },
+        { id: 'TCH-2025-004', name: 'Adegboye Adam' },
+        { id: 'TCH-2025-005', name: 'Ademola Daniel' },
+        { id: 'TCH-2025-006', name: 'Adeoye Ikimot' },
+        { id: 'TCH-2025-007', name: 'Adeyemi Olamide' },
+        { id: 'TCH-2025-008', name: 'Adiukwu Chimuanya' },
+        { id: 'TCH-2025-009', name: 'Ayegba Anthony' },
+        { id: 'TCH-2025-010', name: 'Chris Ukpah Rejoice' },
+        { id: 'TCH-2025-011', name: 'Ehigie Jeffrey' },
+        { id: 'TCH-2025-012', name: 'Enabulele Newton' },
+        { id: 'TCH-2025-013', name: 'Hamzat Alaba' },
+        { id: 'TCH-2025-014', name: 'Idowu Taiwo' },
+        { id: 'TCH-2025-015', name: 'Jackson Grace' },
+        { id: 'TCH-2025-016', name: 'Jimoh Sodiq' },
+        { id: 'TCH-2025-017', name: 'Mohammed Abdul-salam' },
+        { id: 'TCH-2025-018', name: 'Muritala Farhan' },
+        { id: 'TCH-2025-019', name: 'Obaoye Adeola Ruth' },
+        { id: 'TCH-2025-020', name: 'Oduwaye Abdul-salam' },
+        { id: 'TCH-2025-021', name: 'Ogunlana Aishat' },
+        { id: 'TCH-2025-022', name: 'Okwuabudike Michael' },
+        { id: 'TCH-2025-023', name: 'Olukoga Akorede' },
+        { id: 'TCH-2025-024', name: 'Oni Grace Oluwadarasimi' },
+        { id: 'TCH-2025-025', name: 'Otuole Innocent' },
+        { id: 'TCH-2025-026', name: 'Peter John' },
+        { id: 'TCH-2025-027', name: 'Rafiu Aishat' },
+        { id: 'TCH-2025-028', name: 'Soyode Emmanuel' },
+        { id: 'TCH-2025-029', name: 'Yusuf Al-meen' }
+      ],
+
+      'JSS1B': [
+        { id: 'TCH-2025-030', name: 'Adeniyi Nifemi' },
+        { id: 'TCH-2025-031', name: 'Adeniyi Basit' },
+        { id: 'TCH-2025-032', name: 'Adeyemi Modesire' },
+        { id: 'TCH-2025-033', name: 'Agbo Wonderful' },
+        { id: 'TCH-2025-034', name: 'Akeju Emmanuel' },
+        { id: 'TCH-2025-035', name: 'Akindutire Michael' },
+        { id: 'TCH-2025-036', name: 'Asuluka Obioma' },
+        { id: 'TCH-2025-037', name: 'Babarinde Testimony' },
+        { id: 'TCH-2025-038', name: 'Dada Ayodeji' },
+        { id: 'TCH-2025-039', name: 'Dickson Samson' },
+        { id: 'TCH-2025-040', name: 'Idowu Kehinde' },
+        { id: 'TCH-2025-041', name: 'Ikujuni Samuel' },
+        { id: 'TCH-2025-042', name: 'Irinyemi Halleluyah' },
+        { id: 'TCH-2025-043', name: 'Ishola Suliat' },
+        { id: 'TCH-2025-044', name: 'Jewoola Olamide' },
+        { id: 'TCH-2025-045', name: 'Jonathan Frednard' },
+        { id: 'TCH-2025-046', name: 'Makinde Tofunmi' },
+        { id: 'TCH-2025-047', name: 'Odulate Boluwatife' },
+        { id: 'TCH-2025-048', name: 'Okezueze Ifechukwu' },
+        { id: 'TCH-2025-049', name: 'Oni Fikayo' },
+        { id: 'TCH-2025-050', name: 'Onibodo Quadri' },
+        { id: 'TCH-2025-051', name: 'Owoade Praise' },
+        { id: 'TCH-2025-052', name: 'Oyeniran Michelle' },
+        { id: 'TCH-2025-053', name: 'Safiriyu Simisola' },
+        { id: 'TCH-2025-054', name: 'Sandy Enoch' },
+        { id: 'TCH-2025-055', name: 'Shokoya Imole' },
+        { id: 'TCH-2025-056', name: 'Tijani Anjolaoluwa' },
+        { id: 'TCH-2025-057', name: 'Ubi Richard Victoria' },
+        { id: 'TCH-2025-058', name: 'Yusuff Salamat Semilore' }
+      ],
+
+      'JSS2A': [
+        { id: 'TCH-2025-059', name: 'Abey Phoebe' },
+        { id: 'TCH-2025-060', name: 'Adeniyi Mubarak' },
+        { id: 'TCH-2025-061', name: 'Agbabiaka Ella' },
+        { id: 'TCH-2025-062', name: 'Alaka Faridat' },
+        { id: 'TCH-2025-063', name: 'Aramide Hikimot' },
+        { id: 'TCH-2025-064', name: 'Aremu Praise' },
+        { id: 'TCH-2025-065', name: 'Ayoade Flourish' },
+        { id: 'TCH-2025-066', name: 'Bakare Gabriel' },
+        { id: 'TCH-2025-067', name: 'Bamiro David' },
+        { id: 'TCH-2025-068', name: 'Biobaku Azraa' },
+        { id: 'TCH-2025-069', name: 'Boladale Esther' },
+        { id: 'TCH-2025-070', name: 'Edeniyi Ukharia' },
+        { id: 'TCH-2025-071', name: 'Falope Kikiope' },
+        { id: 'TCH-2025-072', name: 'Ida Wisdom' },
+        { id: 'TCH-2025-073', name: 'Mudashiru Abidat' },
+        { id: 'TCH-2025-074', name: 'Muh\'awwal Alitorf' },
+        { id: 'TCH-2025-075', name: 'Musa Isaac' },
+        { id: 'TCH-2025-076', name: 'Neri Testimony' },
+        { id: 'TCH-2025-077', name: 'Obaoye Dorcas' },
+        { id: 'TCH-2025-078', name: 'Ogoyemi Josephine' },
+        { id: 'TCH-2025-079', name: 'Olowu Jamal' },
+        { id: 'TCH-2025-080', name: 'Olubiyi Godwin' },
+        { id: 'TCH-2025-081', name: 'Opeyemi Rosheedat' },
+        { id: 'TCH-2025-082', name: 'Oriabor Joy' },
+        { id: 'TCH-2025-083', name: 'Orukpe Daniel' },
+        { id: 'TCH-2025-084', name: 'Oyeboade Erioluwa' },
+        { id: 'TCH-2025-085', name: 'Oyediji Israel' },
+        { id: 'TCH-2025-086', name: 'Oyetunji Adejoke' },
+        { id: 'TCH-2025-087', name: 'Oyewole Daniel' },
+        { id: 'TCH-2025-088', name: 'Rafiu Rofiat' },
+        { id: 'TCH-2025-089', name: 'Raji Joshua' },
+        { id: 'TCH-2025-090', name: 'Tijani Olamiposi' }
+      ],
+
+      'JSS2B': [
+        { id: 'TCH-2025-091', name: 'Abolanle Nancy' },
+        { id: 'TCH-2025-092', name: 'Adeboyo Taiwo' },
+        { id: 'TCH-2025-093', name: 'Adeniran Isaac' },
+        { id: 'TCH-2025-094', name: 'Adesuyi Ademola' },
+        { id: 'TCH-2025-095', name: 'Akinade Darasimi' },
+        { id: 'TCH-2025-096', name: 'Akinola Abdulhamid' },
+        { id: 'TCH-2025-097', name: 'Alexander Chinaza' },
+        { id: 'TCH-2025-098', name: 'Balogun Muminat' },
+        { id: 'TCH-2025-099', name: 'Fagbola Oladerin Emmanualla' },
+        { id: 'TCH-2025-100', name: 'Ganiu Aliyat' },
+        { id: 'TCH-2025-101', name: 'Idris Faridat' },
+        { id: 'TCH-2025-102', name: 'Ikechukwu Miracle' },
+        { id: 'TCH-2025-103', name: 'Kamilu Saheed' },
+        { id: 'TCH-2025-104', name: 'Muritala Rokibat' },
+        { id: 'TCH-2025-105', name: 'Ochege Rhoda' },
+        { id: 'TCH-2025-106', name: 'Ojochegbe Linda' },
+        { id: 'TCH-2025-107', name: 'Olaniyi Mary' },
+        { id: 'TCH-2025-108', name: 'Olatunbosun Daniel' },
+        { id: 'TCH-2025-109', name: 'Ologunre Marvellous' },
+        { id: 'TCH-2025-110', name: 'Onifade Ayomide' },
+        { id: 'TCH-2025-111', name: 'Oseni Idayat' },
+        { id: 'TCH-2025-112', name: 'Sakiru John' },
+        { id: 'TCH-2025-113', name: 'Shofowora Nifemi' },
+        { id: 'TCH-2025-114', name: 'Suli Fridaus' },
+        { id: 'TCH-2025-115', name: 'Yakubu Moses' }
+      ],
+
+      'JSS3A': [
+        { id: 'TCH-2025-116', name: 'Abdul Rasheed Rodiat' },
+        { id: 'TCH-2025-117', name: 'Adebayo Dorcas' },
+        { id: 'TCH-2025-118', name: 'Adebayo Favour' },
+        { id: 'TCH-2025-119', name: 'Adeniyi Darasimi' },
+        { id: 'TCH-2025-120', name: 'Afolayan Joshua' },
+        { id: 'TCH-2025-121', name: 'Akanji Favour' },
+        { id: 'TCH-2025-122', name: 'Akinbiyi Glory' },
+        { id: 'TCH-2025-123', name: 'Amusat Khalilulahi O' },
+        { id: 'TCH-2025-124', name: 'Faruk Aransiola' },
+        { id: 'TCH-2025-125', name: 'Balogun Jomiloju' },
+        { id: 'TCH-2025-126', name: 'Emmanuel Ayowole' },
+        { id: 'TCH-2025-127', name: 'Emmanuel Maxwell' },
+        { id: 'TCH-2025-128', name: 'Emmanuel Priscilla' },
+        { id: 'TCH-2025-129', name: 'Fatuki Oluwanifemi' },
+        { id: 'TCH-2025-130', name: 'Folorunsho Precious' },
+        { id: 'TCH-2025-131', name: 'Garba Albarka' },
+        { id: 'TCH-2025-132', name: 'Ibhadore Godswill' },
+        { id: 'TCH-2025-133', name: 'Irinyemi Jomiloju Praise' },
+        { id: 'TCH-2025-134', name: 'Kolade Idera' },
+        { id: 'TCH-2025-135', name: 'Nanmwa Victor' },
+        { id: 'TCH-2025-136', name: 'Nathaniel David' },
+        { id: 'TCH-2025-137', name: 'Nelson Sonia C.C' },
+        { id: 'TCH-2025-138', name: 'Nyakos Nurudeen' },
+        { id: 'TCH-2025-139', name: 'Ogunlana Abdullahi' },
+        { id: 'TCH-2025-140', name: 'Okwuabudike Victoria' },
+        { id: 'TCH-2025-141', name: 'Olatunji Al-meen' },
+        { id: 'TCH-2025-142', name: 'Olowu Fausiyat' },
+        { id: 'TCH-2025-143', name: 'Oluborode True Vine' },
+        { id: 'TCH-2025-144', name: 'Oseni Abdulsamod' },
+        { id: 'TCH-2025-145', name: 'Owoyele Ramadan' },
+        { id: 'TCH-2025-146', name: 'Oyewole Israel' },
+        { id: 'TCH-2025-147', name: 'Salawudeen Fawas' },
+        { id: 'TCH-2025-148', name: 'Sunny Blessing' },
+        { id: 'TCH-2025-149', name: 'Waheed Aduragbemi' },
+        { id: 'TCH-2025-150', name: 'Wisdom Donald' },
+        { id: 'TCH-2025-151', name: 'Yusuf Taiwo' },
+        { id: 'TCH-2025-152', name: 'Yusuff Abdul Sattar' }
+      ],
+
+      'JSS3B': [
+        { id: 'TCH-2025-153', name: 'Abdul Razak Somod' },
+        { id: 'TCH-2025-154', name: 'Adebisi Aishat' },
+        { id: 'TCH-2025-155', name: 'Adebisi Ayomide' },
+        { id: 'TCH-2025-156', name: 'Adebisi Yusuf' },
+        { id: 'TCH-2025-157', name: 'Adeniyi Korede' },
+        { id: 'TCH-2025-158', name: 'Adewunmi Oluwademilade' },
+        { id: 'TCH-2025-159', name: 'Agbo Favour' },
+        { id: 'TCH-2025-160', name: 'Akinfe Christianah' },
+        { id: 'TCH-2025-161', name: 'Ambrose Emmanuella' },
+        { id: 'TCH-2025-162', name: 'Ariyo Moses' },
+        { id: 'TCH-2025-163', name: 'Ayoade Doris' },
+        { id: 'TCH-2025-164', name: 'Balogun Tobiloba' },
+        { id: 'TCH-2025-165', name: 'Enabulele Israel' },
+        { id: 'TCH-2025-166', name: 'Faluyi Israel' },
+        { id: 'TCH-2025-167', name: 'Folorunsho Alexander' },
+        { id: 'TCH-2025-168', name: 'Gabriel Peace' },
+        { id: 'TCH-2025-169', name: 'Lawal Esther' },
+        { id: 'TCH-2025-170', name: 'Medua Angel' },
+        { id: 'TCH-2025-171', name: 'Nyakos Naimat' },
+        { id: 'TCH-2025-172', name: 'Olajesu Kayode' },
+        { id: 'TCH-2025-173', name: 'Olasunkanmi Ayobami' },
+        { id: 'TCH-2025-174', name: 'Olukotun Feranmi' },
+        { id: 'TCH-2025-175', name: 'Onafowokan Ridwan' },
+        { id: 'TCH-2025-176', name: 'Opatimeyin David' },
+        { id: 'TCH-2025-177', name: 'Oyeniyi David' },
+        { id: 'TCH-2025-178', name: 'Popoola Aduragbemi' },
+        { id: 'TCH-2025-179', name: 'Rotimi Eniola' },
+        { id: 'TCH-2025-180', name: 'Samson Loveth' },
+        { id: 'TCH-2025-181', name: 'Samuel Zainab' },
+        { id: 'TCH-2025-182', name: 'Soyode Emmanuella' },
+        { id: 'TCH-2025-183', name: 'Uduakhomo Peace' }
+      ],
+
+      'SS1 Science': [
+        { id: 'TCH-2025-184', name: 'Abdullateef Abdulsalam' },
+        { id: 'TCH-2025-185', name: 'Abimbola Israel' },
+        { id: 'TCH-2025-186', name: 'Adebayo Ayomide' },
+        { id: 'TCH-2025-187', name: 'Adesalu Kamal' },
+        { id: 'TCH-2025-188', name: 'Adeshina Fawaz' },
+        { id: 'TCH-2025-189', name: 'Ajayi Aminat' },
+        { id: 'TCH-2025-190', name: 'Ajewole Darasimi' },
+        { id: 'TCH-2025-191', name: 'Ajibola Rodiat' },
+        { id: 'TCH-2025-192', name: 'Akinyogha Taiwo' },
+        { id: 'TCH-2025-193', name: 'Akoshile Hameedah' },
+        { id: 'TCH-2025-194', name: 'Akpoveta Daniel' },
+        { id: 'TCH-2025-195', name: 'Alexander Chukwu' },
+        { id: 'TCH-2025-196', name: 'Amos Savior' },
+        { id: 'TCH-2025-197', name: 'Ashaye Damola' },
+        { id: 'TCH-2025-198', name: 'Ayangbola Dammilola' },
+        { id: 'TCH-2025-199', name: 'Bakare Amirat' },
+        { id: 'TCH-2025-200', name: 'Bakare Nifemi' },
+        { id: 'TCH-2025-201', name: 'Balogun Momeen' },
+        { id: 'TCH-2025-202', name: 'Bamidele Goodluck' },
+        { id: 'TCH-2025-203', name: 'Chukwuemeka Favour' },
+        { id: 'TCH-2025-204', name: 'Durosimi Abdullateef' },
+        { id: 'TCH-2025-205', name: 'Emmanuel Godiva' },
+        { id: 'TCH-2025-206', name: 'Fatai Muinat' },
+        { id: 'TCH-2025-207', name: 'Folorunsho Elijah' },
+        { id: 'TCH-2025-208', name: 'Hassanat' },
+        { id: 'TCH-2025-209', name: 'Hilary Favour' },
+        { id: 'TCH-2025-210', name: 'Jimoh Yewande' },
+        { id: 'TCH-2025-211', name: 'Julius-Caleb Okenwan' },
+        { id: 'TCH-2025-212', name: 'Lawal Promise' },
+        { id: 'TCH-2025-213', name: 'Momoh Divine' },
+        { id: 'TCH-2025-214', name: 'Musa Nimotallahi' },
+        { id: 'TCH-2025-215', name: 'Ogbueje Nannette' },
+        { id: 'TCH-2025-216', name: 'Ogbonna Joshua' },
+        { id: 'TCH-2025-217', name: 'Ojo Precious' },
+        { id: 'TCH-2025-218', name: 'Okebiyi Blessing' },
+        { id: 'TCH-2025-219', name: 'Okebugwu Michael' },
+        { id: 'TCH-2025-220', name: 'Oladipo Oluwabukola' },
+        { id: 'TCH-2025-221', name: 'Olalere Halim' },
+        { id: 'TCH-2025-222', name: 'Olaniyan Emmanuel' },
+        { id: 'TCH-2025-223', name: 'Olubiyi Olamide' },
+        { id: 'TCH-2025-224', name: 'Oluwatoyin Eniola' },
+        { id: 'TCH-2025-225', name: 'Oni Ezekiel' },
+        { id: 'TCH-2025-226', name: 'Onwuegbule Wisdom' },
+        { id: 'TCH-2025-227', name: 'Opaje Teniola' },
+        { id: 'TCH-2025-228', name: 'Opeyemi Michael' },
+        { id: 'TCH-2025-229', name: 'Opeyemi Sultan' },
+        { id: 'TCH-2025-230', name: 'Oyesanya Israel' },
+        { id: 'TCH-2025-231', name: 'Samuel Benjamin' },
+        { id: 'TCH-2025-232', name: 'Sanusi Farahat' },
+        { id: 'TCH-2025-233', name: 'Sunday Isaac' }
+      ],
+
+      'SS1 Actuarial': [
+        { id: 'TCH-2025-234', name: 'Abdulmateen saheed' },
+        { id: 'TCH-2025-235', name: 'Arekwen clement' },
+        { id: 'TCH-2025-236', name: 'Ekum honesty' },
+        { id: 'TCH-2025-237', name: 'Kehinde anjolaoluwa' },
+        { id: 'TCH-2025-238', name: 'Khalid lateef' },
+        { id: 'TCH-2025-239', name: 'Oche ojochegbe michael' },
+        { id: 'TCH-2025-240', name: 'Olajire anuoluwapo' },
+        { id: 'TCH-2025-241', name: 'Oni peter' },
+        { id: 'TCH-2025-242', name: 'Rafiu kehinde' },
+        { id: 'TCH-2025-243', name: 'Rafiu taiwo' },
+        { id: 'TCH-2025-244', name: 'Kolawole rereoluwa' },
+        { id: 'TCH-2025-245', name: 'James goodluck' },
+        { id: 'TCH-2025-246', name: 'Azeez malik' },
+        { id: 'TCH-2025-247', name: 'Aiwe Destiny' },
+        { id: 'TCH-2025-248', name: 'Friday Destiny' },
+        { id: 'TCH-2025-249', name: 'Akeju David' },
+        { id: 'TCH-2025-250', name: 'Mohammed fayade' },
+        { id: 'TCH-2025-251', name: 'Adeyemo ikimat' },
+        { id: 'TCH-2025-252', name: 'Ajayi fiyinfoluwa' },
+        { id: 'TCH-2025-253', name: 'Bello opeyemi' },
+        { id: 'TCH-2025-254', name: 'Falope oluwajomiloju' },
+        { id: 'TCH-2025-255', name: 'Fowowe Abigail' },
+        { id: 'TCH-2025-256', name: 'Idowu Amidat' },
+        { id: 'TCH-2025-257', name: 'Ikujuni Oluwasikemi' },
+        { id: 'TCH-2025-258', name: 'Livinus chioma' },
+        { id: 'TCH-2025-259', name: 'Olukoja omowunmi' },
+        { id: 'TCH-2025-260', name: 'Onojah Victoria' },
+        { id: 'TCH-2025-261', name: 'Tijani Aishat' },
+        { id: 'TCH-2025-262', name: 'Tujiki anuoluwapo' },
+        { id: 'TCH-2025-263', name: 'Idris mariam' },
+        { id: 'TCH-2025-264', name: 'Nosiru halimat' },
+        { id: 'TCH-2025-265', name: 'Adeyemi mariam' },
+        { id: 'TCH-2025-266', name: 'Akinyugha kehinde' },
+        { id: 'TCH-2025-267', name: 'Musa emmanuella' },
+        { id: 'TCH-2025-268', name: 'Awodiya Amazing-Grace' },
+        { id: 'TCH-2025-269', name: 'Ofonime Success' }
+      ],
+
+      'SS2 Science': [
+        { id: 'TCH-2025-270', name: 'Abdullahi Malik' },
+        { id: 'TCH-2025-271', name: 'Adeoye Rokeeb' },
+        { id: 'TCH-2025-272', name: 'Adeyemi Adesewa' },
+        { id: 'TCH-2025-273', name: 'Adeyemi Emmanuel' },
+        { id: 'TCH-2025-274', name: 'Agbo Queen' },
+        { id: 'TCH-2025-275', name: 'Akindutire Iretiola' },
+        { id: 'TCH-2025-276', name: 'Alejo Samuel' },
+        { id: 'TCH-2025-277', name: 'Babalola Rodiat' },
+        { id: 'TCH-2025-278', name: 'Bakare Aliyat' },
+        { id: 'TCH-2025-279', name: 'Eke Erica' },
+        { id: 'TCH-2025-280', name: 'Emmanuel Annabel' },
+        { id: 'TCH-2025-281', name: 'Enabulele Itohan' },
+        { id: 'TCH-2025-282', name: 'Friday Godspower' },
+        { id: 'TCH-2025-283', name: 'Igbenedion Folabomi' },
+        { id: 'TCH-2025-284', name: 'Itama Daniel' },
+        { id: 'TCH-2025-285', name: 'Jimoh Ganiyat' },
+        { id: 'TCH-2025-286', name: 'Mohammed Awwal' },
+        { id: 'TCH-2025-287', name: 'Mudashiru Usman' },
+        { id: 'TCH-2025-288', name: 'Nelson Victor' },
+        { id: 'TCH-2025-289', name: 'Oduola Olamide' },
+        { id: 'TCH-2025-290', name: 'Okwabudike Mercy' },
+        { id: 'TCH-2025-291', name: 'Olagbo Susan' },
+        { id: 'TCH-2025-292', name: 'Olaniyi David' },
+        { id: 'TCH-2025-293', name: 'Olushesi Basit' },
+        { id: 'TCH-2025-294', name: 'Omotosho Faith' },
+        { id: 'TCH-2025-295', name: 'Oyebanji Victoria' },
+        { id: 'TCH-2025-296', name: 'Oyedeji Emmanuella' },
+        { id: 'TCH-2025-297', name: 'Quadri Oluwadarasimi' },
+        { id: 'TCH-2025-298', name: 'Sandy Karenapuch' },
+        { id: 'TCH-2025-299', name: 'Sanyaolu Kehinde' },
+        { id: 'TCH-2025-300', name: 'Sanyaolu Taiwo' },
+        { id: 'TCH-2025-301', name: 'Sulaimon Alimoh' },
+        { id: 'TCH-2025-302', name: 'Sunday Mary' }
+      ],
+
+      'SS2 Actuarial': [
+        { id: 'TCH-2025-303', name: 'Abdulrazak Abdulrahman' },
+        { id: 'TCH-2025-304', name: 'Abdusalam Timileyin' },
+        { id: 'TCH-2025-305', name: 'Abisoye Gold' },
+        { id: 'TCH-2025-306', name: 'Adebayo Isaiah' },
+        { id: 'TCH-2025-307', name: 'Adeniyi Gbolahan' },
+        { id: 'TCH-2025-308', name: 'Adenola Darasimi' },
+        { id: 'TCH-2025-309', name: 'Agboola Daniel' },
+        { id: 'TCH-2025-310', name: 'Azeez Wazilat' },
+        { id: 'TCH-2025-311', name: 'Bakare Bolaji' },
+        { id: 'TCH-2025-312', name: 'Chukwu Samuel' },
+        { id: 'TCH-2025-313', name: 'Ebere Larry' },
+        { id: 'TCH-2025-314', name: 'Eduniyi Gideon' },
+        { id: 'TCH-2025-315', name: 'Ewenra Noah' },
+        { id: 'TCH-2025-316', name: 'Ibadore Miracle' },
+        { id: 'TCH-2025-317', name: 'Ipadeola Idris' },
+        { id: 'TCH-2025-318', name: 'Ipadeola Quadri' },
+        { id: 'TCH-2025-319', name: 'Jewoola Boluwatife' },
+        { id: 'TCH-2025-320', name: 'Lawal Gabriel' },
+        { id: 'TCH-2025-321', name: 'Mathew Glory' },
+        { id: 'TCH-2025-322', name: 'Njoh Ifeoma' },
+        { id: 'TCH-2025-323', name: 'Nwacke Maryann' },
+        { id: 'TCH-2025-324', name: 'Ochege Sunday' },
+        { id: 'TCH-2025-325', name: 'Okarfor Ifeoma' },
+        { id: 'TCH-2025-326', name: 'Oladeji Ala-meen' },
+        { id: 'TCH-2025-327', name: 'Osiba Temiloluwa' },
+        { id: 'TCH-2025-328', name: 'Osunibi Gbolahan' },
+        { id: 'TCH-2025-329', name: 'Oyebode Precious' },
+        { id: 'TCH-2025-330', name: 'Peter Godwin' },
+        { id: 'TCH-2025-331', name: 'Shobowale Isaac' },
+        { id: 'TCH-2025-332', name: 'Shokoya Samuel' },
+        { id: 'TCH-2025-333', name: 'Sulaimon Aishat' },
+        { id: 'TCH-2025-334', name: 'Zulukadeen Rokeeb' }
+      ],
+
+      'SS3 Science': [
+        { id: 'TCH-2025-335', name: 'Angel' },
+        { id: 'TCH-2025-336', name: 'Bamise' },
+        { id: 'TCH-2025-337', name: 'Bright' },
+        { id: 'TCH-2025-338', name: 'Dorcas' },
+        { id: 'TCH-2025-339', name: 'Enoch' },
+        { id: 'TCH-2025-340', name: 'Famous' },
+        { id: 'TCH-2025-341', name: 'Fauziyyah' },
+        { id: 'TCH-2025-342', name: 'Fawaz' },
+        { id: 'TCH-2025-343', name: 'Fiyin' },
+        { id: 'TCH-2025-344', name: 'Habitat' },
+        { id: 'TCH-2025-345', name: 'Kaosara' },
+        { id: 'TCH-2025-346', name: 'Khadija' },
+        { id: 'TCH-2025-347', name: 'Mercy' },
+        { id: 'TCH-2025-348', name: 'Michael' },
+        { id: 'TCH-2025-349', name: 'Moyin' },
+        { id: 'TCH-2025-350', name: 'Prosper' },
+        { id: 'TCH-2025-351', name: 'Rita' },
+        { id: 'TCH-2025-352', name: 'Rokibat' },
+        { id: 'TCH-2025-353', name: 'Samuel' },
+        { id: 'TCH-2025-354', name: 'Taiwo' },
+        { id: 'TCH-2025-355', name: 'Temi' },
+        { id: 'TCH-2025-356', name: 'Zainab' }
+      ],
+
+      'SS3 Actuarial': [
+        { id: 'TCH-2025-357', name: 'Abdul Majeed Quadri' },
+        { id: 'TCH-2025-358', name: 'Abdul Razak Kehinde' },
+        { id: 'TCH-2025-359', name: 'Abuh God\'s Power' },
+        { id: 'TCH-2025-360', name: 'Adebayo David' },
+        { id: 'TCH-2025-361', name: 'Adeniran Moses' },
+        { id: 'TCH-2025-362', name: 'Adesanya Emmanuel' },
+        { id: 'TCH-2025-363', name: 'Adisa Fathia' },
+        { id: 'TCH-2025-364', name: 'Ajibola Roheemot' },
+        { id: 'TCH-2025-365', name: 'Amos Wisdom' },
+        { id: 'TCH-2025-366', name: 'Asiemor Divine' },
+        { id: 'TCH-2025-367', name: 'Enemali Ojotoeba' },
+        { id: 'TCH-2025-368', name: 'Falope Darasimi' },
+        { id: 'TCH-2025-369', name: 'Famakinwa Akorede' },
+        { id: 'TCH-2025-370', name: 'Folorunsho Petra' },
+        { id: 'TCH-2025-371', name: 'Muritala Rashidat' },
+        { id: 'TCH-2025-372', name: 'Olalere Aishat' },
+        { id: 'TCH-2025-373', name: 'Oyakan Emmanuel' },
+        { id: 'TCH-2025-374', name: 'Sowole Azeem' },
+        { id: 'TCH-2025-375', name: 'Tujiki David' },
+        { id: 'TCH-2025-376', name: 'Yakubu Happiness' }
+      ]
+    };
+
+    // STUDENTS_DB: Fallback/cache mechanism for future database integration
+    // When you add an API/database, this will cache the fetched data
+    // For now, it mirrors HARDCODED_STUDENTS to maintain compatibility
+    let STUDENTS_DB = { ...HARDCODED_STUDENTS };
+
+    /**
+     * getStudentsForClass - Smart student retrieval function
+     * Primary: Returns hardcoded data (instant, no failure)
+     * Future: Can be modified to fetch from API/database and cache in STUDENTS_DB
+     * 
+     * @param {string} className - The class name to fetch students for
+     * @returns {Array} Array of student objects
+     */
+    function getStudentsForClass(className) {
+      // PRIMARY: Always return hardcoded data first (zero latency)
+      const hardcodedStudents = HARDCODED_STUDENTS[className] || [];
+      
+      // FUTURE DATABASE INTEGRATION POINT:
+      // Uncomment below when you have a database/API
+      /*
+      try {
+        // Check cache first
+        if (STUDENTS_DB[className] && STUDENTS_DB[className].length > 0) {
+          return STUDENTS_DB[className];
+        }
+        
+        // Fetch from API/database
+        // const apiStudents = await fetchStudentsFromAPI(className);
+        // STUDENTS_DB[className] = apiStudents; // Cache it
+        // return apiStudents;
+      } catch (error) {
+        console.warn('Database fetch failed, using hardcoded fallback:', error);
+        return hardcodedStudents; // Fallback to hardcoded
+      }
+      */
+      
+      return hardcodedStudents;
+    }
+
+    // TEACHER REGISTRY WITH SUBJECT-CLASS ASSESSMENT
+    const TEACHERS = {
+      'T001': {
+        id: 'T001',
+        name: 'Mr Aladesiun',
+        firstName: 'Mr Aladesiun',
+        subjects: {
+          'Citizenship and Heritage': ['SS1 Science', 'SS1 Actuarial', 'SS2 Science', 'SS2 Actuarial', 'SS3 Science', 'SS3 Actuarial'],
+          'Government': ['SS1 Actuarial', 'SS2 Actuarial', 'SS3 Actuarial']
+        },
+        role: 'Principal'
+      },
+      'T002': {
+        id: 'T002',
+        name: 'Mr Muritala',
+        firstName: 'Mr Muritala',
+        subjects: {
+          'English': ['SS1 Science', 'SS1 Actuarial', 'SS2 Science', 'SS2 Actuarial', 'SS3 Science', 'SS3 Actuarial']
+        },
+        role: 'Vice Principal'
+      },
+      'T003': {
+        id: 'T003',
+        name: 'Pst Dada',
+        firstName: 'Pst Dada',
+        subjects: {
+          'Yoruba': ['SS1 Actuarial', 'SS2 Actuarial', 'SS3 Actuarial'],
+          'CRS': ['SS1 Actuarial', 'SS2 Actuarial', 'SS3 Actuarial']
+        },
+      },
+      'T004': {
+        id: 'T004',
+        name: 'Mr Tony',
+        firstName: 'Mr Tony',
+        subjects: {
+          'Physics': ['SS1 Science', 'SS2 Science', 'SS3 Science'],
+          'Mathematics': ['JSS1A', 'JSS1B', 'JSS2A', 'JSS2B', 'JSS3A', 'JSS3B']
+        },
+        classTeacher: 'SS2 Science'
+      },
+      'T005': {
+        id: 'T005',
+        name: 'Mrs Odesoji',
+        firstName: 'Mrs Odesoji',
+        subjects: {
+          'English': ['JSS1A', 'JSS1B', 'JSS2A', 'JSS2B', 'JSS3A', 'JSS3B']
+        },
+        classTeacher: 'SS1 Actuarial'
+      },
+      'T006': {
+        id: 'T006',
+        name: 'Mrs Akanji',
+        firstName: 'Mrs Akanji',
+        subjects: {
+          'CCA': ['JSS1A', 'JSS1B', 'JSS2A', 'JSS2B', 'JSS3A', 'JSS3B'],
+          'CRS': ['JSS1A', 'JSS1B', 'JSS2A', 'JSS2B', 'JSS3A', 'JSS3B']
+        },
+        classTeacher: 'JSS3A'
+      },
+      'T007': {
+        id: 'T007',
+        name: 'Mrs Ademuyiwa',
+        firstName: 'Mrs Ademuyiwa',
+        subjects: {
+          'Business Studies': ['JSS1A', 'JSS1B', 'JSS2A', 'JSS2B', 'JSS3A', 'JSS3B'],
+           },
+        classTeacher: 'JSS1A'
+      },
+      'T008': {
+        id: 'T008',
+        name: 'Mr Abdullahi',
+        firstName: 'Mr Abdullahi',
+        subjects: {
+          'DT': ['JSS1A', 'JSS1B', 'JSS2A', 'JSS2B'],
+          'BT': ['JSS1A', 'JSS1B', 'JSS2A', 'JSS2B', 'JSS3A', 'JSS3B'],
+          'Computer': ['JSS3A', 'JSS3B']
+        },
+        classTeacher: 'JSS3B'
+      },
+      'T009': {
+        id: 'T009',
+        name: 'Miss Shuqrat',
+        firstName: 'Miss Shuqrat',
+        subjects: { 
+          'Social & citizenship education': ['JSS1A', 'JSS1B', 'JSS2A', 'JSS2B'],
+          'NVE': [ 'JSS3A', 'JSS3B']
+        },
+        classTeacher: 'JSS2B'
+      },
+      'T010': {
+        id: 'T010',
+        name: 'Mrs Olufunsho',
+        firstName: 'Mrs Olufunsho',
+        subjects: {
+          'Horticulture': ['JSS1A', 'JSS1B', 'JSS2A', 'JSS2B', 'JSS3A', 'JSS3B'],
+          'History': ['JSS1A', 'JSS1B', 'JSS2A', 'JSS2B', 'JSS3A', 'JSS3B', 'SS1 Science', 'SS1 Actuarial', 'SS2 Science', 'SS2 Actuarial', 'SS3 Science', 'SS3 Actuarial']
+        },
+        role: 'HoD Junior school'
+      },
+      'T011': {
+        id: 'T011',
+        name: 'Mrs Blessing',
+        firstName: 'Mrs Blessing',
+        subjects: {
+          'Basic Science': ['JSS1A', 'JSS1B', 'JSS2A', 'JSS2B', 'JSS3A', 'JSS3B'],
+          'PHE': ['JSS1A', 'JSS1B', 'JSS2A', 'JSS2B', 'JSS3A', 'JSS3B']
+        },
+        classTeacher: 'SS1 Science'
+      },
+      'T012': {
+        id: 'T012',
+        name: 'Mrs Adewale',
+        firstName: 'Mrs Adewale',
+        subjects: {
+          'Commerce': ['SS1 Science', 'SS1 Actuarial', 'SS2 Science', 'SS2 Actuarial', 'SS3 Science', 'SS3 Actuarial'],
+          'Marketing': ['SS1 Science', 'SS1 Actuarial', 'SS2 Science', 'SS2 Actuarial', 'SS3 Science', 'SS3 Actuarial']
+        },
+        classTeacher: 'JSS1B'
+      },
+      'T013': {
+        id: 'T013',
+        name: 'Mr Daniel',
+        firstName: 'Mr Daniel',
+        subjects: {
+          'Agriculture': ['JSS1A', 'JSS1B', 'JSS2A', 'JSS2B', 'JSS3A', 'JSS3B', 'SS1 Science', 'SS1 Actuarial', 'SS2 Science', 'SS2 Actuarial', 'SS3 Science', 'SS3 Actuarial'],
+          'Livestock': ['SS1 Science', 'SS1 Actuarial', 'SS2 Science', 'SS2 Actuarial', 'SS3 Science', 'SS3 Actuarial']
+        },
+        role: 'Web Secretary'
+      },
+      'T014': {
+        id: 'T014',
+        name: 'Mr Wisdom',
+        firstName: 'Mr Wisdom',
+        subjects: {
+          'Mathematics': ['SS1 Science', 'SS1 Actuarial', 'SS2 Science', 'SS2 Actuarial', 'SS3 Science', 'SS3 Actuarial']
+        },
+        role: 'Exams Director'
+      },
+      'T015': {
+        id: 'T015',
+        name: 'Mr Iman',
+        firstName: 'Mr Iman',
+        subjects: {
+          'Chemistry': ['SS1 Science', 'SS2 Science', 'SS3 Science'],
+          'Data Processing': ['SS1 Science', 'SS1 Actuarial', 'SS2 Science', 'SS2 Actuarial', 'SS3 Science', 'SS3 Actuarial'],
+          'Further Math': ['SS1 Science', 'SS2 Science', 'SS3 Science'],
+          'IRS': ['JSS1A', 'JSS1B', 'JSS2A', 'JSS2B', 'JSS3A', 'JSS3B', 'SS1 Actuarial', 'SS2 Actuarial', 'SS3 Actuarial']
+        },
+        role: 'Web Developer'
+      },
+      'T016': {
+        id: 'T016',
+        name: 'Mrs Taiwo',
+        firstName: 'Mrs Taiwo',
+        subjects: {
+          'Yoruba': ['JSS1A', 'JSS1B', 'JSS2A', 'JSS2B', 'JSS3A', 'JSS3B']
+        },
+        role: 'Part-time'
+      },
+      'T017': {
+        id: 'T017',
+        name: 'Mr Emmanuel',
+        firstName: 'Mr Emmanuel',
+        subjects: {
+          'Economics': ['SS1 Science', 'SS1 Actuarial', 'SS2 Science', 'SS2 Actuarial', 'SS3 Science', 'SS3 Actuarial'],
+          'Accounting': ['SS1 Actuarial', 'SS2 Actuarial', 'SS3 Actuarial']
+        },
+        role: 'Part-time'
+      },
+      'T018': {
+        id: 'T018',
+        name: 'Mr Deji',
+        firstName: 'Mr Deji',
+        subjects: {
+          'Biology': ['SS1 Science', 'SS1 Actuarial', 'SS2 Science', 'SS2 Actuarial', 'SS3 Science', 'SS3 Actuarial']
+        },
+        role: 'Part-time'
+      },
+      'T019': {
+        id: 'T019',
+        name: 'Mr Chika',
+        firstName: 'Mr Chika',
+        subjects: {
+          'Literature': ['SS1 Actuarial', 'SS2 Actuarial', 'SS3 Actuarial']
+        },
+        role: 'Part-time'
+      },
+      'T020': {
+        id: 'T020',
+        name: 'Madam Nwosu',
+        firstName: 'Madam Nwosu',
+        subjects: {
+          'French': ['JSS1A', 'JSS1B', 'JSS2A', 'JSS2B', 'JSS3A', 'JSS3B']
+        },
+        role: 'Part-time'
+      }
+    };
+
+    // Application State
+    const state = {
+      teacher: null,
+      students: [],
+      scores: {},
+      maxValues: { CA: 30, exam: 70 },
+      currentSubject: null,
+      currentClass: null,
+      isAuthenticated: false
+    };
+
+    // Initialize application
+    document.addEventListener('DOMContentLoaded', () => {
+      checkAuthStatus();
+      setupEventListeners();
+    });
+
+    function checkAuthStatus() {
+      const token = localStorage.getItem('teacherToken');
+      const teacherData = localStorage.getItem('teacherData');
+      
+      if (token && teacherData) {
+        try {
+          state.teacher = JSON.parse(teacherData);
+          state.isAuthenticated = true;
+          showDashboard();
+        } catch (e) {
+          clearAuth();
+        }
+      }
+    }
+
+    function setupEventListeners() {
+      document.getElementById('classSelect').addEventListener('change', function() {
+        const btn = document.getElementById('openEntryBtn');
+        btn.disabled = !this.value;
+      });
+
+      document.getElementById('password').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          document.getElementById('loginForm').requestSubmit();
+        }
+      });
+    }
+
+    // Authentication Functions
+    async function login(e) {
+      e.preventDefault();
+      
+      const teacherId = document.getElementById('teacherId').value.trim();
+      const password = document.getElementById('password').value;
+      const loginBtn = document.getElementById('loginBtn');
+      const loginText = document.getElementById('loginText');
+      const loginLoading = document.getElementById('loginLoading');
+
+      loginText.style.display = 'none';
+      loginLoading.style.display = 'inline-block';
+      loginBtn.disabled = true;
+
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      try {
+        if (teacherId in TEACHERS && password === 'password') {
+          state.teacher = TEACHERS[teacherId];
+          state.isAuthenticated = true;
+
+          localStorage.setItem('teacherToken', 'mock_token_' + teacherId);
+          localStorage.setItem('teacherData', JSON.stringify(state.teacher));
+
+          showDashboard();
+          showNotification('success', `Welcome back, ${state.teacher.firstName}!`);
+        } else {
+          throw new Error('Invalid credentials');
+        }
+      } catch (error) {
+        showNotification('error', 'Invalid teacher ID or password. Try "password" as password.');
+      } finally {
+        loginText.style.display = 'inline';
+        loginLoading.style.display = 'none';
+        loginBtn.disabled = false;
+      }
+    }
+
+    function logout() {
+      if (confirm('Are you sure you want to logout?')) {
+        clearAuth();
+        showView('authView');
+        showNotification('success', 'Logged out successfully');
+      }
+    }
+
+    function clearAuth() {
+      localStorage.removeItem('teacherToken');
+      localStorage.removeItem('teacherData');
+      state.teacher = null;
+      state.isAuthenticated = false;
+    }
+
+    // Navigation Functions
+    function showView(viewId) {
+      document.querySelectorAll('.view').forEach(v => {
+        v.classList.remove('active');
+      });
+      document.getElementById(viewId).classList.add('active');
+    }
+
+    function goToScoreEntry() {
+      showView('selectionView');
+      populateSubjectDropdown();
+    }
+
+    function backToDashboard() {
+      showView('dashboardView');
+    }
+
+    function closeEntry() {
+      if (confirm('Are you sure you want to leave? Any unsaved changes will be lost.')) {
+        showView('selectionView');
+      }
+    }
+
+    function viewLessonNotes() {
+      showNotification('info', 'Lesson Notes feature is coming soon!', 3000);
+    }
+
+    // Dashboard Functions
+    function showDashboard() {
+      if (!state.teacher) return;
+
+      document.getElementById('teacherName').textContent = state.teacher.name;
+      document.getElementById('teacherFirstName').textContent = state.teacher.firstName;
+      document.getElementById('teacherIdDisplay').textContent = state.teacher.id;
+      
+      if (state.teacher.role) {
+        document.getElementById('roleDisplay').innerHTML = 
+          `<span><i class="fas fa-user-shield"></i> Role: <strong>${state.teacher.role}</strong></span>`;
+      }
+
+      const subjects = Object.keys(state.teacher.subjects);
+      const allClasses = new Set();
+      let totalAssignments = 0;
+
+      subjects.forEach(subject => {
+        state.teacher.subjects[subject].forEach(cls => {
+          allClasses.add(cls);
+          totalAssignments++;
+        });
+      });
+
+      document.getElementById('subjectCount').textContent = subjects.length;
+      document.getElementById('classCount').textContent = allClasses.size;
+      document.getElementById('assignmentCount').textContent = totalAssignments;
+      document.getElementById('classTeacherDisplay').textContent = state.teacher.classTeacher || '-';
+
+      updateProgress();
+      showView('dashboardView');
+    }
+
+    function updateProgress() {
+      // Calculate progress based on completed submissions
+      const totalAssignments = Object.keys(state.teacher.subjects).reduce((sum, subject) => {
+        return sum + state.teacher.subjects[subject].length;
+      }, 0);
+
+      let completed = 0;
+      Object.keys(state.teacher.subjects).forEach(subject => {
+        state.teacher.subjects[subject].forEach(className => {
+          const key = `${state.teacher.id}:${subject}:${className}`;
+          if (localStorage.getItem(key)) {
+            completed++;
+          }
+        });
+      });
+
+      const percentage = totalAssignments > 0 ? Math.round((completed / totalAssignments) * 100) : 0;
+      
+      document.getElementById('progressPercentage').textContent = percentage + '%';
+      document.getElementById('progressFill').style.width = percentage + '%';
+      document.getElementById('completedCount').textContent = completed;
+      document.getElementById('pendingCount').textContent = totalAssignments - completed;
+    }
+
+    // Selection Functions
+    function populateSubjectDropdown() {
+      const subjectSelect = document.getElementById('subjectSelect');
+      const subjects = Object.keys(state.teacher.subjects);
+      
+      subjectSelect.innerHTML = '<option value="">Select a subject</option>' +
+        subjects.map(s => `<option value="${s}">${s}</option>`).join('');
+    }
+
+    function updateClasses() {
+      const subject = document.getElementById('subjectSelect').value;
+      const classSelect = document.getElementById('classSelect');
+      const btn = document.getElementById('openEntryBtn');
+
+      if (!subject) {
+        classSelect.disabled = true;
+        classSelect.innerHTML = '<option value="">Select a class</option>';
+        btn.disabled = true;
+        return;
+      }
+
+      const classes = state.teacher.subjects[subject] || [];
+      classSelect.disabled = false;
+      classSelect.innerHTML = '<option value="">Select a class</option>' +
+        classes.map(c => `<option value="${c}">${c}</option>`).join('');
+      
+      btn.disabled = true;
+    }
+
+    // Entry View Functions
+    async function openEntry() {
+      const subject = document.getElementById('subjectSelect').value;
+      const className = document.getElementById('classSelect').value;
+
+      if (!subject || !className) return;
+
+      state.currentSubject = subject;
+      state.currentClass = className;
+      
+      // Use the smart retrieval function (hardcoded primary, cache fallback)
+      state.students = getStudentsForClass(className);
+
+      document.getElementById('entryTitle').textContent = `${subject} - ${className}`;
+      document.getElementById('entryTeacher').textContent = state.teacher.name;
+      
+      await loadScores();
+      renderTable();
+      recalculate();
+
+      showView('entryView');
+    }
+
+    async function loadScores() {
+      const key = `${state.teacher.id}:${state.currentSubject}:${state.currentClass}`;
+      
+      try {
+        const saved = localStorage.getItem(key);
+        if (saved) {
+          state.scores = JSON.parse(saved);
+        } else {
+          initializeScores();
+        }
+      } catch (e) {
+        initializeScores();
+      }
+    }
+
+    function initializeScores() {
+      state.scores = {};
+      state.students.forEach(s => {
+        state.scores[s.id] = { CA: 0, exam: 0 };
+      });
+    }
+
+    function renderTable() {
+      const tbody = document.getElementById('scoresBody');
+      tbody.innerHTML = state.students.map((s, index) => {
+        const sc = state.scores[s.id] || { CA: 0, exam: 0 };
+        const total = sc.CA + sc.exam;
+        const grade = getNigerianGrade(total);
+        const status = total > 0 ? 'Entered' : 'Pending';
+
+        return `
+          <tr>
+            <td>
+              <strong>${s.id}</strong>
+            </td>
+            <td>
+              <span style="color: var(--text-secondary);">${s.name}</span>
+            </td>
+            <td>
+              <input type="number" min="0" max="${state.maxValues.CA}" 
+                     value="${sc.CA}" 
+                     data-student="${s.id}" 
+                     data-field="CA"
+                     onchange="updateScore('${s.id}', 'CA', this.value)"
+                     onfocus="highlightRow(${index})">
+            </td>
+            <td>
+              <input type="number" min="0" max="${state.maxValues.exam}" 
+                     value="${sc.exam}" 
+                     data-student="${s.id}" 
+                     data-field="exam"
+                     onchange="updateScore('${s.id}', 'exam', this.value)"
+                     onfocus="highlightRow(${index})">
+            </td>
+            <td class="computed-cell" style="font-weight: 600; font-size: 1.1rem;">${total}</td>
+            <td>
+              <span class="grade-badge grade-${grade.toLowerCase()}">${grade}</span>
+            </td>
+            <td>
+              <span style="color: ${status === 'Entered' ? '#4ade80' : '#f87171'}; 
+                           font-size: 0.85rem; font-weight: 500;">
+                ${status}
+              </span>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function highlightRow(index) {
+      const rows = document.querySelectorAll('#scoresBody tr');
+      rows.forEach((row, i) => {
+        row.style.backgroundColor = i === index ? 'rgba(59, 130, 246, 0.1)' : '';
+      });
+    }
+
+    function updateScore(studentId, field, value) {
+      const num = parseFloat(value) || 0;
+      const max = state.maxValues[field];
+      
+      state.scores[studentId][field] = num;
+      
+      const input = event.target;
+      if (num > max) {
+        input.classList.add('invalid');
+        showNotification('error', `Score exceeds maximum (${max}) for ${field}`, 3000);
+      } else {
+        input.classList.remove('invalid');
+      }
+
+      recalculate();
+    }
+
+    function recalculate() {
+      state.maxValues = {
+        CA: parseFloat(document.getElementById('maxCA').value) || 0,
+        exam: parseFloat(document.getElementById('maxExam').value) || 0
+      };
+
+      const totals = state.students.map(s => {
+        const sc = state.scores[s.id] || { CA: 0, exam: 0 };
+        return sc.CA + sc.exam;
+      });
+
+      const validTotals = totals.filter(t => t > 0);
+      const avg = validTotals.length > 0 
+        ? validTotals.reduce((a, b) => a + b, 0) / validTotals.length 
+        : 0;
+
+      document.getElementById('totalStudents').textContent = state.students.length;
+      document.getElementById('classAvg').textContent = avg.toFixed(1);
+      document.getElementById('highest').textContent = validTotals.length > 0 ? Math.max(...validTotals) : 0;
+      document.getElementById('lowest').textContent = validTotals.length > 0 ? Math.min(...validTotals) : 0;
+
+      const rows = document.querySelectorAll('#scoresBody tr');
+      rows.forEach((row, i) => {
+        const totalCell = row.querySelector('.computed-cell');
+        const gradeCell = row.querySelector('.grade-badge');
+        
+        if (totalCell && gradeCell) {
+          const total = totals[i];
+          const grade = getNigerianGrade(total);
+          
+          totalCell.textContent = total;
+          gradeCell.className = `grade-badge grade-${grade.toLowerCase()}`;
+          gradeCell.textContent = grade;
+        }
+      });
+    }
+
+    
+    function getNigerianGrade(total) {
+      const maxTotal = state.maxValues.CA + state.maxValues.exam;
+      const pct = maxTotal > 0 ? (total / maxTotal) * 100 : 0;
+      
+      if (pct >= 75) return 'A1';
+      if (pct >= 70) return 'B2';
+      if (pct >= 65) return 'B3';
+      if (pct >= 60) return 'C4';
+      if (pct >= 55) return 'C5';
+      if (pct >= 50) return 'C6';
+      if (pct >= 45) return 'D7';
+      if (pct >= 40) return 'E8';
+      return 'F9';
+    }
+
+    function validateAllScores() {
+      const inputs = document.querySelectorAll('#scoresBody input');
+      let hasErrors = false;
+
+      inputs.forEach(input => {
+        const val = parseFloat(input.value) || 0;
+        const field = input.dataset.field;
+        const max = state.maxValues[field];
+        
+        if (val > max) {
+          hasErrors = true;
+          input.classList.add('invalid');
+        } else {
+          input.classList.remove('invalid');
+        }
+      });
+
+      if (hasErrors) {
+        showNotification('error', 'Some scores exceed maximum limits. Please fix them.', 5000);
+      } else {
+        showNotification('success', 'All scores are valid!', 3000);
+      }
+    }
+
+    function clearAllScores() {
+      if (confirm('Are you sure you want to clear all scores?')) {
+        state.students.forEach(s => {
+          state.scores[s.id] = { CA: 0, exam: 0 };
+        });
+        renderTable();
+        recalculate();
+        showNotification('warning', 'All scores have been cleared', 3000);
+      }
+    }
+
+    // DOWNLOAD JSON FUNCTION
+    function downloadJSON() {
+      validateAllScores();
+      
+      const invalidInputs = document.querySelectorAll('#scoresBody input.invalid');
+      if (invalidInputs.length > 0) {
+        showNotification('error', 'Please fix validation errors before downloading', 5000);
+        return;
+      }
+
+      const data = {
+        teacher: {
+          id: state.teacher.id,
+          name: state.teacher.name
+        },
+        subject: state.currentSubject,
+        class: state.currentClass,
+        term: '2025/2026 Term 2',
+        maxScores: state.maxValues,
+        scores: state.students.map(s => ({
+          studentId: s.id,
+          studentName: s.name,
+          CA: state.scores[s.id].CA,
+          exam: state.scores[s.id].exam,
+          total: state.scores[s.id].CA + state.scores[s.id].exam,
+          grade: getNigerianGrade(state.scores[s.id].CA + state.scores[s.id].exam)
+        })),
+        submittedAt: new Date().toISOString()
+      };
+
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `scores_${state.teacher.id}_${state.currentSubject}_${state.currentClass}_${Date.now()}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      // Save to localStorage
+      const key = `${state.teacher.id}:${state.currentSubject}:${state.currentClass}`;
+      localStorage.setItem(key, JSON.stringify(state.scores));
+
+      showNotification('success', 'Scores downloaded successfully!', 3000);
+      updateProgress();
+    }
+
+    // EMAIL JSON FUNCTION
+    function emailJSON() {
+      validateAllScores();
+      
+      const invalidInputs = document.querySelectorAll('#scoresBody input.invalid');
+      if (invalidInputs.length > 0) {
+        showNotification('error', 'Please fix validation errors before emailing', 5000);
+        return;
+      }
+
+      const data = {
+        teacher: {
+          id: state.teacher.id,
+          name: state.teacher.name
+        },
+        subject: state.currentSubject,
+        class: state.currentClass,
+        term: '2025/2026 Term 2',
+        maxScores: state.maxValues,
+        scores: state.students.map(s => ({
+          studentId: s.id,
+          studentName: s.name,
+          CA: state.scores[s.id].CA,
+          exam: state.scores[s.id].exam,
+          total: state.scores[s.id].CA + state.scores[s.id].exam,
+          grade: getNigerianGrade(state.scores[s.id].CA + state.scores[s.id].exam)
+        })),
+        submittedAt: new Date().toISOString()
+      };
+
+      const subject = `Score Submission: ${state.currentSubject} - ${state.currentClass} [${state.teacher.name}]`;
+      const body = `Dear Admin,\n\nPlease find attached the score submission for:\n\nTeacher: ${state.teacher.name} (${state.teacher.id})\nSubject: ${state.currentSubject}\nClass: ${state.currentClass}\nTerm: 2024/2025 Term 1\nSubmitted: ${new Date().toLocaleString()}\n\nJSON Data:\n${JSON.stringify(data, null, 2)}\n\nBest regards,\n${state.teacher.name}`;
+      
+      const mailtoLink = `mailto:${ADMIN_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoLink;
+
+      // Save to localStorage
+      const key = `${state.teacher.id}:${state.currentSubject}:${state.currentClass}`;
+      localStorage.setItem(key, JSON.stringify(state.scores));
+
+      showNotification('success', 'Email client opened! Please send the email.', 5000);
+      updateProgress();
+    }
+
+    // Notification System
+    function showNotification(type, message, duration = 5000) {
+      const notif = document.getElementById('entryNotification');
+      notif.className = `notification ${type} show`;
+      notif.innerHTML = `
+        <i class="fas fa-${getNotificationIcon(type)}"></i>
+        <span>${message}</span>
+      `;
+
+      if (duration) {
+        setTimeout(() => {
+          notif.classList.remove('show');
+        }, duration);
+      }
+    }
+
+    function getNotificationIcon(type) {
+      switch (type) {
+        case 'success': return 'check-circle';
+        case 'error': return 'exclamation-circle';
+        case 'warning': return 'exclamation-triangle';
+        case 'info': return 'info-circle';
+        default: return 'bell';
+      }
+    }
+  </script>
+</body>
+</html>
